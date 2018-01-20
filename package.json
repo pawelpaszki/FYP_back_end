@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch & nodemon dist",
-    "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts"
   },
   "keywords": [],
