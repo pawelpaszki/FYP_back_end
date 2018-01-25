@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
-import ImageFreshness from "./controllers/imageFreshnessController";
+import imageFreshness from '../routes/imagesfreshness';
 
 class App {
     public express;
@@ -33,18 +33,11 @@ class App {
     }
 
     private mountRoutes(): void {
-        const router = express.Router();
-        router.get('/', (req, res) => {
-            res.json({
-                message: 'Server running!'
-            });
+        this.express.use('/api/imagefreshness', imageFreshness);
+
+        this.express.use('/', (req, res) => {
+            res.status(404).send({ error: `path doesn't exist`});
         });
-        this.express.get("/api/imagefreshness/:id", ImageFreshness.getOne);
-        this.express.put("/api/imagefreshness/:id", ImageFreshness.addVulnerabilityCheck);
-        this.express.delete("/api/imagefreshness/:id", ImageFreshness.delete);
-        this.express.post("/api/imagefreshness", ImageFreshness.create);
-        this.express.get("/api/imagefreshness", ImageFreshness.getAll);
-        this.express.use('/', router);
     }
 }
 

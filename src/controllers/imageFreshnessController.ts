@@ -1,27 +1,27 @@
 import ImageFreshnessEntry, {IVulnerabilityCheckRecord} from "../models/imageFreshnessEntry";
 
 
-class ImagesFreshness {
+class ImagesFreshnessController {
 
     public getAll = async (req, res) => {
-        //TODO
+        // TODO
     };
 
     public getOne = async (req, res) => {
-        //TODO
+        // TODO
     };
 
     public create = async (req, res) => {
-        //TODO
+        // TODO
     };
 
     public addVulnerabilityCheck = async (req, res) => {
-        //TODO
+        // TODO
     };
 
     public delete = async (req, res) => {
-        //TODO
+        // TODO
     };
 }
 
-export default new ImagesFreshness
+export default new ImagesFreshnessController
