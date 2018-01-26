@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import OutputParser from "../src/utilities/OutputParser";
+
 import {OsJSON} from '../src/utilities/OutputParser';
+import {DockerinfoJSON} from "../src/utilities/OutputParser";
 
 describe("# OutputParser", () => {
 
@@ -18,6 +20,19 @@ describe("# OutputParser", () => {
             let OsInfoV3: OsJSON = OutputParser.getOSVersion(nonExistentPath);
             expect(OsInfoV3.name).to.equal('');
             expect(OsInfoV3.version).to.equal('');
+        });
+    });
+
+    describe('test Dockerfile parser', () => {
+        it('should return path to source code in extracted container file system', () => {
+            let dockerfilePath = 'test/testDockerfile';
+            let nonExistentPath = '/nonexistentpath';
+            let workDir: DockerinfoJSON = OutputParser.parseDockerfile(dockerfilePath);
+            expect(workDir.workDIR).to.equal('/usr/src/app');
+            expect(workDir.alpineNodeUsed).to.equal(true);
+            let workDirNA: DockerinfoJSON = OutputParser.parseDockerfile(nonExistentPath);
+            expect(workDirNA.workDIR).to.equal('');
+            expect(workDirNA.alpineNodeUsed).to.equal(false);
         });
     });
 

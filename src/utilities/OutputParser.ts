@@ -1,5 +1,11 @@
 import FileToStringConverter from '../utilities/FileToStringConverter';
 
+/**
+ * @author Pawel Paszki
+ * This class is used to extract meaningful data from files and return
+ * appropriately formatted responses
+ */
+
 class OutputParser {
 
 
@@ -40,9 +46,39 @@ class OutputParser {
             version: version
         };
     }
+
+    /**
+     * This method parses Dockerfile content and returns place where the code is located
+     * @param {string} path
+     * @returns {string}
+     */
+    public static parseDockerfile(path: string): DockerinfoJSON {
+        const dockerfileContent = FileToStringConverter.readFile(path).split('\n');
+        let workDIR = '';
+        let alpineNodeFound = false;
+        if(dockerfileContent.length > 0) {
+            for (let line of dockerfileContent) {
+                if(line.startsWith('WORKDIR')) {
+                    workDIR = line.substring(7).trim();
+                }
+                if(line.includes('mhart/alpine-node')) {
+                    alpineNodeFound = true;
+                }
+            }
+        }
+        return {
+            workDIR: workDIR,
+            alpineNodeUsed: alpineNodeFound
+        };
+    }
 }
 
 export default OutputParser;
+
+export interface DockerinfoJSON {
+    workDIR: string;
+    alpineNodeUsed: boolean;
+}
 
 export interface OsJSON {
     name: string;
