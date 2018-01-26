@@ -3,6 +3,7 @@ import OutputParser from "../src/utilities/OutputParser";
 
 import {OsJSON} from '../src/utilities/OutputParser';
 import {DockerinfoJSON} from "../src/utilities/OutputParser";
+import {VulnScanJSON} from '../src/utilities/OutputParser';
 
 describe("# OutputParser", () => {
 
@@ -36,4 +37,19 @@ describe("# OutputParser", () => {
         });
     });
 
+    describe('test snyk parser', () => {
+        it('should return appropriate response based on parsing snyk test output', () => {
+            let vulnFoundOutput = 'test/snykScanResultVulnFound.txt';
+            let vulnNotFoundOutput = 'test/snykScanResultNoVuln.txt';
+            let vulnerabilities: VulnScanJSON[] = OutputParser.parseSnykOutput(vulnFoundOutput);
+            expect(vulnerabilities.length).to.equal(21);
+            expect(vulnerabilities[0].vulnComp).to.equal('angular@1.5.10');
+            expect(vulnerabilities[0].severity).to.equal('medium');
+            expect(vulnerabilities[0].vulnPath).to.equal('angular-simple-sidebar@1.3.1 > angular@1.5.10');
+            expect(vulnerabilities[0].remediation).to.equal('no upgrade available');
+            expect(vulnerabilities[0].description).to.equal('JSONP Callback Attack');
+            let vulnerabilitiesNotFound: VulnScanJSON[] = OutputParser.parseSnykOutput(vulnNotFoundOutput);
+            expect(vulnerabilitiesNotFound.length).to.equal(0);
+        });
+    });
 });
