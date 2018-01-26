@@ -6,8 +6,8 @@ describe("# OutputParser", () => {
 
     describe('test os-release parser', () => {
         it('should return proper os version and name', () => {
-            let osReleasePathV1 = '/home/pawel/Documents/wit/year4/semester1/modules/Fyp/FYP_code/FYP-back-end/test/os-release-v1';
-            let osReleasePathV2 = '/home/pawel/Documents/wit/year4/semester1/modules/Fyp/FYP_code/FYP-back-end/test/os-release-v2';
+            let osReleasePathV1 = 'test/os-release-v1';
+            let osReleasePathV2 = 'test/os-release-v2';
             let nonExistentPath = '/nonexistentpath';
             let OsInfoV1: OsJSON = OutputParser.getOSVersion(osReleasePathV1);
             expect(OsInfoV1.name).to.equal('alpine');

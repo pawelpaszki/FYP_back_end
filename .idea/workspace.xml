@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c63e0538-c130-477c-b39b-03aa47120c9c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/14020034893e0672afcbebfa38a5c0ff.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/34197ebafc3ddaa3dca6e9a1434774bc.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/6e756eccfbb7a47ea97000f253a87f41.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" afterPath="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" />
-      <change beforePath="$PROJECT_DIR$/test/tasks.test.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.nyc_output/2cbd5ccd9cdfa48c23d44b4682c3a274.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.nyc_output/abdf8fd4de04d5ae34b7ee21fbb0896c.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.nyc_output/b58bdee39793b286aeb880b0dc4da6f1.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test/outputParser.test.ts" afterPath="$PROJECT_DIR$/test/outputParser.test.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,10 +19,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
+            <state relative-caret-position="584">
               <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
               <folding>
                 <marker date="1516963922781" expanded="true" signature="1468:1472" ph="{&quot;@types/body-parser&quot;: &quot;^1.16.8&quot;...}" />
@@ -44,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="outputParser.test.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="outputParser.test.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/outputParser.test.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="53" />
+            <state relative-caret-position="135">
+              <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -156,11 +153,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
         <option value="$PROJECT_DIR$/test/OutputParser.test.ts" />
-        <option value="$PROJECT_DIR$/test/outputParser.test.ts" />
         <option value="$PROJECT_DIR$/test/fileToStringConverter.test.ts" />
         <option value="$PROJECT_DIR$/src/utilities/FileToStringConverter.ts" />
         <option value="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/test/outputParser.test.ts" />
       </list>
     </option>
   </component>
@@ -205,46 +202,6 @@
             <path>
               <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utilities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYP-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYP-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,12 +261,12 @@
       <workItem from="1516792055301" duration="598000" />
       <workItem from="1516827134718" duration="2971000" />
       <workItem from="1516871579631" duration="1613000" />
-      <workItem from="1516956638572" duration="6979000" />
+      <workItem from="1516956638572" duration="7442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38133000" />
+    <option name="totallyTimeSpent" value="38596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="697" extended-state="0" />
@@ -655,34 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/fileToStringConverter.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/outputParser.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/OutputParser.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/imageFreshnessController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -701,14 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/FileToStringConverter.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/tasks.test.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -719,10 +640,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="584">
           <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
           <folding>
             <marker date="1516963922781" expanded="true" signature="1468:1472" ph="{&quot;@types/body-parser&quot;: &quot;^1.16.8&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/OutputParser.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fileToStringConverter.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/FileToStringConverter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/outputParser.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
