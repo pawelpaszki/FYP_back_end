@@ -5,7 +5,7 @@ describe("# FileToStringConverter", () => {
 
     describe('should read file content or return empty string on empty path', () => {
         it('should return proper os version and name', () => {
-            let filePath = '/home/pawel/Documents/wit/year4/semester1/modules/Fyp/FYP_code/FYP-back-end/test/os-release-v1';
+            let filePath = 'test/os-release-v1';
             let readString: string = FileToStringConverter.readFile(filePath);
             expect(readString.length).to.not.equal(0);
             let nonExistentPath = '/nonexistentpath';
