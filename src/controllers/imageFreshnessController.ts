@@ -1,5 +1,5 @@
 import ImageFreshnessEntry, {IVulnerabilityCheckRecord} from "../models/imageFreshnessEntry";
-
+import OutputParser from '../utilities/OutputParser';
 
 class ImagesFreshnessController {
 
