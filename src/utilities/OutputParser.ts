@@ -160,7 +160,7 @@ class OutputParser {
   /**
    * This method parses content of npm test run
    * @param {string} path - file path
-   * @returns {NpmTestJSON[]} - output of npm test 
+   * @returns {NpmTestJSON[]} - output of npm test
    */
   public static parseNpmTests(path: string): NpmTestJSON[] {
     const npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
