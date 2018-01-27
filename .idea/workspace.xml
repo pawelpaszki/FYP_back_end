@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c63e0538-c130-477c-b39b-03aa47120c9c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/07be6aa8b3300bc5b075dcceb0c1f8d6.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/6e5402889a33bd7c9c69735aaa9f8552.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/df4a8740c0b417a7cd243ee231d0b425.json" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/config/app.ts" afterPath="$PROJECT_DIR$/src/config/app.ts" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/OutputParser.ts" afterPath="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
-      <change beforePath="$PROJECT_DIR$/test/common.ts" afterPath="$PROJECT_DIR$/test/common.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="containers.test.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="containers.test.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/containers.test.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -102,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,11 +174,11 @@
         <option value="$PROJECT_DIR$/test/outputParser.test.ts" />
         <option value="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
         <option value="$PROJECT_DIR$/src/routes/containers.ts" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/test/common.ts" />
         <option value="$PROJECT_DIR$/src/config/app.ts" />
         <option value="$PROJECT_DIR$/src/controllers/containerController.ts" />
         <option value="$PROJECT_DIR$/test/containers.test.ts" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -330,12 +322,12 @@
       <workItem from="1516964680529" duration="62000" />
       <workItem from="1516982281604" duration="3691000" />
       <workItem from="1516988118936" duration="8735000" />
-      <workItem from="1517065665327" duration="12751000" />
+      <workItem from="1517065665327" duration="13101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64024000" />
+    <option name="totallyTimeSpent" value="64374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="56" width="1364" height="633" extended-state="0" />
@@ -658,14 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -726,6 +710,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
