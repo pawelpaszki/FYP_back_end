@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import OutputParser, {NcuJSON} from "../src/utilities/OutputParser";
+import OutputParser, {NcuJSON, NpmTestJSON} from "../src/utilities/OutputParser";
 
 import {OsJSON} from '../src/utilities/OutputParser';
 import {DockerinfoJSON} from "../src/utilities/OutputParser";
@@ -65,6 +65,18 @@ describe("# OutputParser", () => {
       expect(updatesNotFound.length).to.equal(0);
       let nonExistentFileParse: NcuJSON[] = OutputParser.parseNcuOutput(nonExistentPath);
       expect(nonExistentFileParse.length).to.equal(0);
+    });
+  });
+
+  describe('test npm test parser', () => {
+    it('should return appropriate response based on parsing npm test output', () => {
+      let npmTestOutput = 'test/test-files/npmTestResults.txt';
+      let nonExistentPath = '/nonexistentpath';
+      let testLines: NpmTestJSON[] = OutputParser.parseNpmTests(npmTestOutput);
+      expect(testLines.length).to.be.greaterThan(0);
+      expect(testLines[2].testOutputLine).to.equal('> nyc mocha --exit');
+      let outputNonexistentPath: NpmTestJSON[] = OutputParser.parseNpmTests(nonExistentPath);
+      expect(outputNonexistentPath.length).to.equal(0);
     });
   });
 });

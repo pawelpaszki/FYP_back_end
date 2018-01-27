@@ -130,6 +130,11 @@ class OutputParser {
     return entries
   }
 
+  /**
+   * This method parses content of ncu run output
+   * @param {string} path - file path
+   * @returns {NcuJSON[]} - information about components to update JSON format
+   */
   public static parseNcuOutput(path: string): NcuJSON[] {
     const ncuCheckContent: string[] = FileToStringConverter.readFile(path).split('\n');
     const packagesToUpdate: NcuJSON[] = [];
@@ -148,6 +153,25 @@ class OutputParser {
         }
         return packagesToUpdate
       }
+    }
+    return []
+  }
+
+  /**
+   * This method parses content of npm test run
+   * @param {string} path - file path
+   * @returns {NpmTestJSON[]} - output of npm test 
+   */
+  public static parseNpmTests(path: string): NpmTestJSON[] {
+    const npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
+    const testOutputLines: NpmTestJSON[] = [];
+    if (npmTestContent.length > 1) {
+      for (let line of npmTestContent) {
+        testOutputLines.push({
+          testOutputLine: line
+        })
+      }
+      return testOutputLines
     }
     return []
   }
@@ -175,4 +199,8 @@ export interface VulnScanJSON {
   vulnPath: string;
   remediation: string;
   description: string;
+}
+
+export interface NpmTestJSON {
+  testOutputLine: string;
 }
