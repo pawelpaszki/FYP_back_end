@@ -36,7 +36,7 @@ class App {
         this.express.use('/api/imagefreshness', imageFreshness);
 
         this.express.use('/', (req, res) => {
-            res.status(404).send({ error: `path doesn't exist`});
+            res.status(404).send({error: `path doesn't exist`});
         });
     }
 }

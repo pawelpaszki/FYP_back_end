@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import OutputParser from "../src/utilities/OutputParser";
+import {expect} from 'chai';
+import OutputParser, {NcuJSON} from "../src/utilities/OutputParser";
 
 import {OsJSON} from '../src/utilities/OutputParser';
 import {DockerinfoJSON} from "../src/utilities/OutputParser";
@@ -9,8 +9,8 @@ describe("# OutputParser", () => {
 
     describe('test os-release parser', () => {
         it('should return proper os version and name', () => {
-            let osReleasePathV1 = 'test/os-release-v1';
-            let osReleasePathV2 = 'test/os-release-v2';
+            let osReleasePathV1 = 'test/test-files/os-release-v1';
+            let osReleasePathV2 = 'test/test-files/os-release-v2';
             let nonExistentPath = '/nonexistentpath';
             let OsInfoV1: OsJSON = OutputParser.getOSVersion(osReleasePathV1);
             expect(OsInfoV1.name).to.equal('alpine');
@@ -26,7 +26,7 @@ describe("# OutputParser", () => {
 
     describe('test Dockerfile parser', () => {
         it('should return path to source code in extracted container file system', () => {
-            let dockerfilePath = 'test/testDockerfile';
+            let dockerfilePath = 'test/test-files/testDockerfile';
             let nonExistentPath = '/nonexistentpath';
             let workDir: DockerinfoJSON = OutputParser.parseDockerfile(dockerfilePath);
             expect(workDir.workDIR).to.equal('/usr/src/app');
@@ -39,8 +39,8 @@ describe("# OutputParser", () => {
 
     describe('test snyk parser', () => {
         it('should return appropriate response based on parsing snyk test output', () => {
-            let vulnFoundOutput = 'test/snykScanResultVulnFound.txt';
-            let vulnNotFoundOutput = 'test/snykScanResultNoVuln.txt';
+            let vulnFoundOutput = 'test/test-files/snykScanResultVulnFound.txt';
+            let vulnNotFoundOutput = 'test/test-files/snykScanResultNoVuln.txt';
             let vulnerabilities: VulnScanJSON[] = OutputParser.parseSnykOutput(vulnFoundOutput);
             expect(vulnerabilities.length).to.equal(21);
             expect(vulnerabilities[0].vulnComp).to.equal('angular@1.5.10');
@@ -50,6 +50,21 @@ describe("# OutputParser", () => {
             expect(vulnerabilities[0].description).to.equal('JSONP Callback Attack');
             let vulnerabilitiesNotFound: VulnScanJSON[] = OutputParser.parseSnykOutput(vulnNotFoundOutput);
             expect(vulnerabilitiesNotFound.length).to.equal(0);
+        });
+    });
+
+    describe('test ncu parser', () => {
+        it('should return appropriate response based on parsing ncu output', () => {
+            let npmUpdatesFoundOutput = 'test/test-files/npmUpdatesAvailable.txt';
+            let npmUpdatesNotFoundOutput = 'test/test-files/noNpmUpdates.txt';
+            let nonExistentPath = '/nonexistentpath';
+            let updates: NcuJSON[] = OutputParser.parseNcuOutput(npmUpdatesFoundOutput);
+            expect(updates.length).to.equal(7);
+            expect(updates[0].package).to.equal('@types/mongoose  ^4.7.32  →  ^5.0.0');
+            let updatesNotFound: NcuJSON[] = OutputParser.parseNcuOutput(npmUpdatesNotFoundOutput);
+            expect(updatesNotFound.length).to.equal(0);
+            let nonExistentFileParse: NcuJSON[] = OutputParser.parseNcuOutput(nonExistentPath);
+            expect(nonExistentFileParse.length).to.equal(0);
         });
     });
 });
