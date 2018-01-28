@@ -73,4 +73,32 @@ describe("# Container", () => {
         .expect(404);
     });
   });
+
+  describe('test extract source code of a container', () => {
+    it('should extract container\' source code successfully', () => {
+      docker.createContainer(testContainer, function(err, container) {
+        if(!err) {
+          const containerId = container.id;
+          return request.post('/api/containers/extract')
+            .send({containerId: containerId, imageName: testedImagesName})
+            .expect(res => {
+              res.body.message.should.equal("Container source code extracted successfully");
+            })
+            .expect(200);
+        }
+      });
+    });
+  });
+
+  describe('test extract source code with invalid container\'s id', () => {
+    it('should result in 404 error thrown', () => {
+          let nonExistentContainerId = '12345678abcd';
+          return request.post('/api/containers/extract')
+            .send({containerId: nonExistentContainerId, imageName: testedImagesName})
+            .expect(res => {
+              res.body.message.should.equal("Unable to extract source code");
+            })
+            .expect(404);
+    });
+  });
 });

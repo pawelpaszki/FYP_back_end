@@ -17,12 +17,12 @@ class App {
   private connectToDB(): void {
     let uri = 'mongodb://localhost/images';
     mongoose.connect(uri, (err) => {
-      if (err) {
-        console.log(err.message);
-        console.log(err);
-      }
-      else {
-        if(process.env.NODE_ENV !== 'test') {
+      if(process.env.NODE_ENV !== 'test') {
+        if (err) {
+          console.log(err.message);
+          console.log(err);
+        }
+        else {
           console.log('Connected to MongoDB');
         }
       }

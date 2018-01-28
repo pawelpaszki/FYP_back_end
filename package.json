@@ -51,11 +51,9 @@
     "exclude": [
       "**/*.d.ts",
       "dist/*",
-      "src/config/*",
       "coverage/*",
-      "src/models/*",
-      "src/routes/*",
-      "src/test/*"
+      "src/test/*",
+      "imagesTestDir/*"
     ],
     "reporter": [
       "text-summary",

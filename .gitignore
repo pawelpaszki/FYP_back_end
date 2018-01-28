@@ -1,5 +1,8 @@
+imagesTestDir/*
 node_modules
 dist
 npm-debug.log
-coverage/
+coverage
+.nyc_output
+.scannerwork
 npm-debug.log
