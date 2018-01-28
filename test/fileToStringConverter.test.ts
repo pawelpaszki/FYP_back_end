@@ -13,5 +13,4 @@ describe("# FileToStringConverter", () => {
       expect(readEmptyString.length).to.equal(0);
     });
   });
-
 });

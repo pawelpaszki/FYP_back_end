@@ -2,5 +2,5 @@ projectKey=FYP_back_end
 serverUrl=http://localhost:9000
 serverVersion=6.4.0.25310
 dashboardUrl=http://localhost:9000/dashboard/index/FYP_back_end
-ceTaskId=AWE9tfvEx1NV-6Cj9dpq
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWE9tfvEx1NV-6Cj9dpq
+ceTaskId=AWE-PvlfeVqZepUdoDko
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWE-PvlfeVqZepUdoDko

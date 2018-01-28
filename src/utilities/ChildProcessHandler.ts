@@ -5,7 +5,7 @@ export class ChildProcessHandler {
   public static executeChildProcCommand(command: string, errorsPossible: boolean): Promise<any> {
     let p: Promise<any> = new Promise((resolve, reject) => {
       setTimeout(() => {
-        let ch: child.ChildProcess = child.exec(command, function (error, stdout, stderr) {
+        child.exec(command, function (error, stdout, stderr) {
           if (error) {
             if (errorsPossible === true) {
               if (error === null) {
