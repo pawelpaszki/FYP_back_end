@@ -1,6 +1,6 @@
 import * as Docker from 'dockerode';
 
-let docker = new Docker({
+const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
 
@@ -17,7 +17,7 @@ class containerController {
       OpenStdin: false,
       StdinOnce: false
     }, (err, data) => {
-      if (data == null) {
+      if (data === null) {
         res.status(500).json({
           message: "Unable to create container",
           error: err
@@ -31,7 +31,20 @@ class containerController {
   };
 
   public start = async (req, res) => {
-    // TODO
+    const containerId = req.body.containerId;
+    const container = docker.getContainer(containerId);
+    container.start(function (err, data) {
+      if (data === null) {
+        res.status(404).json({
+          message: "Unable to start container",
+          error: err
+        })
+      } else {
+        res.status(200).json({
+          message: "Container started successfully"
+        })
+      }
+    });
   };
 
   public stop = async (req, res) => {

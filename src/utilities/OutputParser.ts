@@ -92,9 +92,7 @@ class OutputParser {
       } else {
         for (let i = 0; i < snykScanContent.length; i++) {
           vulnPath = '';
-          let entryStartIndex: number = 0;
           if (snykScanContent[i].includes('severity')) {
-            entryStartIndex = i;
             if (snykScanContent[i].includes('Low severity')) {
               severity = 'low';
             } else if (snykScanContent[i].includes('Medium severity')) {
