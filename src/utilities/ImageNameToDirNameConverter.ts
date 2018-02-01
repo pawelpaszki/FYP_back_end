@@ -7,11 +7,6 @@ import * as fs from 'fs';
 
 class ImageNameToDirNameConverter {
 
-  /**
-   *
-   * @param {string} imageName
-   * @returns {string} - directory name to be used to extract source code of an image
-   */
   public static convertImageNameToDirName(imageName: string): string {
     const imageNameTokens = imageName.split('/');
     const dirPrefix: string = process.env.NODE_ENV === 'test' ? 'test' : '';

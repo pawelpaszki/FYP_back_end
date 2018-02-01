@@ -3,6 +3,32 @@ import {request} from './common';
 let imageFreshnessEntryId;
 describe("# Image Freshness", () => {
 
+  describe('test persisting vulnerability entry', () => {
+    it('should successfully persist vulnerability entry', () => {
+      let imageName = 'pawelpaszki/vuln-demo-10-node';
+      request.put('/api/imagefreshness/')
+        .send({name: imageName, startDate: new Date('01-jan-2018'), endDate: new Date('31-may-2018')})
+        .expect(res => {
+          res.body.message.should.equal("Vulnerability check persisted successfully");
+          imageFreshnessEntryId = res.body._id;
+        })
+        .expect(201);
+    });
+  });
+
+  describe('test persisting vulnerability entry twice at the same day', () => {
+    it('should return error due to vulnerability check already performed', () => {
+      let imageName = 'pawelpaszki/vuln-demo-10-node';
+      request.put('/api/imagefreshness/')
+        .send({name: imageName})
+        .expect(res => {
+          res.body.message.should.equal("Vulnerability check already persisted for today's date");
+          imageFreshnessEntryId = res.body._id;
+        })
+        .expect(403);
+    });
+  });
+
   describe('test create image freshness entry', () => {
     it('should successfully create image freshness entry', () => {
       let nonExistentImageName = 'pawelpaszki/non-existent-image';

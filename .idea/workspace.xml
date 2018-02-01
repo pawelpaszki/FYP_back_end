@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c63e0538-c130-477c-b39b-03aa47120c9c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.scannerwork/report-task.txt" afterPath="$PROJECT_DIR$/.scannerwork/report-task.txt" />
-      <change beforePath="$PROJECT_DIR$/imageArchive.tar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/config/app.ts" afterPath="$PROJECT_DIR$/src/config/app.ts" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/containerController.ts" afterPath="$PROJECT_DIR$/src/controllers/containerController.ts" />
       <change beforePath="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" afterPath="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" />
-      <change beforePath="$PROJECT_DIR$/src/models/imageFreshnessEntry.ts" afterPath="$PROJECT_DIR$/src/models/imageFreshnessEntry.ts" />
-      <change beforePath="$PROJECT_DIR$/src/routes/imagesfreshness.ts" afterPath="$PROJECT_DIR$/src/routes/imagesfreshness.ts" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/DateComparator.ts" afterPath="$PROJECT_DIR$/src/utilities/DateComparator.ts" />
       <change beforePath="$PROJECT_DIR$/src/utilities/FileToStringConverter.ts" afterPath="$PROJECT_DIR$/src/utilities/FileToStringConverter.ts" />
-      <change beforePath="$PROJECT_DIR$/test/containers.test.ts" afterPath="$PROJECT_DIR$/test/containers.test.ts" />
-      <change beforePath="$PROJECT_DIR$/test/fileToStringConverter.test.ts" afterPath="$PROJECT_DIR$/test/fileToStringConverter.test.ts" />
-      <change beforePath="$PROJECT_DIR$/test/imagefreshnessprovider.test.ts" afterPath="$PROJECT_DIR$/test/imageFreshnessProvider.test.ts" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts" afterPath="$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/OutputParser.ts" afterPath="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
+      <change beforePath="$PROJECT_DIR$/test/dateComparator.test.ts" afterPath="$PROJECT_DIR$/test/dateComparator.test.ts" />
+      <change beforePath="$PROJECT_DIR$/test/imageFreshness.test.ts" afterPath="$PROJECT_DIR$/test/imageFreshness.test.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="imageFreshnessController.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imageFreshnessController.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/imageFreshnessController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="116" column="24" lean-forward="false" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
+            <state relative-caret-position="600">
+              <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="e#0#137#0" expanded="true" />
               </folding>
@@ -41,11 +34,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="containers.test.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/containers.test.ts">
+      <file leaf-file-name="dateComparator.test.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/dateComparator.test.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="81" column="17" lean-forward="false" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+            <state relative-caret-position="435">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imagesfreshness.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/imagesfreshness.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imageFreshnessEntry.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/imageFreshnessEntry.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imageFreshness.test.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/imageFreshness.test.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-813">
+              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChildProcessHandler.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/ChildProcessHandler.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -54,18 +87,38 @@
       <file leaf-file-name="containerController.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/containerController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="-228">
               <caret line="70" column="57" lean-forward="false" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputParser.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utilities/OutputParser.ts">
+      <file leaf-file-name="ImageNameToDirNameConverter.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="121" column="38" lean-forward="false" selection-start-line="121" selection-start-column="38" selection-end-line="121" selection-end-column="38" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageFreshnessProvider.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/ImageFreshnessProvider.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateComparator.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/DateComparator.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -84,6 +137,7 @@
     <findStrings>
       <find>pref</find>
       <find>images_data[counter].</find>
+      <find>path</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,27 +167,27 @@
         <option value="$PROJECT_DIR$/src/routes/containers.ts" />
         <option value="$PROJECT_DIR$/src/utilities/ImageFreshnessProvider.ts" />
         <option value="$PROJECT_DIR$/test/imagefreshnessprovider.test.ts" />
-        <option value="$PROJECT_DIR$/src/utilities/FileToStringConverter.ts" />
         <option value="$PROJECT_DIR$/src/utilities/imageNameToDirNameConverter.ts" />
         <option value="$PROJECT_DIR$/test/imafgeNameToDIrNameConverter.ts" />
         <option value="$PROJECT_DIR$/test/imageFreshnessProvider.test.ts" />
         <option value="$PROJECT_DIR$/test/fileToStringConverter.test.ts" />
-        <option value="$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts" />
         <option value="$PROJECT_DIR$/test/imageNameToDIrNameConverter.test.ts" />
         <option value="$PROJECT_DIR$/src/utilities/ChildProcessHandler.ts" />
         <option value="$PROJECT_DIR$/src/utilities/SourceCodeFinder.ts" />
-        <option value="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
         <option value="$PROJECT_DIR$/test/outputParser.test.ts" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/src/models/imageFreshnessEntry.ts" />
         <option value="$PROJECT_DIR$/test/containers.test.ts" />
         <option value="$PROJECT_DIR$/src/config/app.ts" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/utilities/DateComparator.ts" />
-        <option value="$PROJECT_DIR$/test/dateComparator.test.ts" />
         <option value="$PROJECT_DIR$/src/controllers/containerController.ts" />
-        <option value="$PROJECT_DIR$/test/imageFreshness.test.ts" />
         <option value="$PROJECT_DIR$/src/routes/imagesfreshness.ts" />
+        <option value="$PROJECT_DIR$/src/utilities/OutputParser.ts" />
+        <option value="$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts" />
+        <option value="$PROJECT_DIR$/src/utilities/FileToStringConverter.ts" />
+        <option value="$PROJECT_DIR$/test/dateComparator.test.ts" />
+        <option value="$PROJECT_DIR$/test/imageFreshness.test.ts" />
+        <option value="$PROJECT_DIR$/src/utilities/DateComparator.ts" />
         <option value="$PROJECT_DIR$/src/controllers/imageFreshnessController.ts" />
       </list>
     </option>
@@ -300,12 +354,12 @@
       <workItem from="1517229287308" duration="794000" />
       <workItem from="1517231973108" duration="4894000" />
       <workItem from="1517388162109" duration="12789000" />
-      <workItem from="1517413338859" duration="13540000" />
+      <workItem from="1517413338859" duration="18045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113729000" />
+    <option name="totallyTimeSpent" value="118234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="725" extended-state="6" />
@@ -482,14 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/ImageFreshnessProvider.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/SourceCodeFinder.ts" />
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -557,14 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/imageFreshnessEntry.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -572,32 +610,6 @@
           <folding>
             <marker date="1517421934026" expanded="true" signature="1480:1484" ph="{&quot;@types/body-parser&quot;: &quot;^1.16.8&quot;...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/ChildProcessHandler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/dateComparator.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/DateComparator.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="62" lean-forward="false" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,54 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/FileToStringConverter.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="23" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/OutputParser.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="121" column="38" lean-forward="false" selection-start-line="121" selection-start-column="38" selection-end-line="121" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/imageFreshness.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/imagesfreshness.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/containerController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="70" column="57" lean-forward="false" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/containers.test.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
@@ -667,13 +631,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/OutputParser.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/FileToStringConverter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ChildProcessHandler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/imageFreshness.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-813">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/dateComparator.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/DateComparator.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ImageNameToDirNameConverter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ImageFreshnessProvider.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/containerController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="70" column="57" lean-forward="false" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/imageFreshnessController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="116" column="24" lean-forward="false" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
+        <state relative-caret-position="600">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="e#0#137#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/imagesfreshness.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/imageFreshnessEntry.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

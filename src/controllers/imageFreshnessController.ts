@@ -5,7 +5,6 @@ import ImageFreshnessEntry, {
 import OutputParser, {VulnScanJSON} from '../utilities/OutputParser';
 import {ChildProcessHandler} from "../utilities/ChildProcessHandler";
 import ImageNameToDirNameConverter from "../utilities/ImageNameToDirNameConverter";
-import * as Q from 'q';
 import DateComparator from "../utilities/DateComparator";
 
 class ImagesFreshnessController {
@@ -25,7 +24,17 @@ class ImagesFreshnessController {
       if (imageFreshnessEntry === null) {
         return res.status(404).json({ message: "This image freshness entry does not exist" });
       } else {
-        res.status(200).json(imageFreshnessEntry);
+        if(req.body.startDate && req.body.endDate) {
+          let vulnerabilityCheckRecords: VulnScanJSON[] = [];
+          for(let vulnerabilityEntry of imageFreshnessEntry.vulnerabilityCheckRecords) {
+            if(DateComparator.isWithinRange(req.body.startDate, req.body.endDate, vulnerabilityEntry.date)) {
+              vulnerabilityCheckRecords.push(vulnerabilityEntry);
+            }
+          }
+          res.status(200).json(vulnerabilityCheckRecords);
+        } else {
+          res.status(200).json(imageFreshnessEntry);
+        }
       }
     } catch (err) {
       res.status(400).json(err);
@@ -56,39 +65,7 @@ class ImagesFreshnessController {
     }
   };
 
-  // public runVulnerabilityCheck = async (req, res) => {
-  //   function getFreshnessEntry() {
-  //     let foundEntry;
-  //     return Q(ImageFreshnessEntry.find({_id: req.params.id}).exec())
-  //       .then(function(entry) {
-  //         foundEntry = entry;
-  //         return foundEntry;
-  //       })
-  //   }
-  //   getFreshnessEntry()
-  //     .then(function(entry) {
-  //       if(entry.length === 0) {
-  //         let newEntry = new ImageFreshnessEntry();
-  //         newEntry.name = req.body.name;
-  //         newEntry.low_vuln_count = 0;
-  //         newEntry.medium_vuln_count = 0;
-  //         newEntry.high_vuln_count = 0;
-  //         newEntry.vulnerabilityCheckRecords = [];
-  //         newEntry.save();
-  //         ImagesFreshnessController.completeVulnerabilityCheck(req, res);
-  //       } else {
-  //         ImagesFreshnessController.completeVulnerabilityCheck(req, res);
-  //       }
-  //     })
-  //     .catch(function(err) {
-  //       res.status(400).json({message: "Could not save vulnerability check"});
-  //     })
-  //     .done(function() {
-  //
-  //     });
-  // };
-
- public performVulnerabilityCheck = async (req, res) => {
+  public performVulnerabilityCheck = async (req, res) => {
     const folderName = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
     const dirName = 'imagesTestDir/' + folderName;
     async function runCliVulnTest () {
@@ -112,18 +89,23 @@ class ImagesFreshnessController {
             })
           }
         }
-        let checkDir = await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && find . -maxdepth 1 -name ' + folderName, false);
-        if(!checkDir.toString().includes(folderName)) {
-          res.status(404).json({
-            message: "Source code not extracted for this image"
-          })
+        let snykResults: VulnScanJSON[];
+        if(process.env.NODE_ENV !== 'test') {
+          const checkDir = await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && find . -maxdepth 1 -name ' + folderName, false);
+          if(!checkDir.toString().includes(folderName)) {
+            res.status(404).json({
+              message: "Source code not extracted for this image"
+            })
+          }
+          let object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand('docker inspect ' + req.body.name, false));
+          const workingDir = object[0].ContainerConfig.WorkingDir;
+          const dirToScan = dirName + workingDir;
+          await ChildProcessHandler.executeChildProcCommand('cd ' + dirToScan + ' && snyk test > snykScanResults.txt', true);
+          snykResults = OutputParser.parseSnykOutput(dirToScan + '/snykScanResults.txt');
+        } else {
+          snykResults = OutputParser.parseSnykOutput('test/test-files/snykScanResultVulnFound.txt');
         }
 
-        let object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand('docker inspect ' + req.body.name, false));
-        const workingDir = object[0].ContainerConfig.WorkingDir;
-        const dirToScan = dirName + workingDir;
-        await ChildProcessHandler.executeChildProcCommand('cd ' + dirToScan + ' && snyk test > snykScanResults.txt', true);
-        const snykResults: VulnScanJSON[] = OutputParser.parseSnykOutput(dirToScan + '/snykScanResults.txt');
         let lowSeverity: IVulnerability[] = [];
         let mediumSeverity: IVulnerability[] = [];
         let highSeverity: IVulnerability[] = [];
@@ -177,7 +159,7 @@ class ImagesFreshnessController {
         console.log(vulnerabilityCheckRecord);
         entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
         await entry.save();
-        res.status(200).json({
+        res.status(201).json({
           message: "Vulnerability check persisted successfully", entry: entry
         })
       } catch (error) {

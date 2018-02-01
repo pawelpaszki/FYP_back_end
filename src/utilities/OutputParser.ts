@@ -8,12 +8,6 @@ import FileToStringConverter from '../utilities/FileToStringConverter';
 
 class OutputParser {
 
-
-  /**
-   * THis method gets os-release file and returns OS's name and version tag
-   * @param {string} path - file path
-   * @returns {OsJSON} - OS info in JSON format
-   */
   public static getOSVersion(path: string): OsJSON {
     const osRelease = FileToStringConverter.readFile(path).split('\n');
     let name: string = '';
@@ -47,11 +41,6 @@ class OutputParser {
     };
   }
 
-  /**
-   * This method parses Dockerfile content and returns info extracted from that file
-   * @param {string} path - file path
-   * @returns {DockerinfoJSON} - image info on JSON format
-   */
   public static parseDockerfile(path: string): DockerinfoJSON {
     const dockerfileContent = FileToStringConverter.readFile(path).split('\n');
     let workDIR = '';
@@ -72,11 +61,6 @@ class OutputParser {
     };
   }
 
-  /**
-   * This method parses content of SNYK test output
-   * @param {string} path - file path
-   * @returns {VulnScanJSON[]} - information about vulnerable components in JSON format
-   */
   public static parseSnykOutput(path: string): VulnScanJSON[] {
     const snykScanContent: string[] = FileToStringConverter.readFile(path).split('\n');
     let entries: VulnScanJSON[] = [];
@@ -128,11 +112,6 @@ class OutputParser {
     return entries
   }
 
-  /**
-   * This method parses content of ncu run output
-   * @param {string} path - file path
-   * @returns {NcuJSON[]} - information about components to update JSON format
-   */
   public static parseNcuOutput(path: string): NcuJSON[] {
     const ncuCheckContent: string[] = FileToStringConverter.readFile(path).split('\n');
     const packagesToUpdate: NcuJSON[] = [];
@@ -155,11 +134,6 @@ class OutputParser {
     return []
   }
 
-  /**
-   * This method parses content of npm test run
-   * @param {string} path - file path
-   * @returns {NpmTestJSON[]} - output of npm test
-   */
   public static parseNpmTests(path: string): NpmTestJSON[] {
     const npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
     const testOutputLines: NpmTestJSON[] = [];

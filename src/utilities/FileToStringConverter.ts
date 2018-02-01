@@ -7,11 +7,6 @@ import * as fs from 'fs';
 
 class FileToStringConverter {
 
-  /**
-   *
-   * @param {string} path of file to be read
-   * @returns {string} - string content of read file
-   */
   public static readFile(path: string): string {
     try {
       return fs.readFileSync(path).toString();
