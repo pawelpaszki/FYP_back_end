@@ -14,7 +14,7 @@ export interface IVulnerability {
   description: string
 }
 
-export interface IImageFreshnessEntry {
+interface ImageFreshnessEntry extends mongoose.Document {
   name: string,
   low_vuln_count: number,
   medium_vuln_count: number,
@@ -22,10 +22,7 @@ export interface IImageFreshnessEntry {
   vulnerabilityCheckRecords: any[]
 }
 
-interface IImageFreshnessEntryModel extends IImageFreshnessEntry, mongoose.Document {
-}
-
-let imageFreshnessEntrySchema = new mongoose.Schema({
+const imageFreshnessEntrySchema = new mongoose.Schema({
   name: {type: String, unique: true},
   low_vuln_count: Number,
   medium_vuln_count: Number,
@@ -33,6 +30,4 @@ let imageFreshnessEntrySchema = new mongoose.Schema({
   vulnerabilityCheckRecords: [{}]
 });
 
-let ImageFreshnessEntry = mongoose.model<IImageFreshnessEntryModel>("ImageFreshnessEntry", imageFreshnessEntrySchema);
-
-export default ImageFreshnessEntry;
+export const ImageFreshnessEntry = mongoose.model<ImageFreshnessEntry>("ImageFreshnessEntry", imageFreshnessEntrySchema);

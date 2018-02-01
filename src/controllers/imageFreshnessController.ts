@@ -1,5 +1,5 @@
-import ImageFreshnessEntry, {
-  IImageFreshnessEntry, IVulnerability,
+import  {ImageFreshnessEntry,
+  IVulnerability,
   IVulnerabilityCheckRecord
 } from "../models/imageFreshnessEntry";
 import OutputParser, {VulnScanJSON} from '../utilities/OutputParser';
@@ -10,12 +10,8 @@ import DateComparator from "../utilities/DateComparator";
 class ImagesFreshnessController {
 
   public getAll = async (req, res) => {
-    try {
-      let imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
-      res.status(200).json(imageFreshnessEntries);
-    } catch (err) {
-      res.status(400).json(err);
-    }
+    let imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
+    res.status(200).json(imageFreshnessEntries);
   };
 
   public getOne = async (req, res) => {
@@ -70,7 +66,7 @@ class ImagesFreshnessController {
     const dirName = 'imagesTestDir/' + folderName;
     async function runCliVulnTest () {
       try {
-        let entry: IImageFreshnessEntry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec() as IImageFreshnessEntry;
+        let entry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec();
         if(entry === null) {
           entry = new ImageFreshnessEntry();
           entry.name = req.body.name;
@@ -97,7 +93,7 @@ class ImagesFreshnessController {
               message: "Source code not extracted for this image"
             })
           }
-          let object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand('docker inspect ' + req.body.name, false));
+          const object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand('docker inspect ' + req.body.name, false));
           const workingDir = object[0].ContainerConfig.WorkingDir;
           const dirToScan = dirName + workingDir;
           await ChildProcessHandler.executeChildProcCommand('cd ' + dirToScan + ' && snyk test > snykScanResults.txt', true);
@@ -156,7 +152,6 @@ class ImagesFreshnessController {
         } else {
           entry.high_vuln_count = entry.high_vuln_count + 1;
         }
-        console.log(vulnerabilityCheckRecord);
         entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
         await entry.save();
         res.status(201).json({

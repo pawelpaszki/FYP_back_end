@@ -95,9 +95,6 @@ describe("# Container", () => {
       let nonExistentId = '12345678abcd';
       return request.post('/api/containers/extract')
         .send({containerId: nonExistentId, imageName: notTobeExtractedImagesName})
-        .expect(res => {
-          res.body.message.should.equal("Unable to extract source code");
-        })
         .expect(404);
     });
   });

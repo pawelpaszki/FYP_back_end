@@ -54,6 +54,7 @@
       "dist/*",
       "coverage/*",
       "src/test/*",
+      "node_modules",
       "imagesTestDir/*"
     ],
     "reporter": [
