@@ -1,5 +1,4 @@
-import {request, chai} from './common';
-
+import {request} from './common';
 import * as Docker from 'dockerode';
 
 const docker = new Docker({
@@ -8,7 +7,8 @@ const docker = new Docker({
 
 describe("# Container", () => {
 
-  const testedImagesName = 'pawelpaszki/vuln-demo-2-node';
+  const testedImagesName = 'pawelpaszki/vuln-demo-10-node';
+  const notTobeExtractedImagesName = 'pawelpaszki/vuln-demo-2-node';
 
   const testContainer = {
     Image: testedImagesName,
@@ -92,13 +92,14 @@ describe("# Container", () => {
 
   describe('test extract source code with invalid container\'s id', () => {
     it('should result in 404 error thrown', () => {
-          let nonExistentContainerId = '12345678abcd';
-          return request.post('/api/containers/extract')
-            .send({containerId: nonExistentContainerId, imageName: testedImagesName})
-            .expect(res => {
-              res.body.message.should.equal("Unable to extract source code");
-            })
-            .expect(404);
+      let nonExistentId = '12345678abcd';
+      return request.post('/api/containers/extract')
+        .send({containerId: nonExistentId, imageName: notTobeExtractedImagesName})
+        .expect(res => {
+          res.body.message.should.equal("Unable to extract source code");
+        })
+        .expect(404);
     });
   });
+
 });

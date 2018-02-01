@@ -9,7 +9,9 @@ export interface IVulnerabilityCheckRecord {
 
 export interface IVulnerability {
   name: string,
-  dependency_path: string
+  dependency_path: string,
+  remediation: string,
+  description: string
 }
 
 export interface IImageFreshnessEntry {
@@ -17,7 +19,7 @@ export interface IImageFreshnessEntry {
   low_vuln_count: number,
   medium_vuln_count: number,
   high_vuln_count: number,
-  vulnerabilityCheckRecords: Array<IVulnerabilityCheckRecord>
+  vulnerabilityCheckRecords: any[]
 }
 
 interface IImageFreshnessEntryModel extends IImageFreshnessEntry, mongoose.Document {

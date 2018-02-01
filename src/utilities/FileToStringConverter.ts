@@ -18,7 +18,6 @@ class FileToStringConverter {
     } catch (err) {
       return '';
     }
-
   }
 }
 

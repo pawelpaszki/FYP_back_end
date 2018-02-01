@@ -15,14 +15,18 @@ class App {
   }
 
   private connectToDB(): void {
-    let uri = 'mongodb://localhost/images';
-    mongoose.connect(uri, (err) => {
-      if(process.env.NODE_ENV !== 'test') {
-        if (err) {
-          console.log(err.message);
-          console.log(err);
-        }
-        else {
+    const uriPrefix = 'mongodb://localhost/';
+    let uriPostfix = 'images';
+    if (process.env.NODE_ENV === 'test') {
+      uriPostfix = 'test';
+    }
+    mongoose.connect(uriPrefix + uriPostfix, (err) => {
+      if (err) {
+        console.log(err.message);
+        console.log(err);
+      }
+      else {
+        if (process.env.NODE_ENV !== 'test') {
           console.log('Connected to MongoDB');
         }
       }

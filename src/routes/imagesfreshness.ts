@@ -3,9 +3,10 @@ import * as express from 'express';
 
 const imageFreshness = express.Router();
 
-imageFreshness.get("/:id", ImageFreshnessController.getOne);
-imageFreshness.put("/:id", ImageFreshnessController.addVulnerabilityCheck);
+imageFreshness.post("/:id", ImageFreshnessController.getOne);
+imageFreshness.put("/", ImageFreshnessController.performVulnerabilityCheck);
 imageFreshness.delete("/:id", ImageFreshnessController.delete);
+imageFreshness.delete("/", ImageFreshnessController.deleteAll);
 imageFreshness.post("/", ImageFreshnessController.create);
 imageFreshness.get("/", ImageFreshnessController.getAll);
 

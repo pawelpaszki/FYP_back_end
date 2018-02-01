@@ -3,8 +3,8 @@ import ImageFreshnessProvider from "../src/utilities/ImageFreshnessProvider";
 
 describe("# ImageFreshnessProvider", () => {
 
-  describe('should return correct freshness grade based on provided data', () => {
-    it('should return proper os version and name', () => {
+  describe('test returning freshness grade based on provided data', () => {
+    it('should return correct freshness grade', () => {
       const gradeData1: number[] = [0,0,0];
       const result1: string = ImageFreshnessProvider.getFreshnessGrade(gradeData1[0],gradeData1[1],gradeData1[2]);
       expect(result1).to.equal('A');
