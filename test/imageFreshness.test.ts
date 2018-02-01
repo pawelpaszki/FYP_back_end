@@ -49,6 +49,7 @@ describe("# Image Freshness", () => {
           res.body.message.should.equal("Image freshness entry saved successfully!");
           imageFreshnessEntryId = res.body._id;
         })
+        
         .expect(201);
     });
   });
