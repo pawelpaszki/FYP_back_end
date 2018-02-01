@@ -10,7 +10,7 @@ import DateComparator from "../utilities/DateComparator";
 class ImagesFreshnessController {
 
   public getAll = async (req, res) => {
-    let imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
+    const imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
     res.status(200).json(imageFreshnessEntries);
   };
 

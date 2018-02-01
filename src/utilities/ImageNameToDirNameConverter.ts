@@ -15,8 +15,6 @@ class ImageNameToDirNameConverter {
     } else {
       if(imageNameTokens.length === 1) {
         return dirPrefix + imageNameTokens[0].toUpperCase();
-      } else {
-        return '';
       }
     }
   }
