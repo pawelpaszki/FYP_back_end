@@ -1,103 +1,187 @@
-import {request, chai} from './common';
+import express from '../src/config/app'
 
 let imageFreshnessEntryId;
 const endpoint = '/api/imagefreshness/';
+const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
+const testImageName2 = 'pawelpaszki/vuln-demo-9-node';
+let chaiHttp = require('chai-http');
+export const chai = require("chai");
+let should = chai.should;
+chai.use(chaiHttp);
+
 describe("# Image Freshness", () => {
 
-  describe('test retrieve all freshness entries', () => {
-    it("should retrieve all freshness entries", () => {
-      return request.get('/api/imagefreshness/')
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(res => chai.expect(res.body).to.be.an('array'))
-        .expect(200);
+  describe('/DELETE imageFreshnessEntries', () => {
+    it('it should DELETE all imageFreshnessEntries', (done) => {
+      chai.request(express)
+        .delete(endpoint)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Image freshness entries deleted successfully!');
+          done();
+        });
     });
   });
 
-  describe('test persisting vulnerability entry', () => {
-    it('should successfully persist vulnerability entry', () => {
-      let imageName = 'pawelpaszki/vuln-demo-10-node';
-      request.put(endpoint)
-        .send({name: imageName, startDate: new Date('01-jan-2018'), endDate: new Date('31-may-2018')})
-        .expect(res => {
-          res.body.message.should.equal("Vulnerability check persisted successfully");
-          imageFreshnessEntryId = res.body._id;
-        })
-        .expect(201);
+  describe('/GET imageFreshnessEntry', () => {
+    it('it should GET all the imageFreshnessEntries', (done) => {
+      chai.request(express)
+        .get(endpoint)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('array');
+          done();
+        });
     });
   });
 
-  describe('test persisting vulnerability entry twice at the same day', () => {
-    it('should return error due to vulnerability check already performed', () => {
-      let imageName = 'pawelpaszki/vuln-demo-10-node';
-      request.put(endpoint)
-        .send({name: imageName})
-        .expect(res => {
-          res.body.message.should.equal("Vulnerability check already persisted for today's date");
-          imageFreshnessEntryId = res.body._id;
-        })
-        .expect(403);
+  describe('/POST imageFreshnessEntry', () => {
+    it('it should create new imageFreshnessEntry', (done) => {
+      chai.request(express)
+        .post(endpoint)
+        .send({name: testImageName1})
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.should.have.property('entry');
+          imageFreshnessEntryId = res.body.entry._id;
+          res.body.should.have.property('message').eql('Image freshness created saved successfully!');
+          done();
+        });
     });
   });
 
-  describe('test create image freshness entry', () => {
-    it('should successfully create image freshness entry', () => {
-      let nonExistentImageName = 'pawelpaszki/non-existent-image';
-      request.post(endpoint)
-        .send({name: nonExistentImageName})
-        .expect(res => {
-          res.body.message.should.equal("Image freshness entry saved successfully!");
-          imageFreshnessEntryId = res.body._id;
-        })
-        
-        .expect(201);
+  describe('/POST imageFreshnessEntry', () => {
+    it('it should not create entry with name already present in DB', (done) => {
+      chai.request(express)
+        .post(endpoint)
+        .send({name: testImageName1})
+        .end((err, res) => {
+          res.should.have.status(403);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Unable to create image freshness entry');
+          res.body.should.have.property('error');
+          done();
+        });
     });
   });
 
-  // describe('test get image freshness entry', () => {
-  //   it('should return single image freshness entry', () => {
-  //     return request.post(endpoint + imageFreshnessEntryId)
-  //       .expect("Content-Type", /json/)
-  //       .expect(res => chai.expect(res.body).to.be.an('object'))
-  //       .expect(200);
-  //   });
-  // });
+  describe('/POST to get imageFreshnessEntry ', () => {
+    it('should return single image freshness entry', (done) => {
+      chai.request(express)
+        .post(endpoint + imageFreshnessEntryId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('name');
+          res.body.should.have.property('low_vuln_count');
+          res.body.should.have.property('medium_vuln_count');
+          res.body.should.have.property('high_vuln_count');
+          res.body.should.have.property('vulnerabilityCheckRecords');
+          res.body.should.have.property('_id').eql(imageFreshnessEntryId);
+          done();
+        });
+    });
+  });
 
-  describe('test get image freshness entry with non-existent id', () => {
-    it('should return single image freshness entry', () => {
-      request.get(endpoint + '12341234')
+  describe('/POST to get imageFreshnessEntry ', () => {
+    it('should return vulnerabilityCheckRecords when dates are posted in the request', (done) => {
+      chai.request(express)
+        .post(endpoint + imageFreshnessEntryId)
+        .send({startDate: '01-jan-2018', endDate: '30-apr-2018'})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('array');
+          done();
+        });
+    });
+  });
+
+  describe('/POST to get imageFreshnessEntry ', () => {
+    it('should return 404 due to invalid _id provided', (done) => {
+      chai.request(express)
+        .post(endpoint + '123412341234')
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('error').eql('ImageFreshnessEntry with given id does not exist!');
+          done();
+        });
+    });
+  });
+
+  describe('/PUT imageFreshnessEntry', () => {
+    it('should successfully persist vulnerability entry', (done) => {
+      chai.request(express)
+        .put(endpoint)
+        .send({name: testImageName1})
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('entry');
+          done();
+        });
+    });
+  });
+
+  describe('/PUT imageFreshnessEntry', () => {
+    it('should not persist vulnerability entry due to an entry present for given date', (done) => {
+      chai.request(express)
+        .put(endpoint)
+        .send({name: testImageName1})
+        .end((err, res) => {
+          res.should.have.status(403);
+          res.body.should.have.property('error').eql('Vulnerability check already persisted for today\'s date');
+          done();
+        });
+    });
+  });
+
+  describe('/PUT imageFreshnessEntry', () => {
+    it('should create imageFreshnessEntry and persist vulnerability entry', (done) => {
+      chai.request(express)
+        .put(endpoint)
+        .send({name: testImageName2})
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    });
+  });
+
+  describe('/PUT imageFreshnessEntry', () => {
+    it('should not persist vulnerability check with no image\'s name provised', (done) => {
+      chai.request(express)
+        .put(endpoint)
         .send()
-        .expect(404);
+        .end((err, res) => {
+          res.should.have.status(403);
+          res.body.should.have.property('error').eql('Unable to persist vulnerability check. Docker image\'s name required!');
+          done();
+        });
     });
   });
 
-  describe('test delete single freshness entry', () => {
-    it('should successfully delete single entry', () => {
-      request.del('/api/imagefreshness/' + imageFreshnessEntryId)
-        .send()
-        .expect(res => {
-          res.body.message.should.equal('Image freshness entry deleted successfully!');
-        })
-        .expect(200);
+  describe('/DELETE single freshness entry', () => {
+    it('should successfully delete single entry', (done) => {
+      chai.request(express)
+        .delete(endpoint + imageFreshnessEntryId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('message').eql('Image freshness entry deleted successfully!');
+          done();
+        });
     });
   });
 
-  describe('test delete non-existent freshness entry', () => {
-    it('should return error due to entry not found', () => {
-      request.del('/api/imagefreshness/' + '12341234')
-        .send()
-        .expect(404);
-    });
-  });
-
-  describe('test delete all freshness entries', () => {
-    it('should successfully delete all freshness entries', () => {
-      request.del('/api/imagefreshness/')
-        .send()
-        .expect(res => {
-          res.body.message.should.equal('Image freshness entries deleted successfully!');
-        })
-        .expect(200);
+  describe('/DELETE non-existent single freshness entry', () => {
+    it('should not  delete entry with non-existent id', (done) => {
+      chai.request(express)
+        .delete(endpoint + '123412341234')
+        .end((err, res) => {
+          res.should.have.status(200);
+          // res.body.should.have.property('message').eql('Image freshness entry deleted successfully!');
+          done();
+        });
     });
   });
 

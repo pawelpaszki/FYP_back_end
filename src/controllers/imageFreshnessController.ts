@@ -11,14 +11,14 @@ class ImagesFreshnessController {
 
   public getAll = async (req, res) => {
     const imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
-    res.status(200).json(imageFreshnessEntries);
+    return res.status(200).json(imageFreshnessEntries);
   };
 
   public getOne = async (req, res) => {
     try {
       let imageFreshnessEntry = await ImageFreshnessEntry.findById(req.params.id).exec();
-      if (imageFreshnessEntry === null) {
-        return res.status(404).json({ message: "This image freshness entry does not exist" });
+      if (!imageFreshnessEntry) {
+        return res.status(404).json({ error: "ImageFreshnessEntry with given id does not exist!" });
       } else {
         if(req.body.startDate && req.body.endDate) {
           let vulnerabilityCheckRecords: VulnScanJSON[] = [];
@@ -27,13 +27,13 @@ class ImagesFreshnessController {
               vulnerabilityCheckRecords.push(vulnerabilityEntry);
             }
           }
-          res.status(200).json(vulnerabilityCheckRecords);
+          return res.status(200).json(vulnerabilityCheckRecords);
         } else {
-          res.status(200).json(imageFreshnessEntry);
+          return res.status(200).json(imageFreshnessEntry);
         }
       }
     } catch (err) {
-      res.status(400).json(err);
+      return res.status(400).json(err);
     }
   };
 
@@ -46,22 +46,23 @@ class ImagesFreshnessController {
       newEntry.high_vuln_count = 0;
       newEntry.vulnerabilityCheckRecords = [];
       await newEntry.save();
-      res.status(201).json({message: "Image freshness entry saved successfully!", "id": newEntry._id});
+      return res.status(201).json({message: "Image freshness created saved successfully!", entry: newEntry});
     } catch (err) {
-      res.status(400).json({message: "Could not create image freshness entry", errors: err});
+      return res.status(403).json({message: "Unable to create image freshness entry", error: err});
     }
   };
 
   public delete = async (req, res) => {
-    try {
-      await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
-      res.status(200).json({message: "Image freshness entry deleted successfully!"});
-    } catch (err) {
-      res.status(404).json({message: `Error delete image freshness entry: ${err}`});
-    }
+    await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
+    return res.status(200).json({message: "Image freshness entry deleted successfully!"});
   };
 
   public performVulnerabilityCheck = async (req, res) => {
+    if(!req.body.name) {
+      return res.status(403).json({
+        error: 'Unable to persist vulnerability check. Docker image\'s name required!'
+      })
+    }
     const folderName = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
     const dirName = 'imagesTestDir/' + folderName;
     async function runCliVulnTest () {
@@ -80,7 +81,7 @@ class ImagesFreshnessController {
         if(entry.vulnerabilityCheckRecords.length > 0) {
           lastCheckDate = entry.vulnerabilityCheckRecords[entry.vulnerabilityCheckRecords.length - 1].date;
           if(DateComparator.isSameDay(todaysDate, lastCheckDate)) {
-            res.status(403).json({
+            return res.status(403).json({
               error: "Vulnerability check already persisted for today\'s date"
             })
           }
@@ -89,7 +90,7 @@ class ImagesFreshnessController {
         if(process.env.NODE_ENV !== 'test') {
           const checkDir = await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && find . -maxdepth 1 -name ' + folderName, false);
           if(!checkDir.toString().includes(folderName)) {
-            res.status(404).json({
+            return res.status(404).json({
               message: "Source code not extracted for this image"
             })
           }
@@ -154,11 +155,11 @@ class ImagesFreshnessController {
         }
         entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
         await entry.save();
-        res.status(201).json({
+        return res.status(201).json({
           message: "Vulnerability check persisted successfully", entry: entry
         })
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: "Unable to persist vulnerability check",
           error: error
         })
@@ -170,9 +171,9 @@ class ImagesFreshnessController {
   public deleteAll = async (req, res) => {
     try {
       await ImageFreshnessEntry.deleteMany({});
-      res.status(200).json({message: "Image freshness entries deleted successfully!"});
+      return res.status(200).json({message: "Image freshness entries deleted successfully!"});
     } catch (err) {
-      res.status(400).json({message: `Error delete image freshness entry: ${err}`});
+      return res.status(400).json({message: `Unable to delete image freshness entries: ${err}`});
     }
   };
 }
