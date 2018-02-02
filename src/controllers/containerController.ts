@@ -23,8 +23,7 @@ class containerController {
     }, (err, data) => {
       if (data === null) {
         res.status(500).json({
-          message: "Unable to create container",
-          error: err
+          error: "Unable to create container"
         })
       } else {
         res.status(201).json({
@@ -39,8 +38,7 @@ class containerController {
     container.start(function (err, data) {
       if (data === null) {
         res.status(404).json({
-          message: "Unable to start container",
-          error: err
+          error: 'Unable to start container'
         })
       } else {
         res.status(200).json({
@@ -67,25 +65,23 @@ class containerController {
     let containerInfo: ContainerInspectInfo;
     try {
       containerInfo = await container.inspect();
-    } catch(error) {
+    } catch (error) {
       return res.status(404).json({
-        message: "Unable to extract source code",
-        err: 'container not found'
+        err: 'Unable to extract source code. Container not found'
       })
     }
-    if(containerInfo.State.Running === false) {
+    if (containerInfo.State.Running === false) {
       return res.status(403).json({
-        message: "Unable to extract source code",
         err: 'The container must be running to extract the source code'
       })
     }
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
-    if(testDir.length > 0) {
+    if (testDir.length > 0) {
       let checkDirOutput = '';
       async function getDirOutput() {
-        if(process.env.NODE_ENV !== 'test') {
+        if (process.env.NODE_ENV !== 'test') {
           checkDirOutput = await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
-          if(checkDirOutput.toString().includes(testDir)) {
+          if (checkDirOutput.toString().includes(testDir)) {
             return res.status(403).json({
               message: "Source code already extracted"
             })
@@ -97,7 +93,7 @@ class containerController {
               let ws = fs.createWriteStream("imageArchive.tar");
               stream.pipe(ws);
               ws.on('finish', function () {
-                async function extractCont () {
+                async function extractCont() {
                   try {
                     await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && mkdir ' + testDir, true);
                     await ChildProcessHandler.executeChildProcCommand('tar -x -f imageArchive.tar --directory imagesTestDir/' + testDir, true);
@@ -126,7 +122,6 @@ class containerController {
             message: "Unable to extract source code"
           })
         }
-
       }
       getDirOutput();
     } else {

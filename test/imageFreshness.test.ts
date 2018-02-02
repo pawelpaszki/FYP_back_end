@@ -4,10 +4,7 @@ let imageFreshnessEntryId;
 const endpoint = '/api/imagefreshness/';
 const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
 const testImageName2 = 'pawelpaszki/vuln-demo-9-node';
-let chaiHttp = require('chai-http');
-export const chai = require("chai");
-let should = chai.should;
-chai.use(chaiHttp);
+import {chai} from './common';
 
 describe("# Image Freshness", () => {
 
