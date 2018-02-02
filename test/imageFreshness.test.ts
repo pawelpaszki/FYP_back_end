@@ -71,12 +71,8 @@ describe("# Image Freshness", () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
-          res.body.should.have.property('name');
-          res.body.should.have.property('low_vuln_count');
-          res.body.should.have.property('medium_vuln_count');
-          res.body.should.have.property('high_vuln_count');
-          res.body.should.have.property('vulnerabilityCheckRecords');
-          res.body.should.have.property('_id').eql(imageFreshnessEntryId);
+          res.body.should.have.property('entry');
+          res.body.should.have.property('freshnessGrade');
           done();
         });
     });

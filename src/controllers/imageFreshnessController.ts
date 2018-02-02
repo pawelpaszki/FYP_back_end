@@ -6,6 +6,7 @@ import OutputParser, {VulnScanJSON} from '../utilities/OutputParser';
 import {ChildProcessHandler} from "../utilities/ChildProcessHandler";
 import ImageNameToDirNameConverter from "../utilities/ImageNameToDirNameConverter";
 import DateComparator from "../utilities/DateComparator";
+import ImageFreshnessProvider from "../utilities/ImageFreshnessProvider";
 
 class ImagesFreshnessController {
 
@@ -29,7 +30,9 @@ class ImagesFreshnessController {
           }
           return res.status(200).json(vulnerabilityCheckRecords);
         } else {
-          return res.status(200).json(imageFreshnessEntry);
+          const freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.low_vuln_count,
+            imageFreshnessEntry.medium_vuln_count, imageFreshnessEntry.high_vuln_count)
+          return res.status(200).json({"entry": imageFreshnessEntry, "freshnessGrade": freshnessGrade});
         }
       }
     } catch (err) {
