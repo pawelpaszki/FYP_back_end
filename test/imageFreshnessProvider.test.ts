@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import ImageFreshnessProvider from "../src/utilities/ImageFreshnessProvider";
+import ImageFreshnessProvider from '../src/utilities/ImageFreshnessProvider';
 
-describe("# ImageFreshnessProvider", () => {
+describe('# ImageFreshnessProvider', () => {
 
   describe('test returning freshness grade based on provided data', () => {
     it('should return correct freshness grade', () => {

@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import FileToStringConverter from "../src/utilities/FileToStringConverter";
+import FileToStringConverter from '../src/utilities/FileToStringConverter';
 
-describe("# FileToStringConverter", () => {
+describe('# FileToStringConverter', () => {
 
   describe('test reading file content', () => {
     it('should return content of a file or an empty string if the path is invalid', () => {

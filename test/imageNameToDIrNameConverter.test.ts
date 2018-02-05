@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import ImageNameToDirNameConverter from "../src/utilities/ImageNameToDirNameConverter";
+import ImageNameToDirNameConverter from '../src/utilities/ImageNameToDirNameConverter';
 
-describe("# ImageNameToDirNameConverter", () => {
+describe('# ImageNameToDirNameConverter', () => {
   describe('test converting image name to directory name', () => {
     it('should return correct directory name', () => {
       const dirName1: string = ImageNameToDirNameConverter.convertImageNameToDirName('pawelpaszki/vuln-demo-2-node');

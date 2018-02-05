@@ -1,11 +1,11 @@
 import {expect} from 'chai';
-import OutputParser, {NcuJSON, NpmTestJSON} from "../src/utilities/OutputParser";
+import OutputParser, {NcuJSON, NpmTestJSON} from '../src/utilities/OutputParser';
 
 import {OsJSON} from '../src/utilities/OutputParser';
-import {DockerinfoJSON} from "../src/utilities/OutputParser";
+import {DockerinfoJSON} from '../src/utilities/OutputParser';
 import {VulnScanJSON} from '../src/utilities/OutputParser';
 
-describe("# OutputParser", () => {
+describe('# OutputParser', () => {
 
   describe('test os-release parser', () => {
     it('should return proper os version and name', () => {

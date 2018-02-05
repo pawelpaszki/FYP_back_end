@@ -6,7 +6,7 @@ const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
 const testImageName2 = 'pawelpaszki/vuln-demo-9-node';
 import {chai} from './common';
 
-describe("# Image Freshness", () => {
+describe('# Image Freshness', () => {
 
   describe('/DELETE imageFreshnessEntries', () => {
     it('it should DELETE all imageFreshnessEntries', (done) => {

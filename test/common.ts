@@ -1,8 +1,8 @@
-process.env.NODE_ENV = "test";
+process.env.NODE_ENV = 'test';
 
-import "mocha";
+import 'mocha';
 const chaiHttp = require('chai-http');
 
-export const chai = require("chai");
+export const chai = require('chai');
 chai.use(chaiHttp);
 export const should = chai.should();

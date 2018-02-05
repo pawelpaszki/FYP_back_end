@@ -11,7 +11,7 @@ const nonExistentImageName = 'abc/def';
 let startedContainerId;
 import {chai} from './common';
 
-describe("# Container", () => {
+describe('# Container', () => {
 
   const testContainer = {
     Image: testImageName1,

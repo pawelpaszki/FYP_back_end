@@ -30,4 +30,4 @@ const imageFreshnessEntrySchema = new mongoose.Schema({
   vulnerabilityCheckRecords: [{}]
 });
 
-export const ImageFreshnessEntry = mongoose.model<ImageFreshnessEntry>("ImageFreshnessEntry", imageFreshnessEntrySchema);
+export const ImageFreshnessEntry = mongoose.model<ImageFreshnessEntry>('ImageFreshnessEntry', imageFreshnessEntrySchema);

@@ -1,7 +1,7 @@
-import {expect} from "chai";
-import DateComparator from "../src/utilities/DateComparator";
+import {expect} from 'chai';
+import DateComparator from '../src/utilities/DateComparator';
 
-describe("# Date comparator", () => {
+describe('# Date comparator', () => {
 
   describe('test compare two dates', () => {
     it('should return true if two dates are the same', () => {
