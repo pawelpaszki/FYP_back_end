@@ -1,8 +1,8 @@
-import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as express from 'express';
 import * as mongoose from 'mongoose';
-import imageFreshness from '../routes/imagesfreshness';
 import containers from '../routes/containers';
+import imageFreshness from '../routes/imagesfreshness';
 
 class App {
   public express;
@@ -22,12 +22,12 @@ class App {
     }
     mongoose.connect(uriPrefix + uriPostfix, (err) => {
       if (err) {
-        console.log(err.message);
-        console.log(err);
-      }
-      else {
+        /* tslint:disable */ console.log(err.message); /* tslint:enable */
+        /* tslint:disable */ console.log(err); /* tslint:enable */
+
+      } else {
         if (process.env.NODE_ENV !== 'test') {
-          console.log('Connected to MongoDB');
+          /* tslint:disable */ console.log('Connected to MongoDB'); /* tslint:enable */
         }
       }
     });
