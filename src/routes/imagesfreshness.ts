@@ -1,5 +1,5 @@
-import ImageFreshnessController from '../controllers/imageFreshnessController';
 import * as express from 'express';
+import ImageFreshnessController from '../controllers/imageFreshnessController';
 
 const imageFreshness = express.Router();
 

@@ -4,8 +4,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, (err) => {
   if (err) {
-    return console.log(err);
+    /* tslint:disable */ return console.log(err); /* tslint:enable */
   }
-
-  return console.log(`server is listening on ${port}`);
+  /* tslint:disable */ return console.log(`server is listening on ${port}`); /* tslint:enable */
 });

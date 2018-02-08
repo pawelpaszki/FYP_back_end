@@ -8,12 +8,12 @@ import FileToStringConverter from '../utilities/FileToStringConverter';
 
 class OutputParser {
 
-  public static getOSVersion(path: string): OsJSON {
+  public static getOSVersion(path: string): IOsJSON {
     const osRelease = FileToStringConverter.readFile(path).split('\n');
     let name: string = '';
     let version: string = '';
     if (osRelease.length > 0) {
-      for (let line of osRelease) {
+      for (const line of osRelease) {
         if (line.startsWith('ID=')) {
           name = line.substring(3);
         } else if (line.startsWith('PRETTY_NAME')) {
@@ -36,17 +36,17 @@ class OutputParser {
       }
     }
     return {
-      name: name,
-      version: version
+      name,
+      version,
     };
   }
 
-  public static parseDockerfile(path: string): DockerinfoJSON {
+  public static parseDockerfile(path: string): IDockerinfoJSON {
     const dockerfileContent = FileToStringConverter.readFile(path).split('\n');
     let workDIR = '';
     let alpineNodeFound = false;
     if (dockerfileContent.length > 0) {
-      for (let line of dockerfileContent) {
+      for (const line of dockerfileContent) {
         if (line.startsWith('WORKDIR')) {
           workDIR = line.substring(7).trim();
         }
@@ -56,14 +56,14 @@ class OutputParser {
       }
     }
     return {
-      workDIR: workDIR,
-      alpineNodeUsed: alpineNodeFound
+      alpineNodeUsed: alpineNodeFound,
+      workDIR,
     };
   }
 
-  public static parseSnykOutput(path: string): VulnScanJSON[] {
+  public static parseSnykOutput(path: string): IVulnScanJSON[] {
     const snykScanContent: string[] = FileToStringConverter.readFile(path).split('\n');
-    let entries: VulnScanJSON[] = [];
+    const entries: IVulnScanJSON[] = [];
     let vulnComp: string = '';
     let severity: string = '';
     let vulnPath: string = '';
@@ -99,73 +99,73 @@ class OutputParser {
               remediation = snykScanContent[i + 4].substring(26);
             }
             entries.push({
-              vulnComp: vulnComp,
-              severity: severity,
-              vulnPath: vulnPath,
-              remediation: remediation,
-              description: description
+              description,
+              remediation,
+              severity,
+              vulnComp,
+              vulnPath,
             });
           }
         }
       }
     }
-    return entries
+    return entries;
   }
 
-  public static parseNcuOutput(path: string): NcuJSON[] {
+  public static parseNcuOutput(path: string): INcuJSON[] {
     const ncuCheckContent: string[] = FileToStringConverter.readFile(path).split('\n');
-    const packagesToUpdate: NcuJSON[] = [];
+    const packagesToUpdate: INcuJSON[] = [];
     if (ncuCheckContent.length > 1) {
       if (ncuCheckContent[2].startsWith('All dependencies match')) {
-        return []
+        return [];
       } else {
-        for (let line of ncuCheckContent) {
+        for (const line of ncuCheckContent) {
           if (!line.startsWith('Using /') && !line.startsWith('The following') && !line.startsWith('Run ncu')) {
             if (line.length > 0) {
               packagesToUpdate.push({
-                package: line.trim()
-              })
+                package: line.trim(),
+              });
             }
           }
         }
-        return packagesToUpdate
+        return packagesToUpdate;
       }
     }
-    return []
+    return [];
   }
 
-  public static parseNpmTests(path: string): NpmTestJSON[] {
+  public static parseNpmTests(path: string): INpmTestJSON[] {
     const npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
-    const testOutputLines: NpmTestJSON[] = [];
+    const testOutputLines: INpmTestJSON[] = [];
     if (npmTestContent.length > 1) {
-      for (let line of npmTestContent) {
+      for (const line of npmTestContent) {
         testOutputLines.push({
-          testOutputLine: line
-        })
+          testOutputLine: line,
+        });
       }
-      return testOutputLines
+      return testOutputLines;
     }
-    return []
+    return [];
   }
 }
 
-export default OutputParser
+export default OutputParser;
 
-export interface DockerinfoJSON {
+export interface IDockerinfoJSON {
   workDIR: string;
   alpineNodeUsed: boolean;
 }
 
-export interface OsJSON {
+export interface IOsJSON {
   name: string;
   version: string;
 }
 
-export interface NcuJSON {
+export interface INcuJSON {
   package: string;
 }
 
-export interface VulnScanJSON {
+export interface IVulnScanJSON {
   vulnComp: string;
   severity: string;
   vulnPath: string;
@@ -173,6 +173,6 @@ export interface VulnScanJSON {
   description: string;
 }
 
-export interface NpmTestJSON {
+export interface INpmTestJSON {
   testOutputLine: string;
 }
