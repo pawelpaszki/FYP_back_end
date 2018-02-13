@@ -26,8 +26,9 @@ class ContainerController {
           error: 'Unable to create container',
         });
       } else {
-        res.status(201).json({
-          message: 'Container created successfully',
+        const id = data.id;
+        res.status(200).json({
+          id,
         });
       }
     });
@@ -90,33 +91,27 @@ class ContainerController {
         }
         try {
           container.export((err, stream) => {
-            try {
-              const ws = fs.createWriteStream('imageArchive.tar');
-              stream.pipe(ws);
-              ws.on('finish', () => {
-                async function extractCont() {
-                  try {
-                    await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && mkdir ' + testDir, true);
-                    await ChildProcessHandler.executeChildProcCommand(
-                      'tar -x -f imageArchive.tar --directory imagesTestDir/' + testDir, true);
-                    await ChildProcessHandler.executeChildProcCommand('rm -rf imageArchive.tar', true);
-                    return res.status(200).json({
-                      message: 'Container source code extracted successfully',
-                    });
-                  } catch (error) {
-                    return res.status(500).json({
-                      err: error,
-                      message: 'Unable to extract source code',
-                    });
-                  }
+            const ws = fs.createWriteStream('imageArchive.tar');
+            stream.pipe(ws);
+            ws.on('finish', () => {
+              async function extractCont() {
+                try {
+                  await ChildProcessHandler.executeChildProcCommand('cd imagesTestDir && mkdir ' + testDir, true);
+                  await ChildProcessHandler.executeChildProcCommand(
+                    'tar -x -f imageArchive.tar --directory imagesTestDir/' + testDir, true);
+                  await ChildProcessHandler.executeChildProcCommand('rm -rf imageArchive.tar', true);
+                  return res.status(200).json({
+                    message: 'Container source code extracted successfully',
+                  });
+                } catch (error) {
+                  return res.status(500).json({
+                    err: error,
+                    message: 'Unable to extract source code',
+                  });
                 }
-                extractCont();
-              });
-            } catch (err) {
-              return res.status(404).json({
-                message: 'Unable to extract source code',
-              });
-            }
+              }
+              extractCont();
+            });
           });
         } catch (error) {
           return res.status(500).json({
