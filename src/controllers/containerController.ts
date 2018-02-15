@@ -80,6 +80,7 @@ class ContainerController {
     if (testDir.length > 0) {
       let checkDirOutput = '';
       async function getDirOutput() {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
           checkDirOutput = await ChildProcessHandler.executeChildProcCommand(
             'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);

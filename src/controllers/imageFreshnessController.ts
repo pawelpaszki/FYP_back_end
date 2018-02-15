@@ -6,7 +6,7 @@ import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import DateComparator from '../utilities/DateComparator';
 import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
-import OutputParser, {VulnScanJSON} from '../utilities/OutputParser';
+import OutputParser, {IVulnScanJSON} from '../utilities/OutputParser';
 
 class ImagesFreshnessController {
 
@@ -22,7 +22,7 @@ class ImagesFreshnessController {
         return res.status(404).json({ error: 'ImageFreshnessEntry with given id does not exist!' });
       } else {
         if (req.body.startDate && req.body.endDate) {
-          const vulnerabilityCheckRecords: VulnScanJSON[] = [];
+          const vulnerabilityCheckRecords: IVulnScanJSON[] = [];
           for (const vulnerabilityEntry of imageFreshnessEntry.vulnerabilityCheckRecords) {
             if (DateComparator.isWithinRange(req.body.startDate, req.body.endDate, vulnerabilityEntry.date)) {
               vulnerabilityCheckRecords.push(vulnerabilityEntry);
@@ -30,8 +30,8 @@ class ImagesFreshnessController {
           }
           return res.status(200).json(vulnerabilityCheckRecords);
         } else {
-          const freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.low_vuln_count,
-            imageFreshnessEntry.medium_vuln_count, imageFreshnessEntry.high_vuln_count);
+          const freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.lowVulnCount,
+            imageFreshnessEntry.mediumVulnCount, imageFreshnessEntry.highVulnCount);
           return res.status(200).json({entry: imageFreshnessEntry, freshnessGrade});
         }
       }
@@ -44,9 +44,9 @@ class ImagesFreshnessController {
     try {
       const newEntry = new ImageFreshnessEntry();
       newEntry.name = req.body.name;
-      newEntry.low_vuln_count = 0;
-      newEntry.medium_vuln_count = 0;
-      newEntry.high_vuln_count = 0;
+      newEntry.lowVulnCount = 0;
+      newEntry.mediumVulnCount = 0;
+      newEntry.highVulnCount = 0;
       newEntry.vulnerabilityCheckRecords = [];
       await newEntry.save();
       return res.status(201).json({message: 'Image freshness created saved successfully!', entry: newEntry});
@@ -74,9 +74,9 @@ class ImagesFreshnessController {
         if (entry === null) {
           entry = new ImageFreshnessEntry();
           entry.name = req.body.name;
-          entry.low_vuln_count = 0;
-          entry.medium_vuln_count = 0;
-          entry.high_vuln_count = 0;
+          entry.lowVulnCount = 0;
+          entry.mediumVulnCount = 0;
+          entry.highVulnCount = 0;
           entry.vulnerabilityCheckRecords = [];
         }
         const todaysDate: Date = new Date();
@@ -89,7 +89,8 @@ class ImagesFreshnessController {
             });
           }
         }
-        let snykResults: VulnScanJSON[];
+        let snykResults: IVulnScanJSON[];
+        /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
           const checkDir = await ChildProcessHandler.executeChildProcCommand(
             'cd imagesTestDir && find . -maxdepth 1 -name ' + folderName, false);
@@ -115,7 +116,7 @@ class ImagesFreshnessController {
         for (const result of snykResults) {
           if (result.severity === 'low') {
             lowSeverity.push({
-              dependency_path: result.vulnPath,
+              dependencyPath: result.vulnPath,
               description: result.description,
               name: result.vulnComp,
               remediation: result.remediation,
@@ -123,7 +124,7 @@ class ImagesFreshnessController {
           }
           if (result.severity === 'medium') {
             mediumSeverity.push({
-              dependency_path: result.vulnPath,
+              dependencyPath: result.vulnPath,
               description: result.description,
               name: result.vulnComp,
               remediation: result.remediation,
@@ -131,7 +132,7 @@ class ImagesFreshnessController {
           }
           if (result.severity === 'high') {
             highSeverity.push({
-              dependency_path: result.vulnPath,
+              dependencyPath: result.vulnPath,
               description: result.description,
               name: result.vulnComp,
               remediation: result.remediation,
@@ -141,23 +142,23 @@ class ImagesFreshnessController {
         const vulnerabilityCheckRecord: IVulnerabilityCheckRecord = {} as IVulnerabilityCheckRecord;
 
         vulnerabilityCheckRecord.date = new Date();
-        vulnerabilityCheckRecord.low_severity = lowSeverity;
-        vulnerabilityCheckRecord.medium_severity = mediumSeverity;
-        vulnerabilityCheckRecord.high_severity = highSeverity;
+        vulnerabilityCheckRecord.lowSeverity = lowSeverity;
+        vulnerabilityCheckRecord.mediumSeverity = mediumSeverity;
+        vulnerabilityCheckRecord.highSeverity = highSeverity;
         if (lowSeverity.length === 0) {
-          entry.low_vuln_count = 0;
+          entry.lowVulnCount = 0;
         } else {
-          entry.low_vuln_count = entry.low_vuln_count + 1;
+          entry.lowVulnCount = entry.lowVulnCount + 1;
         }
         if (mediumSeverity.length === 0) {
-          entry.medium_vuln_count = 0;
+          entry.mediumVulnCount = 0;
         } else {
-          entry.medium_vuln_count = entry.medium_vuln_count + 1;
+          entry.mediumVulnCount = entry.mediumVulnCount + 1;
         }
         if (highSeverity.length === 0) {
-          entry.high_vuln_count = 0;
+          entry.highVulnCount = 0;
         } else {
-          entry.high_vuln_count = entry.high_vuln_count + 1;
+          entry.highVulnCount = entry.highVulnCount + 1;
         }
         entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
         await entry.save();

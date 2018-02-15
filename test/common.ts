@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test';
-
 import 'mocha';
 const chaiHttp = require('chai-http');
 

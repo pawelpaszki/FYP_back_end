@@ -11,7 +11,7 @@ class App {
     this.express = express();
     this.middleware();
     this.connectToDB();
-    this.mountRoutes();
+    this.mountRoutes();//
   }
 
   private connectToDB(): void {
@@ -20,12 +20,9 @@ class App {
     if (process.env.NODE_ENV === 'test') {
       uriPostfix = 'test';
     }
+    console.log(uriPostfix);
     mongoose.connect(uriPrefix + uriPostfix, (err) => {
-      if (err) {
-        /* tslint:disable */ console.log(err.message); /* tslint:enable */
-        /* tslint:disable */ console.log(err); /* tslint:enable */
-
-      } else {
+      if (!err) {
         if (process.env.NODE_ENV !== 'test') {
           /* tslint:disable */ console.log('Connected to MongoDB'); /* tslint:enable */
         }

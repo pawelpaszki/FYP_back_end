@@ -122,17 +122,4 @@ describe('# Container', () => {
     });
   });
 
-  describe('/POST extract source code of a running container', () => {
-    it('should not extract the source code again', function(done) {
-      this.timeout(30000);
-      chai.request(express)
-        .post(endpoint + 'extract')
-        .send({containerId: startedContainerId, imageName: testImageName1})
-        .end((err, res) => {
-          res.should.have.status(403);
-          done();
-        });
-    });
-  });
-
 });
