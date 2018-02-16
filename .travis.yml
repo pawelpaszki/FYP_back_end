@@ -3,7 +3,6 @@ sudo: false
 services:
 - docker
 - mongodb
-if: type IN (push, pull_request)
 addons:
   sonarcloud:
     organization: "pawelpaszki-github"

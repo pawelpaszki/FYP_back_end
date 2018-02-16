@@ -36,7 +36,7 @@ commander
 commander
   .command('checkForVuln <name>')
   .alias('cv')
-  .description('Check for vulnerable componets')
+  .description('Check for vulnerable components')
   .action((name) => {
     actions.performVulnerabilityCheck(name);
 
