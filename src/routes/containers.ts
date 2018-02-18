@@ -3,11 +3,11 @@ import ContainerController from '../controllers/containerController';
 
 const containers = express.Router();
 
+containers.get('/', ContainerController.list);
 containers.post('/create', ContainerController.create);
 containers.post('/start', ContainerController.start);
+containers.post('/extract', ContainerController.extract);
 // containers.post('/stop', containerController.stop);
 // containers.delete('/remove', containerController.remove);
-// containers.get('/', containerController.list);
-containers.post('/extract', ContainerController.extract);
 
 export default containers;

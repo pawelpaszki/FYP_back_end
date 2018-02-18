@@ -48,14 +48,23 @@ class ContainerController {
       }
     });
   }
+
+  public list = async (req, res) => {
+    docker.listContainers({
+      'all': 1
+    }, (err, data) => {
+      res.status(200).json({
+        containers: data
+      });
+    });
+  };
+
   //
   // public stop = async (req, res) => {
   //   // TODO
   // };
   //
-  // public list = async (req, res) => {
-  //   // TODO
-  // };
+
   //
   // public remove = async (req, res) => {
   //   // TODO
