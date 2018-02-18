@@ -7,7 +7,7 @@ containers.get('/', ContainerController.list);
 containers.post('/create', ContainerController.create);
 containers.post('/start', ContainerController.start);
 containers.post('/extract', ContainerController.extract);
-// containers.post('/stop', containerController.stop);
+containers.post('/stop', ContainerController.stop);
 // containers.delete('/remove', containerController.remove);
 
 export default containers;

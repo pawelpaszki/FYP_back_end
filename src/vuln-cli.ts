@@ -12,16 +12,22 @@ commander
   .description('Create a container')
   .action((name) => {
     actions.createContainer(name);
-
   });
 
 commander
   .command('startContainer <containerId>')
-  .alias('sc')
+  .alias('sac')
   .description('Start a container')
   .action((containerId) => {
     actions.startContainer(containerId);
+  });
 
+commander
+  .command('stopContainer <containerId>')
+  .alias('soc')
+  .description('Stop a container')
+  .action((containerId) => {
+    actions.stopContainer(containerId);
   });
 
 commander
@@ -30,7 +36,6 @@ commander
   .description('Extract a container')
   .action((containerId, imageName) => {
     actions.extractContainer(containerId, imageName);
-
   });
 
 commander
@@ -39,7 +44,6 @@ commander
   .description('Check for vulnerable components')
   .action((name) => {
     actions.performVulnerabilityCheck(name);
-
   });
 
 if (!process.argv.slice(2).length) {
