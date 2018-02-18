@@ -31,6 +31,14 @@ commander
   });
 
 commander
+  .command('removeContainer <containerId>')
+  .alias('rc')
+  .description('Remove a container')
+  .action((containerId) => {
+    actions.removeContainer(containerId);
+  });
+
+commander
   .command('extractContainer <containerId> <imageName>')
   .alias('ec')
   .description('Extract a container')
