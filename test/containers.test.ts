@@ -22,6 +22,19 @@ describe('# Container', () => {
     OpenStdin: false,
     StdinOnce: false
   };
+
+  describe('/GET list containers', () => {
+    it('it should list all container', (done) => {
+      chai.request(express)
+        .get(endpoint)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('containers');
+          done();
+        });
+    });
+  });
+
   // TODO - pull image before starting those tests
   describe('/POST create container', () => {
     it('it should create new container', (done) => {
