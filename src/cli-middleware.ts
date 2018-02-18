@@ -41,6 +41,18 @@ export const stopContainer = (containerId: string) => {
   })();
 };
 
+export const removeContainer = (containerId: string) => {
+  (async () => {
+    try {
+      const response = await axios.delete(`${url}/containers/${containerId}`,
+      );
+      /* tslint:disable */ console.log('container removed'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to remove container'); /* tslint:enable */
+    }
+  })();
+};
+
 export const extractContainer = (containerId: string, imageName: string) => {
   (async () => {
     try {

@@ -76,10 +76,26 @@ class ContainerController {
   }
 
 
-  //
-  // public remove = async (req, res) => {
-  //   // TODO
-  // };
+  public remove = async (req, res) => {
+    const container = docker.getContainer(req.params.containerId);
+    container.remove((err, data) => {
+      if (data === null) {
+        if (err.statusCode === 409) {
+          res.status(409).json({
+            error: 'Unable to remove running container',
+          });
+        } else {
+          res.status(404).json({
+            error: 'Unable to remove container',
+          });
+        }
+      } else {
+        res.status(200).json({
+          message: 'Container removed successfully',
+        });
+      }
+    });
+  }
 
   public extract = async (req, res) => {
     const container = docker.getContainer(req.body.containerId);

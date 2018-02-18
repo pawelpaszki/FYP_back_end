@@ -135,6 +135,18 @@ describe('# Container', () => {
     });
   });
 
+  describe('/DELETE remove container', () => {
+    it('should not remove running container', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .delete(endpoint + startedContainerId)
+        .end((err, res) => {
+          res.should.have.status(409);
+          done();
+        });
+    });
+  });
+
   describe('/POST stop container', () => {
     it('should stop running container', function(done) {
       this.timeout(30000);
@@ -154,6 +166,30 @@ describe('# Container', () => {
       chai.request(express)
         .post(endpoint + 'stop')
         .send({containerId: '123412341234'})
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+  });
+
+  describe('/DELETE remove container', () => {
+    it('should remove existing container', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .delete(endpoint + startedContainerId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/DELETE remove container', () => {
+    it('should not remove non-existent container', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .delete(endpoint + '123412341234')
         .end((err, res) => {
           res.should.have.status(404);
           done();

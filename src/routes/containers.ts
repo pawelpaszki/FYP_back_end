@@ -8,6 +8,6 @@ containers.post('/create', ContainerController.create);
 containers.post('/start', ContainerController.start);
 containers.post('/extract', ContainerController.extract);
 containers.post('/stop', ContainerController.stop);
-// containers.delete('/remove', containerController.remove);
+containers.delete('/:containerId', ContainerController.remove);
 
 export default containers;
