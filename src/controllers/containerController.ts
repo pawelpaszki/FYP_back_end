@@ -51,19 +51,30 @@ class ContainerController {
 
   public list = async (req, res) => {
     docker.listContainers({
-      'all': 1
+      all: 1,
     }, (err, data) => {
       res.status(200).json({
-        containers: data
+        containers: data,
       });
     });
-  };
+  }
 
-  //
-  // public stop = async (req, res) => {
-  //   // TODO
-  // };
-  //
+
+  public stop = async (req, res) => {
+    const container = docker.getContainer(req.body.containerId);
+    container.stop((err, data) => {
+      if (data === null) {
+        res.status(404).json({
+          error: 'Unable to stop container',
+        });
+      } else {
+        res.status(200).json({
+          message: 'Container stopped successfully',
+        });
+      }
+    });
+  }
+
 
   //
   // public remove = async (req, res) => {

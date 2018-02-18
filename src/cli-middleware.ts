@@ -28,6 +28,19 @@ export const startContainer = (containerId: string) => {
   })();
 };
 
+export const stopContainer = (containerId: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/containers/stop`,  {
+        containerId,
+      });
+      /* tslint:disable */ console.log('container stopped'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to stop container'); /* tslint:enable */
+    }
+  })();
+};
+
 export const extractContainer = (containerId: string, imageName: string) => {
   (async () => {
     try {

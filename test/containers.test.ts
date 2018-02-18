@@ -105,7 +105,7 @@ describe('# Container', () => {
     });
   });
 
-  describe('/POST extract source code of a not running container', () => {
+  describe('/POST extract source code of a non-running container', () => {
     it('should not extract source code of a non running container', (done) => {
       docker.createContainer(testContainer, function(err, container) {
         if (!err) {
@@ -130,6 +130,32 @@ describe('# Container', () => {
         .send({containerId: startedContainerId, imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/POST stop container', () => {
+    it('should stop running container', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .post(endpoint + 'stop')
+        .send({containerId: startedContainerId})
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/POST stop container', () => {
+    it('should not stop non-existent container', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .post(endpoint + 'stop')
+        .send({containerId: '123412341234'})
+        .end((err, res) => {
+          res.should.have.status(404);
           done();
         });
     });
