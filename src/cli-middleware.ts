@@ -80,3 +80,15 @@ export const performVulnerabilityCheck = (name: string) => {
   })();
 };
 
+export const pullImage = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/images/pull`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log('image successfully pulled'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to pull image' + imageName); /* tslint:enable */
+    }
+  })();
+};
