@@ -11,7 +11,7 @@ export class ChildProcessHandler {
               if (error === null) {
                 resolve(error);
               } else {
-                resolve('done');
+                resolve('');
               }
             } else {
               reject(error);
@@ -21,7 +21,7 @@ export class ChildProcessHandler {
           } else if (stderr) {
               resolve(stderr);
           } else {
-            resolve('done');
+            resolve('');
           }
         });
       }, 200);

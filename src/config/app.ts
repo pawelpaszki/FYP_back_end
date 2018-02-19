@@ -2,6 +2,7 @@ import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 import containers from '../routes/containers';
+import images from '../routes/images';
 import imageFreshness from '../routes/imagesfreshness';
 
 class App {
@@ -39,6 +40,7 @@ class App {
   private mountRoutes(): void {
     this.express.use('/api/imagefreshness', imageFreshness);
     this.express.use('/api/containers', containers);
+    this.express.use('/api/images', images);
     this.express.use('/', (req, res) => {
       res.status(404).send({error: `path doesn't exist`});
     });

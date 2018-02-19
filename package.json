@@ -1,6 +1,6 @@
 {
   "name": "docker-image-freshness-and-vulnerability-manager",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "line-by-line": "^0.1.6",
     "mongoose": "^5.0.0",
     "nodemon": "1.14.11",
-    "q": "^1.5.1"
+    "q": "^1.5.1",
+    "simple-get": "^2.7.0"
   },
   "bin": {
     "docker-vuln": "./src/vuln-cli.ts"
