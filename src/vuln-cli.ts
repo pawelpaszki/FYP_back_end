@@ -54,6 +54,14 @@ commander
     actions.performVulnerabilityCheck(name);
   });
 
+commander
+  .command('pullImage <imageName>')
+  .alias('pi')
+  .description('Check for vulnerable components')
+  .action((imageName) => {
+    actions.pullImage(imageName);
+  });
+
 if (!process.argv.slice(2).length) {
   commander.outputHelp();
   process.exit();
