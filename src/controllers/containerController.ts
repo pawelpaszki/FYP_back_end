@@ -1,5 +1,5 @@
 import * as Docker from 'dockerode';
-import {Container, ContainerInspectInfo} from 'dockerode';
+import {ContainerInspectInfo} from 'dockerode';
 import * as fs from 'fs';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
