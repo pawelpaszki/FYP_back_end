@@ -134,14 +134,18 @@ class OutputParser {
     return [];
   }
 
-  public static parseNpmTests(path: string): INpmTestJSON[] {
-    const npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
-    const testOutputLines: INpmTestJSON[] = [];
+  public static parseNpmTests(path: string): string[] {
+    let npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
+    npmTestContent = npmTestContent.filter((line) => line !== '');
+    if (npmTestContent.length > 2) {
+      npmTestContent.splice(0, 1);
+    } else {
+      return [];
+    }
+    const testOutputLines: string[] = [];
     if (npmTestContent.length > 1) {
       for (const line of npmTestContent) {
-        testOutputLines.push({
-          testOutputLine: line,
-        });
+        testOutputLines.push(line.toString());
       }
       return testOutputLines;
     }
@@ -171,8 +175,4 @@ export interface IVulnScanJSON {
   vulnPath: string;
   remediation: string;
   description: string;
-}
-
-export interface INpmTestJSON {
-  testOutputLine: string;
 }

@@ -135,6 +135,19 @@ describe('# Container', () => {
     });
   });
 
+  describe('/POST extract source code with no image name', () => {
+    it('should not extract source code with no image name provided', function(done) {
+      this.timeout(30000);
+      chai.request(express)
+        .post(endpoint + 'extract')
+        .send({containerId: startedContainerId, imageName: ''})
+        .end((err, res) => {
+          res.should.have.status(500);
+          done();
+        });
+    });
+  });
+
   describe('/DELETE remove container', () => {
     it('should not remove running container', function(done) {
       this.timeout(30000);

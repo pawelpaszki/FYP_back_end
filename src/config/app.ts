@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose';
 import containers from '../routes/containers';
 import images from '../routes/images';
 import imageFreshness from '../routes/imagesfreshness';
+import npm from '../routes/npm';
 
 class App {
   public express;
@@ -41,6 +42,7 @@ class App {
     this.express.use('/api/imagefreshness', imageFreshness);
     this.express.use('/api/containers', containers);
     this.express.use('/api/images', images);
+    this.express.use('/api/npm', npm);
     this.express.use('/', (req, res) => {
       res.status(404).send({error: `path doesn't exist`});
     });
