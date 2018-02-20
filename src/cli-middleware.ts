@@ -92,3 +92,15 @@ export const pullImage = (imageName: string) => {
     }
   })();
 };
+
+export const removeImage = (imageId: string) => {
+  (async () => {
+    try {
+      const response = await axios.delete(`${url}/images/${imageId}`,
+      );
+      /* tslint:disable */ console.log('Image removed successfully'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to remove image'); /* tslint:enable */
+    }
+  })();
+};

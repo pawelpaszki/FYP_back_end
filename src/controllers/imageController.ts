@@ -40,6 +40,27 @@ class ImageController {
       }
     });
   }
+
+  public remove = async (req, res) => {
+    const imageId = req.params.imageId;
+    try {
+      const removeResults = await ChildProcessHandler.executeChildProcCommand(
+        'docker rmi --force ' + imageId, false);
+      if (removeResults.toString().includes('No such image')) {
+        res.status(404).json({
+          message: 'Image not found',
+        });
+      } else {
+        res.status(200).json({
+          message: 'Image removed successfully',
+        });
+      }
+    } catch (error) {
+      res.status(409).json({
+        message: 'Image cannot be removed',
+      });
+    }
+  }
 }
 
 export default new ImageController();
