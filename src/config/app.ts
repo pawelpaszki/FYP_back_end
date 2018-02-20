@@ -20,8 +20,8 @@ class App {
     let uriPostfix = 'images';
     if (process.env.NODE_ENV === 'test') {
       uriPostfix = 'test';
+      /* tslint:disable */ console.log('environment: ' + uriPostfix); /* tslint:enable */
     }
-    /* tslint:disable */ console.log(uriPostfix); /* tslint:enable */
     mongoose.connect(uriPrefix + uriPostfix, (err) => {
       if (!err) {
         if (process.env.NODE_ENV !== 'test') {
