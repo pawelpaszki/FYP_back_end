@@ -1,6 +1,7 @@
 import express from '../src/config/app';
 const endpoint = '/api/images/';
 import {chai} from './common';
+import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";
 
 describe('# Image', () => {
 
@@ -41,6 +42,18 @@ describe('# Image', () => {
           res.should.have.status(404);
           res.body.should.not.be.empty;
           done();
+        });
+    });
+  });
+
+  describe('/DELETE docker image', () => {
+    it('it should delete local docker image', async () => {
+      const imageId = await ChildProcessHandler.executeChildProcCommand('docker images --format "{{.ID}}" alpine', false);
+      chai.request(express)
+        .delete(endpoint + imageId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
         });
     });
   });

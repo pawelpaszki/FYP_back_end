@@ -57,9 +57,17 @@ commander
 commander
   .command('pullImage <imageName>')
   .alias('pi')
-  .description('Check for vulnerable components')
+  .description('Pull Docker image')
   .action((imageName) => {
     actions.pullImage(imageName);
+  });
+
+commander
+  .command('removeImage <imageId>')
+  .alias('ri')
+  .description('Remove Docker image')
+  .action((imageId) => {
+    actions.removeImage(imageId);
   });
 
 if (!process.argv.slice(2).length) {
