@@ -74,7 +74,7 @@ describe('# OutputParser', () => {
       let nonExistentPath = '/nonexistentpath';
       let testLines: NpmTestJSON[] = OutputParser.parseNpmTests(npmTestOutput);
       expect(testLines.length).to.be.greaterThan(0);
-      expect(testLines[2].testOutputLine).to.equal('> nyc mocha --exit');
+      expect(testLines[0]).to.equal('> nyc mocha --exit');
       let outputNonexistentPath: NpmTestJSON[] = OutputParser.parseNpmTests(nonExistentPath);
       expect(outputNonexistentPath.length).to.equal(0);
     });

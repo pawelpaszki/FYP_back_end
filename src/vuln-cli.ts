@@ -8,7 +8,7 @@ commander
 
 commander
   .command('createContainer <name>')
-  .alias('cc')
+  // .alias('cc')
   .description('Create a container')
   .action((name) => {
     actions.createContainer(name);
@@ -16,7 +16,6 @@ commander
 
 commander
   .command('startContainer <containerId>')
-  .alias('sac')
   .description('Start a container')
   .action((containerId) => {
     actions.startContainer(containerId);
@@ -24,7 +23,6 @@ commander
 
 commander
   .command('stopContainer <containerId>')
-  .alias('soc')
   .description('Stop a container')
   .action((containerId) => {
     actions.stopContainer(containerId);
@@ -32,7 +30,6 @@ commander
 
 commander
   .command('removeContainer <containerId>')
-  .alias('rc')
   .description('Remove a container')
   .action((containerId) => {
     actions.removeContainer(containerId);
@@ -40,7 +37,6 @@ commander
 
 commander
   .command('extractContainer <containerId> <imageName>')
-  .alias('ec')
   .description('Extract a container')
   .action((containerId, imageName) => {
     actions.extractContainer(containerId, imageName);
@@ -48,7 +44,6 @@ commander
 
 commander
   .command('checkForVuln <name>')
-  .alias('cv')
   .description('Check for vulnerable components')
   .action((name) => {
     actions.performVulnerabilityCheck(name);
@@ -56,7 +51,6 @@ commander
 
 commander
   .command('pullImage <imageName>')
-  .alias('pi')
   .description('Pull Docker image')
   .action((imageName) => {
     actions.pullImage(imageName);
@@ -64,10 +58,16 @@ commander
 
 commander
   .command('removeImage <imageId>')
-  .alias('ri')
   .description('Remove Docker image')
   .action((imageId) => {
     actions.removeImage(imageId);
+  });
+
+commander
+  .command('runNpmTests <imageName>')
+  .description('Remove Docker image')
+  .action((imageName) => {
+    actions.runNpmTests(imageName);
   });
 
 if (!process.argv.slice(2).length) {

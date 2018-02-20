@@ -44,8 +44,7 @@ export const stopContainer = (containerId: string) => {
 export const removeContainer = (containerId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/containers/${containerId}`,
-      );
+      const response = await axios.delete(`${url}/containers/${containerId}`);
       /* tslint:disable */ console.log('container removed'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to remove container'); /* tslint:enable */
@@ -96,11 +95,23 @@ export const pullImage = (imageName: string) => {
 export const removeImage = (imageId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/images/${imageId}`,
-      );
+      const response = await axios.delete(`${url}/images/${imageId}`);
       /* tslint:disable */ console.log('Image removed successfully'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to remove image'); /* tslint:enable */
+    }
+  })();
+};
+
+export const runNpmTests = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/npm/tests`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to run npm tests',); /* tslint:enable */
     }
   })();
 };

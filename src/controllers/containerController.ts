@@ -113,7 +113,7 @@ class ContainerController {
       });
     }
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
-    if (testDir.length > 0) {
+    if (testDir.length > 0 && testDir !== 'test') {
       let checkDirOutput = '';
       async function getDirOutput() {
         /* istanbul ignore if */
@@ -122,7 +122,7 @@ class ContainerController {
             'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
           if (checkDirOutput.toString().includes(testDir)) {
             return res.status(403).json({
-              message: 'Source code already extracted',
+              error: 'Source code already extracted',
             });
           }
         }
@@ -159,7 +159,7 @@ class ContainerController {
       getDirOutput();
     } else {
       res.status(500).json({
-        message: 'Unable to extract source code',
+        message: 'No image name provided',
       });
     }
   }
