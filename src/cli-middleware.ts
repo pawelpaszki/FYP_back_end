@@ -126,3 +126,17 @@ export const removeSrcCode = (imageName: string) => {
     }
   })();
 };
+
+export const dockerLogin = (username: string, password: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/misc/dockerLogin`,  {
+        password,
+        username,
+      });
+      /* tslint:disable */ console.log('Login Successful'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Incorrect login and/or password'); /* tslint:enable */
+    }
+  })();
+};
