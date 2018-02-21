@@ -121,7 +121,7 @@ class ContainerController {
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
           checkDirOutput = await ChildProcessHandler.executeChildProcCommand(
-            'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false).toString();
+            'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
           if (checkDirOutput.includes(testDir)) {
             return res.status(403).json({
               error: 'Source code already extracted',

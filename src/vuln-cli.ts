@@ -65,9 +65,16 @@ commander
 
 commander
   .command('runNpmTests <imageName>')
-  .description('Remove Docker image')
+  .description('Run npm tests')
   .action((imageName) => {
     actions.runNpmTests(imageName);
+  });
+
+commander
+  .command('removeSrcCode <imageName>')
+  .description('Remove source code')
+  .action((imageName) => {
+    actions.removeSrcCode(imageName);
   });
 
 if (!process.argv.slice(2).length) {

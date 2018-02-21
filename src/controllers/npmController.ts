@@ -11,10 +11,10 @@ class NpmController {
       async function checkDirExists() {
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
-          const checkDirOutput = await ChildProcessHandler.executeChildProcCommand(
+          const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
             'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
-          if (!checkDirOutput.toString().includes(testDir)) {
-            return res.status(403).json({
+          if (!checkDirOutput.includes(testDir)) {
+            return res.status(404).json({
               error: 'No source code found',
             });
           }
@@ -51,6 +51,39 @@ class NpmController {
           return res.status(500).json({
             error: 'Unable to run npm tests',
           });
+        }
+      }
+      checkDirExists();
+    } else {
+      res.status(500).json({
+        error: 'No image name provided',
+      });
+    }
+  }
+
+  public removeSrcCode = async (req: Request, res: Response) => {
+    const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.params.imageName);
+    if (testDir.length > 0) {
+      async function checkDirExists() {
+        const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
+          'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
+        if (!checkDirOutput.includes(testDir)) {
+          return res.status(404).json({
+            error: 'No source code found',
+          });
+        } else {
+          try {
+            const output: string = await ChildProcessHandler.executeChildProcCommand(
+              'cd imagesTestDir && rm -rf ' + testDir, false);
+            res.status(200).json({
+              error: 'Source code successfully removed',
+            });
+            /* istanbul ignore next */
+          } catch (error) {
+            res.status(500).json({
+              error: 'Unable to remove source code',
+            });
+          }
         }
       }
       checkDirExists();
