@@ -37,7 +37,7 @@ describe('# NPM', () => {
     it('should remove existing directory', async () => {
       if (process.env.NODE_ENV === 'test') {
         await ChildProcessHandler.executeChildProcCommand(
-          'mkdir testImagesDir && cd imagesTestDir && mkdir PAWELPASZKIvuln-demo-10-node', true);
+          'mkdir testImagesDir && cd testImagesDir && mkdir PAWELPASZKIvuln-demo-10-node', true);
       }
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-10-node')
