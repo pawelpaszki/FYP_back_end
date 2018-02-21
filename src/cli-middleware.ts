@@ -115,3 +115,14 @@ export const runNpmTests = (imageName: string) => {
     }
   })();
 };
+
+export const removeSrcCode = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.delete(`${url}/npm/src/${imageName}`);
+      /* tslint:disable */ console.log('Source code successfully removed'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to remove source code',); /* tslint:enable */
+    }
+  })();
+};

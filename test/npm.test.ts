@@ -32,4 +32,26 @@ describe('# NPM', () => {
     });
   });
 
+  describe('/DELETE remove extracted source code', () => {
+    it('should remove existing directory', (done) => {
+      chai.request(express)
+        .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-10-node')
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/DELETE remove extracted source code', () => {
+    it('should not remove non-existent directory', (done) => {
+      chai.request(express)
+        .delete(endpoint + 'src/pawelpaszki%2Fnon-existentDir')
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+  });
+
 });
