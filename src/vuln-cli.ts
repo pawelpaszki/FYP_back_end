@@ -77,6 +77,13 @@ commander
     actions.removeSrcCode(imageName);
   });
 
+commander
+  .command('dockerLogin <username> <password>')
+  .description('Docker Login')
+  .action((username, password) => {
+    actions.dockerLogin(username, password);
+  });
+
 if (!process.argv.slice(2).length) {
   commander.outputHelp();
   process.exit();
