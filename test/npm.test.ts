@@ -4,6 +4,7 @@ const endpoint = '/api/npm/';
 const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
 const emptyImageName = '';
 import {chai} from './common';
+import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";
 
 describe('# NPM', () => {
 
@@ -33,7 +34,10 @@ describe('# NPM', () => {
   });
 
   describe('/DELETE remove extracted source code', () => {
-    it('should remove existing directory', (done) => {
+    it('should remove existing directory', async (done) => {
+      if (process.env.NODE_ENV === 'test') {
+        await ChildProcessHandler.executeChildProcCommand('mkdir testImagesDir/PAWELPASZKIvuln-demo-10-node', false);
+      }
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-10-node')
         .end((err, res) => {
