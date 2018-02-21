@@ -1,8 +1,10 @@
 import * as Docker from 'dockerode';
 import {ContainerInspectInfo} from 'dockerode';
+import { Request, Response } from 'express';
 import * as fs from 'fs';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
+
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock',
@@ -10,8 +12,8 @@ const docker = new Docker({
 
 class ContainerController {
 
-  public create = async (req, res) => {
-    const name = req.body.name;
+  public create = async (req: Request, res: Response) => {
+    const name: string = req.body.name;
     docker.createContainer({
       AttachStderr: true,
       AttachStdin: false,
@@ -34,7 +36,7 @@ class ContainerController {
     });
   }
 
-  public start = async (req, res) => {
+  public start = async (req: Request, res: Response) => {
     const container = docker.getContainer(req.body.containerId);
     container.start((err, data) => {
       if (data === null) {
@@ -49,7 +51,7 @@ class ContainerController {
     });
   }
 
-  public list = async (req, res) => {
+  public list = async (req: Request, res: Response) => {
     docker.listContainers({
       all: 1,
     }, (err, data) => {
@@ -60,7 +62,7 @@ class ContainerController {
   }
 
 
-  public stop = async (req, res) => {
+  public stop = async (req: Request, res: Response) => {
     const container = docker.getContainer(req.body.containerId);
     container.stop((err, data) => {
       if (data === null) {
@@ -76,7 +78,7 @@ class ContainerController {
   }
 
 
-  public remove = async (req, res) => {
+  public remove = async (req: Request, res: Response) => {
     const container = docker.getContainer(req.params.containerId);
     container.remove((err, data) => {
       if (data === null) {
@@ -97,7 +99,7 @@ class ContainerController {
     });
   }
 
-  public extract = async (req, res) => {
+  public extract = async (req: Request, res: Response) => {
     const container = docker.getContainer(req.body.containerId);
     let containerInfo: ContainerInspectInfo;
     try {
@@ -114,13 +116,13 @@ class ContainerController {
     }
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {
-      let checkDirOutput = '';
+      let checkDirOutput: string = '';
       async function getDirOutput() {
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
           checkDirOutput = await ChildProcessHandler.executeChildProcCommand(
-            'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
-          if (checkDirOutput.toString().includes(testDir)) {
+            'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false).toString();
+          if (checkDirOutput.includes(testDir)) {
             return res.status(403).json({
               error: 'Source code already extracted',
             });
@@ -142,8 +144,7 @@ class ContainerController {
                   });
                 } catch (error) {
                   return res.status(500).json({
-                    err: error,
-                    message: 'Unable to extract source code',
+                    error: 'Unable to extract source code',
                   });
                 }
               }
@@ -152,14 +153,14 @@ class ContainerController {
           });
         } catch (error) {
           return res.status(500).json({
-            message: 'Unable to extract source code',
+            error: 'Unable to extract source code',
           });
         }
       }
       getDirOutput();
     } else {
       res.status(500).json({
-        message: 'No image name provided',
+        error: 'No image name provided',
       });
     }
   }

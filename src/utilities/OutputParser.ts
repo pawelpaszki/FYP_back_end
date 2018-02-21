@@ -43,7 +43,7 @@ class OutputParser {
 
   public static parseDockerfile(path: string): IDockerinfoJSON {
     const dockerfileContent = FileToStringConverter.readFile(path).split('\n');
-    let workDIR = '';
+    let workDIR: string = '';
     let alpineNodeFound = false;
     if (dockerfileContent.length > 0) {
       for (const line of dockerfileContent) {

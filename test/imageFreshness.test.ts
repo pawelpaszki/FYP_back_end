@@ -57,8 +57,7 @@ describe('# Image Freshness', () => {
         .end((err, res) => {
           res.should.have.status(403);
           res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Unable to create image freshness entry');
-          res.body.should.have.property('error');
+          res.body.should.have.property('error').eql('Unable to create image freshness entry');
           done();
         });
     });

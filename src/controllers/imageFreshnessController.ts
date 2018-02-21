@@ -1,3 +1,4 @@
+import { Request, Response } from 'express';
 import {ImageFreshnessEntry,
   IVulnerability,
   IVulnerabilityCheckRecord,
@@ -10,12 +11,12 @@ import OutputParser, {IVulnScanJSON} from '../utilities/OutputParser';
 
 class ImagesFreshnessController {
 
-  public getAll = async (req, res) => {
+  public getAll = async (req: Request, res: Response) => {
     const imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
     return res.status(200).json(imageFreshnessEntries);
   }
 
-  public getOne = async (req, res) => {
+  public getOne = async (req: Request, res: Response) => {
     try {
       const imageFreshnessEntry = await ImageFreshnessEntry.findById(req.params.id).exec();
       if (!imageFreshnessEntry) {
@@ -30,7 +31,7 @@ class ImagesFreshnessController {
           }
           return res.status(200).json(vulnerabilityCheckRecords);
         } else {
-          const freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.lowVulnCount,
+          const freshnessGrade: string = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.lowVulnCount,
             imageFreshnessEntry.mediumVulnCount, imageFreshnessEntry.highVulnCount);
           return res.status(200).json({entry: imageFreshnessEntry, freshnessGrade});
         }
@@ -40,7 +41,7 @@ class ImagesFreshnessController {
     }
   }
 
-  public create = async (req, res) => {
+  public create = async (req: Request, res: Response) => {
     try {
       const newEntry = new ImageFreshnessEntry();
       newEntry.name = req.body.name;
@@ -51,23 +52,23 @@ class ImagesFreshnessController {
       await newEntry.save();
       return res.status(201).json({message: 'Image freshness created saved successfully!', entry: newEntry});
     } catch (err) {
-      return res.status(403).json({message: 'Unable to create image freshness entry', error: err});
+      return res.status(403).json({error: 'Unable to create image freshness entry'});
     }
   }
 
-  public delete = async (req, res) => {
+  public delete = async (req: Request, res: Response) => {
     await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
     return res.status(200).json({message: 'Image freshness entry deleted successfully!'});
   }
 
-  public performVulnerabilityCheck = async (req, res) => {
+  public performVulnerabilityCheck = async (req: Request, res: Response) => {
     if (!req.body.name) {
       return res.status(403).json({
         error: 'Unable to persist vulnerability check. Docker image\'s name required!',
       });
     }
-    const folderName = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
-    const dirName = 'imagesTestDir/' + folderName;
+    const folderName: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
+    const dirName: string = 'imagesTestDir/' + folderName;
     async function runCliVulnTest() {
       try {
         let entry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec();
@@ -175,12 +176,12 @@ class ImagesFreshnessController {
     runCliVulnTest();
   }
 
-  public deleteAll = async (req, res) => {
+  public deleteAll = async (req: Request, res: Response) => {
     try {
       await ImageFreshnessEntry.deleteMany({});
       return res.status(200).json({message: 'Image freshness entries deleted successfully!'});
     } catch (err) {
-      return res.status(400).json({message: `Unable to delete image freshness entries: ${err}`});
+      return res.status(400).json({error: `Unable to delete image freshness entries: ${err}`});
     }
   }
 }

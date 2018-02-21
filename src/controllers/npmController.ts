@@ -1,10 +1,11 @@
+import {Request, Response} from 'express';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
 import OutputParser from '../utilities/OutputParser';
 
 class NpmController {
 
-  public runTests = async (req, res) => {
+  public runTests = async (req: Request, res: Response) => {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {
       async function checkDirExists() {
@@ -24,11 +25,11 @@ class NpmController {
             /* istanbul ignore if */
             if (process.env.NODE_ENV !== 'test') {
               try {
-                const dirName = 'imagesTestDir/' + testDir;
+                const dirName: string = 'imagesTestDir/' + testDir;
                 const object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand(
                   'docker inspect ' + req.body.imageName, false));
-                const workingDir = object[0].ContainerConfig.WorkingDir;
-                const dirToScan = dirName + workingDir;
+                const workingDir: string = object[0].ContainerConfig.WorkingDir;
+                const dirToScan: string = dirName + workingDir;
 
                 await ChildProcessHandler.executeChildProcCommand(
                   'cd ' + dirToScan + ' && npm test > npmTestResults.txt', true);
@@ -48,7 +49,7 @@ class NpmController {
           runNpmTests();
         } catch (error) {
           return res.status(500).json({
-            message: 'Unable to run npm tests',
+            error: 'Unable to run npm tests',
           });
         }
       }
