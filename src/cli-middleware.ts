@@ -147,9 +147,22 @@ export const buildImage = (imageName: string) => {
       const response = await axios.post(`${url}/images/build`,  {
         imageName,
       });
-      /* tslint:disable */ console.log('Image successfully built');; /* tslint:enable */
+      /* tslint:disable */ console.log('Image successfully built'); /* tslint:enable */
     } catch (error) {
-      /* tslint:disable */ console.log('unable to build image'); /* tslint:enable */
+      /* tslint:disable */ console.log('Unable to build image'); /* tslint:enable */
+    }
+  })();
+};
+
+export const pushImage = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/images/push`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log('Image pushed to DockerHub'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */
     }
   })();
 };

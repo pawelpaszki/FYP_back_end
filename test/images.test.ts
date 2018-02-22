@@ -118,7 +118,6 @@ describe('# Image', () => {
                     .end((err, res) => {
                       res.should.have.status(200);
                       res.body.should.have.property('message').eql('Image successfully built');
-
                     });
                 });
             });
@@ -151,9 +150,7 @@ describe('# Image', () => {
             });
           }
       });
-
     });
-
   });
 
   describe('/POST build docker image', () => {
@@ -166,6 +163,30 @@ describe('# Image', () => {
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.have.property('error').eql('No source code found');
+        });
+    });
+  });
+
+  describe('/POST push docker image', () => {
+    it('it should push existing docker image', async () => {
+      chai.request(express)
+        .post(endpoint + 'push')
+        .send({imageName: 'pawelpaszki/vuln-demo-10-node'})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('message').eql('Image pushed to DockerHub');
+        });
+    });
+  });
+
+  describe('/POST push docker image', () => {
+    it('it should not push an image without authentication to the registry', async () => {
+      chai.request(express)
+        .post(endpoint + 'push')
+        .send({imageName: 'mhart/alpine-node'})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('error').eql('Unable to push image');
         });
     });
   });

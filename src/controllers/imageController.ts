@@ -89,11 +89,26 @@ class ImageController {
     getDirOutput();
   }
 
+  public push = async (req: Request, res: Response) => {
+    const imageName: string = req.body.imageName;
+    try {
+      await ChildProcessHandler.executeChildProcCommand(
+        'docker push ' + imageName, false);
+      res.status(200).json({
+        message: 'Image pushed to DockerHub',
+      });
+    } catch (error) {
+      res.status(404).json({
+        message: 'Unable to push image',
+      });
+    }
+  }
+
   public remove = async (req: Request, res: Response) => {
     const imageId: string = req.params.imageId;
     try {
-      const removeResults = await ChildProcessHandler.executeChildProcCommand(
-        'docker rmi --force ' + imageId, false).toString();
+      const removeResults: string = await ChildProcessHandler.executeChildProcCommand(
+        'docker rmi --force ' + imageId, false);
       if (removeResults.includes('No such image')) {
         res.status(404).json({
           message: 'Image not found',
