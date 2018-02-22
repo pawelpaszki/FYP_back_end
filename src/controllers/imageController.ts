@@ -99,7 +99,7 @@ class ImageController {
       });
     } catch (error) {
       res.status(404).json({
-        message: 'Unable to push image',
+        error: 'Unable to push image',
       });
     }
   }
