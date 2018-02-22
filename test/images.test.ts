@@ -87,12 +87,13 @@ describe('# Image', () => {
   });
 
   describe('/DELETE docker image', () => {
-    it('it should not delete non-existent docker image', async () => {
+    it('it should not delete non-existent docker image', function(done) {
       chai.request(express)
         .delete(endpoint + '123412341234')
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.not.be.empty;
+          done();
         });
     });
   });
