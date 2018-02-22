@@ -140,3 +140,16 @@ export const dockerLogin = (username: string, password: string) => {
     }
   })();
 };
+
+export const buildImage = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/images/build`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log('Image successfully built');; /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to build image'); /* tslint:enable */
+    }
+  })();
+};
