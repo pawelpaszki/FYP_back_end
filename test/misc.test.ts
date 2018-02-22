@@ -29,7 +29,7 @@ describe('# Misc', () => {
   });
 
   describe('/POST docker login', () => {
-    it('it should return an error due to the incorrect credentials', function(done) {
+    it('it should return an error due to the incorrect credentials', async () => {
       chai.request(express)
         .post(endpoint + 'dockerLogin')
         .send({username: 'abc', password: '456'})
