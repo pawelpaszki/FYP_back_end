@@ -97,35 +97,35 @@ describe('# Image', () => {
     });
   });
 
-  // describe('/POST build docker image', () => {
-  //   it('it should build an image', async () => {
-  //     await ChildProcessHandler.executeChildProcCommand(
-  //       'mkdir imagesTestDir', true);
-  //     docker.createContainer(testContainer, function(err, container) {
-  //       if (!err) {
-  //         const containerId = container.id;
-  //         chai.request(express)
-  //           .post('/api/containers/start')
-  //           .send({containerId: containerId})
-  //           .end(() => {
-  //             chai.request(express)
-  //               .post('/api/containers/extract')
-  //               .send({containerId: containerId, imageName: testImageName})
-  //               .end(() => {
-  //                 chai.request(express)
-  //                   .post(endpoint + 'build')
-  //                   .send({imageName: testImageName})
-  //                   .end((err, res) => {
-  //                     res.should.have.status(200);
-  //                     res.body.should.have.property('message').eql('Image successfully built');
-  //
-  //                   });
-  //               });
-  //           });
-  //       }
-  //     });
-  //   });
-  // });
+  describe('/POST build docker image', () => {
+    it('it should build an image', async () => {
+      await ChildProcessHandler.executeChildProcCommand(
+        'mkdir imagesTestDir', true);
+      docker.createContainer(testContainer, function(err, container) {
+        if (!err) {
+          const containerId = container.id;
+          chai.request(express)
+            .post('/api/containers/start')
+            .send({containerId: containerId})
+            .end(() => {
+              chai.request(express)
+                .post('/api/containers/extract')
+                .send({containerId: containerId, imageName: testImageName})
+                .end(() => {
+                  chai.request(express)
+                    .post(endpoint + 'build')
+                    .send({imageName: testImageName})
+                    .end((err, res) => {
+                      res.should.have.status(200);
+                      res.body.should.have.property('message').eql('Image successfully built');
+
+                    });
+                });
+            });
+        }
+      });
+    });
+  });
 
   describe('/POST build docker image', () => {
     it('it should not build image without src code', async () => {
