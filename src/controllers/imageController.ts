@@ -65,7 +65,7 @@ class ImageController {
       const dirName: string = 'imagesTestDir/' + testDir;
       const dirToCheckForDockerfile: string = dirName + workingDir;
       const checkDockerfileOutput: string = await ChildProcessHandler.executeChildProcCommand(
-        'cd ' + dirToCheckForDockerfile + ' && find . -maxdepth 1 -name \"Dockerfile\"', true);
+        'cd ' + dirToCheckForDockerfile + ' && find . -maxdepth 1 -name \"Dockerfile\"', false);
       if (checkDockerfileOutput.includes('Dockerfile')) {
         const buildOutput: string = await ChildProcessHandler.executeChildProcCommand(
           'cd ' + dirToCheckForDockerfile + ' && docker build -t ' + imageName + ' .', true);
