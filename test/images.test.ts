@@ -128,14 +128,15 @@ describe('# Image', () => {
   // });
 
   describe('/POST build docker image', () => {
-    it('it should not build image without src code', function(done) {
+    it('it should not build image without src code', async () => {
+      await ChildProcessHandler.executeChildProcCommand(
+        'mkdir imagesTestDir', true);
       chai.request(express)
         .post(endpoint + 'build')
         .send({imageName: 'pawelpaszki/vuln-demo-3-node'})
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.have.property('error').eql('No source code found');
-          done();
         });
     });
   });
