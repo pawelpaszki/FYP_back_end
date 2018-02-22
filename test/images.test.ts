@@ -128,35 +128,6 @@ describe('# Image', () => {
   });
 
   describe('/POST build docker image', () => {
-    it('it should not build an image without Dockerfile', function(done) {
-      this.timeout(120000);
-      docker.createContainer(testContainer2, function(err, container) {
-        if (!err) {
-          const containerId = container.id;
-          chai.request(express)
-            .post('/api/containers/start')
-            .send({containerId: containerId})
-            .end(() => {
-              chai.request(express)
-                .post('/api/containers/extract')
-                .send({containerId: containerId, imageName: noDockerfileImage})
-                .end(() => {
-                  chai.request(express)
-                    .post(endpoint + 'build')
-                    .send({imageName: noDockerfileImage})
-                    .end((err, res) => {
-                      res.should.have.status(403);
-                      res.body.should.have.property('error').eql('No Dockerfile found in the source code folder');
-                      done();
-                    });
-                });
-            });
-        }
-      });
-    });
-  });
-
-  describe('/POST build docker image', () => {
     it('it should not build image without src code', function(done) {
       chai.request(express)
         .post(endpoint + 'build')
