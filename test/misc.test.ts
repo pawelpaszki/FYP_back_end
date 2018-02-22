@@ -36,7 +36,6 @@ describe('# Misc', () => {
         .end((err, res) => {
           res.should.have.status(401);
           res.body.should.not.be.empty;
-          done();
         });
     });
   });
