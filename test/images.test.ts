@@ -87,13 +87,12 @@ describe('# Image', () => {
   });
 
   describe('/DELETE docker image', () => {
-    it('it should not delete non-existent docker image', function(done) {
+    it('it should not delete non-existent docker image', async () => {
       chai.request(express)
         .delete(endpoint + '123412341234')
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.not.be.empty;
-          done();
         });
     });
   });
@@ -131,7 +130,7 @@ describe('# Image', () => {
   describe('/POST build docker image', () => {
     it('it should not build image without src code', async () => {
       await ChildProcessHandler.executeChildProcCommand(
-        'mkdir imagesTestDir', true);
+        'mkdir imagesTestDir && cd imagesTestDir && mkdir testPAWELPASZKIvuln-demo-10-node', true);
       chai.request(express)
         .post(endpoint + 'build')
         .send({imageName: 'pawelpaszki/vuln-demo-3-node'})

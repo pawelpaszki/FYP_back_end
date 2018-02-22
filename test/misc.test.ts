@@ -19,12 +19,11 @@ describe('# Misc', () => {
   });
 
   describe('/DELETE remove extracted source code', () => {
-    it('should not remove non-existent directory', function(done) {
+    it('should not remove non-existent directory', async () => {
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fnon-existentDir')
         .end((err, res) => {
           res.should.have.status(404);
-          done();
         });
     });
   });
