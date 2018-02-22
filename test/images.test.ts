@@ -98,7 +98,9 @@ describe('# Image', () => {
   });
 
   describe('/POST build docker image', () => {
-    it('it should build an image', function(done) {
+    it('it should build an image', async () => {
+      await ChildProcessHandler.executeChildProcCommand(
+        'mkdir imagesTestDir', true);
       this.timeout(120000);
       docker.createContainer(testContainer, function(err, container) {
         if (!err) {
@@ -117,7 +119,7 @@ describe('# Image', () => {
                     .end((err, res) => {
                       res.should.have.status(200);
                       res.body.should.have.property('message').eql('Image successfully built');
-                      done();
+
                     });
                 });
             });
@@ -157,6 +159,7 @@ describe('# Image', () => {
 
   describe('/POST build docker image', () => {
     it('it should not build image without src code', function(done) {
+
       chai.request(express)
         .post(endpoint + 'build')
         .send({imageName: 'pawelpaszki/vuln-demo-3-node'})

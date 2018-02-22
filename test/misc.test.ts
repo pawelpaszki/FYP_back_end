@@ -8,10 +8,8 @@ describe('# Misc', () => {
 
   describe('/DELETE remove extracted source code', () => {
     it('should remove existing directory', async () => {
-      if (process.env.NODE_ENV === 'test') {
         await ChildProcessHandler.executeChildProcCommand(
           'mkdir imagesTestDir && cd imagesTestDir && mkdir testPAWELPASZKIvuln-demo-10-node', true);
-      }
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-10-node')
         .end((err, res) => {
