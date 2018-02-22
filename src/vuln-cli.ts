@@ -84,6 +84,13 @@ commander
     actions.dockerLogin(username, password);
   });
 
+commander
+  .command('buildImage <imageName>')
+  .description('Docker Login')
+  .action((imageName) => {
+    actions.buildImage(imageName);
+  });
+
 if (!process.argv.slice(2).length) {
   commander.outputHelp();
   process.exit();

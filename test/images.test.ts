@@ -2,8 +2,36 @@ import express from '../src/config/app';
 const endpoint = '/api/images/';
 import {chai} from './common';
 import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";
+import * as Docker from "dockerode";
+
+const docker = new Docker({
+  socketPath: '/var/run/docker.sock'
+});
+const testImageName: string = 'pawelpaszki/vuln-demo-9-node';
+const noDockerfileImage: string = 'pawelpaszki/vuln-demo-10-node';
+
 
 describe('# Image', () => {
+
+  const testContainer = {
+    Image: testImageName,
+    AttachStdin: false,
+    AttachStdout: true,
+    AttachStderr: true,
+    Tty: true,
+    OpenStdin: false,
+    StdinOnce: false
+  };
+
+  const testContainer2= {
+    Image: noDockerfileImage,
+    AttachStdin: false,
+    AttachStdout: true,
+    AttachStderr: true,
+    Tty: true,
+    OpenStdin: false,
+    StdinOnce: false
+  };
 
   describe('/POST search for images', () => {
     it('it should return array with search results', (done) => {
@@ -65,6 +93,77 @@ describe('# Image', () => {
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.not.be.empty;
+        });
+    });
+  });
+
+  describe('/POST build docker image', () => {
+    it('it should build an image', function(done) {
+      this.timeout(120000);
+      docker.createContainer(testContainer, function(err, container) {
+        if (!err) {
+          const containerId = container.id;
+          chai.request(express)
+            .post('/api/containers/start')
+            .send({containerId: containerId})
+            .end(() => {
+              chai.request(express)
+                .post('/api/containers/extract')
+                .send({containerId: containerId, imageName: testImageName})
+                .end(() => {
+                  chai.request(express)
+                    .post(endpoint + 'build')
+                    .send({imageName: testImageName})
+                    .end((err, res) => {
+                      res.should.have.status(200);
+                      res.body.should.have.property('message').eql('Image successfully built');
+                      done();
+                    });
+                });
+            });
+        }
+      });
+    });
+  });
+
+  describe('/POST build docker image', () => {
+    it('it should not build an image without Dockerfile', function(done) {
+      this.timeout(120000);
+      docker.createContainer(testContainer2, function(err, container) {
+        if (!err) {
+          const containerId = container.id;
+          chai.request(express)
+            .post('/api/containers/start')
+            .send({containerId: containerId})
+            .end(() => {
+              chai.request(express)
+                .post('/api/containers/extract')
+                .send({containerId: containerId, imageName: noDockerfileImage})
+                .end(() => {
+                  chai.request(express)
+                    .post(endpoint + 'build')
+                    .send({imageName: noDockerfileImage})
+                    .end((err, res) => {
+                      res.should.have.status(403);
+                      res.body.should.have.property('error').eql('No Dockerfile found in the source code folder');
+                      done();
+                    });
+                });
+            });
+        }
+      });
+    });
+  });
+
+  describe('/POST build docker image', () => {
+    it('it should not build image without src code', function(done) {
+      chai.request(express)
+        .post(endpoint + 'build')
+        .send({imageName: 'pawelpaszki/vuln-demo-3-node'})
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('error').eql('No source code found');
+          done();
         });
     });
   });
