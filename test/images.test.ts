@@ -101,7 +101,6 @@ describe('# Image', () => {
     it('it should build an image', async () => {
       await ChildProcessHandler.executeChildProcCommand(
         'mkdir imagesTestDir', true);
-      this.timeout(120000);
       docker.createContainer(testContainer, function(err, container) {
         if (!err) {
           const containerId = container.id;
@@ -159,7 +158,6 @@ describe('# Image', () => {
 
   describe('/POST build docker image', () => {
     it('it should not build image without src code', function(done) {
-
       chai.request(express)
         .post(endpoint + 'build')
         .send({imageName: 'pawelpaszki/vuln-demo-3-node'})
