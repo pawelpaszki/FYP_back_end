@@ -91,6 +91,13 @@ commander
     actions.buildImage(imageName);
   });
 
+commander
+  .command('pushImage <imageName>')
+  .description('Docker Login')
+  .action((imageName) => {
+    actions.pushImage(imageName);
+  });
+
 if (!process.argv.slice(2).length) {
   commander.outputHelp();
   process.exit();

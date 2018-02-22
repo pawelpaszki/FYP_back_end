@@ -12,6 +12,8 @@ before_script:
 - sleep 15
 - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script:
+- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- docker pull mhart/alpine-node
 - docker pull pawelpaszki/vuln-demo-2-node:latest
 - docker pull pawelpaszki/vuln-demo-9-node:latest
 - docker pull pawelpaszki/vuln-demo-10-node:latest
