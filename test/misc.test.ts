@@ -19,7 +19,7 @@ describe('# Misc', () => {
   });
 
   describe('/DELETE remove extracted source code', () => {
-    it('should not remove non-existent directory', (done) => {
+    it('should not remove non-existent directory', function(done) {
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fnon-existentDir')
         .end((err, res) => {
@@ -30,7 +30,7 @@ describe('# Misc', () => {
   });
 
   describe('/POST docker login', () => {
-    it('it should return an error due to the incorrect credentials', (done) => {
+    it('it should return an error due to the incorrect credentials', function(done) {
       chai.request(express)
         .post(endpoint + 'dockerLogin')
         .send({username: 'abc', password: '456'})
