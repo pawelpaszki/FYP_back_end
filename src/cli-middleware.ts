@@ -116,6 +116,19 @@ export const runNpmTests = (imageName: string) => {
   })();
 };
 
+export const runNcuCheck = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/npm/updates`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to check for npm updates',); /* tslint:enable */
+    }
+  })();
+};
+
 export const removeSrcCode = (imageName: string) => {
   (async () => {
     try {

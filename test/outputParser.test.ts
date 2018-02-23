@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import OutputParser, {INcuJSON} from '../src/utilities/OutputParser';
+import OutputParser from '../src/utilities/OutputParser';
 
 import {IOsJSON} from '../src/utilities/OutputParser';
 import {IDockerinfoJSON} from '../src/utilities/OutputParser';
@@ -58,12 +58,12 @@ describe('# OutputParser', () => {
       let npmUpdatesFoundOutput = 'test/test-files/npmUpdatesAvailable.txt';
       let npmUpdatesNotFoundOutput = 'test/test-files/noNpmUpdates.txt';
       let nonExistentPath = '/nonexistentpath';
-      let updates: INcuJSON[] = OutputParser.parseNcuOutput(npmUpdatesFoundOutput);
+      let updates: string[] = OutputParser.parseNcuOutput(npmUpdatesFoundOutput);
       expect(updates.length).to.equal(7);
-      expect(updates[0].package).to.equal('@types/mongoose  ^4.7.32  →  ^5.0.0');
-      let updatesNotFound: INcuJSON[] = OutputParser.parseNcuOutput(npmUpdatesNotFoundOutput);
+      expect(updates[0]).to.equal('@types/mongoose  ^4.7.32  →  ^5.0.0');
+      let updatesNotFound: string[] = OutputParser.parseNcuOutput(npmUpdatesNotFoundOutput);
       expect(updatesNotFound.length).to.equal(0);
-      let nonExistentFileParse: INcuJSON[] = OutputParser.parseNcuOutput(nonExistentPath);
+      let nonExistentFileParse: string[] = OutputParser.parseNcuOutput(nonExistentPath);
       expect(nonExistentFileParse.length).to.equal(0);
     });
   });

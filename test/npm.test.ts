@@ -33,4 +33,29 @@ describe('# NPM', () => {
     });
   });
 
+  describe('/POST run ncu check', () => {
+    it('it should check for components updates', (done) => {
+      chai.request(express)
+        .post(endpoint + 'updates')
+        .send({imageName: testImageName1})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST run ncu check', () => {
+    it('it should return error on empty image name provided', (done) => {
+      chai.request(express)
+        .post(endpoint + 'updates')
+        .send({imageName: emptyImageName})
+        .end((err, res) => {
+          res.should.have.status(500);
+          done();
+        });
+    });
+  });
+
 });

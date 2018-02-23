@@ -8,7 +8,7 @@ import DateComparator from '../utilities/DateComparator';
 import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
 import OutputParser, {IVulnScanJSON} from '../utilities/OutputParser';
-import SourceCodeFinder from "../utilities/SourceCodeFinder";
+import SourceCodeFinder from '../utilities/SourceCodeFinder';
 
 class ImagesFreshnessController {
 

@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import * as fs from 'fs';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
-import SourceCodeFinder from "../utilities/SourceCodeFinder";
+import SourceCodeFinder from '../utilities/SourceCodeFinder';
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock',

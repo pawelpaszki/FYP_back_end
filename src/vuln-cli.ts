@@ -71,6 +71,13 @@ commander
   });
 
 commander
+  .command('runNcuCheck <imageName>')
+  .description('Run npm tests')
+  .action((imageName) => {
+    actions.runNcuCheck(imageName);
+  });
+
+commander
   .command('removeSrcCode <imageName>')
   .description('Remove source code')
   .action((imageName) => {

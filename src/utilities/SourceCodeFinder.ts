@@ -1,5 +1,5 @@
-import {ChildProcessHandler} from "./ChildProcessHandler";
-import ImageNameToDirNameConverter from "./ImageNameToDirNameConverter";
+import {ChildProcessHandler} from './ChildProcessHandler';
+import ImageNameToDirNameConverter from './ImageNameToDirNameConverter';
 
 class SourceCodeFinder {
 
