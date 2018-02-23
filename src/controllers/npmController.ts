@@ -10,39 +10,33 @@ class NpmController {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {
       async function checkDirExists() {
-        try {
-          let testResults: string[];
-          async function runNpmTests() {
-            /* istanbul ignore if */
-            if (process.env.NODE_ENV !== 'test') {
-              try {
-                const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
-                if(dirToScan === '') {
-                  return res.status(404).json({
-                    message: 'No source code found',
-                  });
-                }
-                await ChildProcessHandler.executeChildProcCommand(
-                  'cd ' + dirToScan + ' && npm test > npmTestResults.txt', true);
-                testResults = OutputParser.parseNpmTests(dirToScan + '/npmTestResults.txt');
-              } catch (error) {
-                return res.status(500).json({
-                  error: 'Unable to run npm tests',
+        let testResults: string[];
+        async function runNpmTests() {
+          /* istanbul ignore if */
+          if (process.env.NODE_ENV !== 'test') {
+            try {
+              const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
+              if(dirToScan === '') {
+                return res.status(404).json({
+                  message: 'No source code found',
                 });
               }
-            } else {
-              testResults = OutputParser.parseNpmTests('test/test-files/npmTestResults.txt');
+              await ChildProcessHandler.executeChildProcCommand(
+                'cd ' + dirToScan + ' && npm test > npmTestResults.txt', true);
+              testResults = OutputParser.parseNpmTests(dirToScan + '/npmTestResults.txt');
+            } catch (error) {
+              return res.status(500).json({
+                error: 'Unable to run npm tests',
+              });
             }
-            return res.status(200).json({
-              testResults,
-            });
+          } else {
+            testResults = OutputParser.parseNpmTests('test/test-files/npmTestResults.txt');
           }
-          runNpmTests();
-        } catch (error) {
-          return res.status(500).json({
-            error: 'Unable to run npm tests',
+          return res.status(200).json({
+            testResults,
           });
         }
+        runNpmTests();
       }
       checkDirExists();
     } else {
