@@ -8,6 +8,7 @@ import DateComparator from '../utilities/DateComparator';
 import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
 import OutputParser, {IVulnScanJSON} from '../utilities/OutputParser';
+import SourceCodeFinder from "../utilities/SourceCodeFinder";
 
 class ImagesFreshnessController {
 
@@ -68,7 +69,6 @@ class ImagesFreshnessController {
       });
     }
     const folderName: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
-    const dirName: string = 'imagesTestDir/' + folderName;
     async function runCliVulnTest() {
       try {
         let entry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec();
@@ -93,24 +93,18 @@ class ImagesFreshnessController {
         let snykResults: IVulnScanJSON[];
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
-          const checkDir = await ChildProcessHandler.executeChildProcCommand(
-            'cd imagesTestDir && find . -maxdepth 1 -name ' + folderName, false);
-          if (!checkDir.toString().includes(folderName)) {
+          const dirToScan = await SourceCodeFinder.getFullSrcPath(folderName);
+          if (dirToScan === '') {
             return res.status(404).json({
               message: 'Source code not extracted for this image',
             });
           }
-          const object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand(
-            'docker inspect ' + req.body.name, false));
-          const workingDir = object[0].ContainerConfig.WorkingDir;
-          const dirToScan = dirName + workingDir;
           await ChildProcessHandler.executeChildProcCommand(
             'cd ' + dirToScan + ' && snyk test > snykScanResults.txt', true);
           snykResults = OutputParser.parseSnykOutput(dirToScan + '/snykScanResults.txt');
         } else {
           snykResults = OutputParser.parseSnykOutput('test/test-files/snykScanResultVulnFound.txt');
         }
-
         const lowSeverity: IVulnerability[] = [];
         const mediumSeverity: IVulnerability[] = [];
         const highSeverity: IVulnerability[] = [];

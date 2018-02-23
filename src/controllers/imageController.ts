@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import * as fs from 'fs';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
+import SourceCodeFinder from "../utilities/SourceCodeFinder";
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock',
@@ -51,24 +52,17 @@ class ImageController {
     }
     const shortName: string = imageName.substr(0, imageName.indexOf(':'));
     async function getDirOutput() {
-      const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(shortName);
-      const checkDirOutput = await ChildProcessHandler.executeChildProcCommand(
-        'cd imagesTestDir && find . -maxdepth 1 -name ' + testDir, false);
-      if (!checkDirOutput.includes(testDir)) {
+      const dirToScan = await SourceCodeFinder.getFullSrcPath(shortName);
+      if (dirToScan === '') {
         return res.status(404).json({
           error: 'No source code found',
         });
       }
-      const object: object = JSON.parse(await ChildProcessHandler.executeChildProcCommand(
-        'docker inspect ' + shortName, false));
-      const workingDir = object[0].ContainerConfig.WorkingDir;
-      const dirName: string = 'imagesTestDir/' + testDir;
-      const dirToCheckForDockerfile: string = dirName + workingDir;
       const checkDockerfileOutput: string = await ChildProcessHandler.executeChildProcCommand(
-        'cd ' + dirToCheckForDockerfile + ' && find . -maxdepth 1 -name \"Dockerfile\"', false);
+        'cd ' + dirToScan + ' && find . -maxdepth 1 -name \"Dockerfile\"', false);
       if (checkDockerfileOutput.includes('Dockerfile')) {
         const buildOutput: string = await ChildProcessHandler.executeChildProcCommand(
-          'cd ' + dirToCheckForDockerfile + ' && docker build -t ' + imageName + ' .', true);
+          'cd ' + dirToScan + ' && docker build -t ' + imageName + ' .', true);
         /* istanbul ignore else*/
         if (buildOutput.includes('Successfully built')) {
           res.status(200).json({

@@ -103,7 +103,8 @@ describe('# Image', () => {
   describe('/POST build docker image', () => {
     it('it should build an image', function(done) {
       this.timeout(120000);
-      let dirExists = child.execSync('find . -maxdepth 1 -name imagesTestDir').includes('imagesTestDir');
+      let dirExists = child.execSync('find . -maxdepth 1 -name imagesTestDir')
+        .toString().includes('imagesTestDir');
       if(!dirExists) {
         child.execSync('mkdir imagesTestDir');
       }
