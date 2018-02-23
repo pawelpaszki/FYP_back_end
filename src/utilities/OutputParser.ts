@@ -112,9 +112,9 @@ class OutputParser {
     return entries;
   }
 
-  public static parseNcuOutput(path: string): INcuJSON[] {
+  public static parseNcuOutput(path: string): string[] {
     const ncuCheckContent: string[] = FileToStringConverter.readFile(path).split('\n');
-    const packagesToUpdate: INcuJSON[] = [];
+    const packagesToUpdate: string[] = [];
     if (ncuCheckContent.length > 1) {
       if (ncuCheckContent[2].startsWith('All dependencies match')) {
         return [];
@@ -122,9 +122,9 @@ class OutputParser {
         for (const line of ncuCheckContent) {
           if (!line.startsWith('Using /') && !line.startsWith('The following') && !line.startsWith('Run ncu')) {
             if (line.length > 0) {
-              packagesToUpdate.push({
-                package: line.trim(),
-              });
+              packagesToUpdate.push(
+                line.trim(),
+              );
             }
           }
         }
@@ -163,10 +163,6 @@ export interface IDockerinfoJSON {
 export interface IOsJSON {
   name: string;
   version: string;
-}
-
-export interface INcuJSON {
-  package: string;
 }
 
 export interface IVulnScanJSON {
