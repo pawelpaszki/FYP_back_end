@@ -35,16 +35,21 @@ describe('# Container', () => {
     });
   });
 
-  // TODO - pull image before starting those tests
   describe('/POST create container', () => {
-    it('it should create new container', (done) => {
+    it('it should create new container', function(done) {
+      this.timeout(60000);
       chai.request(express)
-        .post(endpoint + 'create')
-        .send({name: testImageName1})
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.not.be.empty;
-          done();
+        .post('/api/images/pull')
+        .send({imageName: testImageName1})
+        .end(() => {
+          chai.request(express)
+            .post(endpoint + 'create')
+            .send({name: testImageName1})
+            .end((err, res) => {
+              res.should.have.status(200);
+              res.body.should.not.be.empty;
+              done();
+            });
         });
     });
   });
