@@ -77,6 +77,7 @@ describe('# Image', () => {
 
   describe('/DELETE docker image', () => {
     it('it should delete local docker image', function(done) {
+      this.timeout(10000);
       let imageId = child.execSync('docker images --format "{{.ID}}" alpine');
       chai.request(express)
         .delete(endpoint + imageId)

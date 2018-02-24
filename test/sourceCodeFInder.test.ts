@@ -11,7 +11,6 @@ describe('# SourceCodeFinder', () => {
         expect(fullPath1).to.equal('');
       }
       getPath();
-
     });
   });
 });

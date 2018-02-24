@@ -63,7 +63,6 @@ class ImageController {
       if (checkDockerfileOutput.includes('Dockerfile')) {
         const buildOutput: string = await ChildProcessHandler.executeChildProcCommand(
           'cd ' + dirToScan + ' && docker build -t ' + imageName + ' .', true);
-        /* istanbul ignore else*/
         if (buildOutput.includes('Successfully built')) {
           res.status(200).json({
             message: 'Image successfully built',
