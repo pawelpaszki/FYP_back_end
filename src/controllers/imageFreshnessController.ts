@@ -68,7 +68,6 @@ class ImagesFreshnessController {
         error: 'Unable to persist vulnerability check. Docker image\'s name required!',
       });
     }
-    const folderName: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.name);
     async function runCliVulnTest() {
       try {
         let entry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec();
