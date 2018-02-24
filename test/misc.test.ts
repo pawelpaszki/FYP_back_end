@@ -7,7 +7,7 @@ import * as Docker from "dockerode";
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
-const testImageName: string = 'pawelpaszki/vuln-demo-9-node';
+const testImageName: string = 'pawelpaszki/vuln-demo-10-node';
 
 describe('# Misc', () => {
 

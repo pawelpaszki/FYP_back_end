@@ -52,7 +52,7 @@ describe('# Image', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'pull')
-        .send({imageName: 'alpine:3.6'})
+        .send({imageName: 'pawelpaszki/vuln-demo-9-node:latest'})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.not.be.empty;
