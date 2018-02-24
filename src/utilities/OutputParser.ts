@@ -120,7 +120,8 @@ class OutputParser {
         return [];
       } else {
         for (const line of ncuCheckContent) {
-          if (!line.startsWith('Using /') && !line.startsWith('The following') && !line.startsWith('Run ncu')) {
+          if (!line.startsWith('Using /') && !line.startsWith('The following')
+            && !line.startsWith('Run ncu') && !line.startsWith('Upgraded')) {
             if (line.length > 0) {
               packagesToUpdate.push(
                 line.trim(),

@@ -119,12 +119,25 @@ export const runNpmTests = (imageName: string) => {
 export const runNcuCheck = (imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/updates`,  {
+      const response = await axios.post(`${url}/npm/checkUpdates`,  {
         imageName,
       });
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to check for npm updates',); /* tslint:enable */
+    }
+  })();
+};
+
+export const updateNpmComponents = (imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/npm/update`,  {
+        imageName,
+      });
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
     }
   })();
 };

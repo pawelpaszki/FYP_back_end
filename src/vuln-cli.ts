@@ -78,6 +78,13 @@ commander
   });
 
 commander
+  .command('updateComponents <imageName>')
+  .description('Update npm components')
+  .action((imageName) => {
+    actions.updateNpmComponents(imageName);
+  });
+
+commander
   .command('removeSrcCode <imageName>')
   .description('Remove source code')
   .action((imageName) => {

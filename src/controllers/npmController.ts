@@ -47,7 +47,7 @@ class NpmController {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {
       let updatesAvailable: string[];
-      async function runNpmTests() {
+      async function checkForUpdates() {
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
           try {
@@ -76,7 +76,48 @@ class NpmController {
           updatesAvailable,
         });
       }
-      runNpmTests();
+      checkForUpdates();
+    } else {
+      res.status(500).json({
+        error: 'No image name provided',
+      });
+    }
+  }
+
+  public updateComponents = async (req: Request, res: Response) => {
+    const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
+    if (testDir.length > 0 && testDir !== 'test') {
+      let updatedModules: string[];
+      async function checkForUpdates() {
+        /* istanbul ignore if */
+        if (process.env.NODE_ENV !== 'test') {
+            const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
+            if (dirToScan === '') {
+              return res.status(404).json({
+                message: 'No source code found',
+              });
+            }
+            await ChildProcessHandler.executeChildProcCommand(
+              'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
+            try {
+              updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
+              await ChildProcessHandler.executeChildProcCommand(
+                'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
+              await ChildProcessHandler.executeChildProcCommand(
+                'cd ' + dirToScan + ' &&  npm install', true);
+            } catch (error) {
+              return res.status(500).json({
+                error: 'Unable to upgrade components',
+              });
+            }
+        } else {
+          updatedModules = OutputParser.parseNcuOutput('test/test-files/npmUpdatesAvailable.txt');
+        }
+        return res.status(200).json({
+          updatedModules,
+        });
+      }
+      checkForUpdates();
     } else {
       res.status(500).json({
         error: 'No image name provided',
