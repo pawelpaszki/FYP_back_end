@@ -97,7 +97,7 @@ describe('# Misc', () => {
     it('it should not get an OS version for an image without src extracted', function(done) {
       chai.request(express)
         .post(endpoint + 'checkOS')
-        .send({imageName: 'pawelpaszki/vuln-demo-10-node'})
+        .send({imageName: 'pawelpaszki/non-existent'})
         .end((err, res) => {
           res.should.have.status(404);
           done();
