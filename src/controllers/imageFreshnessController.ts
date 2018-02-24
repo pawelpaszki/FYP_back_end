@@ -93,7 +93,7 @@ class ImagesFreshnessController {
         let snykResults: IVulnScanJSON[];
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
-          const dirToScan = await SourceCodeFinder.getFullSrcPath(folderName);
+          const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.name);
           if (dirToScan === '') {
             return res.status(404).json({
               message: 'Source code not extracted for this image',
