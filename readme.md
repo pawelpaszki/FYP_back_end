@@ -49,6 +49,11 @@ npm run lint
 
 ### Using command line (application must be running in order to use access it through CLI in another terminal window:
 
+display the list of available commands (from the root directory of the project in the terminal):
+```bash
+ts-node src/vuln-cli.ts --help
+```
+
 ts-node src/vuln-cli.ts command params, ie:
 ```bash
 ts-node src/vuln-cli.ts updateComponents pawelpaszki/vuln-demo-10-node

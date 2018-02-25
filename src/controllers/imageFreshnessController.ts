@@ -45,7 +45,7 @@ class ImagesFreshnessController {
   public create = async (req: Request, res: Response) => {
     try {
       const newEntry = new ImageFreshnessEntry();
-      newEntry.name = req.body.name;
+      newEntry.name = req.body.imageName;
       newEntry.lowVulnCount = 0;
       newEntry.mediumVulnCount = 0;
       newEntry.highVulnCount = 0;
@@ -63,17 +63,17 @@ class ImagesFreshnessController {
   }
 
   public performVulnerabilityCheck = async (req: Request, res: Response) => {
-    if (!req.body.name) {
+    if (!req.body.imageName) {
       return res.status(403).json({
         error: 'Unable to persist vulnerability check. Docker image\'s name required!',
       });
     }
     async function runCliVulnTest() {
       try {
-        let entry = await ImageFreshnessEntry.findOne({name: req.body.name}).exec();
+        let entry = await ImageFreshnessEntry.findOne({name: req.body.imageName}).exec();
         if (entry === null) {
           entry = new ImageFreshnessEntry();
-          entry.name = req.body.name;
+          entry.name = req.body.imageName;
           entry.lowVulnCount = 0;
           entry.mediumVulnCount = 0;
           entry.highVulnCount = 0;
@@ -92,7 +92,7 @@ class ImagesFreshnessController {
         let snykResults: IVulnScanJSON[];
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
-          const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.name);
+          const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
           if (dirToScan === '') {
             return res.status(404).json({
               message: 'Source code not extracted for this image',

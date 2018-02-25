@@ -37,7 +37,7 @@ describe('# Image Freshness', () => {
     it('it should create new imageFreshnessEntry', (done) => {
       chai.request(express)
         .post(endpoint)
-        .send({name: testImageName1})
+        .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a('object');
@@ -53,7 +53,7 @@ describe('# Image Freshness', () => {
     it('it should not create entry with name already present in DB', (done) => {
       chai.request(express)
         .post(endpoint)
-        .send({name: testImageName1})
+        .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(403);
           res.body.should.be.a('object');
@@ -106,7 +106,7 @@ describe('# Image Freshness', () => {
     it('should successfully persist vulnerability entry', (done) => {
       chai.request(express)
         .put(endpoint)
-        .send({name: testImageName1})
+        .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.have.property('entry');
@@ -119,7 +119,7 @@ describe('# Image Freshness', () => {
     it('should not persist vulnerability entry due to an entry present for given date', (done) => {
       chai.request(express)
         .put(endpoint)
-        .send({name: testImageName1})
+        .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(403);
           res.body.should.have.property('error').eql('Vulnerability check already persisted for today\'s date');
@@ -132,7 +132,7 @@ describe('# Image Freshness', () => {
     it('should create imageFreshnessEntry and persist vulnerability entry', (done) => {
       chai.request(express)
         .put(endpoint)
-        .send({name: testImageName2})
+        .send({imageName: testImageName2})
         .end((err, res) => {
           res.should.have.status(201);
           done();

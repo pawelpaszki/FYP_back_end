@@ -7,11 +7,11 @@ commander
   .description('Docker Image Freshness and Vulnerability Manager');
 
 commander
-  .command('createContainer <name>')
+  .command('createContainer <imageName>')
   // .alias('cc')
   .description('Create a container')
-  .action((name) => {
-    actions.createContainer(name);
+  .action((imageName) => {
+    actions.createContainer(imageName);
   });
 
 commander
@@ -43,10 +43,10 @@ commander
   });
 
 commander
-  .command('checkForVuln <name>')
+  .command('checkForVuln <imageName>')
   .description('Check for vulnerable components')
-  .action((name) => {
-    actions.performVulnerabilityCheck(name);
+  .action((imageName) => {
+    actions.performVulnerabilityCheck(imageName);
   });
 
 commander
@@ -93,21 +93,21 @@ commander
 
 commander
   .command('dockerLogin <username> <password>')
-  .description('Docker Login')
+  .description('Docker login')
   .action((username, password) => {
     actions.dockerLogin(username, password);
   });
 
 commander
   .command('buildImage <imageName>')
-  .description('Docker Login')
+  .description('Build Docker image')
   .action((imageName) => {
     actions.buildImage(imageName);
   });
 
 commander
   .command('pushImage <imageName>')
-  .description('Docker Login')
+  .description('Push Docker image')
   .action((imageName) => {
     actions.pushImage(imageName);
   });

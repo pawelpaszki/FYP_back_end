@@ -44,7 +44,7 @@ describe('# Container', () => {
         .end(() => {
           chai.request(express)
             .post(endpoint + 'create')
-            .send({name: testImageName1})
+            .send({imageName: testImageName1})
             .end((err, res) => {
               res.should.have.status(200);
               res.body.should.not.be.empty;
@@ -58,7 +58,7 @@ describe('# Container', () => {
     it('it should not create new container with invalid name', (done) => {
       chai.request(express)
         .post(endpoint + 'create')
-        .send({name: nonExistentImageName})
+        .send({imageName: nonExistentImageName})
         .end((err, res) => {
           res.should.have.status(500);
           res.body.should.have.property('error').eql('Unable to create container');

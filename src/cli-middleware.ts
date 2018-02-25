@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const url: string = 'http://localhost:3000/api';
 
-export const createContainer = (name: string) => {
+export const createContainer = (imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/containers/create`,  {
-        name,
+        imageName,
       });
       /* tslint:disable */ console.log(response.data.id); /* tslint:enable */
     } catch (error) {
@@ -66,13 +66,13 @@ export const extractContainer = (containerId: string, imageName: string) => {
   })();
 };
 
-export const performVulnerabilityCheck = (name: string) => {
+export const performVulnerabilityCheck = (imageName: string) => {
   (async () => {
     try {
       const response = await axios.put(`${url}/imagefreshness`,  {
-        name,
+        imageName,
       });
-      /* tslint:disable */ console.log('vulnerability check completed for: ' + name); /* tslint:enable */
+      /* tslint:disable */ console.log('vulnerability check completed for: ' + imageName); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
     }

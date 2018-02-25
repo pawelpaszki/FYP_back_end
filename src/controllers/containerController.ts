@@ -13,7 +13,7 @@ const docker = new Docker({
 class ContainerController {
 
   public create = async (req: Request, res: Response) => {
-    const name: string = req.body.name;
+    const name: string = req.body.imageName;
     docker.createContainer({
       AttachStderr: true,
       AttachStdin: false,
