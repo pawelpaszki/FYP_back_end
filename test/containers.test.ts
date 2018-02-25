@@ -6,7 +6,7 @@ const docker = new Docker({
 });
 
 const endpoint = '/api/containers/';
-const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
+const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
 const nonExistentImageName = 'abc/def';
 let startedContainerId;
 import {chai} from './common';

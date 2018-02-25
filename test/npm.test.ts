@@ -1,7 +1,7 @@
 import express from '../src/config/app';
 
 const endpoint = '/api/npm/';
-const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
+const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
 const emptyImageName = '';
 import {chai} from './common';
 import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";

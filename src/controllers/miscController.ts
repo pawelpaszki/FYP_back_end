@@ -80,7 +80,7 @@ class MiscController {
                 const results = lodash.map(jsonResponse.results, 'name');
                 /* tslint:disable */
                 const osVersions  = results.filter(function(el) {
-                  return el.length && el == +el;
+                  return el.toString().length && el == +el;
                 });
                 /* tslint:enable */
                 osVersions.sort();

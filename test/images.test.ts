@@ -8,7 +8,7 @@ import * as child from 'child_process';
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
-const testImageName: string = 'pawelpaszki/vuln-demo-9-node';
+const testImageName: string = 'pawelpaszki/vuln-demo-1-node';
 const noDockerfileImage: string = 'pawelpaszki/vuln-demo-10-node';
 
 

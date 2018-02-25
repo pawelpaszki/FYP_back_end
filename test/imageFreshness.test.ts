@@ -2,8 +2,8 @@ import express from '../src/config/app'
 
 let imageFreshnessEntryId;
 const endpoint = '/api/imagefreshness/';
-const testImageName1 = 'pawelpaszki/vuln-demo-10-node';
-const testImageName2 = 'pawelpaszki/vuln-demo-9-node';
+const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
+const testImageName2 = 'pawelpaszki/vuln-demo-2-node';
 import {chai} from './common';
 
 describe('# Image Freshness', () => {
@@ -171,7 +171,6 @@ describe('# Image Freshness', () => {
         .delete(endpoint + '123412341234')
         .end((err, res) => {
           res.should.have.status(200);
-          // res.body.should.have.property('message').eql('Image freshness entry deleted successfully!');
           done();
         });
     });

@@ -7,7 +7,7 @@ import * as Docker from "dockerode";
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
-const testImageName: string = 'pawelpaszki/vuln-demo-10-node';
+const testImageName: string = 'pawelpaszki/vuln-demo-1-node';
 
 describe('# Misc', () => {
 
@@ -24,13 +24,13 @@ describe('# Misc', () => {
   describe('/DELETE remove extracted source code', () => {
     it('should remove existing directory', function(done) {
       let dirExists = child.execSync(
-        'cd imagesTestDir && find . -maxdepth 1 -name \"testPAWELPASZKIvuln-demo-10-node\"')
-        .includes('testPAWELPASZKIvuln-demo-10-node');
+        'cd imagesTestDir && find . -maxdepth 1 -name \"testPAWELPASZKIvuln-demo-1-node\"')
+        .includes('testPAWELPASZKIvuln-demo-1-node');
       if(!dirExists) {
-        child.execSync('cd imagesTestDir && mkdir testPAWELPASZKIvuln-demo-10-node');
+        child.execSync('cd imagesTestDir && mkdir testPAWELPASZKIvuln-demo-1-node');
       }
       chai.request(express)
-        .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-10-node')
+        .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-1-node')
         .end((err, res) => {
           res.should.have.status(200);
           done();

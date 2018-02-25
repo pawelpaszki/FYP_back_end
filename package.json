@@ -1,6 +1,6 @@
 {
   "name": "docker-image-freshness-and-vulnerability-manager",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "description": "",
   "main": "index.js",
   "scripts": {
