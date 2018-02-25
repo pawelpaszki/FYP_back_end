@@ -1,6 +1,6 @@
 #!/bin/bash  
 
-declare -a names=("long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node" "users_api" "vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node" "vuln-demo-5-node" "vuln-demo-6-node" "vuln-demo-7-node" "vuln-demo-8-node" "vuln-demo-9-node" "vuln-demo-10-node");
+declare -a names=("long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node" "vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node"  "vuln-demo-10-node");
 
 declare -a ids
 
