@@ -3,6 +3,7 @@ import ImageController from '../controllers/imageController';
 
 const images = express.Router();
 
+images.get('/', ImageController.list);
 images.post('/search', ImageController.search);
 images.post('/pull', ImageController.pull);
 images.post('/build', ImageController.build);

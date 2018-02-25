@@ -34,6 +34,18 @@ describe('# Image', () => {
     StdinOnce: false
   };
 
+  describe('/GET list Docker images', () => {
+    it('it should return array of Docker images', function(done) {
+      chai.request(express)
+        .get(endpoint)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
   describe('/POST search for images', () => {
     it('it should return array with search results', function(done) {
       chai.request(express)
