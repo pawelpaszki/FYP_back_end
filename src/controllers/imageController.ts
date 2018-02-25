@@ -1,7 +1,9 @@
 import * as Docker from 'dockerode';
-import { Request, Response } from 'express';
+import {Request, Response} from 'express';
 import * as fs from 'fs';
+import {ImageFreshnessEntry} from '../models/imageFreshnessEntry';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
+import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
 import SourceCodeFinder from '../utilities/SourceCodeFinder';
 
@@ -10,6 +12,43 @@ const docker = new Docker({
 });
 
 class ImageController {
+
+  public list = async (req: Request, res: Response) => {
+    const imageFreshnessEntries = await ImageFreshnessEntry.find({}).exec();
+    docker.listImages((err, data) => {
+      const imagesData = data;
+      const imagesList: IImage[] = [];
+      for (const image of imagesData) {
+        const name: string = image.RepoTags[0].toString().substr(0, image.RepoTags[0].toString().indexOf(':'));
+        const id: string = image.Id.toString().substr(image.Id.toString().indexOf(':') + 1);
+        let tag: string = '';
+        for (const imageTag of image.RepoTags) {
+          tag = imageTag.toString().substr(imageTag.toString().indexOf(':') + 1);
+          if (tag === 'latest') {
+            break;
+          }
+        }
+        const size: string = Number(image.Size / 1000000) + ' MB';
+        let freshnessGrade: string = '';
+        for (const entry of imageFreshnessEntries) {
+          if (entry.name.toString() === name) {
+            freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(entry.lowVulnCount,
+              entry.mediumVulnCount, entry.highVulnCount);
+          }
+        }
+        imagesList.push({
+          freshnessGrade,
+          id,
+          name,
+          size,
+          tag,
+        });
+      }
+      res.status(200).json({
+        imagesList,
+      });
+    });
+  }
 
   public search = async (req: Request, res: Response) => {
     const searchTerm: string = req.body.imageName;
@@ -30,6 +69,7 @@ class ImageController {
     docker.pull(imageToPull, (error, stream) => {
       try {
         docker.modem.followProgress(stream, onFinished);
+
         function onFinished(err, output) {
           if (output) {
             res.status(200).json({
@@ -51,6 +91,7 @@ class ImageController {
       imageName += ':latest';
     }
     const shortName: string = imageName.substr(0, imageName.indexOf(':'));
+
     async function getDirOutput() {
       const dirToScan = await SourceCodeFinder.getFullSrcPath(shortName);
       if (dirToScan === '') {
@@ -79,6 +120,7 @@ class ImageController {
       }
 
     }
+
     getDirOutput();
   }
 
@@ -120,3 +162,11 @@ class ImageController {
 }
 
 export default new ImageController();
+
+interface IImage {
+  freshnessGrade: string;
+  id: string;
+  name: string;
+  size: string;
+  tag: string;
+}
