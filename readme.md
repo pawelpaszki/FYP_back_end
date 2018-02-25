@@ -54,7 +54,7 @@ display the list of available commands (from the root directory of the project i
 ts-node src/vuln-cli.ts --help
 ```
 
-ts-node src/vuln-cli.ts command params, ie:
+Example of running CLI command:
 ```bash
 ts-node src/vuln-cli.ts updateComponents pawelpaszki/vuln-demo-10-node
 ```
