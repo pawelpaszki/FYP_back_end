@@ -1,7 +1,7 @@
 {
-  "name": "docker-image-freshness-and-vulnerability-manager",
-  "version": "0.18.1",
-  "description": "",
+  "name": "docker-vulnerability-manager",
+  "version": "0.19.0",
+  "description": "Docker containers' source code freshness management API",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -9,6 +9,7 @@
     "test": "NODE_ENV=test nyc mocha --exit",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
+  "repository": "https://github.com/pawelpaszki/FYP_back_end",
   "keywords": [],
   "author": "Pawel Paszki",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "mongoose": "^5.0.0",
     "nodemon": "^1.14.11",
     "q": "^1.5.1",
-    "simple-get": "^2.7.0"
+    "simple-get": "^2.7.0",
+    "swagger-jsdoc": "^1.9.7"
   },
   "bin": {
     "docker-vuln": "./src/vuln-cli.ts"
@@ -39,6 +41,7 @@
     "@types/mongoose": "^4.7.32",
     "@types/node": "9.3.0",
     "@types/q": "^1.0.7",
+    "@types/swagger-jsdoc": "0.0.2",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "mocha": "5.0.0",
@@ -62,7 +65,8 @@
       "coverage/*",
       "src/test/*",
       "node_modules",
-      "imagesTestDir/*"
+      "imagesTestDir/*",
+      "swagger"
     ],
     "reporter": [
       "text-summary",

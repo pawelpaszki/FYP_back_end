@@ -72,7 +72,7 @@ commander
 
 commander
   .command('runNcuCheck <imageName>')
-  .description('Run npm tests')
+  .description('Run ncu check')
   .action((imageName) => {
     actions.runNcuCheck(imageName);
   });

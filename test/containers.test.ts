@@ -46,7 +46,7 @@ describe('# Container', () => {
             .post(endpoint + 'create')
             .send({imageName: testImageName1})
             .end((err, res) => {
-              res.should.have.status(200);
+              res.should.have.status(201);
               res.body.should.not.be.empty;
               done();
             });
@@ -147,7 +147,7 @@ describe('# Container', () => {
         .post(endpoint + 'extract')
         .send({containerId: startedContainerId, imageName: ''})
         .end((err, res) => {
-          res.should.have.status(500);
+          res.should.have.status(422);
           done();
         });
     });

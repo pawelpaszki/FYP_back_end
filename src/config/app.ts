@@ -1,6 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
+import * as path from 'path';
 import containers from '../routes/containers';
 import images from '../routes/images';
 import imageFreshness from '../routes/imagesfreshness';
@@ -40,6 +41,11 @@ class App {
   }
 
   private mountRoutes(): void {
+    // swagger
+    this.express.use('/docs', express.static(path.join(__dirname, '../../swagger')));
+    this.express.get('/docs', (req, res) => {
+      res.sendFile(path.join(__dirname, '../../swagger/index.html'));
+    });
     this.express.use('/api/imagefreshness', imageFreshness);
     this.express.use('/api/containers', containers);
     this.express.use('/api/images', images);
