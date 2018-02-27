@@ -47,6 +47,10 @@ npm test
 npm run lint
 ```
 
+### Accessing Documentation (when the application is running)
+
+http://localhost:3000/docs
+
 ### Using command line (application must be running in order to use access it through CLI in another terminal window:
 
 display the list of available commands (from the root directory of the project in the terminal):
