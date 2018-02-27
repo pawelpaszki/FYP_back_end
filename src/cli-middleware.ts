@@ -192,3 +192,31 @@ export const pushImage = (imageName: string) => {
     }
   })();
 };
+
+export const login = (username: string, password: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/login`,  {
+        password,
+        username,
+      });
+      /* tslint:disable */ console.log(response.data.token); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to login'); /* tslint:enable */
+    }
+  })();
+};
+
+export const register = (username: string, password: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/register`,  {
+        password,
+        username,
+      });
+      /* tslint:disable */ console.log(response.data.token); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to register'); /* tslint:enable */
+    }
+  })();
+};

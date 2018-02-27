@@ -67,20 +67,34 @@ components:
       schema:
         type: string
       descrpiton: end date of image freshness records
-    username:
+    dockerUsername:
       in: body
       name: username
       required: true
       schema:
         type: string
       descrpiton: Docker registry username
-    password:
+    dockerPassword:
       in: body
       name: password
       required: true
       schema:
         type: string
       descrpiton: Docker registry password
+    username:
+      in: body
+      name: username
+      required: true
+      schema:
+        type: string
+      descrpiton: username
+    password:
+      in: body
+      name: password
+      required: true
+      schema:
+        type: string
+      descrpiton: password
 
 paths:
   /containers:
@@ -750,8 +764,8 @@ paths:
       tags:
         - Misc
       parameters:
-        - $ref: '#/components/parameters/username'
-        - $ref: '#/components/parameters/password'
+        - $ref: '#/components/parameters/dockerUsername'
+        - $ref: '#/components/parameters/dockerPassword'
       responses:
         '200':
           description: OK
@@ -942,3 +956,97 @@ paths:
               error:
                 type: string
                 example: No image name provided
+  /login:
+    post:
+      summary: login
+      description: login to the api
+      operationId: login
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/username'
+        - $ref: '#/components/parameters/password'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhOTViNjgyNDA3MmUxNDg2NTFmNTdlZCIsImlhdCI6MTUxOTc2MTAyNiwiZXhwIjoxNTE5NzY0NjI2fQ.tzFG3wY-WeaNVgL9_pJTlo_es0CO9wbfinxZ35iAkEM
+        '401':
+          description: Incorrect credentials
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: 'null'
+        '404':
+          description: Unable to find username
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Unable to find username
+  /register:
+    post:
+      summary: register
+      description: register a user in the api
+      operationId: register
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/username'
+        - $ref: '#/components/parameters/password'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhOTViNjgyNDA3MmUxNDg2NTFmNTdlZCIsImlhdCI6MTUxOTc2MTAyNiwiZXhwIjoxNTE5NzY0NjI2fQ.tzFG3wY-WeaNVgL9_pJTlo_es0CO9wbfinxZ35iAkEM
+        '403':
+          description: Incorrect credentials
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: 'null'
+  /users:
+    delete:
+      summary: delete all users
+      description: delete all users from the database
+      operationId: deleteUsers
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: All users deleted successfully
+  /logout:
+    get:
+      summary: logout
+      description: logout from the api
+      operationId: logout
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: 'null'

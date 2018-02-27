@@ -1,4 +1,6 @@
 import * as bodyParser from 'body-parser';
+import * as dotenv from 'dotenv';
+dotenv.config();
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as path from 'path';
@@ -7,6 +9,7 @@ import images from '../routes/images';
 import imageFreshness from '../routes/imagesfreshness';
 import misc from '../routes/misc';
 import npm from '../routes/npm';
+import user from '../routes/user';
 
 class App {
   public express;
@@ -15,7 +18,7 @@ class App {
     this.express = express();
     this.middleware();
     this.connectToDB();
-    this.mountRoutes(); //
+    this.mountRoutes();
   }
 
   private connectToDB(): void {
@@ -51,6 +54,7 @@ class App {
     this.express.use('/api/images', images);
     this.express.use('/api/npm', npm);
     this.express.use('/api/misc', misc);
+    this.express.use('/api/', user);
     this.express.use('/', (req, res) => {
       res.status(404).send({error: `path doesn't exist`});
     });
