@@ -1,8 +1,8 @@
+import * as bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
+import * as jwt from 'jsonwebtoken';
 import {User,
 } from '../models/user';
-import * as bcrypt from 'bcryptjs';
-import * as jwt from 'jsonwebtoken';
 
 class UserController {
 
@@ -13,43 +13,43 @@ class UserController {
       newUser.username = req.body.username;
       newUser.password = hashedPassword;
       await newUser.save();
-      const token = jwt.sign({ id: newUser._id }, process.env.SECRET, {
-        expiresIn: 3600 // 1 hour
+      const token = jwt.sign({ id: newUser._id }, process.env.SECRET || 'secret', {
+        expiresIn: 3600, // 1 hour
       });
       res.status(200).json({
-        token: token
+        token,
       });
     } catch (err) {
       return res.status(403).json({
-        token: null
+        token: null,
       });
     }
   }
 
   public login = async (req: Request, res: Response) => {
     try {
-      let user = await User.findOne({username: req.body.username}).exec();
+      const user = await User.findOne({username: req.body.username}).exec();
       if (user !== null) {
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         if (!passwordIsValid) {
           return res.status(401).send({token: null});
         }
         const token = jwt.sign({
-          id: user._id
-        }, process.env.SECRET, {
-          expiresIn: 3600
+          id: user._id,
+        }, process.env.SECRET || 'secret', {
+          expiresIn: 3600,
         });
         res.status(200).json({
-          token: token,
+          token,
         });
       } else {
         return res.status(404).json({
-          error: 'Unable to find ' + req.body.username
+          error: 'Unable to find ' + req.body.username,
         });
       }
     } catch (err) {
       return res.status(403).json({
-        error: 'Unable to login'
+        error: 'Unable to login',
       });
     }
   }
@@ -61,7 +61,7 @@ class UserController {
 
   public logout = async (req: Request, res: Response) => {
     return res.status(200).json({
-      token: null
+      token: null,
     });
   }
 }

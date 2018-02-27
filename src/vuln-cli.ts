@@ -117,7 +117,7 @@ commander
   .description('Login')
   .action((username, password) => {
     actions.login(username, password);
-  })
+  });
 
 commander
   .command('register <username> <password>')
