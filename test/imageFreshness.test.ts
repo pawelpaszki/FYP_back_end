@@ -15,7 +15,7 @@ describe('# Image Freshness', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Image freshness entries deleted successfully!');
+          res.body.should.have.property('message').eql('Image freshness entries deleted successfully');
           done();
         });
     });
@@ -43,7 +43,7 @@ describe('# Image Freshness', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('entry');
           imageFreshnessEntryId = res.body.entry._id;
-          res.body.should.have.property('message').eql('Image freshness created saved successfully!');
+          res.body.should.have.property('message').eql('Image freshness created saved successfully');
           done();
         });
     });
@@ -96,7 +96,7 @@ describe('# Image Freshness', () => {
         .post(endpoint + '123412341234')
         .end((err, res) => {
           res.should.have.status(404);
-          res.body.should.have.property('error').eql('ImageFreshnessEntry with given id does not exist!');
+          res.body.should.have.property('error').eql('Unable to find image freshness with id provided');
           done();
         });
     });
@@ -121,7 +121,7 @@ describe('# Image Freshness', () => {
         .put(endpoint)
         .send({imageName: testImageName1})
         .end((err, res) => {
-          res.should.have.status(403);
+          res.should.have.status(409);
           res.body.should.have.property('error').eql('Vulnerability check already persisted for today\'s date');
           done();
         });
@@ -147,7 +147,7 @@ describe('# Image Freshness', () => {
         .send()
         .end((err, res) => {
           res.should.have.status(403);
-          res.body.should.have.property('error').eql('Unable to persist vulnerability check. Docker image\'s name required!');
+          res.body.should.have.property('error').eql('Unable to persist vulnerability check. Docker image\'s name required');
           done();
         });
     });
@@ -159,7 +159,7 @@ describe('# Image Freshness', () => {
         .delete(endpoint + imageFreshnessEntryId)
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.have.property('message').eql('Image freshness entry deleted successfully!');
+          res.body.should.have.property('message').eql('Image freshness entry deleted successfully');
           done();
         });
     });

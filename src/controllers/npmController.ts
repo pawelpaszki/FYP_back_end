@@ -17,7 +17,7 @@ class NpmController {
             const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
             if (dirToScan === '') {
               return res.status(404).json({
-                message: 'No source code found',
+                error: 'No source code found',
               });
             }
             await ChildProcessHandler.executeChildProcCommand(
@@ -54,7 +54,7 @@ class NpmController {
             const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
             if (dirToScan === '') {
               return res.status(404).json({
-                message: 'No source code found',
+                error: 'No source code found',
               });
             }
             await ChildProcessHandler.executeChildProcCommand(
@@ -94,7 +94,7 @@ class NpmController {
             const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
             if (dirToScan === '') {
               return res.status(404).json({
-                message: 'No source code found',
+                error: 'No source code found',
               });
             }
             await ChildProcessHandler.executeChildProcCommand(

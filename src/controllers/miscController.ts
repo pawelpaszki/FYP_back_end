@@ -22,7 +22,7 @@ class MiscController {
             await ChildProcessHandler.executeChildProcCommand(
               'cd imagesTestDir && rm -rf ' + testDir, false);
             res.status(200).json({
-              error: 'Source code successfully removed',
+              message: 'Source code successfully removed',
             });
           } catch (error) {
             res.status(500).json({

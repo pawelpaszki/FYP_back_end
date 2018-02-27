@@ -53,7 +53,7 @@ class ImageController {
   public search = async (req: Request, res: Response) => {
     const searchTerm: string = req.body.imageName;
     const searchResults: string = await ChildProcessHandler.executeChildProcCommand(
-      'docker search --format "{{.Name}}" ' + searchTerm, true).toString();
+      'docker search --format "{{.Name}}" ' + searchTerm, true);
     let images: string[] = searchResults.toString().split('\n');
     images = images.filter((image) => image !== '');
     res.status(200).json({
@@ -69,7 +69,6 @@ class ImageController {
     docker.pull(imageToPull, (error, stream) => {
       try {
         docker.modem.followProgress(stream, onFinished);
-
         function onFinished(err, output) {
           if (output) {
             res.status(200).json({
@@ -79,7 +78,7 @@ class ImageController {
         }
       } catch (err) {
         res.status(404).json({
-          error: 'unable to pull image',
+          error: 'Unable to pull image',
         });
       }
     });
@@ -91,7 +90,6 @@ class ImageController {
       imageName += ':latest';
     }
     const shortName: string = imageName.substr(0, imageName.indexOf(':'));
-
     async function getDirOutput() {
       const dirToScan = await SourceCodeFinder.getFullSrcPath(shortName);
       if (dirToScan === '') {
@@ -110,7 +108,7 @@ class ImageController {
           });
         } else {
           res.status(500).json({
-            message: 'Unable to build image',
+            error: 'Unable to build image',
           });
         }
       } else {
@@ -118,9 +116,7 @@ class ImageController {
           error: 'No Dockerfile found in the source code folder',
         });
       }
-
     }
-
     getDirOutput();
   }
 
@@ -146,7 +142,7 @@ class ImageController {
         'docker rmi --force ' + imageId, false);
       if (removeResults.includes('No such image')) {
         res.status(404).json({
-          message: 'Image not found',
+          error: 'Image not found',
         });
       } else {
         res.status(200).json({
@@ -155,7 +151,7 @@ class ImageController {
       }
     } catch (error) {
       res.status(409).json({
-        message: 'Image cannot be removed',
+        error: 'Image cannot be removed',
       });
     }
   }

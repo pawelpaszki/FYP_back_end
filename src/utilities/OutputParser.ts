@@ -1,11 +1,5 @@
 import FileToStringConverter from '../utilities/FileToStringConverter';
 
-/**
- * @author Pawel Paszki
- * This class is used to extract meaningful data from files and return
- * appropriately formatted responses
- */
-
 class OutputParser {
 
   public static getOSVersion(path: string): IOsJSON {

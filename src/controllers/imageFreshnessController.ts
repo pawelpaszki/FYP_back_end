@@ -21,7 +21,7 @@ class ImagesFreshnessController {
     try {
       const imageFreshnessEntry = await ImageFreshnessEntry.findById(req.params.id).exec();
       if (!imageFreshnessEntry) {
-        return res.status(404).json({ error: 'ImageFreshnessEntry with given id does not exist!' });
+        return res.status(404).json({ error: 'Unable to find image freshness with id provided' });
       } else {
         if (req.body.startDate && req.body.endDate) {
           const vulnerabilityCheckRecords: IVulnScanJSON[] = [];
@@ -32,8 +32,11 @@ class ImagesFreshnessController {
           }
           return res.status(200).json(vulnerabilityCheckRecords);
         } else {
-          const freshnessGrade: string = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.lowVulnCount,
-            imageFreshnessEntry.mediumVulnCount, imageFreshnessEntry.highVulnCount);
+          let freshnessGrade: string = '';
+          if (imageFreshnessEntry.vulnerabilityCheckRecords.length > 0) {
+            freshnessGrade = ImageFreshnessProvider.getFreshnessGrade(imageFreshnessEntry.lowVulnCount,
+              imageFreshnessEntry.mediumVulnCount, imageFreshnessEntry.highVulnCount);
+          }
           return res.status(200).json({entry: imageFreshnessEntry, freshnessGrade});
         }
       }
@@ -51,21 +54,25 @@ class ImagesFreshnessController {
       newEntry.highVulnCount = 0;
       newEntry.vulnerabilityCheckRecords = [];
       await newEntry.save();
-      return res.status(201).json({message: 'Image freshness created saved successfully!', entry: newEntry});
+      return res.status(201).json({message: 'Image freshness created saved successfully', entry: newEntry});
     } catch (err) {
       return res.status(403).json({error: 'Unable to create image freshness entry'});
     }
   }
 
   public delete = async (req: Request, res: Response) => {
-    await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
-    return res.status(200).json({message: 'Image freshness entry deleted successfully!'});
+    try {
+      await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
+      return res.status(200).json({message: 'Image freshness entry deleted successfully'});
+    } catch (error) {
+      return res.status(404).json({error: 'Unable to remove image freshness entry'});
+    }
   }
 
   public performVulnerabilityCheck = async (req: Request, res: Response) => {
     if (!req.body.imageName) {
       return res.status(403).json({
-        error: 'Unable to persist vulnerability check. Docker image\'s name required!',
+        error: 'Unable to persist vulnerability check. Docker image\'s name required',
       });
     }
     async function runCliVulnTest() {
@@ -84,7 +91,7 @@ class ImagesFreshnessController {
         if (entry.vulnerabilityCheckRecords.length > 0) {
           lastCheckDate = entry.vulnerabilityCheckRecords[entry.vulnerabilityCheckRecords.length - 1].date;
           if (DateComparator.isSameDay(todaysDate, lastCheckDate)) {
-            return res.status(403).json({
+            return res.status(409).json({
               error: 'Vulnerability check already persisted for today\'s date',
             });
           }
@@ -95,7 +102,7 @@ class ImagesFreshnessController {
           const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
           if (dirToScan === '') {
             return res.status(404).json({
-              message: 'Source code not extracted for this image',
+              error: 'Source code not extracted for this image',
             });
           }
           await ChildProcessHandler.executeChildProcCommand(
@@ -134,7 +141,6 @@ class ImagesFreshnessController {
           }
         }
         const vulnerabilityCheckRecord: IVulnerabilityCheckRecord = {} as IVulnerabilityCheckRecord;
-
         vulnerabilityCheckRecord.date = new Date();
         vulnerabilityCheckRecord.lowSeverity = lowSeverity;
         vulnerabilityCheckRecord.mediumSeverity = mediumSeverity;
@@ -162,7 +168,7 @@ class ImagesFreshnessController {
         });
       } catch (error) {
         return res.status(500).json({
-          message: 'Unable to persist vulnerability check',
+          error: 'Unable to persist vulnerability check',
         });
       }
     }
@@ -170,12 +176,8 @@ class ImagesFreshnessController {
   }
 
   public deleteAll = async (req: Request, res: Response) => {
-    try {
-      await ImageFreshnessEntry.deleteMany({});
-      return res.status(200).json({message: 'Image freshness entries deleted successfully!'});
-    } catch (err) {
-      return res.status(400).json({error: `Unable to delete image freshness entries: ${err}`});
-    }
+    await ImageFreshnessEntry.deleteMany({});
+    return res.status(200).json({message: 'Image freshness entries deleted successfully'});
   }
 }
 
