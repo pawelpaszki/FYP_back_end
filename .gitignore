@@ -7,3 +7,4 @@ coverage
 .scannerwork
 npm-debug.log
 .idea
+.env

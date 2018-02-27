@@ -1,13 +1,12 @@
 import express from '../src/config/app';
-const endpoint = '/api/images/';
 import {chai} from './common';
-import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";
 import * as Docker from "dockerode";
 import * as child from 'child_process';
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
+const endpoint: string = '/api/images/';
 const testImageName: string = 'pawelpaszki/vuln-demo-1-node';
 const noDockerfileImage: string = 'pawelpaszki/vuln-demo-10-node';
 

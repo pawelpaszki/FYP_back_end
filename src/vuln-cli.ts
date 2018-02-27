@@ -112,6 +112,20 @@ commander
     actions.pushImage(imageName);
   });
 
+commander
+  .command('login <username> <password>')
+  .description('Login')
+  .action((username, password) => {
+    actions.login(username, password);
+  })
+
+commander
+  .command('register <username> <password>')
+  .description('Login')
+  .action((username, password) => {
+    actions.register(username, password);
+  });
+
 if (!process.argv.slice(2).length) {
   commander.outputHelp();
   process.exit();

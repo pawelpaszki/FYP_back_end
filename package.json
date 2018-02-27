@@ -1,6 +1,6 @@
 {
   "name": "docker-vulnerability-manager",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "Docker containers' source code freshness management API",
   "main": "index.js",
   "scripts": {
@@ -15,10 +15,13 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "commander": "^2.14.1",
     "dockerode": "^2.5.3",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
     "line-by-line": "^0.1.6",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.0",
@@ -31,10 +34,13 @@
     "docker-vuln": "./src/vuln-cli.ts"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.1",
     "@types/body-parser": "^1.16.8",
     "@types/chai": "^4.1.2",
     "@types/dockerode": "^2.5.3",
+    "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.0",
+    "@types/jsonwebtoken": "^7.2.5",
     "@types/lodash": "^4.14.104",
     "@types/mocha": "^2.2.46",
     "@types/mongodb": "^3.0.3",
