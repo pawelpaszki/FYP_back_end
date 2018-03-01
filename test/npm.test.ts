@@ -4,14 +4,25 @@ const endpoint = '/api/npm/';
 const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
 const emptyImageName = '';
 import {chai} from './common';
-import {ChildProcessHandler} from "../src/utilities/ChildProcessHandler";
+let token = '';
 
 describe('# NPM', () => {
+
+  before((done) => {
+    chai.request(express)
+      .post('/api/login')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
 
   describe('/POST run npm tests', () => {
     it('it should complete npm tests execution', (done) => {
       chai.request(express)
         .post(endpoint + 'tests')
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(200);
@@ -25,6 +36,7 @@ describe('# NPM', () => {
     it('it should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'tests')
+        .set({'x-access-token': token})
         .send({imageName: emptyImageName})
         .end((err, res) => {
           res.should.have.status(500);
@@ -37,6 +49,7 @@ describe('# NPM', () => {
     it('it should check for components updates', (done) => {
       chai.request(express)
         .post(endpoint + 'checkUpdates')
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(200);
@@ -50,6 +63,7 @@ describe('# NPM', () => {
     it('it should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'checkUpdates')
+        .set({'x-access-token': token})
         .send({imageName: emptyImageName})
         .end((err, res) => {
           res.should.have.status(500);
@@ -62,6 +76,7 @@ describe('# NPM', () => {
     it('it should update components successfully', (done) => {
       chai.request(express)
         .post(endpoint + 'update')
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(200);
@@ -75,6 +90,7 @@ describe('# NPM', () => {
     it('it should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'update')
+        .set({'x-access-token': token})
         .send({imageName: emptyImageName})
         .end((err, res) => {
           res.should.have.status(500);

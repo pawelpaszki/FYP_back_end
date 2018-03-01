@@ -6,7 +6,7 @@ const password: string = 'password';
 
 describe('# User', () => {
   describe('/DELETE all users', () => {
-    it('it should delete all users', function(done) {
+    it('it should not throw an error when db is empty', function(done) {
       chai.request(express)
         .delete(endpoint + 'users')
         .end((err, res) => {
@@ -114,6 +114,18 @@ describe('# User', () => {
         .end((err, res) => {
           res.should.have.status(401);
           res.body.should.have.property('token').eql(null);
+          done();
+        });
+    });
+  });
+
+  describe('/DELETE all users', () => {
+    it('it should delete all users', function(done) {
+      chai.request(express)
+        .delete(endpoint + 'users')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('message').eql('All users deleted successfully');
           done();
         });
     });

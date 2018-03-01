@@ -5,13 +5,25 @@ const endpoint = '/api/imagefreshness/';
 const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
 const testImageName2 = 'pawelpaszki/vuln-demo-2-node';
 import {chai} from './common';
+let token = '';
 
 describe('# Image Freshness', () => {
+
+  before((done) => {
+    chai.request(express)
+      .post('/api/login')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
 
   describe('/DELETE imageFreshnessEntries', () => {
     it('it should DELETE all imageFreshnessEntries', (done) => {
       chai.request(express)
         .delete(endpoint)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -25,6 +37,7 @@ describe('# Image Freshness', () => {
     it('it should GET all the imageFreshnessEntries', (done) => {
       chai.request(express)
         .get(endpoint)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('array');
@@ -37,6 +50,7 @@ describe('# Image Freshness', () => {
     it('it should create new imageFreshnessEntry', (done) => {
       chai.request(express)
         .post(endpoint)
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
@@ -53,6 +67,7 @@ describe('# Image Freshness', () => {
     it('it should not create entry with name already present in DB', (done) => {
       chai.request(express)
         .post(endpoint)
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(403);
@@ -67,6 +82,7 @@ describe('# Image Freshness', () => {
     it('should return single image freshness entry', (done) => {
       chai.request(express)
         .post(endpoint + imageFreshnessEntryId)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -81,6 +97,7 @@ describe('# Image Freshness', () => {
     it('should return vulnerabilityCheckRecords when dates are posted in the request', (done) => {
       chai.request(express)
         .post(endpoint + imageFreshnessEntryId)
+        .set({'x-access-token': token})
         .send({startDate: '01-jan-2018', endDate: '30-apr-2018'})
         .end((err, res) => {
           res.should.have.status(200);
@@ -94,6 +111,7 @@ describe('# Image Freshness', () => {
     it('should return 404 due to invalid _id provided', (done) => {
       chai.request(express)
         .post(endpoint + '123412341234')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.have.property('error').eql('Unable to find image freshness with id provided');
@@ -106,6 +124,7 @@ describe('# Image Freshness', () => {
     it('should successfully persist vulnerability entry', (done) => {
       chai.request(express)
         .put(endpoint)
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
@@ -119,6 +138,7 @@ describe('# Image Freshness', () => {
     it('should not persist vulnerability entry due to an entry present for given date', (done) => {
       chai.request(express)
         .put(endpoint)
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(409);
@@ -132,6 +152,7 @@ describe('# Image Freshness', () => {
     it('should create imageFreshnessEntry and persist vulnerability entry', (done) => {
       chai.request(express)
         .put(endpoint)
+        .set({'x-access-token': token})
         .send({imageName: testImageName2})
         .end((err, res) => {
           res.should.have.status(201);
@@ -144,6 +165,7 @@ describe('# Image Freshness', () => {
     it('should not persist vulnerability check with no image\'s name provised', (done) => {
       chai.request(express)
         .put(endpoint)
+        .set({'x-access-token': token})
         .send()
         .end((err, res) => {
           res.should.have.status(403);
@@ -157,6 +179,7 @@ describe('# Image Freshness', () => {
     it('should successfully delete single entry', (done) => {
       chai.request(express)
         .delete(endpoint + imageFreshnessEntryId)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have.property('message').eql('Image freshness entry deleted successfully');
@@ -169,6 +192,7 @@ describe('# Image Freshness', () => {
     it('should not  delete entry with non-existent id', (done) => {
       chai.request(express)
         .delete(endpoint + '123412341234')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           done();

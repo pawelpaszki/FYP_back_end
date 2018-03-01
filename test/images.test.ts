@@ -2,6 +2,7 @@ import express from '../src/config/app';
 import {chai} from './common';
 import * as Docker from "dockerode";
 import * as child from 'child_process';
+let token = '';
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
@@ -33,10 +34,21 @@ describe('# Image', () => {
     StdinOnce: false
   };
 
+  before((done) => {
+    chai.request(express)
+      .post('/api/login')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
+
   describe('/GET list Docker images', () => {
     it('it should return array of Docker images', function(done) {
       chai.request(express)
         .get(endpoint)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.not.be.empty;
@@ -49,6 +61,7 @@ describe('# Image', () => {
     it('it should return array with search results', function(done) {
       chai.request(express)
         .post(endpoint + 'search')
+        .set({'x-access-token': token})
         .send({imageName: 'ubuntu'})
         .end((err, res) => {
           res.should.have.status(200);
@@ -63,6 +76,7 @@ describe('# Image', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'pull')
+        .set({'x-access-token': token})
         .send({imageName: 'alpine:3.6'})
         .end((err, res) => {
           res.should.have.status(200);
@@ -77,6 +91,7 @@ describe('# Image', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'pull')
+        .set({'x-access-token': token})
         .send({imageName: 'non-existent-image'})
         .end((err, res) => {
           res.should.have.status(404);
@@ -92,6 +107,7 @@ describe('# Image', () => {
       let imageId = child.execSync('docker images --format "{{.ID}}" alpine');
       chai.request(express)
         .delete(endpoint + imageId)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.not.be.empty;
@@ -104,6 +120,7 @@ describe('# Image', () => {
     it('it should not delete non-existent docker image', function(done) {
       chai.request(express)
         .delete(endpoint + '123412341234')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.not.be.empty;
@@ -125,14 +142,17 @@ describe('# Image', () => {
           const containerId = container.id;
           chai.request(express)
             .post('/api/containers/start')
+            .set({'x-access-token': token})
             .send({containerId: containerId})
             .end(() => {
               chai.request(express)
                 .post('/api/containers/extract')
+                .set({'x-access-token': token})
                 .send({containerId: containerId, imageName: testImageName})
                 .end(() => {
                   chai.request(express)
                     .post(endpoint + 'build')
+                    .set({'x-access-token': token})
                     .send({imageName: testImageName})
                     .end((err, res) => {
                       res.should.have.status(200);
@@ -151,6 +171,7 @@ describe('# Image', () => {
       this.timeout(120000);
       chai.request(express)
         .post(endpoint + 'pull')
+        .set({'x-access-token': token})
         .send({imageName: noDockerfileImage})
         .end(() => {
           docker.createContainer(testContainer2, function(err, container) {
@@ -158,14 +179,17 @@ describe('# Image', () => {
               const containerId = container.id;
               chai.request(express)
                 .post('/api/containers/start')
+                .set({'x-access-token': token})
                 .send({containerId: containerId})
                 .end(() => {
                   chai.request(express)
                     .post('/api/containers/extract')
+                    .set({'x-access-token': token})
                     .send({containerId: containerId, imageName: noDockerfileImage})
                     .end(() => {
                       chai.request(express)
                         .post(endpoint + 'build')
+                        .set({'x-access-token': token})
                         .send({imageName: noDockerfileImage})
                         .end((err, res) => {
                           res.should.have.status(403);
@@ -185,6 +209,7 @@ describe('# Image', () => {
     it('it should not build image without src code', function(done) {
       chai.request(express)
         .post(endpoint + 'build')
+        .set({'x-access-token': token})
         .send({imageName: 'pawelpaszki/vuln-demo-3-node'})
         .end((err, res) => {
           res.should.have.status(404);
@@ -199,6 +224,7 @@ describe('# Image', () => {
       this.timeout(120000);
       chai.request(express)
         .post(endpoint + 'push')
+        .set({'x-access-token': token})
         .send({imageName: 'pawelpaszki/vuln-demo-10-node'})
         .end((err, res) => {
           res.should.have.status(200);
@@ -213,6 +239,7 @@ describe('# Image', () => {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'push')
+        .set({'x-access-token': token})
         .send({imageName: 'mhart/alpine-node'})
         .end((err, res) => {
           res.should.have.status(404);
