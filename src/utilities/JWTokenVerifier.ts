@@ -9,7 +9,7 @@ class JWTokenVerifier {
         error: 'No token provided.',
       });
     }
-    jwt.verify(token, process.env.SECRET, (err) => {
+    jwt.verify(token, process.env.SECRET || 'secret', (err) => {
       if (err) {
         return res.status(500).json({
           error: 'Unable to authenticate token.',
