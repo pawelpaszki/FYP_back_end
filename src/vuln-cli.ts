@@ -7,109 +7,116 @@ commander
   .description('Docker Image Freshness and Vulnerability Manager');
 
 commander
-  .command('createContainer <imageName>')
+  .command('createContainer <token> <imageName>')
   // .alias('cc')
   .description('Create a container')
-  .action((imageName) => {
-    actions.createContainer(imageName);
+  .action((token, imageName) => {
+    actions.createContainer(token, imageName);
   });
 
 commander
-  .command('startContainer <containerId>')
+  .command('startContainer <token> <containerId>')
   .description('Start a container')
-  .action((containerId) => {
-    actions.startContainer(containerId);
+  .action((token, containerId) => {
+    actions.startContainer(token, containerId);
   });
 
 commander
-  .command('stopContainer <containerId>')
+  .command('stopContainer <token> <containerId>')
   .description('Stop a container')
-  .action((containerId) => {
-    actions.stopContainer(containerId);
+  .action((token, containerId) => {
+    actions.stopContainer(token, containerId);
   });
 
 commander
-  .command('removeContainer <containerId>')
+  .command('removeContainer <token> <containerId>')
   .description('Remove a container')
-  .action((containerId) => {
-    actions.removeContainer(containerId);
+  .action((token, containerId) => {
+    actions.removeContainer(token, containerId);
   });
 
 commander
-  .command('extractContainer <containerId> <imageName>')
+  .command('extractContainer <token> <containerId> <imageName>')
   .description('Extract a container')
-  .action((containerId, imageName) => {
-    actions.extractContainer(containerId, imageName);
+  .action((token, containerId, imageName) => {
+    actions.extractContainer(token, containerId, imageName);
   });
 
 commander
-  .command('checkForVuln <imageName>')
+  .command('checkForVuln <token> <imageName>')
   .description('Check for vulnerable components')
-  .action((imageName) => {
-    actions.performVulnerabilityCheck(imageName);
+  .action((token, imageName) => {
+    actions.performVulnerabilityCheck(token, imageName);
   });
 
 commander
-  .command('pullImage <imageName>')
+  .command('pullImage <token> <imageName>')
   .description('Pull Docker image')
-  .action((imageName) => {
-    actions.pullImage(imageName);
+  .action((token, imageName) => {
+    actions.pullImage(token, imageName);
   });
 
 commander
-  .command('removeImage <imageId>')
+  .command('removeImage <token> <imageId>')
   .description('Remove Docker image')
-  .action((imageId) => {
-    actions.removeImage(imageId);
+  .action((token, imageId) => {
+    actions.removeImage(token, imageId);
   });
 
 commander
-  .command('runNpmTests <imageName>')
+  .command('runNpmTests <token> <imageName>')
   .description('Run npm tests')
-  .action((imageName) => {
-    actions.runNpmTests(imageName);
+  .action((token, imageName) => {
+    actions.runNpmTests(token, imageName);
   });
 
 commander
-  .command('runNcuCheck <imageName>')
+  .command('runNcuCheck <token> <imageName>')
   .description('Run ncu check')
-  .action((imageName) => {
-    actions.runNcuCheck(imageName);
+  .action((token, imageName) => {
+    actions.runNcuCheck(token, imageName);
   });
 
 commander
-  .command('updateComponents <imageName>')
+  .command('updateComponents <token><imageName>')
   .description('Update npm components')
-  .action((imageName) => {
-    actions.updateNpmComponents(imageName);
+  .action((token, imageName) => {
+    actions.updateNpmComponents(token, imageName);
   });
 
 commander
-  .command('removeSrcCode <imageName>')
+  .command('removeSrcCode <token> <imageName>')
   .description('Remove source code')
-  .action((imageName) => {
-    actions.removeSrcCode(imageName);
+  .action((token, imageName) => {
+    actions.removeSrcCode(token, imageName);
   });
 
 commander
-  .command('dockerLogin <username> <password>')
+  .command('dockerLogin <token> <username> <password>')
   .description('Docker login')
-  .action((username, password) => {
-    actions.dockerLogin(username, password);
+  .action((token, username, password) => {
+    actions.dockerLogin(token, username, password);
   });
 
 commander
-  .command('buildImage <imageName>')
+  .command('buildImage <token> <imageName>')
   .description('Build Docker image')
-  .action((imageName) => {
-    actions.buildImage(imageName);
+  .action((token, imageName) => {
+    actions.buildImage(token, imageName);
   });
 
 commander
-  .command('pushImage <imageName>')
+  .command('pushImage <token> <imageName>')
   .description('Push Docker image')
-  .action((imageName) => {
-    actions.pushImage(imageName);
+  .action((token, imageName) => {
+    actions.pushImage(token, imageName);
+  });
+
+commander
+  .command('authenticate <username> <password>')
+  .description('Authenticate')
+  .action((username, password) => {
+    actions.authenticate(username, password);
   });
 
 commander
@@ -117,13 +124,6 @@ commander
   .description('Login')
   .action((username, password) => {
     actions.login(username, password);
-  });
-
-commander
-  .command('register <username> <password>')
-  .description('Login')
-  .action((username, password) => {
-    actions.register(username, password);
   });
 
 if (!process.argv.slice(2).length) {

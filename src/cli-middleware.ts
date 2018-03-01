@@ -2,12 +2,12 @@ import axios from 'axios';
 
 const url: string = 'http://localhost:3000/api';
 
-export const createContainer = (imageName: string) => {
+export const createContainer = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/containers/create`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data.id); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to create container'); /* tslint:enable */
@@ -15,12 +15,12 @@ export const createContainer = (imageName: string) => {
   })();
 };
 
-export const startContainer = (containerId: string) => {
+export const startContainer = (token: string, containerId: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/containers/start`,  {
         containerId,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('container started'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to start container'); /* tslint:enable */
@@ -28,12 +28,12 @@ export const startContainer = (containerId: string) => {
   })();
 };
 
-export const stopContainer = (containerId: string) => {
+export const stopContainer = (token: string, containerId: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/containers/stop`,  {
         containerId,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('container stopped'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to stop container'); /* tslint:enable */
@@ -41,10 +41,11 @@ export const stopContainer = (containerId: string) => {
   })();
 };
 
-export const removeContainer = (containerId: string) => {
+export const removeContainer = (token: string, containerId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/containers/${containerId}`);
+      const response = await axios.delete(`${url}/containers/${containerId}`,
+        {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('container removed'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to remove container'); /* tslint:enable */
@@ -52,13 +53,13 @@ export const removeContainer = (containerId: string) => {
   })();
 };
 
-export const extractContainer = (containerId: string, imageName: string) => {
+export const extractContainer = (token: string, containerId: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/containers/extract`,  {
         containerId,
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('container extracted');; /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to extract container'); /* tslint:enable */
@@ -66,12 +67,12 @@ export const extractContainer = (containerId: string, imageName: string) => {
   })();
 };
 
-export const performVulnerabilityCheck = (imageName: string) => {
+export const performVulnerabilityCheck = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.put(`${url}/imagefreshness`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('vulnerability check completed for: ' + imageName); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
@@ -79,12 +80,12 @@ export const performVulnerabilityCheck = (imageName: string) => {
   })();
 };
 
-export const pullImage = (imageName: string) => {
+export const pullImage = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/images/pull`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('image successfully pulled'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to pull image' + imageName); /* tslint:enable */
@@ -92,10 +93,11 @@ export const pullImage = (imageName: string) => {
   })();
 };
 
-export const removeImage = (imageId: string) => {
+export const removeImage = (token: string, imageId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/images/${imageId}`);
+      const response = await axios.delete(`${url}/images/${imageId}`,
+        {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Image removed successfully'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to remove image'); /* tslint:enable */
@@ -103,12 +105,12 @@ export const removeImage = (imageId: string) => {
   })();
 };
 
-export const runNpmTests = (imageName: string) => {
+export const runNpmTests = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/npm/tests`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to run npm tests',); /* tslint:enable */
@@ -116,12 +118,12 @@ export const runNpmTests = (imageName: string) => {
   })();
 };
 
-export const runNcuCheck = (imageName: string) => {
+export const runNcuCheck = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/npm/checkUpdates`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to check for npm updates',); /* tslint:enable */
@@ -129,12 +131,12 @@ export const runNcuCheck = (imageName: string) => {
   })();
 };
 
-export const updateNpmComponents = (imageName: string) => {
+export const updateNpmComponents = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/npm/update`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
@@ -142,10 +144,11 @@ export const updateNpmComponents = (imageName: string) => {
   })();
 };
 
-export const removeSrcCode = (imageName: string) => {
+export const removeSrcCode = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/npm/src/${imageName}`);
+      const response = await axios.delete(`${url}/npm/src/${imageName}`,
+         {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Source code successfully removed'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to remove source code',); /* tslint:enable */
@@ -153,13 +156,13 @@ export const removeSrcCode = (imageName: string) => {
   })();
 };
 
-export const dockerLogin = (username: string, password: string) => {
+export const dockerLogin = (token: string, username: string, password: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/misc/dockerLogin`,  {
         password,
         username,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Login Successful'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Incorrect login and/or password'); /* tslint:enable */
@@ -167,12 +170,12 @@ export const dockerLogin = (username: string, password: string) => {
   })();
 };
 
-export const buildImage = (imageName: string) => {
+export const buildImage = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/images/build`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Image successfully built'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to build image'); /* tslint:enable */
@@ -180,12 +183,12 @@ export const buildImage = (imageName: string) => {
   })();
 };
 
-export const pushImage = (imageName: string) => {
+export const pushImage = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.post(`${url}/images/push`,  {
         imageName,
-      });
+      }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Image pushed to DockerHub'); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */

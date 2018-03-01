@@ -9,6 +9,7 @@ const endpoint = '/api/containers/';
 const testImageName1 = 'pawelpaszki/vuln-demo-1-node';
 const nonExistentImageName = 'abc/def';
 let startedContainerId;
+let token = '';
 import {chai} from './common';
 
 describe('# Container', () => {
@@ -23,13 +24,47 @@ describe('# Container', () => {
     StdinOnce: false
   };
 
+  before((done) => {
+    chai.request(express)
+      .post('/api/register')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
+
   describe('/GET list containers', () => {
     it('it should list all container', (done) => {
       chai.request(express)
         .get(endpoint)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have.property('containers');
+          done();
+        });
+    });
+  });
+
+  describe('/GET list containers', () => {
+    it('it not list the containers without a token', (done) => {
+      chai.request(express)
+        .get(endpoint)
+        .end((err, res) => {
+          res.should.have.status(403);
+          done();
+        });
+    });
+  });
+
+  describe('/GET list containers', () => {
+    it('it should not list the containers with an invalid token', (done) => {
+      chai.request(express)
+        .get(endpoint)
+        .set({'x-access-token': 'token'})
+        .end((err, res) => {
+          res.should.have.status(500);
           done();
         });
     });
@@ -40,10 +75,12 @@ describe('# Container', () => {
       this.timeout(60000);
       chai.request(express)
         .post('/api/images/pull')
+        .set({'x-access-token': token})
         .send({imageName: testImageName1})
         .end(() => {
           chai.request(express)
             .post(endpoint + 'create')
+            .set({'x-access-token': token})
             .send({imageName: testImageName1})
             .end((err, res) => {
               res.should.have.status(201);
@@ -58,6 +95,7 @@ describe('# Container', () => {
     it('it should not create new container with invalid name', (done) => {
       chai.request(express)
         .post(endpoint + 'create')
+        .set({'x-access-token': token})
         .send({imageName: nonExistentImageName})
         .end((err, res) => {
           res.should.have.status(500);
@@ -74,6 +112,7 @@ describe('# Container', () => {
           startedContainerId = container.id;
           chai.request(express)
             .post(endpoint + 'start')
+            .set({'x-access-token': token})
             .send({containerId: startedContainerId})
             .end((err, res) => {
               res.should.have.status(200);
@@ -89,6 +128,7 @@ describe('# Container', () => {
     it('it should not start a non-existing container', (done) => {
       chai.request(express)
         .post(endpoint + 'start')
+        .set({'x-access-token': token})
         .send({containerId: '123412341234'})
         .end((err, res) => {
           res.should.have.status(404);
@@ -102,6 +142,7 @@ describe('# Container', () => {
     it('should not extract source code of a non-existent container', (done) => {
       chai.request(express)
         .post(endpoint + 'extract')
+        .set({'x-access-token': token})
         .send({containerId: '123412341234'})
         .end((err, res) => {
           res.should.have.status(404);
@@ -117,6 +158,7 @@ describe('# Container', () => {
           const containerId = container.id;
           chai.request(express)
             .post(endpoint + 'extract')
+            .set({'x-access-token': token})
             .send({containerId: containerId})
             .end((err, res) => {
               res.should.have.status(403);
@@ -132,6 +174,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'extract')
+        .set({'x-access-token': token})
         .send({containerId: startedContainerId, imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(200);
@@ -145,6 +188,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'extract')
+        .set({'x-access-token': token})
         .send({containerId: startedContainerId, imageName: ''})
         .end((err, res) => {
           res.should.have.status(422);
@@ -158,6 +202,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .delete(endpoint + startedContainerId)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(409);
           done();
@@ -170,6 +215,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'stop')
+        .set({'x-access-token': token})
         .send({containerId: startedContainerId})
         .end((err, res) => {
           res.should.have.status(200);
@@ -183,6 +229,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'stop')
+        .set({'x-access-token': token})
         .send({containerId: '123412341234'})
         .end((err, res) => {
           res.should.have.status(404);
@@ -196,6 +243,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .delete(endpoint + startedContainerId)
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           done();
@@ -208,6 +256,7 @@ describe('# Container', () => {
       this.timeout(30000);
       chai.request(express)
         .delete(endpoint + '123412341234')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
           done();

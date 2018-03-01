@@ -4,6 +4,7 @@ const endpoint = '/api/misc/';
 import {chai} from './common';
 import * as child from "child_process";
 import * as Docker from "dockerode";
+let token = '';
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
@@ -21,6 +22,16 @@ describe('# Misc', () => {
     StdinOnce: false
   };
 
+  before((done) => {
+    chai.request(express)
+      .post('/api/login')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
+
   describe('/DELETE remove extracted source code', () => {
     it('should remove existing directory', function(done) {
       let dirExists = child.execSync(
@@ -31,6 +42,7 @@ describe('# Misc', () => {
       }
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-1-node')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           done();
@@ -42,6 +54,7 @@ describe('# Misc', () => {
     it('should not remove non-existent directory', function(done) {
       chai.request(express)
         .delete(endpoint + 'src/pawelpaszki%2Fnon-existentDir')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
           done();
@@ -54,6 +67,7 @@ describe('# Misc', () => {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'dockerLogin')
+        .set({'x-access-token': token})
         .send({username: 'abc', password: '456'})
         .end((err, res) => {
           res.should.have.status(401);
@@ -71,14 +85,17 @@ describe('# Misc', () => {
           const containerId = container.id;
           chai.request(express)
             .post('/api/containers/start')
+            .set({'x-access-token': token})
             .send({containerId: containerId})
             .end(() => {
               chai.request(express)
                 .post('/api/containers/extract')
+                .set({'x-access-token': token})
                 .send({containerId: containerId, imageName: testImageName})
                 .end(() => {
                   chai.request(express)
                     .post(endpoint + 'checkOS')
+                    .set({'x-access-token': token})
                     .send({imageName: testImageName})
                     .end((err, res) => {
                       res.should.have.status(200);
@@ -97,6 +114,7 @@ describe('# Misc', () => {
     it('it should not get an OS version for an image without src extracted', function(done) {
       chai.request(express)
         .post(endpoint + 'checkOS')
+        .set({'x-access-token': token})
         .send({imageName: 'pawelpaszki/non-existent'})
         .end((err, res) => {
           res.should.have.status(404);

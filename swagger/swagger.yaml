@@ -10,6 +10,14 @@ produces:
 basePath: /api
 components:
   parameters:
+    token:
+      in: header
+      name: token
+      required: true
+      schema:
+        type: string
+      description: authentication token
+      example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhOTVhNzBiYjljMjQ1MzA2YjE2YzE0NSIsImlhdCI6MTUxOTkyMzc5NiwiZXhwIjoxNTE5OTI3Mzk2fQ.e5cKEEGtDb54AVlnZHf-P132x1LTrS4WrgXywfmkSkk
     imageNamePath:
       in: path
       name: imageName
@@ -102,6 +110,8 @@ paths:
       summary: List all containers.
       description:  Lists all of the Docker containers on the host
       operationId: listContainers
+      parameters:
+        - $ref: '#/components/parameters/token'
       tags:
         - Containers
       responses:
@@ -157,6 +167,7 @@ paths:
       tags:
         - Containers
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '201':
@@ -177,6 +188,7 @@ paths:
       tags:
         - Containers
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/containerId'
       responses:
         '200':
@@ -203,6 +215,7 @@ paths:
       tags:
         - Containers
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/containerId'
       responses:
         '200':
@@ -229,6 +242,7 @@ paths:
       tags:
         - Containers
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/containerId'
         - $ref: '#/components/parameters/imageName'
       responses:
@@ -280,6 +294,7 @@ paths:
       tags:
         - Containers
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/containerIdPath'
       responses:
         '200':
@@ -342,6 +357,7 @@ paths:
       tags:
         - Images
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -383,6 +399,7 @@ paths:
       tags:
         - Images
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -409,6 +426,7 @@ paths:
       tags:
         - Images
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -451,6 +469,7 @@ paths:
       tags:
         - Images
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -477,6 +496,7 @@ paths:
       tags:
         - Images
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageIdPath'
       responses:
         '200':
@@ -555,6 +575,7 @@ paths:
       tags:
         - ImageFreshness
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageFreshnessIdPath'
       responses:
         '200':
@@ -581,6 +602,7 @@ paths:
       tags:
         - ImageFreshness
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '201':
@@ -630,6 +652,7 @@ paths:
       tags:
         - ImageFreshness
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '201':
@@ -652,6 +675,8 @@ paths:
       summary: Delete image freshness entries
       description: Delete image freshness entries
       operationId: deleteImageFreshnessEntryies
+      parameters:
+        - $ref: '#/components/parameters/token'
       tags:
         - ImageFreshness
       responses:
@@ -667,6 +692,8 @@ paths:
       summary: List all imagefreshness entries
       description:  Lists all of the imagefreshness entries with the recorded vulnerabilities
       operationId: listImageFreshnessEntries
+      parameters:
+        - $ref: '#/components/parameters/token'
       tags:
         - ImageFreshness
       responses:
@@ -730,6 +757,7 @@ paths:
       tags:
         - Misc
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageNamePath'
       responses:
         '200':
@@ -764,6 +792,7 @@ paths:
       tags:
         - Misc
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/dockerUsername'
         - $ref: '#/components/parameters/dockerPassword'
       responses:
@@ -791,6 +820,7 @@ paths:
       tags:
         - Misc
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -829,6 +859,7 @@ paths:
       tags:
         - Npm
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -876,6 +907,7 @@ paths:
       tags:
         - Npm
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
@@ -920,6 +952,7 @@ paths:
       tags:
         - Npm
       parameters:
+        - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
       responses:
         '200':
