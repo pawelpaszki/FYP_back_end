@@ -26,14 +26,10 @@ node_js: 6.12.3
 install:
 - npm install
 after_success:
-  if: type IN (push)
-  script:
-  - export REPO=$DOCKER_USERNAME/docker-vuln-manager
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build -f Dockerfile -t $REPO:$COMMIT .
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
-  - docker push $REPO
+- export REPO=$DOCKER_USERNAME/docker-vuln-manager
+- docker build -f Dockerfile -t $REPO:$COMMIT .
+- docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- docker push $REPO
 notifications:
   email:
     on_success: never
