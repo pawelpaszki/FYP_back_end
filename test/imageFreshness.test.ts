@@ -128,7 +128,7 @@ describe('# Image Freshness', () => {
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
-          res.body.should.have.property('entry');
+          res.body.should.have.property('vulnerabilityCheckRecord');
           done();
         });
     });
