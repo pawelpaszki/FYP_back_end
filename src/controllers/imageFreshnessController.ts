@@ -76,25 +76,30 @@ class ImagesFreshnessController {
     }
     async function runCliVulnTest() {
       try {
-        let entry = await ImageFreshnessEntry.findOne({name: req.body.imageName}).exec();
-        if (entry === null) {
-          entry = new ImageFreshnessEntry();
-          entry.name = req.body.imageName;
-          entry.lowVulnCount = 0;
-          entry.mediumVulnCount = 0;
-          entry.highVulnCount = 0;
-          entry.vulnerabilityCheckRecords = [];
-        }
-        const todaysDate: Date = new Date();
-        let lastCheckDate: Date;
-        if (entry.vulnerabilityCheckRecords.length > 0) {
-          lastCheckDate = entry.vulnerabilityCheckRecords[entry.vulnerabilityCheckRecords.length - 1].date;
-          if (DateComparator.isSameDay(todaysDate, lastCheckDate)) {
-            return res.status(409).json({
-              error: 'Vulnerability check already persisted for today\'s date',
-            });
+        const checkOnly: boolean = (!!req.body.checkOnly);
+        let entry;
+        if (checkOnly !== true) {
+          entry = await ImageFreshnessEntry.findOne({name: req.body.imageName}).exec();
+          if (entry === null) {
+            entry = new ImageFreshnessEntry();
+            entry.name = req.body.imageName;
+            entry.lowVulnCount = 0;
+            entry.mediumVulnCount = 0;
+            entry.highVulnCount = 0;
+            entry.vulnerabilityCheckRecords = [];
+          }
+          const todaysDate: Date = new Date();
+          let lastCheckDate: Date;
+          if (entry.vulnerabilityCheckRecords.length > 0) {
+            lastCheckDate = entry.vulnerabilityCheckRecords[entry.vulnerabilityCheckRecords.length - 1].date;
+            if (DateComparator.isSameDay(todaysDate, lastCheckDate)) {
+              return res.status(409).json({
+                error: 'Vulnerability check already persisted for today\'s date',
+              });
+            }
           }
         }
+
         let snykResults: IVulnScanJSON[];
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
@@ -144,26 +149,28 @@ class ImagesFreshnessController {
         vulnerabilityCheckRecord.lowSeverity = lowSeverity;
         vulnerabilityCheckRecord.mediumSeverity = mediumSeverity;
         vulnerabilityCheckRecord.highSeverity = highSeverity;
-        if (lowSeverity.length === 0) {
-          entry.lowVulnCount = 0;
-        } else {
-          entry.lowVulnCount = entry.lowVulnCount + 1;
+        if (checkOnly !== true) {
+          if (lowSeverity.length === 0) {
+            entry.lowVulnCount = 0;
+          } else {
+            entry.lowVulnCount = entry.lowVulnCount + 1;
+          }
+          if (mediumSeverity.length === 0) {
+            entry.mediumVulnCount = 0;
+          } else {
+            entry.mediumVulnCount = entry.mediumVulnCount + 1;
+          }
+          if (highSeverity.length === 0) {
+            entry.highVulnCount = 0;
+          } else {
+            entry.highVulnCount = entry.highVulnCount + 1;
+          }
+          entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
+          await entry.save();
         }
-        if (mediumSeverity.length === 0) {
-          entry.mediumVulnCount = 0;
-        } else {
-          entry.mediumVulnCount = entry.mediumVulnCount + 1;
-        }
-        if (highSeverity.length === 0) {
-          entry.highVulnCount = 0;
-        } else {
-          entry.highVulnCount = entry.highVulnCount + 1;
-        }
-        entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
-        await entry.save();
         return res.status(201).json({
-          entry,
           message: 'Vulnerability check persisted successfully',
+          vulnerabilityCheckRecord,
         });
       } catch (error) {
         return res.status(500).json({

@@ -14,7 +14,7 @@ class UserController {
       newUser.password = hashedPassword;
       await newUser.save();
       const token = jwt.sign({ id: newUser._id }, process.env.SECRET || 'secret', {
-        expiresIn: 3600, // 1 hour
+        expiresIn: 7200,
       });
       res.status(200).json({
         token,
@@ -37,7 +37,7 @@ class UserController {
         const token = jwt.sign({
           id: user._id,
         }, process.env.SECRET || 'secret', {
-          expiresIn: 3600,
+          expiresIn: 7200,
         });
         res.status(200).json({
           token,

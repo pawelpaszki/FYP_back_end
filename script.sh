@@ -17,7 +17,7 @@ do
   CONTAINER_ID="$(ts-node src/vuln-cli.ts createContainer $TOKEN pawelpaszki/$name)"
   ts-node src/vuln-cli.ts startContainer $TOKEN $CONTAINER_ID
   ts-node src/vuln-cli.ts extractContainer $TOKEN $CONTAINER_ID pawelpaszki/"$name"
-  ts-node src/vuln-cli.ts checkForVuln $TOKEN pawelpaszki/"$name"
+  ts-node src/vuln-cli.ts persistVulnCheck $TOKEN pawelpaszki/"$name"
   sudo rm -rf imagesTestDir/*
   ids+=($CONTAINER_ID)
 done

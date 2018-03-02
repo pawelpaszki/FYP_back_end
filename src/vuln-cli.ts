@@ -43,8 +43,15 @@ commander
   });
 
 commander
-  .command('checkForVuln <token> <imageName>')
+  .command('checkForVuln <token> <imageName> <checkOnly>')
   .description('Check for vulnerable components')
+  .action((token, imageName, checkOnly) => {
+    actions.checkForVulnComps(token, imageName, checkOnly);
+  });
+
+commander
+  .command('persistVulnCheck <token> <imageName>')
+  .description('Perform and persist vulnerability check')
   .action((token, imageName) => {
     actions.performVulnerabilityCheck(token, imageName);
   });
@@ -113,10 +120,10 @@ commander
   });
 
 commander
-  .command('authenticate <username> <password>')
-  .description('Authenticate')
+  .command('register <username> <password>')
+  .description('Register')
   .action((username, password) => {
-    actions.authenticate(username, password);
+    actions.register(username, password);
   });
 
 commander

@@ -67,13 +67,26 @@ export const extractContainer = (token: string, containerId: string, imageName: 
   })();
 };
 
+export const checkForVulnComps = (token: string, imageName: string, checkOnly: boolean) => {
+  (async () => {
+    try {
+      const response = await axios.put(`${url}/imagefreshness`,  {
+        checkOnly, imageName,
+      }, {headers: {'x-access-token': token}});
+      /* tslint:disable */ console.log(response.data.vulnerabilityCheckRecord); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
+    }
+  })();
+};
+
 export const performVulnerabilityCheck = (token: string, imageName: string) => {
   (async () => {
     try {
       const response = await axios.put(`${url}/imagefreshness`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('vulnerability check completed for: ' + imageName); /* tslint:enable */
+      /* tslint:disable */ console.log(response.data.vulnerabilityCheckRecord); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
     }
