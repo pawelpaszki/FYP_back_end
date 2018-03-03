@@ -73,7 +73,7 @@ export const checkForVulnComps = (token: string, imageName: string, checkOnly: b
       const response = await axios.put(`${url}/imagefreshness`,  {
         checkOnly, imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data.vulnerabilityCheckRecord); /* tslint:enable */
+      /* tslint:disable */ console.log(response.data.updates); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
     }
@@ -86,7 +86,7 @@ export const performVulnerabilityCheck = (token: string, imageName: string) => {
       const response = await axios.put(`${url}/imagefreshness`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data.vulnerabilityCheckRecord); /* tslint:enable */
+      /* tslint:disable */ console.log({'updates': response.data}); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
     }
@@ -157,6 +157,20 @@ export const updateNpmComponents = (token: string, imageName: string) => {
   })();
 };
 
+export const updateNpmComponent = (token: string, imageName: string, packageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/npm/update`,  {
+        imageName,
+        packageName,
+      }, {headers: {'x-access-token': token}});
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
+    }
+  })();
+};
+
 export const removeSrcCode = (token: string, imageName: string) => {
   (async () => {
     try {
@@ -203,6 +217,19 @@ export const pushImage = (token: string, imageName: string) => {
         imageName,
       }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Image pushed to DockerHub'); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */
+    }
+  })();
+};
+
+export const checkTag = (token: string, imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/images/checkTag`,  {
+        imageName,
+      }, {headers: {'x-access-token': token}});
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
     } catch (error) {
       /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */
     }

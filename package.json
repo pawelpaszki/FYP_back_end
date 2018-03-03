@@ -1,6 +1,6 @@
 {
   "name": "docker-vulnerability-manager",
-  "version": "0.22.1",
+  "version": "0.23.0",
   "description": "Docker containers' source code freshness management API",
   "main": "index.js",
   "scripts": {

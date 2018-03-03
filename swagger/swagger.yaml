@@ -95,14 +95,28 @@ components:
       required: true
       schema:
         type: string
-      descrpiton: username
+      descrpiton: username to login/ register in the app
     password:
       in: body
       name: password
       required: true
       schema:
         type: string
-      descrpiton: password
+      descrpiton: password to login/ register in the app
+    packageName:
+      in: body
+      name: packageName
+      required: false
+      schema:
+        type: string
+      descrpiton: name of the package to be updated
+    checkOnly:
+      in: body
+      name: checkOnly
+      required: false
+      schema:
+        type: boolean
+      descrpiton: provided if persistence of the vulnerability check is not required
 
 paths:
   /containers:
@@ -418,6 +432,31 @@ paths:
               error:
                 type: string
                 example: Unable to pull image
+  /images/checktag:
+    post:
+      summary: get tag
+      description: get latest Image's tag
+      operationId: checkTag
+      tags:
+        - Images
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/imageName'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              major:
+                type: string
+                example: 0
+              minor:
+                type: string
+                example: 0
+              patch:
+                type: string
+                example: 1
   /images/build:
     post:
       summary: build a Docker image
@@ -604,6 +643,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
+        - $ref: '#/components/parameters/checkOnly'
       responses:
         '201':
           description: OK
@@ -613,6 +653,13 @@ paths:
               message:
                 type: string
                 example: Vulnerability check persisted successfully
+              updates:
+                type: object
+                example: []
+              vulnerabilityCheckRecord:
+                type: object
+                example:  []
+
         '403':
           description: Unable to persist vulnerability check. Docker image's name required
           schema:
@@ -909,6 +956,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
+        - $ref: '#/components/parameters/packageName'
       responses:
         '200':
           description: OK

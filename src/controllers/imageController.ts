@@ -103,6 +103,8 @@ class ImageController {
         const buildOutput: string = await ChildProcessHandler.executeChildProcCommand(
           'cd ' + dirToScan + ' && docker build -t ' + imageName + ' .', true);
         if (buildOutput.includes('Successfully built')) {
+          await ChildProcessHandler.executeChildProcCommand(
+            'cd ' + dirToScan + ' && docker tag ' + imageName + ' ' + shortName + ' :latest', true);
           res.status(200).json({
             message: 'Image successfully built',
           });
@@ -154,6 +156,30 @@ class ImageController {
         error: 'Image cannot be removed',
       });
     }
+  }
+
+  public checkTag = async (req: Request, res: Response) => {
+    const imageName: string = req.body.imageName;
+    const checkTagCommand: string = 'docker images --format "{{.Tag}}" ' + imageName;
+    const tagsOutput: string = await ChildProcessHandler.executeChildProcCommand(
+      checkTagCommand, false);
+    let tags: string[] = tagsOutput.split('\n');
+    tags = tags.filter((tag) => tag !== 'latest' && tag !== '');
+    tags.sort();
+    let major: string = '0';
+    let minor: string = '0';
+    let patch: string = '0';
+    if (tags.length !== 0) {
+      const semVerValues = tags[tags.length - 1].split('.');
+      major = semVerValues[0];
+      minor = semVerValues[1];
+      patch = semVerValues[2];
+    }
+    return res.status(200).json({
+      major,
+      minor,
+      patch,
+    });
   }
 }
 

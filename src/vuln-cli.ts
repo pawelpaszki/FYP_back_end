@@ -85,10 +85,17 @@ commander
   });
 
 commander
-  .command('updateComponents <token><imageName>')
+  .command('updateComponents <token> <imageName>')
   .description('Update npm components')
   .action((token, imageName) => {
     actions.updateNpmComponents(token, imageName);
+  });
+
+commander
+  .command('updateComponent <token> <imageName> <packageName>')
+  .description('Update npm components')
+  .action((token, imageName, packageName) => {
+    actions.updateNpmComponent(token, imageName, packageName);
   });
 
 commander
@@ -103,6 +110,13 @@ commander
   .description('Docker login')
   .action((token, username, password) => {
     actions.dockerLogin(token, username, password);
+  });
+
+commander
+  .command('checkTag <token> <imageName>')
+  .description('Check latest image tag')
+  .action((token, imageName) => {
+    actions.checkTag(token, imageName);
   });
 
 commander

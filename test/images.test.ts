@@ -249,4 +249,34 @@ describe('# Image', () => {
     });
   });
 
+  describe('/POST get Docker image tag', () => {
+    it('it return the latest tag', function(done) {
+      this.timeout(10000);
+      chai.request(express)
+        .post(endpoint + 'checkTag')
+        .set({'x-access-token': token})
+        .send({imageName: testImageName})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST get Docker image tag', () => {
+    it('it return 0.0.0 tag on invalid image name', function(done) {
+      this.timeout(10000);
+      chai.request(express)
+        .post(endpoint + 'checkTag')
+        .set({'x-access-token': token})
+        .send({imageName: 'pawelpaszki/123'})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
 });

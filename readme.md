@@ -29,6 +29,12 @@ npm install -g typescript@2.7.1
 ```
 npm install -g ts-node@4.1.0
 ```
+
+Additionally, to run the script, following needs to be installed (ubuntu command):
+```
+sudo apt-get install jq
+```
+
 ### Running the application
 
 ```bash
