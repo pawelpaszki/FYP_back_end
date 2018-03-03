@@ -99,7 +99,7 @@ class NpmController {
           }
 
           try {
-            if(req.body.packageName) {
+            if (req.body.packageName) {
               await ChildProcessHandler.executeChildProcCommand(
                 'cd ' + dirToScan + ' && npm install --save ' + req.body.packageName, false);
               updatedModules.push(req.body.packageName);
@@ -107,10 +107,10 @@ class NpmController {
               await ChildProcessHandler.executeChildProcCommand(
                 'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
 
-                updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
-                await ChildProcessHandler.executeChildProcCommand(
+              updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
+              await ChildProcessHandler.executeChildProcCommand(
                   'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
-                await ChildProcessHandler.executeChildProcCommand(
+              await ChildProcessHandler.executeChildProcCommand(
                   'cd ' + dirToScan + ' &&  npm install', true);
 
             }
