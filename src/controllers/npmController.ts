@@ -87,29 +87,38 @@ class NpmController {
   public updateComponents = async (req: Request, res: Response) => {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {
-      let updatedModules: string[];
+      let updatedModules: string[] = [];
       async function checkForUpdates() {
         /* istanbul ignore if */
         if (process.env.NODE_ENV !== 'test') {
-            const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
-            if (dirToScan === '') {
-              return res.status(404).json({
-                error: 'No source code found',
-              });
-            }
-            await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
-            try {
-              updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
+          const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
+          if (dirToScan === '') {
+            return res.status(404).json({
+              error: 'No source code found',
+            });
+          }
+
+          try {
+            if(req.body.packageName) {
               await ChildProcessHandler.executeChildProcCommand(
-                'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
+                'cd ' + dirToScan + ' && npm install --save ' + req.body.packageName, false);
+              updatedModules.push(req.body.packageName);
+            } else {
               await ChildProcessHandler.executeChildProcCommand(
-                'cd ' + dirToScan + ' &&  npm install', true);
-            } catch (error) {
-              return res.status(500).json({
-                error: 'Unable to upgrade components',
-              });
+                'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
+
+                updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
+                await ChildProcessHandler.executeChildProcCommand(
+                  'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
+                await ChildProcessHandler.executeChildProcCommand(
+                  'cd ' + dirToScan + ' &&  npm install', true);
+
             }
+          } catch (error) {
+            return res.status(500).json({
+              error: 'Unable to upgrade components',
+            });
+          }
         } else {
           updatedModules = OutputParser.parseNcuOutput('test/test-files/npmUpdatesAvailable.txt');
         }

@@ -34,6 +34,7 @@ describe('# Misc', () => {
 
   describe('/DELETE remove extracted source code', () => {
     it('should remove existing directory', function(done) {
+      this.timeout(20000);
       let dirExists = child.execSync(
         'cd imagesTestDir && find . -maxdepth 1 -name \"testPAWELPASZKIvuln-demo-1-node\"')
         .includes('testPAWELPASZKIvuln-demo-1-node');

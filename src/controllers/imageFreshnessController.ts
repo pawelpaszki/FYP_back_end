@@ -118,7 +118,15 @@ class ImagesFreshnessController {
         const lowSeverity: IVulnerability[] = [];
         const mediumSeverity: IVulnerability[] = [];
         const highSeverity: IVulnerability[] = [];
+        let tempUpdates: string[] = [];
         for (const result of snykResults) {
+          if(result.remediation.toLowerCase() !== 'no upgrade available') {
+            if(result.remediation.indexOf('(') > 0) {
+              tempUpdates.push(result.remediation.substring(result.remediation.indexOf(' to ') + 4,result.remediation.indexOf('(') - 1));
+            } else {
+              tempUpdates.push(result.remediation.substring(result.remediation.indexOf(' to ') + 4));
+            }
+          }
           if (result.severity === 'low') {
             lowSeverity.push({
               dependencyPath: result.vulnPath,
@@ -142,6 +150,22 @@ class ImagesFreshnessController {
               name: result.vulnComp,
               remediation: result.remediation,
             });
+          }
+        }
+        let uniqueUpdates = Array.from(new Set(tempUpdates)).sort();
+        let indicesToRemove: number[] = [];
+        for(let i = 0; i < uniqueUpdates.length - 1; i++) {
+          if(uniqueUpdates[i].substring(0,uniqueUpdates[i].indexOf('@'))
+            === uniqueUpdates[i+1].substring(0,uniqueUpdates[i+1].indexOf('@'))) {
+            indicesToRemove.push(i);
+          }
+        }
+        let updates: string[] = [];
+        if(indicesToRemove.length > 0) {
+          for(let i = 0; i < uniqueUpdates.length; i++) {
+            if(indicesToRemove.indexOf(i) === -1) {
+              updates.push(uniqueUpdates[i]);
+            }
           }
         }
         const vulnerabilityCheckRecord: IVulnerabilityCheckRecord = {} as IVulnerabilityCheckRecord;
@@ -168,10 +192,17 @@ class ImagesFreshnessController {
           entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
           await entry.save();
         }
-        return res.status(201).json({
-          message: 'Vulnerability check persisted successfully',
-          vulnerabilityCheckRecord,
-        });
+        if(checkOnly !== true) {
+          return res.status(201).json({
+            message: 'Vulnerability check persisted successfully',
+            updates,
+            vulnerabilityCheckRecord,
+          });
+        } else {
+          return res.status(200).json({
+            updates,
+          });
+        }
       } catch (error) {
         return res.status(500).json({
           error: 'Unable to persist vulnerability check',
