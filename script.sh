@@ -1,6 +1,6 @@
 #!/bin/bash  
 
-declare -a names=("long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node" "vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node"  "vuln-demo-10-node" "docker-vuln-manager");
+declare -a names=("vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node"  "vuln-demo-10-node" "docker-vuln-manager" "long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node");
 declare -a toUpdate=("vuln-demo-1-node" "docker-vuln-manager")
 declare -a ids
 
@@ -11,6 +11,7 @@ fi
 
 for name in "${names[@]}";
 do
+  echo "*********************************************************"
   echo vulnerability check 'for' "$name"
   ts-node src/vuln-cli.ts pullImage $TOKEN pawelpaszki/"$name":latest
   CONTAINER_ID="$(ts-node src/vuln-cli.ts createContainer $TOKEN pawelpaszki/$name)"
@@ -19,9 +20,9 @@ do
   # check if update is required
   if [[ " ${toUpdate[@]} " =~ " ${name} " ]]; then
     result="$(ts-node src/vuln-cli.ts checkForVuln $TOKEN pawelpaszki/"$name" true)"
-    echo "$result" > "results.json"
-    sed -e "s/'/\"/g" -e "s/updates:/\"updates\":/g" results.json > parsedOutput.json
-    jq -r '.[]' parsedOutput.json > updates.txt
+    sudo echo "$result" > "results.json"
+    sudo sed -e "s/'/\"/g" -e "s/updates:/\"updates\":/g" results.json > parsedOutput.json
+    sudo jq -r '.[]' parsedOutput.json > updates.txt
     readarray updates < updates.txt
     # if updates available ...
     if [ "${#updates[@]}" -gt 0 ] ; then
@@ -33,17 +34,17 @@ do
     fi
     # check tag and increment
     tag="$(ts-node src/vuln-cli.ts checkTag $TOKEN pawelpaszki/"$name")"
-    echo "$tag" > "results.json"
-    sed -e "s/'/\"/g" -e "s/major:/\"major\":/g" -e "s/minor:/\"minor\":/g" -e "s/patch:/\"patch\":/g" results.json > parsedOutput.json
-    jq '.[]' parsedOutput.json > tagValues.txt
-    sed -e "s/\"//g" tagValues.txt > tagValuesInt.txt
+    sudo echo "$tag" > "results.json"
+    sudo sed -e "s/'/\"/g" -e "s/major:/\"major\":/g" -e "s/minor:/\"minor\":/g" -e "s/patch:/\"patch\":/g" results.json > parsedOutput.json
+    sudo jq '.[]' parsedOutput.json > tagValues.txt
+    sudo sed -e "s/\"//g" tagValues.txt > tagValuesInt.txt
     readarray tagValues < tagValuesInt.txt
     tag="${tagValues[0]}"."${tagValues[1]}"."$((${tagValues[2]} + 1))"
     tagNoSpaces="$(echo $tag | tr -d ' ')"
-    echo building new image
-    ts-node src/vuln-cli.ts buildImage $TOKEN pawelpaszki/"$name)""$tagNoSpaces"
+    echo building new image: pawelpaszki/"$name":"$tagNoSpaces"
+    ts-node src/vuln-cli.ts buildImage $TOKEN pawelpaszki/"$name":"$tagNoSpaces"
     echo pushing pawelpaszki/"$name" to Docker Hub
-    ts-node src/vuln-cli.ts pushImage $TOKEN pawelpaszki/"$name)"
+    ts-node src/vuln-cli.ts pushImage $TOKEN pawelpaszki/"$name"
   fi
   echo vulnerability check details "for" $name
   ts-node src/vuln-cli.ts persistVulnCheck $TOKEN pawelpaszki/"$name"
