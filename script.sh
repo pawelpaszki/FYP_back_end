@@ -1,6 +1,6 @@
 #!/bin/bash  
 
-declare -a names=("vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node"  "vuln-demo-10-node" "docker-vuln-manager" "long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node");
+declare -a names=("vuln-demo-1-node" "vuln-demo-2-node" "vuln-demo-3-node" "vuln-demo-4-node"  "vuln-demo-10-node" "docker-vuln-manager" "long-term-vuln-node-app" "single-medium-vuln-node" "single-low-vuln-node" "multi-vuln-node")
 declare -a toUpdate=("vuln-demo-1-node" "docker-vuln-manager")
 declare -a ids
 
@@ -26,11 +26,19 @@ do
     readarray updates < updates.txt
     # if updates available ...
     if [ "${#updates[@]}" -gt 0 ] ; then
-      for package in "${updates[@]}";
-      do
-        echo updating $package in $name
-        ts-node src/vuln-cli.ts updateComponent $TOKEN pawelpaszki/"$name" $package
+      echo "test" results before updates...
+      ts-node src/vuln-cli.ts runNpmTests $TOKEN pawelpaszki/"$name"
+      for i in "${!updates[@]}"; do 
+        echo updating "${updates[$i]}" ...
+	if [ "$((i+1))" -lt "${#updates[@]}" ]; then
+          ts-node src/vuln-cli.ts updateComponent $TOKEN pawelpaszki/"$name" "${updates[$i]}"
+        fi
+	if [ "$((i+1))" == "${#updates[@]}" ]; then
+	  ts-node src/vuln-cli.ts updateAndReinstall $TOKEN pawelpaszki/"$name" "${updates[$i]}"
+	fi
       done
+      echo "test" results after updates...
+      ts-node src/vuln-cli.ts runNpmTests $TOKEN pawelpaszki/"$name"
     fi
     # check tag and increment
     tag="$(ts-node src/vuln-cli.ts checkTag $TOKEN pawelpaszki/"$name")"

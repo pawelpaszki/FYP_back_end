@@ -97,7 +97,6 @@ class NpmController {
               error: 'No source code found',
             });
           }
-
           try {
             if (req.body.packageName) {
               await ChildProcessHandler.executeChildProcCommand(
@@ -108,11 +107,12 @@ class NpmController {
                 'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
 
               updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
+            }
+            if (!req.body.packageName || req.body.reinstall) {
               await ChildProcessHandler.executeChildProcCommand(
-                  'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
+                'cd ' + dirToScan + ' &&  rm -rf node_modules', true);
               await ChildProcessHandler.executeChildProcCommand(
-                  'cd ' + dirToScan + ' &&  npm install', true);
-
+                'cd ' + dirToScan + ' &&  npm install', true);
             }
           } catch (error) {
             return res.status(500).json({

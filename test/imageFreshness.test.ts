@@ -128,7 +128,10 @@ describe('# Image Freshness', () => {
         .send({imageName: testImageName1})
         .end((err, res) => {
           res.should.have.status(201);
-          res.body.should.have.property('vulnerabilityCheckRecord');
+          res.body.should.have.property('updates');
+          res.body.should.have.property('highSeverity');
+          res.body.should.have.property('lowSeverity');
+          res.body.should.have.property('mediumSeverity');
           done();
         });
     });

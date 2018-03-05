@@ -104,7 +104,7 @@ class ImageController {
           'cd ' + dirToScan + ' && docker build -t ' + imageName + ' .', true);
         if (buildOutput.includes('Successfully built')) {
           await ChildProcessHandler.executeChildProcCommand(
-            'cd ' + dirToScan + ' && docker tag ' + imageName + ' ' + shortName + ' :latest', true);
+            'cd ' + dirToScan + ' && docker tag ' + imageName + ' ' + imageName + ' :latest', true);
           res.status(200).json({
             message: 'Image successfully built',
           });

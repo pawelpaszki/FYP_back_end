@@ -171,6 +171,21 @@ export const updateNpmComponent = (token: string, imageName: string, packageName
   })();
 };
 
+export const updateAndReinstall = (token: string, imageName: string, packageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.post(`${url}/npm/update`,  {
+        imageName,
+        packageName,
+        reinstall: true,
+      }, {headers: {'x-access-token': token}});
+      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+    } catch (error) {
+      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
+    }
+  })();
+};
+
 export const removeSrcCode = (token: string, imageName: string) => {
   (async () => {
     try {

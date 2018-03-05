@@ -195,9 +195,11 @@ class ImagesFreshnessController {
         }
         if (checkOnly !== true) {
           return res.status(201).json({
+            highSeverity: vulnerabilityCheckRecord.highSeverity,
+            lowSeverity: vulnerabilityCheckRecord.lowSeverity,
+            mediumSeverity: vulnerabilityCheckRecord.mediumSeverity,
             message: 'Vulnerability check persisted successfully',
             updates,
-            vulnerabilityCheckRecord,
           });
         } else {
           return res.status(200).json({

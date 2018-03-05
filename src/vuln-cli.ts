@@ -99,6 +99,13 @@ commander
   });
 
 commander
+  .command('updateAndReinstall <token> <imageName> <packageName>')
+  .description('Update npm components')
+  .action((token, imageName, packageName) => {
+    actions.updateAndReinstall(token, imageName, packageName);
+  });
+
+commander
   .command('removeSrcCode <token> <imageName>')
   .description('Remove source code')
   .action((token, imageName) => {
