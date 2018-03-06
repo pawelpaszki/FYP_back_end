@@ -21,7 +21,7 @@ class UserController {
       });
     } catch (err) {
       return res.status(403).json({
-        message: 'Unable to register. Username taken',
+        error: 'Unable to register. Username taken',
         token: null,
       });
     }
@@ -33,7 +33,10 @@ class UserController {
       if (user !== null) {
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         if (!passwordIsValid) {
-          return res.status(401).send({token: null});
+          return res.status(401).send({
+            error: 'invalid password',
+            token: null,
+          });
         }
         const token = jwt.sign({
           id: user._id,
@@ -45,7 +48,7 @@ class UserController {
         });
       } else {
         return res.status(404).json({
-          error: 'Unable to find ' + req.body.username,
+          error: 'Unable to find: ' + req.body.username,
         });
       }
     } catch (err) {
