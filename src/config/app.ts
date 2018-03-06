@@ -45,11 +45,12 @@ class App {
   }
 
   private mountRoutes(): void {
-    this.express.use(function(req, res, next) {
+    this.express.use((req, res, next) => {
       res.header('Access-Control-Allow-Credentials', true);
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS');
-      res.header('Access-Control-Allow-Headers', 'x-access-token, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+      res.header('Access-Control-Allow-Headers', 'x-access-token, ' +
+        'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
       next();
     });
     // swagger

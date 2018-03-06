@@ -21,6 +21,7 @@ class UserController {
       });
     } catch (err) {
       return res.status(403).json({
+        message: 'Unable to register. Username taken',
         token: null,
       });
     }
