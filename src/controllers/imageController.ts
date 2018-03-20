@@ -28,7 +28,7 @@ class ImageController {
             break;
           }
         }
-        const size: string = Number(image.Size / 1000000) + ' MB';
+        const size: string = Number(image.Size / 1000000).toFixed(2) + ' MB';
         let freshnessGrade: string = '';
         for (const entry of imageFreshnessEntries) {
           if (entry.name.toString() === name) {
@@ -36,6 +36,9 @@ class ImageController {
               entry.mediumVulnCount, entry.highVulnCount);
           }
         }
+        // if(tag !== 'latest' && freshnessGrade !== '') {
+        //   continue;
+        // }
         imagesList.push({
           freshnessGrade,
           id,
@@ -52,12 +55,17 @@ class ImageController {
 
   public search = async (req: Request, res: Response) => {
     const searchTerm: string = req.body.imageName;
-    const searchResults: string = await ChildProcessHandler.executeChildProcCommand(
-      'docker search --format "{{.Name}}" ' + searchTerm, true);
-    let images: string[] = searchResults.toString().split('\n');
-    images = images.filter((image) => image !== '');
-    res.status(200).json({
-      images,
+    const options = {term: searchTerm};
+    docker.searchImages(options, function(error, results){
+      if(error){
+        res.status(500).json({
+          error: error
+        })
+      } else {
+        res.status(200).json({
+          results: results
+        });
+      }
     });
   }
 

@@ -39,38 +39,38 @@ do
       done
       echo "test" results after updates...
       ts-node src/vuln-cli.ts runNpmTests $TOKEN pawelpaszki/"$name"
+      # check tag and increment
+      tag="$(ts-node src/vuln-cli.ts checkTag $TOKEN pawelpaszki/"$name")"
+      sudo echo "$tag" > "results.json"
+      sudo sed -e "s/'/\"/g" -e "s/major:/\"major\":/g" -e "s/minor:/\"minor\":/g" -e "s/patch:/\"patch\":/g" results.json > parsedOutput.json
+      sudo jq '.[]' parsedOutput.json > tagValues.txt
+      sudo sed -e "s/\"//g" tagValues.txt > tagValuesInt.txt
+      readarray tagValues < tagValuesInt.txt
+      tag="${tagValues[0]}"."${tagValues[1]}"."$((${tagValues[2]} + 1))"
+      tagNoSpaces="$(echo $tag | tr -d ' ')"
+      echo building new image: pawelpaszki/"$name":"$tagNoSpaces"
+      ts-node src/vuln-cli.ts buildImage $TOKEN pawelpaszki/"$name":"$tagNoSpaces"
+      echo pushing pawelpaszki/"$name" to Docker Hub
+      ts-node src/vuln-cli.ts pushImage $TOKEN pawelpaszki/"$name"
     fi
-    # check tag and increment
-    tag="$(ts-node src/vuln-cli.ts checkTag $TOKEN pawelpaszki/"$name")"
-    sudo echo "$tag" > "results.json"
-    sudo sed -e "s/'/\"/g" -e "s/major:/\"major\":/g" -e "s/minor:/\"minor\":/g" -e "s/patch:/\"patch\":/g" results.json > parsedOutput.json
-    sudo jq '.[]' parsedOutput.json > tagValues.txt
-    sudo sed -e "s/\"//g" tagValues.txt > tagValuesInt.txt
-    readarray tagValues < tagValuesInt.txt
-    tag="${tagValues[0]}"."${tagValues[1]}"."$((${tagValues[2]} + 1))"
-    tagNoSpaces="$(echo $tag | tr -d ' ')"
-    echo building new image: pawelpaszki/"$name":"$tagNoSpaces"
-    ts-node src/vuln-cli.ts buildImage $TOKEN pawelpaszki/"$name":"$tagNoSpaces"
-    echo pushing pawelpaszki/"$name" to Docker Hub
-    ts-node src/vuln-cli.ts pushImage $TOKEN pawelpaszki/"$name"
   fi
   echo vulnerability check details "for" $name
   ts-node src/vuln-cli.ts persistVulnCheck $TOKEN pawelpaszki/"$name"
-   
-  sudo rm -rf imagesTestDir/*
-  sudo rm -rf parsedOutput.json
-  sudo rm -rf results.json
-  sudo rm -rf updates.txt
-  sudo rm -rf results1.json
-  sudo rm -rf tagValues.txt
-  sudo rm -rf tagValuesInt.txt
   ids+=($CONTAINER_ID)
 done
 
-for id in "${ids[@]}";
+for i in "${!ids[@]}"
 do
-  ts-node src/vuln-cli.ts stopContainer $TOKEN $CONTAINER_ID
-  ts-node src/vuln-cli.ts removeContainer $TOKEN $CONTAINER_ID
+  ts-node src/vuln-cli.ts stopContainer $TOKEN ${ids[$i]}
+  ts-node src/vuln-cli.ts removeContainer $TOKEN ${ids[$i]}
 done
+
+sudo rm -rf imagesTestDir/*
+sudo rm -rf parsedOutput.json
+sudo rm -rf results.json
+sudo rm -rf updates.txt
+sudo rm -rf results1.json
+sudo rm -rf tagValues.txt
+sudo rm -rf tagValuesInt.txt
 
 echo finished!

@@ -106,6 +106,15 @@ class MiscController {
     }
   }
 
+  public getAvailableDirs = async (req: Request, res: Response) => {
+    const directories: string = await ChildProcessHandler.executeChildProcCommand(
+      'cd imagesTestDir && ls', false);
+    const directoryArray = directories.split('\n').filter((directory) => directory !== '');
+    res.status(200).json({
+      directoryArray,
+    });
+  }
+
 }
 
 export default new MiscController();

@@ -124,4 +124,16 @@ describe('# Misc', () => {
     });
   });
 
+  describe('/GET extracted container\'s directories', () => {
+    it('it should return a list of extracted container\'s directories names', function(done) {
+      chai.request(express)
+        .get(endpoint + 'availableDirs')
+        .set({'x-access-token': token})
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
 });

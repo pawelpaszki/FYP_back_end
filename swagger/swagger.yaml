@@ -570,7 +570,7 @@ paths:
       tags:
         - ImageFreshness
       parameters:
-        - $ref: '#/components/parameters/imageFreshnessIdPath'
+        - $ref: '#/components/parameters/imageNamePath'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
       responses:

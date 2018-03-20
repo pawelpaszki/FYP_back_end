@@ -18,9 +18,9 @@ class ImagesFreshnessController {
 
   public getOne = async (req: Request, res: Response) => {
     try {
-      const imageFreshnessEntry = await ImageFreshnessEntry.findById(req.params.id).exec();
+      const imageFreshnessEntry = await ImageFreshnessEntry.findOne({name: req.params.imageName}).exec();
       if (!imageFreshnessEntry) {
-        return res.status(404).json({ error: 'Unable to find image freshness with id provided' });
+        return res.status(404).json({ error: 'Unable to find image freshness with name provided' });
       } else {
         if (req.body.startDate && req.body.endDate) {
           const vulnerabilityCheckRecords: IVulnScanJSON[] = [];
@@ -120,7 +120,8 @@ class ImagesFreshnessController {
         const highSeverity: IVulnerability[] = [];
         const tempUpdates: string[] = [];
         for (const result of snykResults) {
-          if (result.remediation.toLowerCase() !== 'no upgrade available') {
+          if (result.remediation.toLowerCase() !== 'no upgrade available' &&
+            result.remediation.toLowerCase() !== 'try to reinstall components') {
             if (result.remediation.indexOf('(') > 0) {
               tempUpdates.push(result.remediation.substring(result.remediation.indexOf(' to ') + 4,
                 result.remediation.indexOf('(') - 1));
@@ -202,9 +203,18 @@ class ImagesFreshnessController {
             updates,
           });
         } else {
-          return res.status(200).json({
-            updates,
-          });
+          const getVulnerableAndUpdates: boolean = (!!req.body.checkOnly);
+          if (getVulnerableAndUpdates !== true) {
+            return res.status(200).json({
+              updates,
+            });
+          } else {
+            return res.status(200).json({
+              updates,
+              vulnerabilityCheckRecord,
+            });
+          }
+
         }
       } catch (error) {
         return res.status(500).json({

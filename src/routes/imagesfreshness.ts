@@ -4,7 +4,7 @@ import JWTokenVerifier from '../utilities/JWTokenVerifier';
 
 const imageFreshness = express.Router();
 
-imageFreshness.post('/:id', ImageFreshnessController.getOne);
+imageFreshness.post('/:imageName', ImageFreshnessController.getOne);
 imageFreshness.put('/', JWTokenVerifier.verifyToken, ImageFreshnessController.performVulnerabilityCheck);
 imageFreshness.delete('/:id', JWTokenVerifier.verifyToken, ImageFreshnessController.delete);
 imageFreshness.delete('/', JWTokenVerifier.verifyToken, ImageFreshnessController.deleteAll);

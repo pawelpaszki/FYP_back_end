@@ -81,7 +81,7 @@ describe('# Image Freshness', () => {
   describe('/POST to get imageFreshnessEntry ', () => {
     it('should return single image freshness entry', (done) => {
       chai.request(express)
-        .post(endpoint + imageFreshnessEntryId)
+        .post(endpoint + 'pawelpaszki%2Fvuln-demo-1-node')
         .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
@@ -96,7 +96,7 @@ describe('# Image Freshness', () => {
   describe('/POST to get imageFreshnessEntry ', () => {
     it('should return vulnerabilityCheckRecords when dates are posted in the request', (done) => {
       chai.request(express)
-        .post(endpoint + imageFreshnessEntryId)
+        .post(endpoint + 'pawelpaszki%2Fvuln-demo-1-node')
         .set({'x-access-token': token})
         .send({startDate: '01-jan-2018', endDate: '30-apr-2018'})
         .end((err, res) => {
@@ -108,13 +108,13 @@ describe('# Image Freshness', () => {
   });
 
   describe('/POST to get imageFreshnessEntry ', () => {
-    it('should return 404 due to invalid _id provided', (done) => {
+    it('should return 404 due to non-existent name provided', (done) => {
       chai.request(express)
-        .post(endpoint + '123412341234')
+        .post(endpoint + 'pawelpaszki%2FnonExistentImageName')
         .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
-          res.body.should.have.property('error').eql('Unable to find image freshness with id provided');
+          res.body.should.have.property('error').eql('Unable to find image freshness with name provided');
           done();
         });
     });

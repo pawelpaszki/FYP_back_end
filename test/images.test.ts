@@ -65,7 +65,7 @@ describe('# Image', () => {
         .send({imageName: 'ubuntu'})
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.have.property('images');
+          res.body.should.have.property('results');
           done();
         });
     });
