@@ -121,7 +121,7 @@ export const removeImage = (token: string, imageId: string) => {
 export const runNpmTests = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/tests`,  {
+      const response = await axios.post(`${url}/src/tests`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
@@ -134,7 +134,7 @@ export const runNpmTests = (token: string, imageName: string) => {
 export const runNcuCheck = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/checkUpdates`,  {
+      const response = await axios.post(`${url}/src/checkUpdates`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
@@ -147,7 +147,7 @@ export const runNcuCheck = (token: string, imageName: string) => {
 export const updateNpmComponents = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/update`,  {
+      const response = await axios.post(`${url}/src/update`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log(response.data); /* tslint:enable */
@@ -160,7 +160,7 @@ export const updateNpmComponents = (token: string, imageName: string) => {
 export const updateNpmComponent = (token: string, imageName: string, packageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/update`,  {
+      const response = await axios.post(`${url}/src/update`,  {
         imageName,
         packageName,
       }, {headers: {'x-access-token': token}});
@@ -174,7 +174,7 @@ export const updateNpmComponent = (token: string, imageName: string, packageName
 export const updateAndReinstall = (token: string, imageName: string, packageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/npm/update`,  {
+      const response = await axios.post(`${url}/src/update`,  {
         imageName,
         packageName,
         reinstall: true,
@@ -189,7 +189,7 @@ export const updateAndReinstall = (token: string, imageName: string, packageName
 export const removeSrcCode = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/npm/src/${imageName}`,
+      const response = await axios.delete(`${url}/src/${imageName}`,
          {headers: {'x-access-token': token}});
       /* tslint:disable */ console.log('Source code successfully removed'); /* tslint:enable */
     } catch (error) {
@@ -201,7 +201,7 @@ export const removeSrcCode = (token: string, imageName: string) => {
 export const dockerLogin = (token: string, username: string, password: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/misc/dockerLogin`,  {
+      const response = await axios.post(`${url}/dockerLogin`,  {
         password,
         username,
       }, {headers: {'x-access-token': token}});

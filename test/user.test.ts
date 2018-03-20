@@ -3,8 +3,20 @@ import {chai} from './common';
 const endpoint: string = '/api/';
 const username: string = 'username';
 const password: string = 'password';
+let token: string = '';
 
 describe('# User', () => {
+
+  before((done) => {
+    chai.request(express)
+      .post('/api/login')
+      .send({username: 'testusername', password: 'password'})
+      .end((err, res) => {
+        token = res.body.token;
+        done();
+      });
+  });
+
   describe('/DELETE all users', () => {
     it('it should not throw an error when db is empty', function(done) {
       chai.request(express)
@@ -126,6 +138,21 @@ describe('# User', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have.property('message').eql('All users deleted successfully');
+          done();
+        });
+    });
+  });
+
+  describe('/POST docker login', () => {
+    it('it should return an error due to the incorrect credentials', function(done) {
+      this.timeout(10000);
+      chai.request(express)
+        .post(endpoint + 'dockerLogin')
+        .set({'x-access-token': token})
+        .send({username: 'abc', password: '456'})
+        .end((err, res) => {
+          res.should.have.status(401);
+          res.body.should.not.be.empty;
           done();
         });
     });

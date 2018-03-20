@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 import {User,
 } from '../models/user';
+import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 
 class UserController {
 
@@ -54,6 +55,22 @@ class UserController {
     } catch (err) {
       return res.status(403).json({
         error: 'Unable to login',
+      });
+    }
+  }
+
+  public dockerLogin = async (req: Request, res: Response) => {
+    const username: string = req.body.username;
+    const password: string = req.body.password;
+    const dockerLoginOutput: string = await ChildProcessHandler.executeChildProcCommand(
+      'docker login -u ' + username + ' -p ' + password, true);
+    if (dockerLoginOutput.includes('Login Succeeded')) {
+      res.status(200).json({
+        message: 'Login Successful',
+      });
+    } else {
+      res.status(401).json({
+        error: 'Incorrect login and/or password',
       });
     }
   }

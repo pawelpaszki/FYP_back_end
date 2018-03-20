@@ -56,14 +56,14 @@ class ImageController {
   public search = async (req: Request, res: Response) => {
     const searchTerm: string = req.body.imageName;
     const options = {term: searchTerm};
-    docker.searchImages(options, function(error, results){
-      if(error){
+    docker.searchImages(options, (error, results) => {
+      if (error) {
         res.status(500).json({
-          error: error
-        })
+          error,
+        });
       } else {
         res.status(200).json({
-          results: results
+          results,
         });
       }
     });

@@ -1,16 +1,16 @@
 import express from '../src/config/app';
 
-const endpoint = '/api/misc/';
+const endpoint = '/api/src/';
 import {chai} from './common';
 import * as child from "child_process";
 import * as Docker from "dockerode";
-let token = '';
+let token: string = '';
 const docker = new Docker({
   socketPath: '/var/run/docker.sock'
 });
 const testImageName: string = 'pawelpaszki/vuln-demo-1-node';
 
-describe('# Misc', () => {
+describe('# Src', () => {
 
   const testContainer = {
     Image: testImageName,
@@ -42,7 +42,7 @@ describe('# Misc', () => {
         child.execSync('cd imagesTestDir && mkdir testPAWELPASZKIvuln-demo-1-node');
       }
       chai.request(express)
-        .delete(endpoint + 'src/pawelpaszki%2Fvuln-demo-1-node')
+        .delete(endpoint + 'pawelpaszki%2Fvuln-demo-1-node')
         .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
@@ -54,25 +54,10 @@ describe('# Misc', () => {
   describe('/DELETE remove extracted source code', () => {
     it('should not remove non-existent directory', function(done) {
       chai.request(express)
-        .delete(endpoint + 'src/pawelpaszki%2Fnon-existentDir')
+        .delete(endpoint + 'pawelpaszki%2Fnon-existentDir')
         .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(404);
-          done();
-        });
-    });
-  });
-
-  describe('/POST docker login', () => {
-    it('it should return an error due to the incorrect credentials', function(done) {
-      this.timeout(10000);
-      chai.request(express)
-        .post(endpoint + 'dockerLogin')
-        .set({'x-access-token': token})
-        .send({username: 'abc', password: '456'})
-        .end((err, res) => {
-          res.should.have.status(401);
-          res.body.should.not.be.empty;
           done();
         });
     });
@@ -131,6 +116,87 @@ describe('# Misc', () => {
         .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/POST run npm tests', () => {
+    it('it should complete npm tests execution', (done) => {
+      chai.request(express)
+        .post(endpoint + 'tests')
+        .set({'x-access-token': token})
+        .send({imageName: testImageName})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST run npm tests', () => {
+    it('it should return error on empty image name provided', (done) => {
+      chai.request(express)
+        .post(endpoint + 'tests')
+        .set({'x-access-token': token})
+        .send({imageName: ''})
+        .end((err, res) => {
+          res.should.have.status(500);
+          done();
+        });
+    });
+  });
+
+  describe('/POST run ncu check', () => {
+    it('it should check for components updates', (done) => {
+      chai.request(express)
+        .post(endpoint + 'checkUpdates')
+        .set({'x-access-token': token})
+        .send({imageName: testImageName})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST run ncu check', () => {
+    it('it should return error on empty image name provided', (done) => {
+      chai.request(express)
+        .post(endpoint + 'checkUpdates')
+        .set({'x-access-token': token})
+        .send({imageName: ''})
+        .end((err, res) => {
+          res.should.have.status(500);
+          done();
+        });
+    });
+  });
+
+  describe('/POST update npm components', () => {
+    it('it should update components successfully', (done) => {
+      chai.request(express)
+        .post(endpoint + 'update')
+        .set({'x-access-token': token})
+        .send({imageName: testImageName})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST update npm components', () => {
+    it('it should return error on empty image name provided', (done) => {
+      chai.request(express)
+        .post(endpoint + 'update')
+        .set({'x-access-token': token})
+        .send({imageName: ''})
+        .end((err, res) => {
+          res.should.have.status(500);
           done();
         });
     });
