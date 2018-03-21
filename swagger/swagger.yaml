@@ -796,13 +796,13 @@ paths:
                   ]
                 }]
 
-  /misc/src/{imageName}:
+  /src/{imageName}:
     delete:
       summary: remove source code
       description: remove extracted source code of a container
       operationId: deleteSrc
       tags:
-        - Misc
+        - Src
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageNamePath'
@@ -831,13 +831,27 @@ paths:
               error:
                 type: string
                 example: No image name provided
-  /misc/dockerLogin:
+  /src/availableDirs:
+    get:
+      summary: extracted images
+      description: get a list of names of images with extracted source code
+      operationId: getAvailableDirs
+      tags:
+        - Src
+      parameters:
+        - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+  /dockerLogin:
     post:
       summary: Docker login
       description: login to Docker registry
       operationId: dockerLogin
       tags:
-        - Misc
+        - Users
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/dockerUsername'
@@ -859,13 +873,13 @@ paths:
               message:
                 type: string
                 example: Incorrect login and/or password
-  /misc/checkOS:
+  /src/checkOS:
     post:
       summary: Check OS
       description: check operating system of a container
       operationId: checkOS
       tags:
-        - Misc
+        - Src
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
@@ -898,13 +912,13 @@ paths:
               error:
                 type: string
                 example: No image name provided'
-  /npm/tests:
+  /src/tests:
     post:
       summary: Run npm tests
       description: run npm tests inside extracted container's source code
       operationId: runNpmTests
       tags:
-        - Npm
+        - Src
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
@@ -946,13 +960,13 @@ paths:
               error:
                 type: string
                 example: No image name provided
-  /npm/checkUpdates:
+  /src/checkUpdates:
     post:
       summary: check for updates
       description: check if any of the npm modules can be updated
       operationId: checkUpdates
       tags:
-        - Npm
+        - Src
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'
@@ -992,13 +1006,13 @@ paths:
               error:
                 type: string
                 example: No image name provided
-  /npm/update:
+  /src/update:
     post:
       summary: update npm components
       description: update npm components and reinstall node_modules
       operationId: updateComponents
       tags:
-        - Npm
+        - Src
       parameters:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/imageName'

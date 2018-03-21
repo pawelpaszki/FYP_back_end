@@ -8,9 +8,9 @@ export const createContainer = (token: string, imageName: string) => {
       const response = await axios.post(`${url}/containers/create`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data.id); /* tslint:enable */
+      console.log(response.data.id);
     } catch (error) {
-      /* tslint:disable */ console.log('unable to create container'); /* tslint:enable */
+      console.log('unable to create container');
     }
   })();
 };
@@ -18,12 +18,12 @@ export const createContainer = (token: string, imageName: string) => {
 export const startContainer = (token: string, containerId: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/containers/start`,  {
+      await axios.post(`${url}/containers/start`,  {
         containerId,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('container started'); /* tslint:enable */
+      console.log('container started');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to start container'); /* tslint:enable */
+      console.log('unable to start container');
     }
   })();
 };
@@ -31,12 +31,12 @@ export const startContainer = (token: string, containerId: string) => {
 export const stopContainer = (token: string, containerId: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/containers/stop`,  {
+      await axios.post(`${url}/containers/stop`,  {
         containerId,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('container stopped'); /* tslint:enable */
+      console.log('container stopped');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to stop container'); /* tslint:enable */
+      console.log('unable to stop container');
     }
   })();
 };
@@ -44,11 +44,11 @@ export const stopContainer = (token: string, containerId: string) => {
 export const removeContainer = (token: string, containerId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/containers/${containerId}`,
+      await axios.delete(`${url}/containers/${containerId}`,
         {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('container removed'); /* tslint:enable */
+      console.log('container removed');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to remove container'); /* tslint:enable */
+      console.log('unable to remove container');
     }
   })();
 };
@@ -56,13 +56,13 @@ export const removeContainer = (token: string, containerId: string) => {
 export const extractContainer = (token: string, containerId: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/containers/extract`,  {
+      await axios.post(`${url}/containers/extract`,  {
         containerId,
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('container extracted');; /* tslint:enable */
+      console.log('container extracted');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to extract container'); /* tslint:enable */
+      console.log('unable to extract container');
     }
   })();
 };
@@ -73,9 +73,9 @@ export const checkForVulnComps = (token: string, imageName: string, checkOnly: b
       const response = await axios.put(`${url}/imagefreshness`,  {
         checkOnly, imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data.updates); /* tslint:enable */
+      console.log(response.data.updates);
     } catch (error) {
-      /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
+      console.log('unable to perform vulnerability check');
     }
   })();
 };
@@ -86,9 +86,9 @@ export const performVulnerabilityCheck = (token: string, imageName: string) => {
       const response = await axios.put(`${url}/imagefreshness`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log({'updates': response.data}); /* tslint:enable */
+      console.log({updates: response.data});
     } catch (error) {
-      /* tslint:disable */ console.log('unable to perform vulnerability check'); /* tslint:enable */
+      console.log('unable to perform vulnerability check');
     }
   })();
 };
@@ -96,12 +96,12 @@ export const performVulnerabilityCheck = (token: string, imageName: string) => {
 export const pullImage = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/images/pull`,  {
+      await axios.post(`${url}/images/pull`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('image successfully pulled'); /* tslint:enable */
+      console.log('image successfully pulled');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to pull image' + imageName); /* tslint:enable */
+      console.log('unable to pull image' + imageName);
     }
   })();
 };
@@ -109,11 +109,11 @@ export const pullImage = (token: string, imageName: string) => {
 export const removeImage = (token: string, imageId: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/images/${imageId}`,
+      await axios.delete(`${url}/images/${imageId}`,
         {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('Image removed successfully'); /* tslint:enable */
+      console.log('Image removed successfully');
     } catch (error) {
-      /* tslint:disable */ console.log('unable to remove image'); /* tslint:enable */
+      console.log('unable to remove image');
     }
   })();
 };
@@ -124,9 +124,9 @@ export const runNpmTests = (token: string, imageName: string) => {
       const response = await axios.post(`${url}/src/tests`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to run npm tests',); /* tslint:enable */
+      console.log('Unable to run npm tests');
     }
   })();
 };
@@ -137,9 +137,9 @@ export const runNcuCheck = (token: string, imageName: string) => {
       const response = await axios.post(`${url}/src/checkUpdates`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to check for npm updates',); /* tslint:enable */
+      console.log('Unable to check for npm updates');
     }
   })();
 };
@@ -150,9 +150,9 @@ export const updateNpmComponents = (token: string, imageName: string) => {
       const response = await axios.post(`${url}/src/update`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
+      console.log('Unable to update components');
     }
   })();
 };
@@ -164,9 +164,9 @@ export const updateNpmComponent = (token: string, imageName: string, packageName
         imageName,
         packageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
+      console.log('Unable to update components');
     }
   })();
 };
@@ -179,9 +179,9 @@ export const updateAndReinstall = (token: string, imageName: string, packageName
         packageName,
         reinstall: true,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to update components',); /* tslint:enable */
+      console.log('Unable to update components');
     }
   })();
 };
@@ -189,11 +189,11 @@ export const updateAndReinstall = (token: string, imageName: string, packageName
 export const removeSrcCode = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.delete(`${url}/src/${imageName}`,
+      await axios.delete(`${url}/src/${imageName}`,
          {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('Source code successfully removed'); /* tslint:enable */
+      console.log('Source code successfully removed');
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to remove source code',); /* tslint:enable */
+      console.log('Unable to remove source code');
     }
   })();
 };
@@ -201,13 +201,13 @@ export const removeSrcCode = (token: string, imageName: string) => {
 export const dockerLogin = (token: string, username: string, password: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/dockerLogin`,  {
+      await axios.post(`${url}/dockerLogin`,  {
         password,
         username,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('Login Successful'); /* tslint:enable */
+      console.log('Login Successful');
     } catch (error) {
-      /* tslint:disable */ console.log('Incorrect login and/or password'); /* tslint:enable */
+      console.log('Incorrect login and/or password');
     }
   })();
 };
@@ -215,12 +215,12 @@ export const dockerLogin = (token: string, username: string, password: string) =
 export const buildImage = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/images/build`,  {
+      await axios.post(`${url}/images/build`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('Image successfully built'); /* tslint:enable */
+      console.log('Image successfully built');
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to build image'); /* tslint:enable */
+      console.log('Unable to build image');
     }
   })();
 };
@@ -228,12 +228,12 @@ export const buildImage = (token: string, imageName: string) => {
 export const pushImage = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.post(`${url}/images/push`,  {
+      await axios.post(`${url}/images/push`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log('Image pushed to DockerHub'); /* tslint:enable */
+      console.log('Image pushed to DockerHub');
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */
+      console.log('Unable to push image');
     }
   })();
 };
@@ -244,9 +244,9 @@ export const checkTag = (token: string, imageName: string) => {
       const response = await axios.post(`${url}/images/checkTag`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      /* tslint:disable */ console.log(response.data); /* tslint:enable */
+      console.log(response.data);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to push image'); /* tslint:enable */
+      console.log('Unable to push image');
     }
   })();
 };
@@ -258,9 +258,9 @@ export const login = (username: string, password: string) => {
         password,
         username,
       });
-      /* tslint:disable */ console.log(response.data.token); /* tslint:enable */
+      console.log(response.data.token);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to login'); /* tslint:enable */
+      console.log('Unable to login');
     }
   })();
 };
@@ -272,9 +272,9 @@ export const register = (username: string, password: string) => {
         password,
         username,
       });
-      /* tslint:disable */ console.log(response.data.token); /* tslint:enable */
+      console.log(response.data.token);
     } catch (error) {
-      /* tslint:disable */ console.log('Unable to register'); /* tslint:enable */
+      console.log('Unable to register');
     }
   })();
 };

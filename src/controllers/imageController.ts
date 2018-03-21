@@ -183,11 +183,11 @@ class ImageController {
       minor = semVerValues[1];
       patch = semVerValues[2];
     }
-    return res.status(200).json({
+    return res.status(200).json(JSON.stringify({
       major,
       minor,
       patch,
-    });
+    }));
   }
 }
 

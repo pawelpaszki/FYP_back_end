@@ -8,7 +8,6 @@ commander
 
 commander
   .command('createContainer <token> <imageName>')
-  // .alias('cc')
   .description('Create a container')
   .action((token, imageName) => {
     actions.createContainer(token, imageName);
