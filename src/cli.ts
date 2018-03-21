@@ -1,3 +1,5 @@
+#!/usr/bin/env ts-node
+
 import * as commander from 'commander';
 
 import * as actions from './cli-middleware';
