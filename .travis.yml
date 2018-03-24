@@ -20,6 +20,7 @@ script:
 - docker pull pawelpaszki/vuln-demo-1-node:latest
 - docker pull pawelpaszki/vuln-demo-2-node:latest
 - docker pull pawelpaszki/vuln-demo-10-node:latest
+- npm install -g ts-node
 - npm test
 language: node_js
 node_js: 6.12.3

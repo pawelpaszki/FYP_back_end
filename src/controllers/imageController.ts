@@ -19,6 +19,9 @@ class ImageController {
       const imagesData = data;
       const imagesList: IImage[] = [];
       for (const image of imagesData) {
+        if (!image.RepoTags) {
+          continue;
+        }
         const name: string = image.RepoTags[0].toString().substr(0, image.RepoTags[0].toString().indexOf(':'));
         const id: string = image.Id.toString().substr(image.Id.toString().indexOf(':') + 1);
         let tag: string = '';

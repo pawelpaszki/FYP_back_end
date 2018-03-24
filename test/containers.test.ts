@@ -26,7 +26,7 @@ describe('# Container', () => {
 
   before((done) => {
     chai.request(express)
-      .post('/api/register')
+      .post('/api/login')
       .send({username: 'testusername', password: 'password'})
       .end((err, res) => {
         token = res.body.token;

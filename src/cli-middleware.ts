@@ -67,28 +67,41 @@ export const extractContainer = (token: string, containerId: string, imageName: 
   })();
 };
 
-export const checkForVulnComps = (token: string, imageName: string, checkOnly: boolean) => {
+export const checkTag = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.put(`${url}/imagefreshness`,  {
-        checkOnly, imageName,
+      const response = await axios.post(`${url}/images/checkTag`,  {
+        imageName,
       }, {headers: {'x-access-token': token}});
-      console.log(response.data.updates);
+      console.log(response.data);
     } catch (error) {
-      console.log('unable to perform vulnerability check');
+      console.log('unable to get tag of the image');
     }
   })();
 };
 
-export const performVulnerabilityCheck = (token: string, imageName: string) => {
+export const buildImage = (token: string, imageName: string) => {
   (async () => {
     try {
-      const response = await axios.put(`${url}/imagefreshness`,  {
+      await axios.post(`${url}/images/build`,  {
         imageName,
       }, {headers: {'x-access-token': token}});
-      console.log({updates: response.data});
+      console.log('Image successfully built');
     } catch (error) {
-      console.log('unable to perform vulnerability check');
+      console.log('unable to build image');
+    }
+  })();
+};
+
+export const pushImage = (token: string, imageName: string) => {
+  (async () => {
+    try {
+      await axios.post(`${url}/images/push`,  {
+        imageName,
+      }, {headers: {'x-access-token': token}});
+      console.log('Image pushed to DockerHub');
+    } catch (error) {
+      console.log('unable to push image');
     }
   })();
 };
@@ -118,6 +131,32 @@ export const removeImage = (token: string, imageId: string) => {
   })();
 };
 
+export const checkForVulnComps = (token: string, imageName: string, checkOnly: boolean) => {
+  (async () => {
+    try {
+      const response = await axios.put(`${url}/imagefreshness`,  {
+        checkOnly, imageName,
+      }, {headers: {'x-access-token': token}});
+      console.log(response.data.updates);
+    } catch (error) {
+      console.log('unable to perform vulnerability check');
+    }
+  })();
+};
+
+export const performVulnerabilityCheck = (token: string, imageName: string) => {
+  (async () => {
+    try {
+      const response = await axios.put(`${url}/imagefreshness`,  {
+        imageName,
+      }, {headers: {'x-access-token': token}});
+      console.log({updates: response.data});
+    } catch (error) {
+      console.log('unable to perform vulnerability check');
+    }
+  })();
+};
+
 export const runNpmTests = (token: string, imageName: string) => {
   (async () => {
     try {
@@ -126,7 +165,7 @@ export const runNpmTests = (token: string, imageName: string) => {
       }, {headers: {'x-access-token': token}});
       console.log(response.data);
     } catch (error) {
-      console.log('Unable to run npm tests');
+      console.log('unable to run npm tests');
     }
   })();
 };
@@ -139,7 +178,7 @@ export const runNcuCheck = (token: string, imageName: string) => {
       }, {headers: {'x-access-token': token}});
       console.log(response.data);
     } catch (error) {
-      console.log('Unable to check for npm updates');
+      console.log('unable to check for npm updates');
     }
   })();
 };
@@ -152,7 +191,7 @@ export const updateNpmComponents = (token: string, imageName: string) => {
       }, {headers: {'x-access-token': token}});
       console.log(response.data);
     } catch (error) {
-      console.log('Unable to update components');
+      console.log('unable to update components');
     }
   })();
 };
@@ -166,7 +205,7 @@ export const updateNpmComponent = (token: string, imageName: string, packageName
       }, {headers: {'x-access-token': token}});
       console.log(response.data);
     } catch (error) {
-      console.log('Unable to update components');
+      console.log('unable to update component');
     }
   })();
 };
@@ -181,7 +220,7 @@ export const updateAndReinstall = (token: string, imageName: string, packageName
       }, {headers: {'x-access-token': token}});
       console.log(response.data);
     } catch (error) {
-      console.log('Unable to update components');
+      console.log('unable to update component');
     }
   })();
 };
@@ -193,7 +232,7 @@ export const removeSrcCode = (token: string, imageName: string) => {
          {headers: {'x-access-token': token}});
       console.log('Source code successfully removed');
     } catch (error) {
-      console.log('Unable to remove source code');
+      console.log('unable to remove source code');
     }
   })();
 };
@@ -212,45 +251,6 @@ export const dockerLogin = (token: string, username: string, password: string) =
   })();
 };
 
-export const buildImage = (token: string, imageName: string) => {
-  (async () => {
-    try {
-      await axios.post(`${url}/images/build`,  {
-        imageName,
-      }, {headers: {'x-access-token': token}});
-      console.log('Image successfully built');
-    } catch (error) {
-      console.log('Unable to build image');
-    }
-  })();
-};
-
-export const pushImage = (token: string, imageName: string) => {
-  (async () => {
-    try {
-      await axios.post(`${url}/images/push`,  {
-        imageName,
-      }, {headers: {'x-access-token': token}});
-      console.log('Image pushed to DockerHub');
-    } catch (error) {
-      console.log('Unable to push image');
-    }
-  })();
-};
-
-export const checkTag = (token: string, imageName: string) => {
-  (async () => {
-    try {
-      const response = await axios.post(`${url}/images/checkTag`,  {
-        imageName,
-      }, {headers: {'x-access-token': token}});
-      console.log(response.data);
-    } catch (error) {
-      console.log('Unable to push image');
-    }
-  })();
-};
-
 export const login = (username: string, password: string) => {
   (async () => {
     try {
@@ -260,7 +260,7 @@ export const login = (username: string, password: string) => {
       });
       console.log(response.data.token);
     } catch (error) {
-      console.log('Unable to login');
+      console.log('unable to login');
     }
   })();
 };
@@ -274,7 +274,7 @@ export const register = (username: string, password: string) => {
       });
       console.log(response.data.token);
     } catch (error) {
-      console.log('Unable to register');
+      console.log('unable to register');
     }
   })();
 };
