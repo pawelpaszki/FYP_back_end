@@ -137,6 +137,41 @@ class SrcController {
     }
   }
 
+  public getPackages = async (req: Request, res: Response) => {
+    const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
+    if (testDir.length > 0 && testDir !== 'test') {
+      let packages: string[];
+      async function getComponents() {
+        /* istanbul ignore if */
+        if (process.env.NODE_ENV !== 'test') {
+          try {
+            const dirToScan = await SourceCodeFinder.getFullSrcPath(req.body.imageName);
+            if (dirToScan === '') {
+              return res.status(404).json({
+                error: 'No source code found',
+              });
+            }
+            packages = OutputParser.parsePackageJson(dirToScan + '/package.json');
+          } catch (error) {
+            return res.status(500).json({
+              error, // change to message error later
+            });
+          }
+        } else {
+          packages = OutputParser.parsePackageJson('test/test-files/package.json');
+        }
+        return res.status(200).json({
+          packages,
+        });
+      }
+      getComponents();
+    } else {
+      res.status(500).json({
+        error: 'No image name provided',
+      });
+    }
+  }
+
   public checkForUpdates = async (req: Request, res: Response) => {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.body.imageName);
     if (testDir.length > 0 && testDir !== 'test') {

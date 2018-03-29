@@ -8,6 +8,7 @@ src.post('/checkOS', SrcController.checkOS);
 src.post('/tests', SrcController.runTests);
 src.post('/checkUpdates', SrcController.checkForUpdates);
 src.post('/update', SrcController.updateComponents);
+src.post('/checkPackages', SrcController.getPackages);
 src.get('/availableDirs', SrcController.getAvailableDirs);
 
 export default src;

@@ -129,6 +129,16 @@ class OutputParser {
     return [];
   }
 
+  public static parsePackageJson(path: string): string[] {
+    const packageJsonContent: string = FileToStringConverter.readFile(path);
+    const packageJsonObject: any = JSON.parse(packageJsonContent);
+    const components: string = JSON.stringify(packageJsonObject.dependencies);
+    let componentsArray: string[] =
+      components.split('{').join(',').split('}').join(',').split(',').join(',').split(',');
+    componentsArray = componentsArray.filter((entry) => entry !== '');
+    return componentsArray;
+  }
+
   public static parseNpmTests(path: string): string[] {
     let npmTestContent: string[] = FileToStringConverter.readFile(path).split('\n');
     npmTestContent = npmTestContent.filter((line) => line !== '');

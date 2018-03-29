@@ -79,4 +79,12 @@ describe('# OutputParser', () => {
       expect(outputNonexistentPath.length).to.equal(0);
     });
   });
+
+  describe('test package.json parser', () => {
+    it('should return appropriate response based on parsing package.json output', () => {
+      let packageJsonOutput = 'test/test-files/package.json';
+      let testLines: string[] = OutputParser.parsePackageJson(packageJsonOutput);
+      expect(testLines.length).to.be.greaterThan(0);
+    });
+  });
 });

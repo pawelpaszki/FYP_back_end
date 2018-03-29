@@ -202,4 +202,31 @@ describe('# Src', () => {
     });
   });
 
+  describe('/POST get npm packages', () => {
+    it('it should thest the list of npm packages', (done) => {
+      chai.request(express)
+        .post(endpoint + 'checkPackages')
+        .set({'x-access-token': token})
+        .send({imageName: testImageName})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.not.be.empty;
+          done();
+        });
+    });
+  });
+
+  describe('/POST get npm packages', () => {
+    it('it should return error on empty image name provided', (done) => {
+      chai.request(express)
+        .post(endpoint + 'checkPackages')
+        .set({'x-access-token': token})
+        .send({imageName: ''})
+        .end((err, res) => {
+          res.should.have.status(500);
+          done();
+        });
+    });
+  });
+
 });
