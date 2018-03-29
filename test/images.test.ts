@@ -59,6 +59,7 @@ describe('# Image', () => {
 
   describe('/POST search for images', () => {
     it('it should return array with search results', function(done) {
+      this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'search')
         .set({'x-access-token': token})
@@ -118,6 +119,7 @@ describe('# Image', () => {
 
   describe('/DELETE docker image', () => {
     it('it should not delete non-existent docker image', function(done) {
+      this.timeout(10000);
       chai.request(express)
         .delete(endpoint + '123412341234')
         .set({'x-access-token': token})

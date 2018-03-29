@@ -205,9 +205,9 @@ class ImagesFreshnessController {
         } else {
           const getVulnerableAndUpdates: boolean = (!!req.body.checkOnly);
           if (getVulnerableAndUpdates !== true) {
-            return res.status(200).json({
+            return res.status(200).json(JSON.stringify({
               updates,
-            });
+            }));
           } else {
             return res.status(200).json({
               updates,
