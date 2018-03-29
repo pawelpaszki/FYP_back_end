@@ -28,6 +28,38 @@ class UserController {
     }
   }
 
+  public update = async (req: Request, res: Response) => {
+    try {
+      const user = await User.findOne({username: req.body.username}).exec();
+      if (user !== null) {
+        const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+        if (!passwordIsValid) {
+          return res.status(401).send({
+            error: 'invalid password',
+            token: null,
+          });
+        }
+        const hashedPassword = bcrypt.hashSync(req.body.newPassword, 8);
+        user.password = hashedPassword;
+        await user.save();
+        const token = jwt.sign({ id: user._id }, process.env.SECRET || 'secret', {
+          expiresIn: 86400,
+        });
+        res.status(200).json({
+          token,
+        });
+      } else {
+        return res.status(404).json({
+          error: 'Unable to find: ' + req.body.username,
+        });
+      }
+    } catch (err) {
+      return res.status(403).json({
+        error: 'Unable to login',
+      });
+    }
+  }
+
   public login = async (req: Request, res: Response) => {
     try {
       const user = await User.findOne({username: req.body.username}).exec();
