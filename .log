@@ -1,0 +1,42 @@
+Thu Mar 29 2018 19:50:37 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest
+Thu Mar 29 2018 19:50:38 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest
+Thu Mar 29 2018 19:50:46 GMT+0100 (IST) Container created. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
+Thu Mar 29 2018 19:50:51 GMT+0100 (IST) Container created. Container ID: 0c5b5dd08aff8e21c29a743e092e8c8fae3db302863e7b4d349e121b85f872c7
+Thu Mar 29 2018 19:51:57 GMT+0100 (IST) Container stopped. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
+Thu Mar 29 2018 19:52:48 GMT+0100 (IST) Container created. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
+Thu Mar 29 2018 19:53:00 GMT+0100 (IST) Container stopped. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
+Thu Mar 29 2018 19:53:03 GMT+0100 (IST) Container removed. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
+Thu Mar 29 2018 19:56:11 GMT+0100 (IST) User registered: testusername
+Thu Mar 29 2018 19:57:51 GMT+0100 (IST) User logged in: testusername
+Thu Mar 29 2018 19:57:53 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Thu Mar 29 2018 19:57:53 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-1-node
+Thu Mar 29 2018 19:57:54 GMT+0100 (IST) Container created. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
+Thu Mar 29 2018 19:58:03 GMT+0100 (IST) Container source code. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Container stopped. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Container removed. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) User logged in: testusername
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) All image freshenss entries removed
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry removed: 5abd373cd747810be65cda0b
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry removed: 123412341234
+Thu Mar 29 2018 19:58:04 GMT+0100 (IST) User logged in: testusername
+Thu Mar 29 2018 19:58:09 GMT+0100 (IST) Image pulled: alpine:3.6
+Thu Mar 29 2018 19:58:11 GMT+0100 (IST) Image removed: 77144d8c6bdc
+Thu Mar 29 2018 19:58:13 GMT+0100 (IST) Container created. Container ID: 65e169196635aa495e9570397ff20bb5af1fb63a8d3e1755b66a24c8f84eadf1
+Thu Mar 29 2018 19:58:17 GMT+0100 (IST) Container source code. Container ID: 65e169196635aa495e9570397ff20bb5af1fb63a8d3e1755b66a24c8f84eadf1
+Thu Mar 29 2018 19:58:19 GMT+0100 (IST) Image built: pawelpaszki/vuln-demo-1-node:latest
+Thu Mar 29 2018 19:58:20 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Thu Mar 29 2018 19:58:21 GMT+0100 (IST) Container created. Container ID: b0cbc53852a1945f89320dc7280c284b05245835eebe651c6810f4a84c783e90
+Thu Mar 29 2018 19:58:30 GMT+0100 (IST) Container source code. Container ID: b0cbc53852a1945f89320dc7280c284b05245835eebe651c6810f4a84c783e90
+Thu Mar 29 2018 19:58:37 GMT+0100 (IST) Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Thu Mar 29 2018 19:58:43 GMT+0100 (IST) User logged in: testusername
+Thu Mar 29 2018 19:58:44 GMT+0100 (IST) Source code removed: pawelpaszki/vuln-demo-1-node
+Thu Mar 29 2018 19:58:45 GMT+0100 (IST) Container created. Container ID: f8491bf27ae47f85316161e796a5c7c54791a027b0834a04a4832e6fe58044b3
+Thu Mar 29 2018 19:58:50 GMT+0100 (IST) Container source code. Container ID: f8491bf27ae47f85316161e796a5c7c54791a027b0834a04a4832e6fe58044b3
+Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User logged in: testusername
+Thu Mar 29 2018 19:58:52 GMT+0100 (IST) All users removed from the database
+Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User registered: username
+Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User logged in: username
+Thu Mar 29 2018 19:58:52 GMT+0100 (IST) All users removed from the database

@@ -5,6 +5,7 @@ import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
 import {default as OutputParser, IOsJSON} from '../utilities/OutputParser';
 import SourceCodeFinder from '../utilities/SourceCodeFinder';
+import {Logger} from "../utilities/Logger";
 
 class SrcController {
 
@@ -22,6 +23,7 @@ class SrcController {
           try {
             await ChildProcessHandler.executeChildProcCommand(
               'cd imagesTestDir && rm -rf ' + testDir, false);
+            Logger.logActivity("Source code removed: " + req.params.imageName);
             res.status(200).json({
               message: 'Source code successfully removed',
             });
@@ -230,11 +232,11 @@ class SrcController {
             if (req.body.packageName) {
               await ChildProcessHandler.executeChildProcCommand(
                 'cd ' + dirToScan + ' && npm install --save ' + req.body.packageName, false);
+              Logger.logActivity("Package updates: " + req.params.packageName + ' for: ' + req.body.imageName);
               updatedModules.push(req.body.packageName);
             } else {
               await ChildProcessHandler.executeChildProcCommand(
                 'cd ' + dirToScan + ' &&  ncu -a --packageFile package.json > upgraded.txt', true);
-
               updatedModules = OutputParser.parseNcuOutput(dirToScan + '/upgraded.txt');
             }
             if (!req.body.packageName || req.body.reinstall) {

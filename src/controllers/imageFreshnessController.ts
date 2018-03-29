@@ -8,6 +8,7 @@ import DateComparator from '../utilities/DateComparator';
 import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import OutputParser, {IVulnScanJSON} from '../utilities/OutputParser';
 import SourceCodeFinder from '../utilities/SourceCodeFinder';
+import {Logger} from "../utilities/Logger";
 
 class ImagesFreshnessController {
 
@@ -53,6 +54,7 @@ class ImagesFreshnessController {
       newEntry.highVulnCount = 0;
       newEntry.vulnerabilityCheckRecords = [];
       await newEntry.save();
+      Logger.logActivity("Image freshness entry created: " + req.body.imageName);
       return res.status(201).json({message: 'Image freshness created saved successfully', entry: newEntry});
     } catch (err) {
       return res.status(403).json({error: 'Unable to create image freshness entry'});
@@ -62,6 +64,7 @@ class ImagesFreshnessController {
   public delete = async (req: Request, res: Response) => {
     try {
       await ImageFreshnessEntry.findByIdAndRemove(req.params.id);
+      Logger.logActivity("Image freshness entry removed: " + req.params.id);
       return res.status(200).json({message: 'Image freshness entry deleted successfully'});
     } catch (error) {
       return res.status(404).json({error: 'Unable to remove image freshness entry'});
@@ -193,6 +196,7 @@ class ImagesFreshnessController {
           }
           entry.vulnerabilityCheckRecords.push(vulnerabilityCheckRecord);
           await entry.save();
+          Logger.logActivity("Vulnerability check persisted: " + req.body.imageName);
         }
         if (checkOnly !== true) {
           return res.status(201).json({
@@ -227,6 +231,7 @@ class ImagesFreshnessController {
 
   public deleteAll = async (req: Request, res: Response) => {
     await ImageFreshnessEntry.deleteMany({});
+    Logger.logActivity("All image freshenss entries removed");
     return res.status(200).json({message: 'Image freshness entries deleted successfully'});
   }
 }

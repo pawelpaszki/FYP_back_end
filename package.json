@@ -1,6 +1,6 @@
 {
   "name": "difvm",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "description": "Docker containers' source code freshness management API",
   "main": "index.js",
   "scripts": {
