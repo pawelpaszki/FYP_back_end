@@ -1,154 +1,68 @@
-Thu Mar 29 2018 19:50:37 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest
-Thu Mar 29 2018 19:50:38 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest
-Thu Mar 29 2018 19:50:46 GMT+0100 (IST) Container created. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
-Thu Mar 29 2018 19:50:51 GMT+0100 (IST) Container created. Container ID: 0c5b5dd08aff8e21c29a743e092e8c8fae3db302863e7b4d349e121b85f872c7
-Thu Mar 29 2018 19:51:57 GMT+0100 (IST) Container stopped. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
-Thu Mar 29 2018 19:52:48 GMT+0100 (IST) Container created. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
-Thu Mar 29 2018 19:53:00 GMT+0100 (IST) Container stopped. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
-Thu Mar 29 2018 19:53:03 GMT+0100 (IST) Container removed. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c
-Thu Mar 29 2018 19:56:11 GMT+0100 (IST) User registered: testusername
-Thu Mar 29 2018 19:57:51 GMT+0100 (IST) User logged in: testusername
-Thu Mar 29 2018 19:57:53 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-1-node:latest
-Thu Mar 29 2018 19:57:53 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-1-node
-Thu Mar 29 2018 19:57:54 GMT+0100 (IST) Container created. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
-Thu Mar 29 2018 19:58:03 GMT+0100 (IST) Container source code. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Container stopped. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Container removed. Container ID: ff2e83585c60d07bd1f1e265ddc7e03a58b8d650b1537a980253c59819015e14
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) User logged in: testusername
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) All image freshenss entries removed
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry created: pawelpaszki/vuln-demo-1-node
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry removed: 5abd373cd747810be65cda0b
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) Image freshness entry removed: 123412341234
-Thu Mar 29 2018 19:58:04 GMT+0100 (IST) User logged in: testusername
-Thu Mar 29 2018 19:58:09 GMT+0100 (IST) Image pulled: alpine:3.6
-Thu Mar 29 2018 19:58:11 GMT+0100 (IST) Image removed: 77144d8c6bdc
-Thu Mar 29 2018 19:58:13 GMT+0100 (IST) Container created. Container ID: 65e169196635aa495e9570397ff20bb5af1fb63a8d3e1755b66a24c8f84eadf1
-Thu Mar 29 2018 19:58:17 GMT+0100 (IST) Container source code. Container ID: 65e169196635aa495e9570397ff20bb5af1fb63a8d3e1755b66a24c8f84eadf1
-Thu Mar 29 2018 19:58:19 GMT+0100 (IST) Image built: pawelpaszki/vuln-demo-1-node:latest
-Thu Mar 29 2018 19:58:20 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-10-node:latest
-Thu Mar 29 2018 19:58:21 GMT+0100 (IST) Container created. Container ID: b0cbc53852a1945f89320dc7280c284b05245835eebe651c6810f4a84c783e90
-Thu Mar 29 2018 19:58:30 GMT+0100 (IST) Container source code. Container ID: b0cbc53852a1945f89320dc7280c284b05245835eebe651c6810f4a84c783e90
-Thu Mar 29 2018 19:58:37 GMT+0100 (IST) Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
-Thu Mar 29 2018 19:58:43 GMT+0100 (IST) User logged in: testusername
-Thu Mar 29 2018 19:58:44 GMT+0100 (IST) Source code removed: pawelpaszki/vuln-demo-1-node
-Thu Mar 29 2018 19:58:45 GMT+0100 (IST) Container created. Container ID: f8491bf27ae47f85316161e796a5c7c54791a027b0834a04a4832e6fe58044b3
-Thu Mar 29 2018 19:58:50 GMT+0100 (IST) Container source code. Container ID: f8491bf27ae47f85316161e796a5c7c54791a027b0834a04a4832e6fe58044b3
-Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User logged in: testusername
-Thu Mar 29 2018 19:58:52 GMT+0100 (IST) All users removed from the database
-Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User registered: username
-Thu Mar 29 2018 19:58:52 GMT+0100 (IST) User logged in: username
-Thu Mar 29 2018 19:58:52 GMT+0100 (IST) All users removed from the database
-Fri Mar 30 2018 04:12:03 GMT+0100 (IST) User logged in: admin
-Fri Mar 30 2018 04:12:06 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-1-node:latest
-Fri Mar 30 2018 04:12:08 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 04:12:11 GMT+0100 (IST) Container created. Container ID: e1ee1d26933018608567bdbd407182dae055f8f38f747b9108810054429a2d14
-Fri Mar 30 2018 04:12:19 GMT+0100 (IST) Container source code. Container ID: e1ee1d26933018608567bdbd407182dae055f8f38f747b9108810054429a2d14
-Fri Mar 30 2018 04:12:50 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 04:12:53 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-2-node:latest
-Fri Mar 30 2018 04:12:56 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-2-node
-Fri Mar 30 2018 04:12:58 GMT+0100 (IST) Container created. Container ID: 5b86070bf02c6afb858ea598edc30a8b868a69941286a8008245ba5241f1ef46
-Fri Mar 30 2018 04:13:06 GMT+0100 (IST) Container source code. Container ID: 5b86070bf02c6afb858ea598edc30a8b868a69941286a8008245ba5241f1ef46
-Fri Mar 30 2018 04:13:14 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
-Fri Mar 30 2018 04:13:18 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-3-node:latest
-Fri Mar 30 2018 04:13:20 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-3-node
-Fri Mar 30 2018 04:13:23 GMT+0100 (IST) Container created. Container ID: 20e468ce5de9c30ea57cac73af4379d1cb63d409a682a070cb61dfe307e11f9b
-Fri Mar 30 2018 04:13:30 GMT+0100 (IST) Container source code. Container ID: 20e468ce5de9c30ea57cac73af4379d1cb63d409a682a070cb61dfe307e11f9b
-Fri Mar 30 2018 04:13:43 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
-Fri Mar 30 2018 04:13:46 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-4-node:latest
-Fri Mar 30 2018 04:13:48 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-4-node
-Fri Mar 30 2018 04:13:51 GMT+0100 (IST) Container created. Container ID: 5bee5fcfe5ad7ceb90db4bb68cf5659493849a886d0cd026ce433cabc5130c55
-Fri Mar 30 2018 04:13:58 GMT+0100 (IST) Container source code. Container ID: 5bee5fcfe5ad7ceb90db4bb68cf5659493849a886d0cd026ce433cabc5130c55
-Fri Mar 30 2018 04:14:05 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
-Fri Mar 30 2018 04:14:09 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-10-node:latest
-Fri Mar 30 2018 04:14:11 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-10-node
-Fri Mar 30 2018 04:14:14 GMT+0100 (IST) Container created. Container ID: b8c74582b98ca67f095fc7af87cc0c0daa857e9c83b41078b486d92b7d931edc
-Fri Mar 30 2018 04:14:21 GMT+0100 (IST) Container source code. Container ID: b8c74582b98ca67f095fc7af87cc0c0daa857e9c83b41078b486d92b7d931edc
-Fri Mar 30 2018 04:14:26 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
-Fri Mar 30 2018 04:14:30 GMT+0100 (IST) Image pulled: pawelpaszki/docker-vuln-manager:latest
-Fri Mar 30 2018 04:14:32 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager
-Fri Mar 30 2018 04:14:35 GMT+0100 (IST) Container created. Container ID: 92a6f6d848e13e51193b8f059110292ae03b3bb2d41207018c7df332782d2c44
-Fri Mar 30 2018 04:14:51 GMT+0100 (IST) Container source code. Container ID: 92a6f6d848e13e51193b8f059110292ae03b3bb2d41207018c7df332782d2c44
-Fri Mar 30 2018 04:15:18 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/docker-vuln-manager
-Fri Mar 30 2018 04:15:22 GMT+0100 (IST) Image pulled: pawelpaszki/long-term-vuln-node-app:latest
-Fri Mar 30 2018 04:15:24 GMT+0100 (IST) Container created. Image name: pawelpaszki/long-term-vuln-node-app
-Fri Mar 30 2018 04:15:27 GMT+0100 (IST) Container created. Container ID: 7d9e1325f8c43fa52faabd6790e5d703b2d874a4a9b4aee48c24c62ee841f9a2
-Fri Mar 30 2018 04:15:34 GMT+0100 (IST) Container source code. Container ID: 7d9e1325f8c43fa52faabd6790e5d703b2d874a4a9b4aee48c24c62ee841f9a2
-Fri Mar 30 2018 04:15:40 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
-Fri Mar 30 2018 04:15:43 GMT+0100 (IST) Image pulled: pawelpaszki/single-medium-vuln-node:latest
-Fri Mar 30 2018 04:15:46 GMT+0100 (IST) Container created. Image name: pawelpaszki/single-medium-vuln-node
-Fri Mar 30 2018 04:15:48 GMT+0100 (IST) Container created. Container ID: 5cb10fc8caba223207964375e20e9fb0a56cbeb61632930dce6ce6eb4f394394
-Fri Mar 30 2018 04:15:54 GMT+0100 (IST) Container source code. Container ID: 5cb10fc8caba223207964375e20e9fb0a56cbeb61632930dce6ce6eb4f394394
-Fri Mar 30 2018 04:16:00 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
-Fri Mar 30 2018 04:16:05 GMT+0100 (IST) Image pulled: pawelpaszki/single-low-vuln-node:latest
-Fri Mar 30 2018 04:16:07 GMT+0100 (IST) Container created. Image name: pawelpaszki/single-low-vuln-node
-Fri Mar 30 2018 04:16:10 GMT+0100 (IST) Container created. Container ID: 9632238948a402f29b8886d31b189c6709e4b778d7ee4b60b483e33d650b5430
-Fri Mar 30 2018 04:16:15 GMT+0100 (IST) Container source code. Container ID: 9632238948a402f29b8886d31b189c6709e4b778d7ee4b60b483e33d650b5430
-Fri Mar 30 2018 04:16:23 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/single-low-vuln-node
-Fri Mar 30 2018 04:16:27 GMT+0100 (IST) Image pulled: pawelpaszki/multi-vuln-node:latest
-Fri Mar 30 2018 04:16:29 GMT+0100 (IST) Container created. Image name: pawelpaszki/multi-vuln-node
-Fri Mar 30 2018 04:16:32 GMT+0100 (IST) Container created. Container ID: 45a0bc29b698d56b0d5611295816cfbcd3a08c9b7c3657408b87f6b84886f50b
-Fri Mar 30 2018 04:16:39 GMT+0100 (IST) Container source code. Container ID: 45a0bc29b698d56b0d5611295816cfbcd3a08c9b7c3657408b87f6b84886f50b
-Fri Mar 30 2018 04:16:47 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/multi-vuln-node
-Fri Mar 30 2018 04:16:50 GMT+0100 (IST) Container stopped. Container ID: e1ee1d26933018608567bdbd407182dae055f8f38f747b9108810054429a2d14
-Fri Mar 30 2018 04:16:52 GMT+0100 (IST) Container removed. Container ID: e1ee1d26933018608567bdbd407182dae055f8f38f747b9108810054429a2d14
-Fri Mar 30 2018 04:16:55 GMT+0100 (IST) Container stopped. Container ID: 5b86070bf02c6afb858ea598edc30a8b868a69941286a8008245ba5241f1ef46
-Fri Mar 30 2018 04:16:57 GMT+0100 (IST) Container removed. Container ID: 5b86070bf02c6afb858ea598edc30a8b868a69941286a8008245ba5241f1ef46
-Fri Mar 30 2018 04:17:00 GMT+0100 (IST) Container stopped. Container ID: 20e468ce5de9c30ea57cac73af4379d1cb63d409a682a070cb61dfe307e11f9b
-Fri Mar 30 2018 04:17:02 GMT+0100 (IST) Container removed. Container ID: 20e468ce5de9c30ea57cac73af4379d1cb63d409a682a070cb61dfe307e11f9b
-Fri Mar 30 2018 04:17:04 GMT+0100 (IST) Container stopped. Container ID: 5bee5fcfe5ad7ceb90db4bb68cf5659493849a886d0cd026ce433cabc5130c55
-Fri Mar 30 2018 04:17:07 GMT+0100 (IST) Container removed. Container ID: 5bee5fcfe5ad7ceb90db4bb68cf5659493849a886d0cd026ce433cabc5130c55
-Fri Mar 30 2018 04:17:09 GMT+0100 (IST) Container stopped. Container ID: b8c74582b98ca67f095fc7af87cc0c0daa857e9c83b41078b486d92b7d931edc
-Fri Mar 30 2018 04:17:12 GMT+0100 (IST) Container removed. Container ID: b8c74582b98ca67f095fc7af87cc0c0daa857e9c83b41078b486d92b7d931edc
-Fri Mar 30 2018 04:17:24 GMT+0100 (IST) Container stopped. Container ID: 92a6f6d848e13e51193b8f059110292ae03b3bb2d41207018c7df332782d2c44
-Fri Mar 30 2018 04:17:26 GMT+0100 (IST) Container removed. Container ID: 92a6f6d848e13e51193b8f059110292ae03b3bb2d41207018c7df332782d2c44
-Fri Mar 30 2018 04:17:29 GMT+0100 (IST) Container stopped. Container ID: 7d9e1325f8c43fa52faabd6790e5d703b2d874a4a9b4aee48c24c62ee841f9a2
-Fri Mar 30 2018 04:17:31 GMT+0100 (IST) Container removed. Container ID: 7d9e1325f8c43fa52faabd6790e5d703b2d874a4a9b4aee48c24c62ee841f9a2
-Fri Mar 30 2018 04:17:34 GMT+0100 (IST) Container stopped. Container ID: 5cb10fc8caba223207964375e20e9fb0a56cbeb61632930dce6ce6eb4f394394
-Fri Mar 30 2018 04:17:36 GMT+0100 (IST) Container removed. Container ID: 5cb10fc8caba223207964375e20e9fb0a56cbeb61632930dce6ce6eb4f394394
-Fri Mar 30 2018 04:17:39 GMT+0100 (IST) Container stopped. Container ID: 9632238948a402f29b8886d31b189c6709e4b778d7ee4b60b483e33d650b5430
-Fri Mar 30 2018 04:17:41 GMT+0100 (IST) Container removed. Container ID: 9632238948a402f29b8886d31b189c6709e4b778d7ee4b60b483e33d650b5430
-Fri Mar 30 2018 04:17:44 GMT+0100 (IST) Container stopped. Container ID: 45a0bc29b698d56b0d5611295816cfbcd3a08c9b7c3657408b87f6b84886f50b
-Fri Mar 30 2018 04:17:46 GMT+0100 (IST) Container removed. Container ID: 45a0bc29b698d56b0d5611295816cfbcd3a08c9b7c3657408b87f6b84886f50b
-Fri Mar 30 2018 05:45:57 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:0.0.1
-Fri Mar 30 2018 05:46:09 GMT+0100 (IST) Container created. Container ID: f1251faabc71a1a097302dcfff12e31cde0a31e079eb13cd1c4ecd1b8d45db02
-Fri Mar 30 2018 05:46:36 GMT+0100 (IST) Container source code. Container ID: f1251faabc71a1a097302dcfff12e31cde0a31e079eb13cd1c4ecd1b8d45db02
-Fri Mar 30 2018 06:08:12 GMT+0100 (IST) User registered: testusername
-Fri Mar 30 2018 06:09:41 GMT+0100 (IST) User logged in: testusername
-Fri Mar 30 2018 06:09:42 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-1-node:latest
-Fri Mar 30 2018 06:09:42 GMT+0100 (IST) Container created. Image name: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 06:09:43 GMT+0100 (IST) Container created. Container ID: ea76642ad8e908dae56b3aad56b1e519d7fd836a799bbbaf15adbd558109e068
-Fri Mar 30 2018 06:09:52 GMT+0100 (IST) Container source code. Container ID: ea76642ad8e908dae56b3aad56b1e519d7fd836a799bbbaf15adbd558109e068
-Fri Mar 30 2018 06:09:53 GMT+0100 (IST) Container stopped. Container ID: ea76642ad8e908dae56b3aad56b1e519d7fd836a799bbbaf15adbd558109e068
-Fri Mar 30 2018 06:09:53 GMT+0100 (IST) Container removed. Container ID: ea76642ad8e908dae56b3aad56b1e519d7fd836a799bbbaf15adbd558109e068
-Fri Mar 30 2018 06:09:53 GMT+0100 (IST) User logged in: testusername
-Fri Mar 30 2018 06:09:53 GMT+0100 (IST) All image freshenss entries removed
-Fri Mar 30 2018 06:09:53 GMT+0100 (IST) Image freshness entry created: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 06:09:54 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 06:09:54 GMT+0100 (IST) Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
-Fri Mar 30 2018 06:09:54 GMT+0100 (IST) Image freshness entry removed: 5abdc6a16821e954b4199d53
-Fri Mar 30 2018 06:09:54 GMT+0100 (IST) Image freshness entry removed: 123412341234
-Fri Mar 30 2018 06:09:54 GMT+0100 (IST) User logged in: testusername
-Fri Mar 30 2018 06:09:58 GMT+0100 (IST) Image pulled: alpine:3.6
-Fri Mar 30 2018 06:10:00 GMT+0100 (IST) Image removed: 77144d8c6bdc
-Fri Mar 30 2018 06:10:01 GMT+0100 (IST) Container created. Container ID: 4aed1a8974d0f060fb253b31bc9814a0b7028889c195a9ed523f09db4b947cd5
-Fri Mar 30 2018 06:10:07 GMT+0100 (IST) Container source code. Container ID: 4aed1a8974d0f060fb253b31bc9814a0b7028889c195a9ed523f09db4b947cd5
-Fri Mar 30 2018 06:10:09 GMT+0100 (IST) Image built: pawelpaszki/vuln-demo-1-node:latest
-Fri Mar 30 2018 06:10:10 GMT+0100 (IST) Image pulled: pawelpaszki/vuln-demo-10-node:latest
-Fri Mar 30 2018 06:10:12 GMT+0100 (IST) Container created. Container ID: a83ee869a707137532cdd513e3b10338260673cf89094e334850a67a40d47801
-Fri Mar 30 2018 06:10:19 GMT+0100 (IST) Container source code. Container ID: a83ee869a707137532cdd513e3b10338260673cf89094e334850a67a40d47801
-Fri Mar 30 2018 06:10:26 GMT+0100 (IST) Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
-Fri Mar 30 2018 06:10:32 GMT+0100 (IST) User logged in: testusername
-Fri Mar 30 2018 06:10:33 GMT+0100 (IST) Source code removed: pawelpaszki/vuln-demo-1-node
-Fri Mar 30 2018 06:10:33 GMT+0100 (IST) Container created. Container ID: 0e6375c76122c35dfd2210e4c56ff4e4fdf7947ae4cd05e91969ee3af7d19d3f
-Fri Mar 30 2018 06:10:39 GMT+0100 (IST) Container source code. Container ID: 0e6375c76122c35dfd2210e4c56ff4e4fdf7947ae4cd05e91969ee3af7d19d3f
-Fri Mar 30 2018 06:10:40 GMT+0100 (IST) User logged in: testusername
-Fri Mar 30 2018 06:10:40 GMT+0100 (IST) All users removed from the database
-Fri Mar 30 2018 06:10:41 GMT+0100 (IST) User registered: username
-Fri Mar 30 2018 06:10:41 GMT+0100 (IST) User logged in: username
-Fri Mar 30 2018 06:10:41 GMT+0100 (IST) All users removed from the database
-Fri Mar 30 2018 06:13:59 GMT+0100 (IST) Container stopped. Container ID: f1251faabc71a1a097302dcfff12e31cde0a31e079eb13cd1c4ecd1b8d45db02
-Fri Mar 30 2018 06:14:11 GMT+0100 (IST) Container removed. Container ID: f1251faabc71a1a097302dcfff12e31cde0a31e079eb13cd1c4ecd1b8d45db02
-Fri Mar 30 2018 06:14:13 GMT+0100 (IST) Container removed. Container ID: 9125f2d7966332126c09da067b03326d8d7b8db096c1a240f1fe855f4e0463de
-Fri Mar 30 2018 06:14:20 GMT+0100 (IST) Container stopped. Container ID: 0e6375c76122c35dfd2210e4c56ff4e4fdf7947ae4cd05e91969ee3af7d19d3f
+Fri Mar 30 2018 10:35:47 GMT+0100 (IST). ENV: test User registered: testusername
+Fri Mar 30 2018 10:37:10 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:37:12 GMT+0100 (IST). ENV: test Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Fri Mar 30 2018 10:37:12 GMT+0100 (IST). ENV: test Container created. Image name: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:37:13 GMT+0100 (IST). ENV: test Container created. Container ID: 37e7f6986c41fba8e254a7321ddec73539183f1ccbfe6dac8924b99c462c3186
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test Container source code. Container ID: 37e7f6986c41fba8e254a7321ddec73539183f1ccbfe6dac8924b99c462c3186
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test Container stopped. Container ID: 37e7f6986c41fba8e254a7321ddec73539183f1ccbfe6dac8924b99c462c3186
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test Container removed. Container ID: 37e7f6986c41fba8e254a7321ddec73539183f1ccbfe6dac8924b99c462c3186
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test All image freshenss entries removed
+Fri Mar 30 2018 10:37:19 GMT+0100 (IST). ENV: test Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:37:20 GMT+0100 (IST). ENV: test Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:37:20 GMT+0100 (IST). ENV: test Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Fri Mar 30 2018 10:37:20 GMT+0100 (IST). ENV: test Image freshness entry removed: 5abe054fb519db4004fb3b8b
+Fri Mar 30 2018 10:37:20 GMT+0100 (IST). ENV: test Image freshness entry removed: 123412341234
+Fri Mar 30 2018 10:37:20 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:37:24 GMT+0100 (IST). ENV: test Image pulled: alpine:3.6
+Fri Mar 30 2018 10:37:26 GMT+0100 (IST). ENV: test Image removed: 77144d8c6bdc
+Fri Mar 30 2018 10:37:27 GMT+0100 (IST). ENV: test Container created. Container ID: 2234b473b5e6d311d0bf34bce53f1b29910458f66421caa4369564753412d43a
+Fri Mar 30 2018 10:37:30 GMT+0100 (IST). ENV: test Container source code. Container ID: 2234b473b5e6d311d0bf34bce53f1b29910458f66421caa4369564753412d43a
+Fri Mar 30 2018 10:37:33 GMT+0100 (IST). ENV: test Image built: pawelpaszki/vuln-demo-1-node:latest
+Fri Mar 30 2018 10:37:34 GMT+0100 (IST). ENV: test Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Fri Mar 30 2018 10:37:35 GMT+0100 (IST). ENV: test Container created. Container ID: 1627c4554fcc782ba49fea61efca87120d3af3ceed6606894111ef477f371ffb
+Fri Mar 30 2018 10:37:41 GMT+0100 (IST). ENV: test Container source code. Container ID: 1627c4554fcc782ba49fea61efca87120d3af3ceed6606894111ef477f371ffb
+Fri Mar 30 2018 10:37:48 GMT+0100 (IST). ENV: test Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Fri Mar 30 2018 10:37:53 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:37:54 GMT+0100 (IST). ENV: test Source code removed: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:37:55 GMT+0100 (IST). ENV: test Container created. Container ID: b9c226ce8b1882ff11cf29d4f25cf32c4095c496a174e0dccb930a4c13a2dc85
+Fri Mar 30 2018 10:37:58 GMT+0100 (IST). ENV: test Container source code. Container ID: b9c226ce8b1882ff11cf29d4f25cf32c4095c496a174e0dccb930a4c13a2dc85
+Fri Mar 30 2018 10:38:00 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:38:00 GMT+0100 (IST). ENV: test All users removed from the database
+Fri Mar 30 2018 10:38:00 GMT+0100 (IST). ENV: test User registered: username
+Fri Mar 30 2018 10:38:00 GMT+0100 (IST). ENV: test User logged in: username
+Fri Mar 30 2018 10:38:00 GMT+0100 (IST). ENV: test All users removed from the database
+Fri Mar 30 2018 10:55:23 GMT+0100 (IST). ENV: test User registered: testusername
+Fri Mar 30 2018 10:56:44 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:56:46 GMT+0100 (IST). ENV: test Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Fri Mar 30 2018 10:56:46 GMT+0100 (IST). ENV: test Container created. Image name: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:56:47 GMT+0100 (IST). ENV: test Container created. Container ID: a48a2a963f88797972afffdc5e37d30b678115999a362fbcde26ebd565a5be67
+Fri Mar 30 2018 10:56:51 GMT+0100 (IST). ENV: test Container source code. Container ID: a48a2a963f88797972afffdc5e37d30b678115999a362fbcde26ebd565a5be67
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Container stopped. Container ID: a48a2a963f88797972afffdc5e37d30b678115999a362fbcde26ebd565a5be67
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Container removed. Container ID: a48a2a963f88797972afffdc5e37d30b678115999a362fbcde26ebd565a5be67
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test All image freshenss entries removed
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Image freshness entry removed: 5abe09e43cff02471f010ae7
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test Image freshness entry removed: 123412341234
+Fri Mar 30 2018 10:56:52 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:56:56 GMT+0100 (IST). ENV: test Image pulled: alpine:3.6
+Fri Mar 30 2018 10:56:59 GMT+0100 (IST). ENV: test Image removed: 77144d8c6bdc
+Fri Mar 30 2018 10:57:00 GMT+0100 (IST). ENV: test Container created. Container ID: 1bf0c5daec7dec342ba46ffcf887b0012d6cede6d15131273020ff8aeddc6208
+Fri Mar 30 2018 10:57:03 GMT+0100 (IST). ENV: test Container source code. Container ID: 1bf0c5daec7dec342ba46ffcf887b0012d6cede6d15131273020ff8aeddc6208
+Fri Mar 30 2018 10:57:05 GMT+0100 (IST). ENV: test Image built: pawelpaszki/vuln-demo-1-node:latest
+Fri Mar 30 2018 10:57:07 GMT+0100 (IST). ENV: test Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Fri Mar 30 2018 10:57:09 GMT+0100 (IST). ENV: test Container created. Container ID: 7f417294fe12b02a7463ab84680d307f02def5dfee2546ceffb7e630e7ee999d
+Fri Mar 30 2018 10:57:13 GMT+0100 (IST). ENV: test Container source code. Container ID: 7f417294fe12b02a7463ab84680d307f02def5dfee2546ceffb7e630e7ee999d
+Fri Mar 30 2018 10:57:20 GMT+0100 (IST). ENV: test Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Fri Mar 30 2018 10:57:25 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:57:26 GMT+0100 (IST). ENV: test Source code removed: pawelpaszki/vuln-demo-1-node
+Fri Mar 30 2018 10:57:27 GMT+0100 (IST). ENV: test Container created. Container ID: b85df2596a48461b79392e923f21dd026de489ac488f4b49ffd73ea4e94f1e2d
+Fri Mar 30 2018 10:57:30 GMT+0100 (IST). ENV: test Container source code. Container ID: b85df2596a48461b79392e923f21dd026de489ac488f4b49ffd73ea4e94f1e2d
+Fri Mar 30 2018 10:57:31 GMT+0100 (IST). ENV: test User logged in: testusername
+Fri Mar 30 2018 10:57:31 GMT+0100 (IST). ENV: test All users removed from the database
+Fri Mar 30 2018 10:57:31 GMT+0100 (IST). ENV: test User registered: username
+Fri Mar 30 2018 10:57:31 GMT+0100 (IST). ENV: test User logged in: username
+Fri Mar 30 2018 10:57:31 GMT+0100 (IST). ENV: test All users removed from the database

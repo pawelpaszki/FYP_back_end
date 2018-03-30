@@ -162,6 +162,7 @@ describe('# User', () => {
     it('it should return the logs', function(done) {
       chai.request(express)
         .get(endpoint + 'logs')
+        .set({'x-access-token': token})
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have.property('logs');
