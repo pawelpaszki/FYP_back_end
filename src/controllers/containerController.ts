@@ -45,7 +45,7 @@ class ContainerController {
           error: 'Unable to start container',
         });
       } else {
-        Logger.logActivity('Container created. Container ID: ' + req.body.containerId);
+        Logger.logActivity('Container started. Container ID: ' + req.body.containerId);
         res.status(200).json({
           message: 'Container started successfully',
         });
