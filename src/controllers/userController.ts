@@ -4,7 +4,8 @@ import * as jwt from 'jsonwebtoken';
 import {User,
 } from '../models/user';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
-import {Logger} from "../utilities/Logger";
+import {Logger} from '../utilities/Logger';
+import OutputParser from '../utilities/OutputParser';
 
 class UserController {
 
@@ -18,7 +19,7 @@ class UserController {
       const token = jwt.sign({ id: newUser._id }, process.env.SECRET || 'secret', {
         expiresIn: 86400,
       });
-      Logger.logActivity("User registered: " + req.body.username);
+      Logger.logActivity('User registered: ' + req.body.username);
       res.status(200).json({
         token,
       });
@@ -47,7 +48,7 @@ class UserController {
         const token = jwt.sign({ id: user._id }, process.env.SECRET || 'secret', {
           expiresIn: 86400,
         });
-        Logger.logActivity("User changed password: " + req.body.username);
+        Logger.logActivity('User changed password: ' + req.body.username);
         res.status(200).json({
           token,
         });
@@ -79,7 +80,7 @@ class UserController {
         }, process.env.SECRET || 'secret', {
           expiresIn: 86400,
         });
-        Logger.logActivity("User logged in: " + req.body.username);
+        Logger.logActivity('User logged in: ' + req.body.username);
         res.status(200).json({
           token,
         });
@@ -93,6 +94,13 @@ class UserController {
         error: 'Unable to login',
       });
     }
+  }
+
+  public getLogs = async (req: Request, res: Response) => {
+    const logs = OutputParser.parseLogFile('./.log');
+    res.status(200).json({
+      logs,
+    });
   }
 
   public dockerLogin = async (req: Request, res: Response) => {
@@ -113,7 +121,7 @@ class UserController {
 
   public deleteAll = async (req: Request, res: Response) => {
     await User.deleteMany({});
-    Logger.logActivity("All users removed from the database");
+    Logger.logActivity('All users removed from the database');
     return res.status(200).json({message: 'All users deleted successfully'});
   }
 

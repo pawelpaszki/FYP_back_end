@@ -5,8 +5,8 @@ import {ImageFreshnessEntry} from '../models/imageFreshnessEntry';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageFreshnessProvider from '../utilities/ImageFreshnessProvider';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
+import {Logger} from '../utilities/Logger';
 import SourceCodeFinder from '../utilities/SourceCodeFinder';
-import {Logger} from "../utilities/Logger";
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock',
@@ -83,7 +83,7 @@ class ImageController {
         docker.modem.followProgress(stream, onFinished);
         function onFinished(err, output) {
           if (output) {
-            Logger.logActivity("Image pulled: " + imageToPull);
+            Logger.logActivity('Image pulled: ' + imageToPull);
             res.status(200).json({
               message: 'Image pulled successfully',
             });
@@ -118,7 +118,7 @@ class ImageController {
         if (buildOutput.includes('Successfully built')) {
           await ChildProcessHandler.executeChildProcCommand(
             'cd ' + dirToScan + ' && docker tag ' + imageName + ' ' + imageName + ' :latest', true);
-          Logger.logActivity("Image built: " + imageName);
+          Logger.logActivity('Image built: ' + imageName);
           res.status(200).json({
             message: 'Image successfully built',
           });
@@ -141,7 +141,7 @@ class ImageController {
     try {
       await ChildProcessHandler.executeChildProcCommand(
         'docker push ' + imageName, false);
-      Logger.logActivity("Image pushed to DockerHub: " + imageName);
+      Logger.logActivity('Image pushed to DockerHub: ' + imageName);
       res.status(200).json({
         message: 'Image pushed to DockerHub',
       });
@@ -162,7 +162,7 @@ class ImageController {
           error: 'Image not found',
         });
       } else {
-        Logger.logActivity("Image removed: " + imageId);
+        Logger.logActivity('Image removed: ' + imageId);
         res.status(200).json({
           message: 'Image removed successfully',
         });

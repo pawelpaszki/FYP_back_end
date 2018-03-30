@@ -10,5 +10,6 @@ user.post('/login', UserController.login);
 user.delete('/users', UserController.deleteAll);
 user.get('/logout', UserController.logout);
 user.post('/dockerLogin', JWTokenVerifier.verifyToken, UserController.dockerLogin);
+user.get('/logs', UserController.getLogs);
 
 export default user;

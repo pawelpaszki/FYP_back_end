@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import * as fs from 'fs';
 import {ChildProcessHandler} from '../utilities/ChildProcessHandler';
 import ImageNameToDirNameConverter from '../utilities/ImageNameToDirNameConverter';
-import {Logger} from "../utilities/Logger";
+import {Logger} from '../utilities/Logger';
 
 const docker = new Docker({
   socketPath: '/var/run/docker.sock',
@@ -28,7 +28,7 @@ class ContainerController {
           error: 'Unable to create container',
         });
       } else {
-        Logger.logActivity("Container created. Image name: " + name);
+        Logger.logActivity('Container created. Image name: ' + name);
         const id = data.id;
         res.status(201).json({
           id,
@@ -45,7 +45,7 @@ class ContainerController {
           error: 'Unable to start container',
         });
       } else {
-        Logger.logActivity("Container created. Container ID: " + req.body.containerId);
+        Logger.logActivity('Container created. Container ID: ' + req.body.containerId);
         res.status(200).json({
           message: 'Container started successfully',
         });
@@ -72,7 +72,7 @@ class ContainerController {
           error: 'Unable to stop container',
         });
       } else {
-        Logger.logActivity("Container stopped. Container ID: " + req.body.containerId);
+        Logger.logActivity('Container stopped. Container ID: ' + req.body.containerId);
         res.status(200).json({
           message: 'Container stopped successfully',
         });
@@ -95,7 +95,7 @@ class ContainerController {
           });
         }
       } else {
-        Logger.logActivity("Container removed. Container ID: " + req.params.containerId);
+        Logger.logActivity('Container removed. Container ID: ' + req.params.containerId);
         res.status(200).json({
           message: 'Container removed successfully',
         });
@@ -143,7 +143,7 @@ class ContainerController {
                   await ChildProcessHandler.executeChildProcCommand(
                     'tar -x -f imageArchive.tar --directory imagesTestDir/' + testDir, true);
                   await ChildProcessHandler.executeChildProcCommand('rm -rf imageArchive.tar', true);
-                  Logger.logActivity("Container source code. Container ID: " + req.body.containerId);
+                  Logger.logActivity('Container source code. Container ID: ' + req.body.containerId);
                   return res.status(200).json({
                     message: 'Container source code extracted successfully',
                   });

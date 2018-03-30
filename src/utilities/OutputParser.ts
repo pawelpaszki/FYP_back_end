@@ -106,6 +106,12 @@ class OutputParser {
     return entries;
   }
 
+  public static parseLogFile(path: string): string[] {
+    let logs: string[] = FileToStringConverter.readFile(path).split('\n');
+    logs = logs.filter((log) => log !== '');
+    return logs;
+  }
+
   public static parseNcuOutput(path: string): string[] {
     const ncuCheckContent: string[] = FileToStringConverter.readFile(path).split('\n');
     const packagesToUpdate: string[] = [];

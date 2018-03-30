@@ -1145,3 +1145,23 @@ paths:
               token:
                 type: string
                 example: 'null'
+  /logs:
+    get:
+      summary: get logs
+      description: get the contents of the log file
+      operationId: getlogs
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              logs:
+                type: string
+                example: [
+                  "Thu Mar 29 2018 19:50:37 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest",
+                  "Thu Mar 29 2018 19:50:38 GMT+0100 (IST) Container created. Image name: pawelpaszki/docker-vuln-manager:latest",
+                  "Thu Mar 29 2018 19:50:46 GMT+0100 (IST) Container created. Container ID: 208718e0e424af391818c4736c99b636039656aad667e3932b9a789de35f707c"
+                ]

@@ -157,4 +157,16 @@ describe('# User', () => {
         });
     });
   });
+
+  describe('/GET logs', () => {
+    it('it should return the logs', function(done) {
+      chai.request(express)
+        .get(endpoint + 'logs')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('logs');
+          done();
+        });
+    });
+  });
 });
