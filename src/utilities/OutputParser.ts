@@ -65,42 +65,46 @@ class OutputParser {
     let vulnPathComponents: string[] = [];
     let description: string = '';
     if (snykScanContent.length > 0) {
-      if (snykScanContent[5].includes('no vulnerable paths found')) {
-        return [];
-      } else {
-        for (let i = 0; i < snykScanContent.length; i++) {
-          vulnPath = '';
-          if (snykScanContent[i].includes('severity')) {
-            if (snykScanContent[i].includes('Low severity')) {
-              severity = 'low';
-            } else if (snykScanContent[i].includes('Medium severity')) {
-              severity = 'medium';
-            } else {
-              severity = 'high';
+      if(snykScanContent.length > 5) {
+        if (snykScanContent[5].includes('no vulnerable paths found')) {
+          return [];
+        } else {
+          for (let i = 0; i < snykScanContent.length; i++) {
+            vulnPath = '';
+            if (snykScanContent[i].includes('severity')) {
+              if (snykScanContent[i].includes('Low severity')) {
+                severity = 'low';
+              } else if (snykScanContent[i].includes('Medium severity')) {
+                severity = 'medium';
+              } else {
+                severity = 'high';
+              }
+              vulnComp = snykScanContent[i].substring(snykScanContent[i].indexOf('found on') + 9);
+              description = snykScanContent[i + 1].substring(8);
+              vulnPathComponents = snykScanContent[i + 3].split('>');
+              for (let j = 1; j < vulnPathComponents.length - 1; j++) {
+                vulnPath += vulnPathComponents[j].trim() + ' > ';
+              }
+              vulnPath += vulnPathComponents[vulnPathComponents.length - 1].trim();
+              if (snykScanContent[i + 4].startsWith('No direct')) {
+                remediation = 'no upgrade available';
+              } else if (snykScanContent[i + 4].startsWith('Your')) {
+                remediation = 'try to reinstall components';
+              } else if (snykScanContent[i + 4].startsWith('Upgrade')) {
+                remediation = snykScanContent[i + 4].substring(26);
+              }
+              entries.push({
+                description,
+                remediation,
+                severity,
+                vulnComp,
+                vulnPath,
+              });
             }
-            vulnComp = snykScanContent[i].substring(snykScanContent[i].indexOf('found on') + 9);
-            description = snykScanContent[i + 1].substring(8);
-            vulnPathComponents = snykScanContent[i + 3].split('>');
-            for (let j = 1; j < vulnPathComponents.length - 1; j++) {
-              vulnPath += vulnPathComponents[j].trim() + ' > ';
-            }
-            vulnPath += vulnPathComponents[vulnPathComponents.length - 1].trim();
-            if (snykScanContent[i + 4].startsWith('No direct')) {
-              remediation = 'no upgrade available';
-            } else if (snykScanContent[i + 4].startsWith('Your')) {
-              remediation = 'try to reinstall components';
-            } else if (snykScanContent[i + 4].startsWith('Upgrade')) {
-              remediation = snykScanContent[i + 4].substring(26);
-            }
-            entries.push({
-              description,
-              remediation,
-              severity,
-              vulnComp,
-              vulnPath,
-            });
           }
         }
+      } else {
+        return [];
       }
     }
     return entries;

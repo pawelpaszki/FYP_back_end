@@ -231,7 +231,7 @@ class ImagesFreshnessController {
 
   public deleteAll = async (req: Request, res: Response) => {
     await ImageFreshnessEntry.deleteMany({});
-    Logger.logActivity('All image freshenss entries removed');
+    Logger.logActivity('All image freshness entries removed');
     return res.status(200).json({message: 'Image freshness entries deleted successfully'});
   }
 }

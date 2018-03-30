@@ -116,9 +116,15 @@ class SrcController {
                 error: 'No source code found',
               });
             }
-            await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan + ' && npm test > npmTestResults.txt', true);
-            testResults = OutputParser.parseNpmTests(dirToScan + '/npmTestResults.txt');
+            const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
+              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+            if (!checkDirOutput.includes('package.json')) {
+              testResults = ['Info: This kind of Docker image is not supported at the moment'];
+            } else {
+              await ChildProcessHandler.executeChildProcCommand(
+                'cd ' + dirToScan + ' && npm test > npmTestResults.txt', true);
+              testResults = OutputParser.parseNpmTests(dirToScan + '/npmTestResults.txt');
+            }
           } catch (error) {
             return res.status(500).json({
               error: 'Unable to run npm tests',
@@ -153,7 +159,13 @@ class SrcController {
                 error: 'No source code found',
               });
             }
-            packages = OutputParser.parsePackageJson(dirToScan + '/package.json');
+            const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
+              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+            if (!checkDirOutput.includes('package.json')) {
+              packages = ['Info: This kind of Docker image is not supported at the moment'];
+            } else {
+              packages = OutputParser.parsePackageJson(dirToScan + '/package.json');
+            }
           } catch (error) {
             return res.status(500).json({
               error, // change to message error later
@@ -188,12 +200,18 @@ class SrcController {
                 error: 'No source code found',
               });
             }
-            await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan + ' &&  ncu --packageFile package.json > ncuResults.txt', true);
-            updatesAvailable = OutputParser.parseNpmTests(dirToScan + '/ncuResults.txt');
-            if (updatesAvailable.length > 0) {
-              updatesAvailable = updatesAvailable.filter(
-                (entry) => !entry.startsWith('Run ncu') && !entry.startsWith('The following'));
+            const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
+              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+            if (!checkDirOutput.includes('package.json')) {
+              updatesAvailable = ['Info: This kind of Docker image is not supported at the moment'];
+            } else {
+              await ChildProcessHandler.executeChildProcCommand(
+                'cd ' + dirToScan + ' &&  ncu --packageFile package.json > ncuResults.txt', true);
+              updatesAvailable = OutputParser.parseNpmTests(dirToScan + '/ncuResults.txt');
+              if (updatesAvailable.length > 0) {
+                updatesAvailable = updatesAvailable.filter(
+                  (entry) => !entry.startsWith('Run ncu') && !entry.startsWith('The following'));
+              }
             }
           } catch (error) {
             return res.status(500).json({
