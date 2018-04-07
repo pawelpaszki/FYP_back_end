@@ -18,7 +18,7 @@ describe('# User', () => {
   });
 
   describe('/DELETE all users', () => {
-    it('it should not throw an error when db is empty', function(done) {
+    it('should not throw an error when db is empty', function(done) {
       chai.request(express)
         .delete(endpoint + 'users')
         .end((err, res) => {
@@ -30,7 +30,7 @@ describe('# User', () => {
   });
 
   describe('/POST logout', () => {
-    it('it should logout and return a null token', function(done) {
+    it('should logout and return a null token', function(done) {
       chai.request(express)
         .get(endpoint + 'logout')
         .end((err, res) => {
@@ -42,7 +42,7 @@ describe('# User', () => {
   });
 
   describe('/POST register', () => {
-    it('it should register a user', function(done) {
+    it('should register a user', function(done) {
       chai.request(express)
         .post(endpoint + 'register')
         .send({username: username, password: password})
@@ -55,7 +55,7 @@ describe('# User', () => {
   });
 
   describe('/POST register', () => {
-    it('it should not register a user with same username again', function(done) {
+    it('should not register a user with same username again', function(done) {
       chai.request(express)
         .post(endpoint + 'register')
         .send({username: username, password: password})
@@ -68,7 +68,7 @@ describe('# User', () => {
   });
 
   describe('/POST register', () => {
-    it('it should not register a user without credentials', function(done) {
+    it('should not register a user without credentials', function(done) {
       chai.request(express)
         .post(endpoint + 'register')
         .send({})
@@ -81,7 +81,7 @@ describe('# User', () => {
   });
 
   describe('/POST login', () => {
-    it('it should login a user', function(done) {
+    it('should login a user', function(done) {
       chai.request(express)
         .post(endpoint + 'login')
         .send({username: username, password: password})
@@ -94,7 +94,7 @@ describe('# User', () => {
   });
 
   describe('/POST login', () => {
-    it('it should not login a user without credentials', function(done) {
+    it('should not login a user without credentials', function(done) {
       chai.request(express)
         .post(endpoint + 'login')
         .send({})
@@ -106,7 +106,7 @@ describe('# User', () => {
   });
 
   describe('/POST login', () => {
-    it('it should not login a user with invalid username', function(done) {
+    it('should not login a user with invalid username', function(done) {
       chai.request(express)
         .post(endpoint + 'login')
         .send({username: 'non-existent-username', password: password})
@@ -119,7 +119,7 @@ describe('# User', () => {
   });
 
   describe('/POST login', () => {
-    it('it should not login a user with incorrect password', function(done) {
+    it('should not login a user with incorrect password', function(done) {
       chai.request(express)
         .post(endpoint + 'login')
         .send({username: username, password: 'incorrect-password'})
@@ -131,8 +131,36 @@ describe('# User', () => {
     });
   });
 
+  describe('/PUT update', () => {
+    it('should update user\'s password', function(done) {
+      chai.request(express)
+        .put(endpoint + 'update')
+        .set({'x-access-token': token})
+        .send({username: username, password: password, newPassword: 'newPassword'})
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('token').not.eql(null);
+          done();
+        });
+    });
+  });
+
+  describe('/PUT update', () => {
+    it('should not update non-existent user\'s password', function(done) {
+      chai.request(express)
+        .put(endpoint + 'update')
+        .set({'x-access-token': token})
+        .send({username: 'invalidUsername', password: password, newPassword: 'newPassword'})
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('error').eql('Unable to find: invalidUsername');
+          done();
+        });
+    });
+  });
+
   describe('/DELETE all users', () => {
-    it('it should delete all users', function(done) {
+    it('should delete all users', function(done) {
       chai.request(express)
         .delete(endpoint + 'users')
         .end((err, res) => {
@@ -144,7 +172,7 @@ describe('# User', () => {
   });
 
   describe('/POST docker login', () => {
-    it('it should return an error due to the incorrect credentials', function(done) {
+    it('should return an error due to the incorrect credentials', function(done) {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'dockerLogin')
@@ -159,7 +187,7 @@ describe('# User', () => {
   });
 
   describe('/GET logs', () => {
-    it('it should return the logs', function(done) {
+    it('should return the logs', function(done) {
       chai.request(express)
         .get(endpoint + 'logs')
         .set({'x-access-token': token})

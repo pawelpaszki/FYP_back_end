@@ -59,7 +59,7 @@ class UserController {
       }
     } catch (err) {
       return res.status(403).json({
-        error: 'Unable to login',
+        error: 'Unable to update',
       });
     }
   }

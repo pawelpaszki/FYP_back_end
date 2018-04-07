@@ -45,7 +45,7 @@ describe('# Image', () => {
   });
 
   describe('/GET list Docker images', () => {
-    it('it should return array of Docker images', function(done) {
+    it('should return array of Docker images', function(done) {
       chai.request(express)
         .get(endpoint)
         .set({'x-access-token': token})
@@ -58,7 +58,7 @@ describe('# Image', () => {
   });
 
   describe('/POST search for images', () => {
-    it('it should return array with search results', function(done) {
+    it('should return array with search results', function(done) {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'search')
@@ -73,7 +73,7 @@ describe('# Image', () => {
   });
 
   describe('/POST pull docker image', () => {
-    it('it should pull existing docker image', function(done) {
+    it('should pull existing docker image', function(done) {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'pull')
@@ -88,7 +88,7 @@ describe('# Image', () => {
   });
 
   describe('/POST pull docker image', () => {
-    it('it should not pull non-existent docker image', function(done) {
+    it('should not pull non-existent docker image', function(done) {
       this.timeout(30000);
       chai.request(express)
         .post(endpoint + 'pull')
@@ -103,7 +103,7 @@ describe('# Image', () => {
   });
 
   describe('/DELETE docker image', () => {
-    it('it should delete local docker image', function(done) {
+    it('should delete local docker image', function(done) {
       this.timeout(10000);
       let imageId = child.execSync('docker images --format "{{.ID}}" alpine');
       chai.request(express)
@@ -118,7 +118,7 @@ describe('# Image', () => {
   });
 
   describe('/DELETE docker image', () => {
-    it('it should not delete non-existent docker image', function(done) {
+    it('should not delete non-existent docker image', function(done) {
       this.timeout(10000);
       chai.request(express)
         .delete(endpoint + '123412341234')
@@ -132,7 +132,7 @@ describe('# Image', () => {
   });
 
   describe('/POST build docker image', () => {
-    it('it should build an image', function(done) {
+    it('should build an image', function(done) {
       this.timeout(300000);
       let dirExists = child.execSync('find . -maxdepth 1 -name imagesTestDir')
         .toString().includes('imagesTestDir');
@@ -169,7 +169,7 @@ describe('# Image', () => {
   });
 
   describe('/POST build docker image', () => {
-    it('it should not build an image without Dockerfile', function(done) {
+    it('should not build an image without Dockerfile', function(done) {
       this.timeout(120000);
       chai.request(express)
         .post(endpoint + 'pull')
@@ -208,7 +208,7 @@ describe('# Image', () => {
   });
 
   describe('/POST build docker image', () => {
-    it('it should not build image without src code', function(done) {
+    it('should not build image without src code', function(done) {
       chai.request(express)
         .post(endpoint + 'build')
         .set({'x-access-token': token})
@@ -222,7 +222,7 @@ describe('# Image', () => {
   });
 
   describe('/POST push docker image', () => {
-    it('it should push existing docker image', function(done) {
+    it('should push existing docker image', function(done) {
       this.timeout(120000);
       chai.request(express)
         .post(endpoint + 'push')
@@ -237,7 +237,7 @@ describe('# Image', () => {
   });
 
   describe('/POST push docker image', () => {
-    it('it should not push an image without authentication to the registry', function(done) {
+    it('should not push an image without authentication to the registry', function(done) {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'push')
@@ -252,7 +252,7 @@ describe('# Image', () => {
   });
 
   describe('/POST get Docker image tag', () => {
-    it('it return the latest tag', function(done) {
+    it('should return the latest tag', function(done) {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'checkTag')
@@ -267,7 +267,7 @@ describe('# Image', () => {
   });
 
   describe('/POST get Docker image tag', () => {
-    it('it return 0.0.0 tag on invalid image name', function(done) {
+    it('should return 0.0.0 tag on invalid image name', function(done) {
       this.timeout(10000);
       chai.request(express)
         .post(endpoint + 'checkTag')

@@ -20,7 +20,7 @@ describe('# Image Freshness', () => {
   });
 
   describe('/DELETE imageFreshnessEntries', () => {
-    it('it should DELETE all imageFreshnessEntries', (done) => {
+    it('should DELETE all imageFreshnessEntries', (done) => {
       chai.request(express)
         .delete(endpoint)
         .set({'x-access-token': token})
@@ -34,7 +34,7 @@ describe('# Image Freshness', () => {
   });
 
   describe('/GET imageFreshnessEntry', () => {
-    it('it should GET all the imageFreshnessEntries', (done) => {
+    it('should GET all the imageFreshnessEntries', (done) => {
       chai.request(express)
         .get(endpoint)
         .set({'x-access-token': token})
@@ -47,7 +47,7 @@ describe('# Image Freshness', () => {
   });
 
   describe('/POST imageFreshnessEntry', () => {
-    it('it should create new imageFreshnessEntry', (done) => {
+    it('should create new imageFreshnessEntry', (done) => {
       chai.request(express)
         .post(endpoint)
         .set({'x-access-token': token})
@@ -64,7 +64,7 @@ describe('# Image Freshness', () => {
   });
 
   describe('/POST imageFreshnessEntry', () => {
-    it('it should not create entry with name already present in DB', (done) => {
+    it('should not create entry with name already present in DB', (done) => {
       chai.request(express)
         .post(endpoint)
         .set({'x-access-token': token})
@@ -192,7 +192,7 @@ describe('# Image Freshness', () => {
   });
 
   describe('/DELETE non-existent single freshness entry', () => {
-    it('should not  delete entry with non-existent id', (done) => {
+    it('should not delete entry with non-existent id', (done) => {
       chai.request(express)
         .delete(endpoint + '123412341234')
         .set({'x-access-token': token})

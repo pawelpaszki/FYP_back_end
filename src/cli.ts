@@ -136,7 +136,7 @@ commander
 
 commander
   .command('dockerLogin <token> <username> <password>')
-  .description('login to Docker cli')
+  .description('Login to Docker cli')
   .action((token, username, password) => {
     actions.dockerLogin(token, username, password);
   });

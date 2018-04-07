@@ -35,7 +35,7 @@ describe('# Container', () => {
   });
 
   describe('/GET list containers', () => {
-    it('it should list all container', (done) => {
+    it('should list all container', (done) => {
       chai.request(express)
         .get(endpoint)
         .set({'x-access-token': token})
@@ -48,7 +48,7 @@ describe('# Container', () => {
   });
 
   describe('/GET list containers', () => {
-    it('it not list the containers without a token', (done) => {
+    it('should not list the containers without a token', (done) => {
       chai.request(express)
         .get(endpoint)
         .end((err, res) => {
@@ -59,7 +59,7 @@ describe('# Container', () => {
   });
 
   describe('/GET list containers', () => {
-    it('it should not list the containers with an invalid token', (done) => {
+    it('should not list the containers with an invalid token', (done) => {
       chai.request(express)
         .get(endpoint)
         .set({'x-access-token': 'token'})
@@ -71,7 +71,7 @@ describe('# Container', () => {
   });
 
   describe('/POST create container', () => {
-    it('it should create new container', function(done) {
+    it('should create new container', function(done) {
       this.timeout(60000);
       chai.request(express)
         .post('/api/images/pull')
@@ -92,7 +92,7 @@ describe('# Container', () => {
   });
 
   describe('/POST create container', () => {
-    it('it should not create new container with invalid name', (done) => {
+    it('should not create new container with invalid name', (done) => {
       chai.request(express)
         .post(endpoint + 'create')
         .set({'x-access-token': token})
@@ -106,7 +106,7 @@ describe('# Container', () => {
   });
 
   describe('/POST start container', () => {
-    it('it should start an existing container', (done) => {
+    it('should start an existing container', (done) => {
       docker.createContainer(testContainer, function(err, container) {
         if (!err) {
           startedContainerId = container.id;
@@ -125,7 +125,7 @@ describe('# Container', () => {
   });
 
   describe('/POST start container', () => {
-    it('it should not start a non-existing container', (done) => {
+    it('should not start a non-existing container', (done) => {
       chai.request(express)
         .post(endpoint + 'start')
         .set({'x-access-token': token})

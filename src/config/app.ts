@@ -27,12 +27,12 @@ class App {
     let uriPostfix = 'images';
     if (process.env.NODE_ENV === 'test') {
       uriPostfix = 'test';
-      /* tslint:disable */ console.log('environment: ' + uriPostfix); /* tslint:enable */
+      console.log('environment: ' + uriPostfix);
     }
     mongoose.connect(uriPrefix + uriPostfix, (err) => {
       if (!err) {
         if (process.env.NODE_ENV !== 'test') {
-          /* tslint:disable */ console.log('Connected to MongoDB'); /* tslint:enable */
+          console.log('Connected to MongoDB');
         }
       }
     });

@@ -148,3 +148,713 @@ Fri Mar 30 2018 15:48:44 GMT+0100 (IST). ENV: undefined. Image removed: 773c74bb
 Fri Mar 30 2018 15:50:39 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/sample-python:latest
 Fri Mar 30 2018 15:50:46 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 437c0d0a72658b5a7ff4407e47c6faa7e5f8c14c5929e2412535f9bd7bd84fd1
 Fri Mar 30 2018 15:51:38 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 437c0d0a72658b5a7ff4407e47c6faa7e5f8c14c5929e2412535f9bd7bd84fd1
+Sat Mar 31 2018 04:12:03 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Sat Mar 31 2018 04:12:07 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Mar 31 2018 04:12:09 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Mar 31 2018 04:12:12 GMT+0100 (IST). ENV: undefined. Container started. Container ID: f995d70522756fa31aa3a8314bddb545e1f4ea3271864d1973c2b9cdcd71f989
+Sat Mar 31 2018 04:12:19 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: f995d70522756fa31aa3a8314bddb545e1f4ea3271864d1973c2b9cdcd71f989
+Sat Mar 31 2018 04:12:33 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Mar 31 2018 04:12:37 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Sat Mar 31 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Sat Mar 31 2018 04:12:42 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 1f55454797fd5a28f8c2d1aedaffa956555936beb6d512aab1452e34d7dc5935
+Sat Mar 31 2018 04:12:50 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 1f55454797fd5a28f8c2d1aedaffa956555936beb6d512aab1452e34d7dc5935
+Sat Mar 31 2018 04:12:57 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Mar 31 2018 04:13:00 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Sat Mar 31 2018 04:13:02 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Sat Mar 31 2018 04:13:05 GMT+0100 (IST). ENV: undefined. Container started. Container ID: d1ba7bd78a2056ff3d5a12e53bae1254e0439163c96423d3c13e8096925a8348
+Sat Mar 31 2018 04:13:12 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: d1ba7bd78a2056ff3d5a12e53bae1254e0439163c96423d3c13e8096925a8348
+Sat Mar 31 2018 04:13:19 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Sat Mar 31 2018 04:13:22 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Sat Mar 31 2018 04:13:25 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Sat Mar 31 2018 04:13:27 GMT+0100 (IST). ENV: undefined. Container started. Container ID: ad09051b683c8d97862b10eae22f3e55420b78a333d4083ca8c0dedd963f350a
+Sat Mar 31 2018 04:13:34 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: ad09051b683c8d97862b10eae22f3e55420b78a333d4083ca8c0dedd963f350a
+Sat Mar 31 2018 04:13:44 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Sat Mar 31 2018 04:13:47 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Mar 31 2018 04:13:49 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Sat Mar 31 2018 04:13:52 GMT+0100 (IST). ENV: undefined. Container started. Container ID: d47706b8907ea6d578220f3b963ab0d6a3f74f33be0173c703aac6e0986d820a
+Sat Mar 31 2018 04:13:59 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: d47706b8907ea6d578220f3b963ab0d6a3f74f33be0173c703aac6e0986d820a
+Sat Mar 31 2018 04:14:05 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Sat Mar 31 2018 04:14:10 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Sat Mar 31 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Sat Mar 31 2018 04:14:15 GMT+0100 (IST). ENV: undefined. Container started. Container ID: c03778d1cc76df12df222c0f89aceaeca571c9c6004dbc3600f30fbd74ad48f3
+Sat Mar 31 2018 04:14:27 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: c03778d1cc76df12df222c0f89aceaeca571c9c6004dbc3600f30fbd74ad48f3
+Sat Mar 31 2018 04:14:56 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Sat Mar 31 2018 04:15:00 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Sat Mar 31 2018 04:15:02 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Sat Mar 31 2018 04:15:05 GMT+0100 (IST). ENV: undefined. Container started. Container ID: a76c6c9a47d1d741bd53854ab767997669813bebd70d5326b4ef85e0e7e325f3
+Sat Mar 31 2018 04:15:11 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: a76c6c9a47d1d741bd53854ab767997669813bebd70d5326b4ef85e0e7e325f3
+Sat Mar 31 2018 04:15:18 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Sat Mar 31 2018 04:15:21 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Sat Mar 31 2018 04:15:23 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Sat Mar 31 2018 04:15:26 GMT+0100 (IST). ENV: undefined. Container started. Container ID: f6230eb70483a7efcd252a236abddaa5ffd9b69c699c5e0838b18a49f77b5509
+Sat Mar 31 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: f6230eb70483a7efcd252a236abddaa5ffd9b69c699c5e0838b18a49f77b5509
+Sat Mar 31 2018 04:15:40 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Sat Mar 31 2018 04:15:43 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Sat Mar 31 2018 04:15:45 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Sat Mar 31 2018 04:15:48 GMT+0100 (IST). ENV: undefined. Container started. Container ID: c273f5527ed59bac6c625b8ad32d1d0ada8ff7e823e14e00e1bb33ed49793739
+Sat Mar 31 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: c273f5527ed59bac6c625b8ad32d1d0ada8ff7e823e14e00e1bb33ed49793739
+Sat Mar 31 2018 04:15:59 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Sat Mar 31 2018 04:16:03 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Sat Mar 31 2018 04:16:05 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Sat Mar 31 2018 04:16:08 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 9a1396781ad67737451408158549375816b6f48edab6e969224d80778770a139
+Sat Mar 31 2018 04:16:14 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 9a1396781ad67737451408158549375816b6f48edab6e969224d80778770a139
+Sat Mar 31 2018 04:16:22 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Sat Mar 31 2018 04:16:24 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: f995d70522756fa31aa3a8314bddb545e1f4ea3271864d1973c2b9cdcd71f989
+Sat Mar 31 2018 04:16:27 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: f995d70522756fa31aa3a8314bddb545e1f4ea3271864d1973c2b9cdcd71f989
+Sat Mar 31 2018 04:16:29 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 1f55454797fd5a28f8c2d1aedaffa956555936beb6d512aab1452e34d7dc5935
+Sat Mar 31 2018 04:16:31 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 1f55454797fd5a28f8c2d1aedaffa956555936beb6d512aab1452e34d7dc5935
+Sat Mar 31 2018 04:16:34 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: d1ba7bd78a2056ff3d5a12e53bae1254e0439163c96423d3c13e8096925a8348
+Sat Mar 31 2018 04:16:36 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: d1ba7bd78a2056ff3d5a12e53bae1254e0439163c96423d3c13e8096925a8348
+Sat Mar 31 2018 04:16:39 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: ad09051b683c8d97862b10eae22f3e55420b78a333d4083ca8c0dedd963f350a
+Sat Mar 31 2018 04:16:41 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: ad09051b683c8d97862b10eae22f3e55420b78a333d4083ca8c0dedd963f350a
+Sat Mar 31 2018 04:16:44 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: d47706b8907ea6d578220f3b963ab0d6a3f74f33be0173c703aac6e0986d820a
+Sat Mar 31 2018 04:16:46 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: d47706b8907ea6d578220f3b963ab0d6a3f74f33be0173c703aac6e0986d820a
+Sat Mar 31 2018 04:16:59 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: c03778d1cc76df12df222c0f89aceaeca571c9c6004dbc3600f30fbd74ad48f3
+Sat Mar 31 2018 04:17:01 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: c03778d1cc76df12df222c0f89aceaeca571c9c6004dbc3600f30fbd74ad48f3
+Sat Mar 31 2018 04:17:03 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: a76c6c9a47d1d741bd53854ab767997669813bebd70d5326b4ef85e0e7e325f3
+Sat Mar 31 2018 04:17:06 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: a76c6c9a47d1d741bd53854ab767997669813bebd70d5326b4ef85e0e7e325f3
+Sat Mar 31 2018 04:17:08 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: f6230eb70483a7efcd252a236abddaa5ffd9b69c699c5e0838b18a49f77b5509
+Sat Mar 31 2018 04:17:10 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: f6230eb70483a7efcd252a236abddaa5ffd9b69c699c5e0838b18a49f77b5509
+Sat Mar 31 2018 04:17:13 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: c273f5527ed59bac6c625b8ad32d1d0ada8ff7e823e14e00e1bb33ed49793739
+Sat Mar 31 2018 04:17:15 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: c273f5527ed59bac6c625b8ad32d1d0ada8ff7e823e14e00e1bb33ed49793739
+Sat Mar 31 2018 04:17:18 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 9a1396781ad67737451408158549375816b6f48edab6e969224d80778770a139
+Sat Mar 31 2018 04:17:20 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 9a1396781ad67737451408158549375816b6f48edab6e969224d80778770a139
+Sun Apr 01 2018 04:12:10 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Sun Apr 01 2018 04:12:14 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sun Apr 01 2018 04:12:16 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sun Apr 01 2018 04:12:19 GMT+0100 (IST). ENV: undefined. Container started. Container ID: d4f7f0a7ff64484ce73c3b8bfa82cf6960fcf5e30ac9069144cf44a06767b3d3
+Sun Apr 01 2018 04:12:26 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: d4f7f0a7ff64484ce73c3b8bfa82cf6960fcf5e30ac9069144cf44a06767b3d3
+Sun Apr 01 2018 04:12:38 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sun Apr 01 2018 04:12:41 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Sun Apr 01 2018 04:12:43 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Sun Apr 01 2018 04:12:46 GMT+0100 (IST). ENV: undefined. Container started. Container ID: c44c6738250a10bc170758380cb9c4c0114a6825f0cec9c2ed5a387314d73da9
+Sun Apr 01 2018 04:12:54 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: c44c6738250a10bc170758380cb9c4c0114a6825f0cec9c2ed5a387314d73da9
+Sun Apr 01 2018 04:13:01 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sun Apr 01 2018 04:13:04 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Sun Apr 01 2018 04:13:07 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Sun Apr 01 2018 04:13:09 GMT+0100 (IST). ENV: undefined. Container started. Container ID: ae62c1105f7fdd217b7ac0253d461de254fa0f25b14641e0eb803bec19d6813e
+Sun Apr 01 2018 04:13:16 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: ae62c1105f7fdd217b7ac0253d461de254fa0f25b14641e0eb803bec19d6813e
+Sun Apr 01 2018 04:13:23 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Sun Apr 01 2018 04:13:27 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Sun Apr 01 2018 04:13:29 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Sun Apr 01 2018 04:13:32 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b862606a7498c555286649b710252ece949d2d7a5922989ced60d478c70ed50a
+Sun Apr 01 2018 04:13:38 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b862606a7498c555286649b710252ece949d2d7a5922989ced60d478c70ed50a
+Sun Apr 01 2018 04:13:46 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Sun Apr 01 2018 04:13:49 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sun Apr 01 2018 04:13:52 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Sun Apr 01 2018 04:13:54 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 099ff5e9411a81662906fe446fa2705ec14fe98408d793ca1689153665e5c89e
+Sun Apr 01 2018 04:14:01 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 099ff5e9411a81662906fe446fa2705ec14fe98408d793ca1689153665e5c89e
+Sun Apr 01 2018 04:14:08 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Sun Apr 01 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Sun Apr 01 2018 04:14:14 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Sun Apr 01 2018 04:14:17 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 60856e310eb6f35d6c80e5837692fc5911dcd0e526628ffb7767adb86505d1e5
+Sun Apr 01 2018 04:14:30 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 60856e310eb6f35d6c80e5837692fc5911dcd0e526628ffb7767adb86505d1e5
+Sun Apr 01 2018 04:14:53 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Sun Apr 01 2018 04:14:57 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Sun Apr 01 2018 04:14:59 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Sun Apr 01 2018 04:15:02 GMT+0100 (IST). ENV: undefined. Container started. Container ID: d1b8e6f555ea843e831928eab0aeed1777a4f464465b04295920e4f73311fe53
+Sun Apr 01 2018 04:15:08 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: d1b8e6f555ea843e831928eab0aeed1777a4f464465b04295920e4f73311fe53
+Sun Apr 01 2018 04:15:15 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Sun Apr 01 2018 04:15:18 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Sun Apr 01 2018 04:15:20 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Sun Apr 01 2018 04:15:23 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 1d82c13ede5404baf2462c1b3d4eb7928126210518876cae6cdc183781bccea6
+Sun Apr 01 2018 04:15:29 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 1d82c13ede5404baf2462c1b3d4eb7928126210518876cae6cdc183781bccea6
+Sun Apr 01 2018 04:15:34 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Sun Apr 01 2018 04:15:38 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Sun Apr 01 2018 04:15:40 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Sun Apr 01 2018 04:15:43 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 2fa2df4fc3d7234821a79fe25df9e07b0b005699186f7f2afb24392f25974a79
+Sun Apr 01 2018 04:15:48 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 2fa2df4fc3d7234821a79fe25df9e07b0b005699186f7f2afb24392f25974a79
+Sun Apr 01 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Sun Apr 01 2018 04:15:58 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Sun Apr 01 2018 04:16:00 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Sun Apr 01 2018 04:16:03 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 19a4f5af096beafdd957554d8669d94d06457694e2dd679850c7a52048ebe0b3
+Sun Apr 01 2018 04:16:10 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 19a4f5af096beafdd957554d8669d94d06457694e2dd679850c7a52048ebe0b3
+Sun Apr 01 2018 04:16:17 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Sun Apr 01 2018 04:16:20 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: d4f7f0a7ff64484ce73c3b8bfa82cf6960fcf5e30ac9069144cf44a06767b3d3
+Sun Apr 01 2018 04:16:22 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: d4f7f0a7ff64484ce73c3b8bfa82cf6960fcf5e30ac9069144cf44a06767b3d3
+Sun Apr 01 2018 04:16:24 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: c44c6738250a10bc170758380cb9c4c0114a6825f0cec9c2ed5a387314d73da9
+Sun Apr 01 2018 04:16:27 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: c44c6738250a10bc170758380cb9c4c0114a6825f0cec9c2ed5a387314d73da9
+Sun Apr 01 2018 04:16:29 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: ae62c1105f7fdd217b7ac0253d461de254fa0f25b14641e0eb803bec19d6813e
+Sun Apr 01 2018 04:16:31 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: ae62c1105f7fdd217b7ac0253d461de254fa0f25b14641e0eb803bec19d6813e
+Sun Apr 01 2018 04:16:34 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b862606a7498c555286649b710252ece949d2d7a5922989ced60d478c70ed50a
+Sun Apr 01 2018 04:16:36 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b862606a7498c555286649b710252ece949d2d7a5922989ced60d478c70ed50a
+Sun Apr 01 2018 04:16:39 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 099ff5e9411a81662906fe446fa2705ec14fe98408d793ca1689153665e5c89e
+Sun Apr 01 2018 04:16:41 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 099ff5e9411a81662906fe446fa2705ec14fe98408d793ca1689153665e5c89e
+Sun Apr 01 2018 04:16:54 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 60856e310eb6f35d6c80e5837692fc5911dcd0e526628ffb7767adb86505d1e5
+Sun Apr 01 2018 04:16:56 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 60856e310eb6f35d6c80e5837692fc5911dcd0e526628ffb7767adb86505d1e5
+Sun Apr 01 2018 04:16:58 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: d1b8e6f555ea843e831928eab0aeed1777a4f464465b04295920e4f73311fe53
+Sun Apr 01 2018 04:17:00 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: d1b8e6f555ea843e831928eab0aeed1777a4f464465b04295920e4f73311fe53
+Sun Apr 01 2018 04:17:03 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 1d82c13ede5404baf2462c1b3d4eb7928126210518876cae6cdc183781bccea6
+Sun Apr 01 2018 04:17:05 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 1d82c13ede5404baf2462c1b3d4eb7928126210518876cae6cdc183781bccea6
+Sun Apr 01 2018 04:17:08 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 2fa2df4fc3d7234821a79fe25df9e07b0b005699186f7f2afb24392f25974a79
+Sun Apr 01 2018 04:17:10 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 2fa2df4fc3d7234821a79fe25df9e07b0b005699186f7f2afb24392f25974a79
+Sun Apr 01 2018 04:17:13 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 19a4f5af096beafdd957554d8669d94d06457694e2dd679850c7a52048ebe0b3
+Sun Apr 01 2018 04:17:15 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 19a4f5af096beafdd957554d8669d94d06457694e2dd679850c7a52048ebe0b3
+Mon Apr 02 2018 04:12:03 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Mon Apr 02 2018 04:12:08 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Mon Apr 02 2018 04:12:10 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Mon Apr 02 2018 04:12:13 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 3e628f59a7f2da39939cc2dbe44f67aca7d44d4fe811d64f031dbcff22503f58
+Mon Apr 02 2018 04:12:21 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 3e628f59a7f2da39939cc2dbe44f67aca7d44d4fe811d64f031dbcff22503f58
+Mon Apr 02 2018 04:12:36 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Mon Apr 02 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Mon Apr 02 2018 04:12:41 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Mon Apr 02 2018 04:12:44 GMT+0100 (IST). ENV: undefined. Container started. Container ID: c30ffffad14cd266ad470bad0ae53ff7260e6dbbf86875b7262ac94461a5c736
+Mon Apr 02 2018 04:12:52 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: c30ffffad14cd266ad470bad0ae53ff7260e6dbbf86875b7262ac94461a5c736
+Mon Apr 02 2018 04:12:58 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Mon Apr 02 2018 04:13:02 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Mon Apr 02 2018 04:13:04 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Mon Apr 02 2018 04:13:07 GMT+0100 (IST). ENV: undefined. Container started. Container ID: ec4ab82b1811066a950cf30df1184cd779d4b041dd9b24747181e055e76947ea
+Mon Apr 02 2018 04:13:13 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: ec4ab82b1811066a950cf30df1184cd779d4b041dd9b24747181e055e76947ea
+Mon Apr 02 2018 04:13:20 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Mon Apr 02 2018 04:13:24 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Mon Apr 02 2018 04:13:26 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Mon Apr 02 2018 04:13:29 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 1ca3cdbe045f90d81a68865f0c99f720fb70cc5e038c18230e8abf406d2f6798
+Mon Apr 02 2018 04:13:35 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 1ca3cdbe045f90d81a68865f0c99f720fb70cc5e038c18230e8abf406d2f6798
+Mon Apr 02 2018 04:13:41 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Mon Apr 02 2018 04:13:44 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Mon Apr 02 2018 04:13:47 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Mon Apr 02 2018 04:13:49 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 4206de3c2b2ee18167bfae92996673ce9844932119a50504f1a5632955c8bdea
+Mon Apr 02 2018 04:13:56 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 4206de3c2b2ee18167bfae92996673ce9844932119a50504f1a5632955c8bdea
+Mon Apr 02 2018 04:14:06 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Mon Apr 02 2018 04:14:09 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Mon Apr 02 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Mon Apr 02 2018 04:14:14 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b6e6ef5518f29081945ccebd50d022ec5194b694ab9a1ce9710b68913136d91d
+Mon Apr 02 2018 04:14:28 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b6e6ef5518f29081945ccebd50d022ec5194b694ab9a1ce9710b68913136d91d
+Mon Apr 02 2018 04:15:01 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Mon Apr 02 2018 04:15:05 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Mon Apr 02 2018 04:15:07 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Mon Apr 02 2018 04:15:10 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 99fe207cd3c2a15a897d01c67b7320a4d839fe321d265bb693c6751147e5fe63
+Mon Apr 02 2018 04:15:16 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 99fe207cd3c2a15a897d01c67b7320a4d839fe321d265bb693c6751147e5fe63
+Mon Apr 02 2018 04:15:26 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Mon Apr 02 2018 04:15:30 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Mon Apr 02 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Mon Apr 02 2018 04:15:35 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 4f4266e0cb0710173159394a4a621e526ef96e2e4fb5488e9770f0f6ad5de6db
+Mon Apr 02 2018 04:15:41 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 4f4266e0cb0710173159394a4a621e526ef96e2e4fb5488e9770f0f6ad5de6db
+Mon Apr 02 2018 04:15:48 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Mon Apr 02 2018 04:15:52 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Mon Apr 02 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Mon Apr 02 2018 04:15:56 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 90e3612eab62288c2a95af99077b414d012d29b256a909fa1b19d2fed49d0761
+Mon Apr 02 2018 04:16:02 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 90e3612eab62288c2a95af99077b414d012d29b256a909fa1b19d2fed49d0761
+Mon Apr 02 2018 04:16:08 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Mon Apr 02 2018 04:16:12 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Mon Apr 02 2018 04:16:14 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Mon Apr 02 2018 04:16:17 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 98169341be7580f94bd6992ee5eedaa91312add85ee11084bc2688bd98386fd0
+Mon Apr 02 2018 04:16:23 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 98169341be7580f94bd6992ee5eedaa91312add85ee11084bc2688bd98386fd0
+Mon Apr 02 2018 04:16:31 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Mon Apr 02 2018 04:16:34 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 3e628f59a7f2da39939cc2dbe44f67aca7d44d4fe811d64f031dbcff22503f58
+Mon Apr 02 2018 04:16:36 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 3e628f59a7f2da39939cc2dbe44f67aca7d44d4fe811d64f031dbcff22503f58
+Mon Apr 02 2018 04:16:39 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: c30ffffad14cd266ad470bad0ae53ff7260e6dbbf86875b7262ac94461a5c736
+Mon Apr 02 2018 04:16:41 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: c30ffffad14cd266ad470bad0ae53ff7260e6dbbf86875b7262ac94461a5c736
+Mon Apr 02 2018 04:16:43 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: ec4ab82b1811066a950cf30df1184cd779d4b041dd9b24747181e055e76947ea
+Mon Apr 02 2018 04:16:46 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: ec4ab82b1811066a950cf30df1184cd779d4b041dd9b24747181e055e76947ea
+Mon Apr 02 2018 04:16:48 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 1ca3cdbe045f90d81a68865f0c99f720fb70cc5e038c18230e8abf406d2f6798
+Mon Apr 02 2018 04:16:50 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 1ca3cdbe045f90d81a68865f0c99f720fb70cc5e038c18230e8abf406d2f6798
+Mon Apr 02 2018 04:16:53 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 4206de3c2b2ee18167bfae92996673ce9844932119a50504f1a5632955c8bdea
+Mon Apr 02 2018 04:16:55 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 4206de3c2b2ee18167bfae92996673ce9844932119a50504f1a5632955c8bdea
+Mon Apr 02 2018 04:17:08 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b6e6ef5518f29081945ccebd50d022ec5194b694ab9a1ce9710b68913136d91d
+Mon Apr 02 2018 04:17:10 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b6e6ef5518f29081945ccebd50d022ec5194b694ab9a1ce9710b68913136d91d
+Mon Apr 02 2018 04:17:13 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 99fe207cd3c2a15a897d01c67b7320a4d839fe321d265bb693c6751147e5fe63
+Mon Apr 02 2018 04:17:15 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 99fe207cd3c2a15a897d01c67b7320a4d839fe321d265bb693c6751147e5fe63
+Mon Apr 02 2018 04:17:17 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 4f4266e0cb0710173159394a4a621e526ef96e2e4fb5488e9770f0f6ad5de6db
+Mon Apr 02 2018 04:17:20 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 4f4266e0cb0710173159394a4a621e526ef96e2e4fb5488e9770f0f6ad5de6db
+Mon Apr 02 2018 04:17:22 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 90e3612eab62288c2a95af99077b414d012d29b256a909fa1b19d2fed49d0761
+Mon Apr 02 2018 04:17:24 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 90e3612eab62288c2a95af99077b414d012d29b256a909fa1b19d2fed49d0761
+Mon Apr 02 2018 04:17:27 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 98169341be7580f94bd6992ee5eedaa91312add85ee11084bc2688bd98386fd0
+Mon Apr 02 2018 04:17:29 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 98169341be7580f94bd6992ee5eedaa91312add85ee11084bc2688bd98386fd0
+Tue Apr 03 2018 04:12:03 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Tue Apr 03 2018 04:12:07 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Tue Apr 03 2018 04:12:09 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Tue Apr 03 2018 04:12:12 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 3d5690bdea6480a7426ff56413675db4187c82bb90a505eb461c13d6c35a3a81
+Tue Apr 03 2018 04:12:19 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 3d5690bdea6480a7426ff56413675db4187c82bb90a505eb461c13d6c35a3a81
+Tue Apr 03 2018 04:12:33 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Tue Apr 03 2018 04:12:36 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Tue Apr 03 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Tue Apr 03 2018 04:12:41 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 701fde9884463e2fa914618486dd0eb2738eac67457743ddf200c819827e0629
+Tue Apr 03 2018 04:12:49 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 701fde9884463e2fa914618486dd0eb2738eac67457743ddf200c819827e0629
+Tue Apr 03 2018 04:12:57 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Tue Apr 03 2018 04:13:01 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Tue Apr 03 2018 04:13:03 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Tue Apr 03 2018 04:13:06 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 504b5f1e5d61b686f0765bde4d86ce0dee110c4f2578d29542cea9bc5460fbad
+Tue Apr 03 2018 04:13:12 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 504b5f1e5d61b686f0765bde4d86ce0dee110c4f2578d29542cea9bc5460fbad
+Tue Apr 03 2018 04:13:21 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Tue Apr 03 2018 04:13:25 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Tue Apr 03 2018 04:13:27 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Tue Apr 03 2018 04:13:30 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 633b2a250e98e91b60a551ce11455b796f190966c8abe9909a1f372dad59e615
+Tue Apr 03 2018 04:13:36 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 633b2a250e98e91b60a551ce11455b796f190966c8abe9909a1f372dad59e615
+Tue Apr 03 2018 04:13:43 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Tue Apr 03 2018 04:13:47 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Tue Apr 03 2018 04:13:49 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Tue Apr 03 2018 04:13:52 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b5c6c6ff9d0c4e34cc3eebe5eed3c8a03e48a2e6dde429eb3dfc572e8a8ce5c3
+Tue Apr 03 2018 04:13:58 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b5c6c6ff9d0c4e34cc3eebe5eed3c8a03e48a2e6dde429eb3dfc572e8a8ce5c3
+Tue Apr 03 2018 04:14:06 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Tue Apr 03 2018 04:14:10 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Tue Apr 03 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Tue Apr 03 2018 04:14:15 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b6fe53ea42ab538b16ccc22ef5c279e1b4cf941cb1e204e286c05b0f093a6abc
+Tue Apr 03 2018 04:14:28 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b6fe53ea42ab538b16ccc22ef5c279e1b4cf941cb1e204e286c05b0f093a6abc
+Tue Apr 03 2018 04:14:57 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Tue Apr 03 2018 04:15:00 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Tue Apr 03 2018 04:15:02 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Tue Apr 03 2018 04:15:05 GMT+0100 (IST). ENV: undefined. Container started. Container ID: ec42342c2a17ced11abf88749d728a1d9f9bf9c1993912d44efa3286ff557e6d
+Tue Apr 03 2018 04:15:12 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: ec42342c2a17ced11abf88749d728a1d9f9bf9c1993912d44efa3286ff557e6d
+Tue Apr 03 2018 04:15:17 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Tue Apr 03 2018 04:15:21 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Tue Apr 03 2018 04:15:23 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Tue Apr 03 2018 04:15:26 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 0a9720d072ad9f2e9073017fc78bd6700290d81c1b67400284416f94bfb7df93
+Tue Apr 03 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 0a9720d072ad9f2e9073017fc78bd6700290d81c1b67400284416f94bfb7df93
+Tue Apr 03 2018 04:15:39 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Tue Apr 03 2018 04:15:43 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Tue Apr 03 2018 04:15:45 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Tue Apr 03 2018 04:15:48 GMT+0100 (IST). ENV: undefined. Container started. Container ID: fbd5f05117836bc4ee90b48b36974c920a6f4d4d7fd7d99c4f7a14d174060cac
+Tue Apr 03 2018 04:15:53 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: fbd5f05117836bc4ee90b48b36974c920a6f4d4d7fd7d99c4f7a14d174060cac
+Tue Apr 03 2018 04:15:59 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Tue Apr 03 2018 04:16:03 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Tue Apr 03 2018 04:16:05 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Tue Apr 03 2018 04:16:08 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 43f0370c04af44c2d5404fa4a43c6aec60e28aae802113144ec6511187cb5c4e
+Tue Apr 03 2018 04:16:14 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 43f0370c04af44c2d5404fa4a43c6aec60e28aae802113144ec6511187cb5c4e
+Tue Apr 03 2018 04:16:20 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Tue Apr 03 2018 04:16:22 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 3d5690bdea6480a7426ff56413675db4187c82bb90a505eb461c13d6c35a3a81
+Tue Apr 03 2018 04:16:25 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 3d5690bdea6480a7426ff56413675db4187c82bb90a505eb461c13d6c35a3a81
+Tue Apr 03 2018 04:16:27 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 701fde9884463e2fa914618486dd0eb2738eac67457743ddf200c819827e0629
+Tue Apr 03 2018 04:16:29 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 701fde9884463e2fa914618486dd0eb2738eac67457743ddf200c819827e0629
+Tue Apr 03 2018 04:16:32 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 504b5f1e5d61b686f0765bde4d86ce0dee110c4f2578d29542cea9bc5460fbad
+Tue Apr 03 2018 04:16:34 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 504b5f1e5d61b686f0765bde4d86ce0dee110c4f2578d29542cea9bc5460fbad
+Tue Apr 03 2018 04:16:37 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 633b2a250e98e91b60a551ce11455b796f190966c8abe9909a1f372dad59e615
+Tue Apr 03 2018 04:16:39 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 633b2a250e98e91b60a551ce11455b796f190966c8abe9909a1f372dad59e615
+Tue Apr 03 2018 04:16:42 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b5c6c6ff9d0c4e34cc3eebe5eed3c8a03e48a2e6dde429eb3dfc572e8a8ce5c3
+Tue Apr 03 2018 04:16:44 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b5c6c6ff9d0c4e34cc3eebe5eed3c8a03e48a2e6dde429eb3dfc572e8a8ce5c3
+Tue Apr 03 2018 04:16:57 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b6fe53ea42ab538b16ccc22ef5c279e1b4cf941cb1e204e286c05b0f093a6abc
+Tue Apr 03 2018 04:16:59 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b6fe53ea42ab538b16ccc22ef5c279e1b4cf941cb1e204e286c05b0f093a6abc
+Tue Apr 03 2018 04:17:02 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: ec42342c2a17ced11abf88749d728a1d9f9bf9c1993912d44efa3286ff557e6d
+Tue Apr 03 2018 04:17:04 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: ec42342c2a17ced11abf88749d728a1d9f9bf9c1993912d44efa3286ff557e6d
+Tue Apr 03 2018 04:17:06 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 0a9720d072ad9f2e9073017fc78bd6700290d81c1b67400284416f94bfb7df93
+Tue Apr 03 2018 04:17:09 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 0a9720d072ad9f2e9073017fc78bd6700290d81c1b67400284416f94bfb7df93
+Tue Apr 03 2018 04:17:11 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: fbd5f05117836bc4ee90b48b36974c920a6f4d4d7fd7d99c4f7a14d174060cac
+Tue Apr 03 2018 04:17:13 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: fbd5f05117836bc4ee90b48b36974c920a6f4d4d7fd7d99c4f7a14d174060cac
+Tue Apr 03 2018 04:17:16 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 43f0370c04af44c2d5404fa4a43c6aec60e28aae802113144ec6511187cb5c4e
+Tue Apr 03 2018 04:17:18 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 43f0370c04af44c2d5404fa4a43c6aec60e28aae802113144ec6511187cb5c4e
+Wed Apr 04 2018 04:12:03 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Wed Apr 04 2018 04:12:07 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Wed Apr 04 2018 04:12:09 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Wed Apr 04 2018 04:12:12 GMT+0100 (IST). ENV: undefined. Container started. Container ID: ee11dbb0dbc0caf3229c98bbf6d2c13ef1417e6279ae46c2187a4876432fdfb9
+Wed Apr 04 2018 04:12:19 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: ee11dbb0dbc0caf3229c98bbf6d2c13ef1417e6279ae46c2187a4876432fdfb9
+Wed Apr 04 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Wed Apr 04 2018 04:12:44 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Wed Apr 04 2018 04:12:46 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Wed Apr 04 2018 04:12:49 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 722692ddd6514020c2ad5fa06877efcfd971c9447ad623ba1eb8e2e14de49013
+Wed Apr 04 2018 04:12:56 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 722692ddd6514020c2ad5fa06877efcfd971c9447ad623ba1eb8e2e14de49013
+Wed Apr 04 2018 04:13:07 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Wed Apr 04 2018 04:13:11 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Wed Apr 04 2018 04:13:13 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Wed Apr 04 2018 04:13:16 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 46772a63beae36d95fdaa0d1992bd37174acfb3658454b720bee5f252c13370c
+Wed Apr 04 2018 04:13:23 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 46772a63beae36d95fdaa0d1992bd37174acfb3658454b720bee5f252c13370c
+Wed Apr 04 2018 04:13:30 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Wed Apr 04 2018 04:13:34 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Wed Apr 04 2018 04:13:36 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Wed Apr 04 2018 04:13:38 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 7eedd8be285eefdac1baeb8a7e89b0285d56d36edcb960dc07d6b4cf443c6613
+Wed Apr 04 2018 04:13:45 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 7eedd8be285eefdac1baeb8a7e89b0285d56d36edcb960dc07d6b4cf443c6613
+Wed Apr 04 2018 04:13:53 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Wed Apr 04 2018 04:13:56 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Wed Apr 04 2018 04:13:58 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Wed Apr 04 2018 04:14:01 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 1bca8a05290ec358a0753c87728a80bdc94bb61dac8749f7b96f5d159b091064
+Wed Apr 04 2018 04:14:08 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 1bca8a05290ec358a0753c87728a80bdc94bb61dac8749f7b96f5d159b091064
+Wed Apr 04 2018 04:14:14 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Wed Apr 04 2018 04:14:17 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Wed Apr 04 2018 04:14:19 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Wed Apr 04 2018 04:14:22 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 9d59d46c3f009a068825bc0a4876f569f70f38307eb9cfec56978305caf2d9ea
+Wed Apr 04 2018 04:14:35 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 9d59d46c3f009a068825bc0a4876f569f70f38307eb9cfec56978305caf2d9ea
+Wed Apr 04 2018 04:15:00 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Wed Apr 04 2018 04:15:03 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Wed Apr 04 2018 04:15:06 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Wed Apr 04 2018 04:15:08 GMT+0100 (IST). ENV: undefined. Container started. Container ID: f0bc274312f0fe84433b03f6537125b57905553a76cd97c1c6c97b5d00ba2df8
+Wed Apr 04 2018 04:15:15 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: f0bc274312f0fe84433b03f6537125b57905553a76cd97c1c6c97b5d00ba2df8
+Wed Apr 04 2018 04:15:29 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Wed Apr 04 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Wed Apr 04 2018 04:15:34 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Wed Apr 04 2018 04:15:37 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 7e1ca0116cfd343e731522dbecc0464a93711427fd41e1c169d1d6edb8762c4b
+Wed Apr 04 2018 04:15:43 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 7e1ca0116cfd343e731522dbecc0464a93711427fd41e1c169d1d6edb8762c4b
+Wed Apr 04 2018 04:15:50 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Wed Apr 04 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Wed Apr 04 2018 04:15:56 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Wed Apr 04 2018 04:15:59 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 5bb8b395f3b2e80e668a5d3aae26e6d5c72408212d7f12636befa6ad705a1d13
+Wed Apr 04 2018 04:16:04 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 5bb8b395f3b2e80e668a5d3aae26e6d5c72408212d7f12636befa6ad705a1d13
+Wed Apr 04 2018 04:16:09 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Wed Apr 04 2018 04:16:13 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Wed Apr 04 2018 04:16:15 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Wed Apr 04 2018 04:16:18 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 9f36642dbf920784fa04ac4965e0e45bc84a1446f95731c5c7a6e8240a0b1d97
+Wed Apr 04 2018 04:16:25 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 9f36642dbf920784fa04ac4965e0e45bc84a1446f95731c5c7a6e8240a0b1d97
+Wed Apr 04 2018 04:16:30 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Wed Apr 04 2018 04:16:33 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: ee11dbb0dbc0caf3229c98bbf6d2c13ef1417e6279ae46c2187a4876432fdfb9
+Wed Apr 04 2018 04:16:35 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: ee11dbb0dbc0caf3229c98bbf6d2c13ef1417e6279ae46c2187a4876432fdfb9
+Wed Apr 04 2018 04:16:38 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 722692ddd6514020c2ad5fa06877efcfd971c9447ad623ba1eb8e2e14de49013
+Wed Apr 04 2018 04:16:40 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 722692ddd6514020c2ad5fa06877efcfd971c9447ad623ba1eb8e2e14de49013
+Wed Apr 04 2018 04:16:42 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 46772a63beae36d95fdaa0d1992bd37174acfb3658454b720bee5f252c13370c
+Wed Apr 04 2018 04:16:45 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 46772a63beae36d95fdaa0d1992bd37174acfb3658454b720bee5f252c13370c
+Wed Apr 04 2018 04:16:47 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 7eedd8be285eefdac1baeb8a7e89b0285d56d36edcb960dc07d6b4cf443c6613
+Wed Apr 04 2018 04:16:49 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 7eedd8be285eefdac1baeb8a7e89b0285d56d36edcb960dc07d6b4cf443c6613
+Wed Apr 04 2018 04:16:52 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 1bca8a05290ec358a0753c87728a80bdc94bb61dac8749f7b96f5d159b091064
+Wed Apr 04 2018 04:16:54 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 1bca8a05290ec358a0753c87728a80bdc94bb61dac8749f7b96f5d159b091064
+Wed Apr 04 2018 04:17:07 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 9d59d46c3f009a068825bc0a4876f569f70f38307eb9cfec56978305caf2d9ea
+Wed Apr 04 2018 04:17:09 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 9d59d46c3f009a068825bc0a4876f569f70f38307eb9cfec56978305caf2d9ea
+Wed Apr 04 2018 04:17:12 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: f0bc274312f0fe84433b03f6537125b57905553a76cd97c1c6c97b5d00ba2df8
+Wed Apr 04 2018 04:17:14 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: f0bc274312f0fe84433b03f6537125b57905553a76cd97c1c6c97b5d00ba2df8
+Wed Apr 04 2018 04:17:17 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 7e1ca0116cfd343e731522dbecc0464a93711427fd41e1c169d1d6edb8762c4b
+Wed Apr 04 2018 04:17:19 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 7e1ca0116cfd343e731522dbecc0464a93711427fd41e1c169d1d6edb8762c4b
+Wed Apr 04 2018 04:17:21 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 5bb8b395f3b2e80e668a5d3aae26e6d5c72408212d7f12636befa6ad705a1d13
+Wed Apr 04 2018 04:17:23 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 5bb8b395f3b2e80e668a5d3aae26e6d5c72408212d7f12636befa6ad705a1d13
+Wed Apr 04 2018 04:17:26 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 9f36642dbf920784fa04ac4965e0e45bc84a1446f95731c5c7a6e8240a0b1d97
+Wed Apr 04 2018 04:17:28 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 9f36642dbf920784fa04ac4965e0e45bc84a1446f95731c5c7a6e8240a0b1d97
+Thu Apr 05 2018 04:12:10 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Thu Apr 05 2018 04:12:14 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Thu Apr 05 2018 04:12:16 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Thu Apr 05 2018 04:12:18 GMT+0100 (IST). ENV: undefined. Container started. Container ID: dfe6c9560863ddb844a2410367e78d6ea2977c23120b264b457aca298ba3c32c
+Thu Apr 05 2018 04:12:26 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: dfe6c9560863ddb844a2410367e78d6ea2977c23120b264b457aca298ba3c32c
+Thu Apr 05 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Thu Apr 05 2018 04:12:42 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Thu Apr 05 2018 04:12:45 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Thu Apr 05 2018 04:12:47 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 7fa3fab1aa5fe8819ec9674a49b8f706987b0712f603b96bcd684df296a54c43
+Thu Apr 05 2018 04:12:55 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 7fa3fab1aa5fe8819ec9674a49b8f706987b0712f603b96bcd684df296a54c43
+Thu Apr 05 2018 04:13:01 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Thu Apr 05 2018 04:13:04 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Thu Apr 05 2018 04:13:06 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Thu Apr 05 2018 04:13:09 GMT+0100 (IST). ENV: undefined. Container started. Container ID: e5b55fd06273deb24b5421789afef62782f929a28708604d7821190c0f5a938f
+Thu Apr 05 2018 04:13:16 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: e5b55fd06273deb24b5421789afef62782f929a28708604d7821190c0f5a938f
+Thu Apr 05 2018 04:13:25 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Thu Apr 05 2018 04:13:28 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Thu Apr 05 2018 04:13:31 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Thu Apr 05 2018 04:13:33 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 3e3878c97dedff64e4f6f9b5d52edddfe1ac1ed2ea22cb7578d3e810a16c3850
+Thu Apr 05 2018 04:13:40 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 3e3878c97dedff64e4f6f9b5d52edddfe1ac1ed2ea22cb7578d3e810a16c3850
+Thu Apr 05 2018 04:13:46 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Thu Apr 05 2018 04:13:49 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Thu Apr 05 2018 04:13:51 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Thu Apr 05 2018 04:13:54 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b1cd6c500fbecc6fb943dc81100d71cccc97f14f511bf6ac5a789efbe5d63707
+Thu Apr 05 2018 04:14:01 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b1cd6c500fbecc6fb943dc81100d71cccc97f14f511bf6ac5a789efbe5d63707
+Thu Apr 05 2018 04:14:06 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Thu Apr 05 2018 04:14:09 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Thu Apr 05 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Thu Apr 05 2018 04:14:14 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 9a9d7bf8026ee2d53265934d6fb36bb0c61c8515de5f797fa9f8fe7eca09b2ea
+Thu Apr 05 2018 04:14:27 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 9a9d7bf8026ee2d53265934d6fb36bb0c61c8515de5f797fa9f8fe7eca09b2ea
+Thu Apr 05 2018 04:14:51 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Thu Apr 05 2018 04:14:55 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Thu Apr 05 2018 04:14:57 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Thu Apr 05 2018 04:15:00 GMT+0100 (IST). ENV: undefined. Container started. Container ID: fa5a083f946b7a6ce0c91dc00934769f1e5aac97efe3e478e3db64bf254bdaa3
+Thu Apr 05 2018 04:15:06 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: fa5a083f946b7a6ce0c91dc00934769f1e5aac97efe3e478e3db64bf254bdaa3
+Thu Apr 05 2018 04:15:11 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Thu Apr 05 2018 04:15:15 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Thu Apr 05 2018 04:15:17 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Thu Apr 05 2018 04:15:20 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 73759a50056984652fa9ef2e1c0194f11107156116c1f70207ddebc12e0c12f5
+Thu Apr 05 2018 04:15:25 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 73759a50056984652fa9ef2e1c0194f11107156116c1f70207ddebc12e0c12f5
+Thu Apr 05 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Thu Apr 05 2018 04:15:36 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Thu Apr 05 2018 04:15:38 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Thu Apr 05 2018 04:15:41 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 128ce38a390c53a4fd44f4cc4e25c9e35f80914395a300e54748d78243310ffb
+Thu Apr 05 2018 04:15:46 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 128ce38a390c53a4fd44f4cc4e25c9e35f80914395a300e54748d78243310ffb
+Thu Apr 05 2018 04:15:51 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Thu Apr 05 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Thu Apr 05 2018 04:15:57 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Thu Apr 05 2018 04:15:59 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 59897b5eff6d46496a9b093a8a7d95321141d968d2acea47a0dfa2dbfa5c1507
+Thu Apr 05 2018 04:16:06 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 59897b5eff6d46496a9b093a8a7d95321141d968d2acea47a0dfa2dbfa5c1507
+Thu Apr 05 2018 04:16:13 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Thu Apr 05 2018 04:16:16 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: dfe6c9560863ddb844a2410367e78d6ea2977c23120b264b457aca298ba3c32c
+Thu Apr 05 2018 04:16:18 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: dfe6c9560863ddb844a2410367e78d6ea2977c23120b264b457aca298ba3c32c
+Thu Apr 05 2018 04:16:21 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 7fa3fab1aa5fe8819ec9674a49b8f706987b0712f603b96bcd684df296a54c43
+Thu Apr 05 2018 04:16:23 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 7fa3fab1aa5fe8819ec9674a49b8f706987b0712f603b96bcd684df296a54c43
+Thu Apr 05 2018 04:16:26 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: e5b55fd06273deb24b5421789afef62782f929a28708604d7821190c0f5a938f
+Thu Apr 05 2018 04:16:28 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: e5b55fd06273deb24b5421789afef62782f929a28708604d7821190c0f5a938f
+Thu Apr 05 2018 04:16:31 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 3e3878c97dedff64e4f6f9b5d52edddfe1ac1ed2ea22cb7578d3e810a16c3850
+Thu Apr 05 2018 04:16:33 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 3e3878c97dedff64e4f6f9b5d52edddfe1ac1ed2ea22cb7578d3e810a16c3850
+Thu Apr 05 2018 04:16:36 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b1cd6c500fbecc6fb943dc81100d71cccc97f14f511bf6ac5a789efbe5d63707
+Thu Apr 05 2018 04:16:38 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b1cd6c500fbecc6fb943dc81100d71cccc97f14f511bf6ac5a789efbe5d63707
+Thu Apr 05 2018 04:16:50 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 9a9d7bf8026ee2d53265934d6fb36bb0c61c8515de5f797fa9f8fe7eca09b2ea
+Thu Apr 05 2018 04:16:53 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 9a9d7bf8026ee2d53265934d6fb36bb0c61c8515de5f797fa9f8fe7eca09b2ea
+Thu Apr 05 2018 04:16:55 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: fa5a083f946b7a6ce0c91dc00934769f1e5aac97efe3e478e3db64bf254bdaa3
+Thu Apr 05 2018 04:16:57 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: fa5a083f946b7a6ce0c91dc00934769f1e5aac97efe3e478e3db64bf254bdaa3
+Thu Apr 05 2018 04:17:00 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 73759a50056984652fa9ef2e1c0194f11107156116c1f70207ddebc12e0c12f5
+Thu Apr 05 2018 04:17:02 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 73759a50056984652fa9ef2e1c0194f11107156116c1f70207ddebc12e0c12f5
+Thu Apr 05 2018 04:17:05 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 128ce38a390c53a4fd44f4cc4e25c9e35f80914395a300e54748d78243310ffb
+Thu Apr 05 2018 04:17:07 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 128ce38a390c53a4fd44f4cc4e25c9e35f80914395a300e54748d78243310ffb
+Thu Apr 05 2018 04:17:09 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 59897b5eff6d46496a9b093a8a7d95321141d968d2acea47a0dfa2dbfa5c1507
+Thu Apr 05 2018 04:17:12 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 59897b5eff6d46496a9b093a8a7d95321141d968d2acea47a0dfa2dbfa5c1507
+Fri Apr 06 2018 04:12:04 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Fri Apr 06 2018 04:12:09 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Fri Apr 06 2018 04:12:11 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Fri Apr 06 2018 04:12:14 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 33054460a7dac9095147fe2d34d0f866c10db5591b5efa4c423a0167143874e2
+Fri Apr 06 2018 04:12:21 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 33054460a7dac9095147fe2d34d0f866c10db5591b5efa4c423a0167143874e2
+Fri Apr 06 2018 04:12:35 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Fri Apr 06 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Fri Apr 06 2018 04:12:41 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Fri Apr 06 2018 04:12:44 GMT+0100 (IST). ENV: undefined. Container started. Container ID: c751e21ee2cfb75168866858511536067f1c95f7a4bb247a5705b7c2cded7b31
+Fri Apr 06 2018 04:12:52 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: c751e21ee2cfb75168866858511536067f1c95f7a4bb247a5705b7c2cded7b31
+Fri Apr 06 2018 04:12:59 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Fri Apr 06 2018 04:13:03 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Fri Apr 06 2018 04:13:05 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Fri Apr 06 2018 04:13:08 GMT+0100 (IST). ENV: undefined. Container started. Container ID: bb38f23ee22882146cd0e114f61f924003083a69204db8647d126dd8b3be3239
+Fri Apr 06 2018 04:13:15 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: bb38f23ee22882146cd0e114f61f924003083a69204db8647d126dd8b3be3239
+Fri Apr 06 2018 04:13:22 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Fri Apr 06 2018 04:13:25 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Fri Apr 06 2018 04:13:27 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Fri Apr 06 2018 04:13:30 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 287b64ed30e84d2dc063c5059efb934ee1f19e998f2933fe11c4ab1adc79c29d
+Fri Apr 06 2018 04:13:37 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 287b64ed30e84d2dc063c5059efb934ee1f19e998f2933fe11c4ab1adc79c29d
+Fri Apr 06 2018 04:13:44 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Fri Apr 06 2018 04:13:47 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Fri Apr 06 2018 04:13:50 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Fri Apr 06 2018 04:13:52 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 3469ca30c99509570c7c624fb9ecb11f6deecc7500ddfb366a734ec59620267c
+Fri Apr 06 2018 04:13:59 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 3469ca30c99509570c7c624fb9ecb11f6deecc7500ddfb366a734ec59620267c
+Fri Apr 06 2018 04:14:05 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Fri Apr 06 2018 04:14:09 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Fri Apr 06 2018 04:14:12 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Fri Apr 06 2018 04:14:14 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b48a9d6630ea9a4d8103f620e6b7d5cc029e66eb0d5bfa1e67c0e56872123620
+Fri Apr 06 2018 04:14:27 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b48a9d6630ea9a4d8103f620e6b7d5cc029e66eb0d5bfa1e67c0e56872123620
+Fri Apr 06 2018 04:14:46 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Fri Apr 06 2018 04:14:50 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Fri Apr 06 2018 04:14:52 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Fri Apr 06 2018 04:14:55 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 156e553f82443a770ad379c86b9e3d2bd736d57a7b536a711a9e930b37a13064
+Fri Apr 06 2018 04:15:01 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 156e553f82443a770ad379c86b9e3d2bd736d57a7b536a711a9e930b37a13064
+Fri Apr 06 2018 04:15:07 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Fri Apr 06 2018 04:15:11 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Fri Apr 06 2018 04:15:13 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Fri Apr 06 2018 04:15:15 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 360dfafc5cb935d89216acdacefd4b91395bf0ab54ad2a848e5309dc8ce67caf
+Fri Apr 06 2018 04:15:21 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 360dfafc5cb935d89216acdacefd4b91395bf0ab54ad2a848e5309dc8ce67caf
+Fri Apr 06 2018 04:15:28 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Fri Apr 06 2018 04:15:32 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Fri Apr 06 2018 04:15:34 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Fri Apr 06 2018 04:15:37 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 9ef7a997c37b0a4a7431bf83d2ede691bcd156a997e3873ac1d3666d2fd5d09e
+Fri Apr 06 2018 04:15:42 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 9ef7a997c37b0a4a7431bf83d2ede691bcd156a997e3873ac1d3666d2fd5d09e
+Fri Apr 06 2018 04:15:48 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Fri Apr 06 2018 04:15:52 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Fri Apr 06 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Fri Apr 06 2018 04:15:57 GMT+0100 (IST). ENV: undefined. Container started. Container ID: b91745256d44cdd962f7944787e34657a62020bb9ad024336eea41af7bae220f
+Fri Apr 06 2018 04:16:04 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: b91745256d44cdd962f7944787e34657a62020bb9ad024336eea41af7bae220f
+Fri Apr 06 2018 04:16:11 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Fri Apr 06 2018 04:16:14 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 33054460a7dac9095147fe2d34d0f866c10db5591b5efa4c423a0167143874e2
+Fri Apr 06 2018 04:16:16 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 33054460a7dac9095147fe2d34d0f866c10db5591b5efa4c423a0167143874e2
+Fri Apr 06 2018 04:16:19 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: c751e21ee2cfb75168866858511536067f1c95f7a4bb247a5705b7c2cded7b31
+Fri Apr 06 2018 04:16:21 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: c751e21ee2cfb75168866858511536067f1c95f7a4bb247a5705b7c2cded7b31
+Fri Apr 06 2018 04:16:24 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: bb38f23ee22882146cd0e114f61f924003083a69204db8647d126dd8b3be3239
+Fri Apr 06 2018 04:16:26 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: bb38f23ee22882146cd0e114f61f924003083a69204db8647d126dd8b3be3239
+Fri Apr 06 2018 04:16:28 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 287b64ed30e84d2dc063c5059efb934ee1f19e998f2933fe11c4ab1adc79c29d
+Fri Apr 06 2018 04:16:31 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 287b64ed30e84d2dc063c5059efb934ee1f19e998f2933fe11c4ab1adc79c29d
+Fri Apr 06 2018 04:16:33 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 3469ca30c99509570c7c624fb9ecb11f6deecc7500ddfb366a734ec59620267c
+Fri Apr 06 2018 04:16:35 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 3469ca30c99509570c7c624fb9ecb11f6deecc7500ddfb366a734ec59620267c
+Fri Apr 06 2018 04:16:48 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b48a9d6630ea9a4d8103f620e6b7d5cc029e66eb0d5bfa1e67c0e56872123620
+Fri Apr 06 2018 04:16:50 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b48a9d6630ea9a4d8103f620e6b7d5cc029e66eb0d5bfa1e67c0e56872123620
+Fri Apr 06 2018 04:16:53 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 156e553f82443a770ad379c86b9e3d2bd736d57a7b536a711a9e930b37a13064
+Fri Apr 06 2018 04:16:55 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 156e553f82443a770ad379c86b9e3d2bd736d57a7b536a711a9e930b37a13064
+Fri Apr 06 2018 04:16:58 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 360dfafc5cb935d89216acdacefd4b91395bf0ab54ad2a848e5309dc8ce67caf
+Fri Apr 06 2018 04:17:00 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 360dfafc5cb935d89216acdacefd4b91395bf0ab54ad2a848e5309dc8ce67caf
+Fri Apr 06 2018 04:17:03 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 9ef7a997c37b0a4a7431bf83d2ede691bcd156a997e3873ac1d3666d2fd5d09e
+Fri Apr 06 2018 04:17:05 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 9ef7a997c37b0a4a7431bf83d2ede691bcd156a997e3873ac1d3666d2fd5d09e
+Fri Apr 06 2018 04:17:07 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: b91745256d44cdd962f7944787e34657a62020bb9ad024336eea41af7bae220f
+Fri Apr 06 2018 04:17:09 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: b91745256d44cdd962f7944787e34657a62020bb9ad024336eea41af7bae220f
+Sat Apr 07 2018 04:12:03 GMT+0100 (IST). ENV: undefined. User logged in: admin
+Sat Apr 07 2018 04:12:07 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 04:12:09 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 04:12:12 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 908002b5e36f4e5cf4602bc145f34b7d0414d6c9e711b3a17af97a306abf4c1a
+Sat Apr 07 2018 04:12:19 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 908002b5e36f4e5cf4602bc145f34b7d0414d6c9e711b3a17af97a306abf4c1a
+Sat Apr 07 2018 04:12:34 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 04:12:37 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-2-node:latest
+Sat Apr 07 2018 04:12:39 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 04:12:42 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 095848b0fd998ae94273ba20d1024b8884288c7043a3f22123076f96d02c8367
+Sat Apr 07 2018 04:12:50 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 095848b0fd998ae94273ba20d1024b8884288c7043a3f22123076f96d02c8367
+Sat Apr 07 2018 04:12:58 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 04:13:02 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-3-node:latest
+Sat Apr 07 2018 04:13:04 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-3-node
+Sat Apr 07 2018 04:13:06 GMT+0100 (IST). ENV: undefined. Container started. Container ID: fbba44a18e0f0036b5d993acd0659a367d924d7ef68cf4d25718e182fd9a750e
+Sat Apr 07 2018 04:13:13 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: fbba44a18e0f0036b5d993acd0659a367d924d7ef68cf4d25718e182fd9a750e
+Sat Apr 07 2018 04:13:21 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-3-node
+Sat Apr 07 2018 04:13:24 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-4-node:latest
+Sat Apr 07 2018 04:13:27 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-4-node
+Sat Apr 07 2018 04:13:29 GMT+0100 (IST). ENV: undefined. Container started. Container ID: bc28f9b31ae860e4b3ee5074de9a8d714e65e21c84a30c2b99d71ea6a31d7fc5
+Sat Apr 07 2018 04:13:36 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: bc28f9b31ae860e4b3ee5074de9a8d714e65e21c84a30c2b99d71ea6a31d7fc5
+Sat Apr 07 2018 04:13:41 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-4-node
+Sat Apr 07 2018 04:13:45 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Apr 07 2018 04:13:47 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 04:13:50 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 93fea57acde0a06980e0e401e317014151d1a17a0cfd4be107757ccb0853a279
+Sat Apr 07 2018 04:13:56 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 93fea57acde0a06980e0e401e317014151d1a17a0cfd4be107757ccb0853a279
+Sat Apr 07 2018 04:14:02 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 04:14:05 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/docker-vuln-manager:latest
+Sat Apr 07 2018 04:14:08 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/docker-vuln-manager
+Sat Apr 07 2018 04:14:10 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 8db1c1d3f1a581fcb99f29d557830a180459079d829e62b8ca0543fdefe515ae
+Sat Apr 07 2018 04:14:24 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 8db1c1d3f1a581fcb99f29d557830a180459079d829e62b8ca0543fdefe515ae
+Sat Apr 07 2018 04:14:48 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/docker-vuln-manager
+Sat Apr 07 2018 04:14:51 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/long-term-vuln-node-app:latest
+Sat Apr 07 2018 04:14:53 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/long-term-vuln-node-app
+Sat Apr 07 2018 04:14:56 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 5a3c0d70a6836717fa358fe3f8051284e83d3466231ae1494291baa37dc9a388
+Sat Apr 07 2018 04:15:03 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 5a3c0d70a6836717fa358fe3f8051284e83d3466231ae1494291baa37dc9a388
+Sat Apr 07 2018 04:15:09 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/long-term-vuln-node-app
+Sat Apr 07 2018 04:15:12 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-medium-vuln-node:latest
+Sat Apr 07 2018 04:15:15 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-medium-vuln-node
+Sat Apr 07 2018 04:15:17 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 4c2571a5eb1934bdd274f43286071a007d888fff15fe5780f33aa9f2bd23f110
+Sat Apr 07 2018 04:15:24 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 4c2571a5eb1934bdd274f43286071a007d888fff15fe5780f33aa9f2bd23f110
+Sat Apr 07 2018 04:15:29 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-medium-vuln-node
+Sat Apr 07 2018 04:15:33 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/single-low-vuln-node:latest
+Sat Apr 07 2018 04:15:35 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/single-low-vuln-node
+Sat Apr 07 2018 04:15:38 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 2b18dcfb9938d2ce1d150e1873b341f7c597e42a7dfdc330b7f9b75d6a63829e
+Sat Apr 07 2018 04:15:43 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 2b18dcfb9938d2ce1d150e1873b341f7c597e42a7dfdc330b7f9b75d6a63829e
+Sat Apr 07 2018 04:15:50 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/single-low-vuln-node
+Sat Apr 07 2018 04:15:54 GMT+0100 (IST). ENV: undefined. Image pulled: pawelpaszki/multi-vuln-node:latest
+Sat Apr 07 2018 04:15:56 GMT+0100 (IST). ENV: undefined. Container created. Image name: pawelpaszki/multi-vuln-node
+Sat Apr 07 2018 04:15:58 GMT+0100 (IST). ENV: undefined. Container started. Container ID: 67094c94c7a7c9e1db668fbc57079b75f9a216b5219c9c0ee97cf2639f6cb165
+Sat Apr 07 2018 04:16:05 GMT+0100 (IST). ENV: undefined. Container source code. Container ID: 67094c94c7a7c9e1db668fbc57079b75f9a216b5219c9c0ee97cf2639f6cb165
+Sat Apr 07 2018 04:16:13 GMT+0100 (IST). ENV: undefined. Vulnerability check persisted: pawelpaszki/multi-vuln-node
+Sat Apr 07 2018 04:16:16 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 908002b5e36f4e5cf4602bc145f34b7d0414d6c9e711b3a17af97a306abf4c1a
+Sat Apr 07 2018 04:16:18 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 908002b5e36f4e5cf4602bc145f34b7d0414d6c9e711b3a17af97a306abf4c1a
+Sat Apr 07 2018 04:16:21 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 095848b0fd998ae94273ba20d1024b8884288c7043a3f22123076f96d02c8367
+Sat Apr 07 2018 04:16:23 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 095848b0fd998ae94273ba20d1024b8884288c7043a3f22123076f96d02c8367
+Sat Apr 07 2018 04:16:25 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: fbba44a18e0f0036b5d993acd0659a367d924d7ef68cf4d25718e182fd9a750e
+Sat Apr 07 2018 04:16:28 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: fbba44a18e0f0036b5d993acd0659a367d924d7ef68cf4d25718e182fd9a750e
+Sat Apr 07 2018 04:16:30 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: bc28f9b31ae860e4b3ee5074de9a8d714e65e21c84a30c2b99d71ea6a31d7fc5
+Sat Apr 07 2018 04:16:32 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: bc28f9b31ae860e4b3ee5074de9a8d714e65e21c84a30c2b99d71ea6a31d7fc5
+Sat Apr 07 2018 04:16:35 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 93fea57acde0a06980e0e401e317014151d1a17a0cfd4be107757ccb0853a279
+Sat Apr 07 2018 04:16:37 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 93fea57acde0a06980e0e401e317014151d1a17a0cfd4be107757ccb0853a279
+Sat Apr 07 2018 04:16:50 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 8db1c1d3f1a581fcb99f29d557830a180459079d829e62b8ca0543fdefe515ae
+Sat Apr 07 2018 04:16:52 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 8db1c1d3f1a581fcb99f29d557830a180459079d829e62b8ca0543fdefe515ae
+Sat Apr 07 2018 04:16:55 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 5a3c0d70a6836717fa358fe3f8051284e83d3466231ae1494291baa37dc9a388
+Sat Apr 07 2018 04:16:57 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 5a3c0d70a6836717fa358fe3f8051284e83d3466231ae1494291baa37dc9a388
+Sat Apr 07 2018 04:17:00 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 4c2571a5eb1934bdd274f43286071a007d888fff15fe5780f33aa9f2bd23f110
+Sat Apr 07 2018 04:17:02 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 4c2571a5eb1934bdd274f43286071a007d888fff15fe5780f33aa9f2bd23f110
+Sat Apr 07 2018 04:17:04 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 2b18dcfb9938d2ce1d150e1873b341f7c597e42a7dfdc330b7f9b75d6a63829e
+Sat Apr 07 2018 04:17:06 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 2b18dcfb9938d2ce1d150e1873b341f7c597e42a7dfdc330b7f9b75d6a63829e
+Sat Apr 07 2018 04:17:09 GMT+0100 (IST). ENV: undefined. Container stopped. Container ID: 67094c94c7a7c9e1db668fbc57079b75f9a216b5219c9c0ee97cf2639f6cb165
+Sat Apr 07 2018 04:17:11 GMT+0100 (IST). ENV: undefined. Container removed. Container ID: 67094c94c7a7c9e1db668fbc57079b75f9a216b5219c9c0ee97cf2639f6cb165
+Sat Apr 07 2018 09:24:12 GMT+0100 (IST). ENV: undefined. User logged in: username
+Sat Apr 07 2018 12:27:18 GMT+0100 (IST). ENV: test. User registered: testusername
+Sat Apr 07 2018 12:28:43 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:28:45 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:28:45 GMT+0100 (IST). ENV: test. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:28:46 GMT+0100 (IST). ENV: test. Container started. Container ID: 9e3b59085a8562fa72ec4650a6b41ed7312114b8ef27a4355102136a6a5e1470
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. Container source code. Container ID: 9e3b59085a8562fa72ec4650a6b41ed7312114b8ef27a4355102136a6a5e1470
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. Container stopped. Container ID: 9e3b59085a8562fa72ec4650a6b41ed7312114b8ef27a4355102136a6a5e1470
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. Container removed. Container ID: 9e3b59085a8562fa72ec4650a6b41ed7312114b8ef27a4355102136a6a5e1470
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. All image freshness entries removed
+Sat Apr 07 2018 12:28:52 GMT+0100 (IST). ENV: test. Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:28:53 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:28:53 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 12:28:53 GMT+0100 (IST). ENV: test. Image freshness entry removed: 5ac8ab746ccb96221f43f4a7
+Sat Apr 07 2018 12:28:53 GMT+0100 (IST). ENV: test. Image freshness entry removed: 123412341234
+Sat Apr 07 2018 12:28:53 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:28:57 GMT+0100 (IST). ENV: test. Image pulled: alpine:3.6
+Sat Apr 07 2018 12:28:59 GMT+0100 (IST). ENV: test. Image removed: 77144d8c6bdc
+Sat Apr 07 2018 12:29:00 GMT+0100 (IST). ENV: test. Container started. Container ID: 1876353a821a4591be0b9006224d0b11260bbaf1b83120c2156bafb2e93f9647
+Sat Apr 07 2018 12:29:04 GMT+0100 (IST). ENV: test. Container source code. Container ID: 1876353a821a4591be0b9006224d0b11260bbaf1b83120c2156bafb2e93f9647
+Sat Apr 07 2018 12:29:06 GMT+0100 (IST). ENV: test. Image built: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:29:07 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Apr 07 2018 12:29:08 GMT+0100 (IST). ENV: test. Container started. Container ID: 65a2a51ad1509aa5dba732a73151a5d162e44888c47c294c7936c1b790f7c64e
+Sat Apr 07 2018 12:29:13 GMT+0100 (IST). ENV: test. Container source code. Container ID: 65a2a51ad1509aa5dba732a73151a5d162e44888c47c294c7936c1b790f7c64e
+Sat Apr 07 2018 12:29:23 GMT+0100 (IST). ENV: test. Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 12:29:29 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:29:30 GMT+0100 (IST). ENV: test. Source code removed: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:29:31 GMT+0100 (IST). ENV: test. Container started. Container ID: faa61f228309cedab79e2e5e7052c2839ff08dec5f41538f18a68dd8a708d2e7
+Sat Apr 07 2018 12:29:34 GMT+0100 (IST). ENV: test. Container source code. Container ID: faa61f228309cedab79e2e5e7052c2839ff08dec5f41538f18a68dd8a708d2e7
+Sat Apr 07 2018 12:29:36 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:29:36 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:29:36 GMT+0100 (IST). ENV: test. User registered: username
+Sat Apr 07 2018 12:29:36 GMT+0100 (IST). ENV: test. User logged in: username
+Sat Apr 07 2018 12:29:36 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:30:07 GMT+0100 (IST). ENV: test. User registered: testusername
+Sat Apr 07 2018 12:31:57 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:31:58 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:31:58 GMT+0100 (IST). ENV: test. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:32:00 GMT+0100 (IST). ENV: test. Container started. Container ID: 47347d1e932ee5086e5d12fd2e03557743cee8c28894d9cb59c794c671232af6
+Sat Apr 07 2018 12:32:07 GMT+0100 (IST). ENV: test. Container source code. Container ID: 47347d1e932ee5086e5d12fd2e03557743cee8c28894d9cb59c794c671232af6
+Sat Apr 07 2018 12:32:07 GMT+0100 (IST). ENV: test. Container stopped. Container ID: 47347d1e932ee5086e5d12fd2e03557743cee8c28894d9cb59c794c671232af6
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Container removed. Container ID: 47347d1e932ee5086e5d12fd2e03557743cee8c28894d9cb59c794c671232af6
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. All image freshness entries removed
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Image freshness entry removed: 5ac8ac38e46e81277a92087d
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. Image freshness entry removed: 123412341234
+Sat Apr 07 2018 12:32:08 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:32:14 GMT+0100 (IST). ENV: test. Image pulled: alpine:3.6
+Sat Apr 07 2018 12:32:16 GMT+0100 (IST). ENV: test. Image removed: 77144d8c6bdc
+Sat Apr 07 2018 12:32:18 GMT+0100 (IST). ENV: test. Container started. Container ID: cbe3787ef22ddd9c8c9124f290b32115316b56b8491d61ad083439341a4fd465
+Sat Apr 07 2018 12:32:25 GMT+0100 (IST). ENV: test. Container source code. Container ID: cbe3787ef22ddd9c8c9124f290b32115316b56b8491d61ad083439341a4fd465
+Sat Apr 07 2018 12:32:28 GMT+0100 (IST). ENV: test. Image built: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:32:29 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Apr 07 2018 12:32:30 GMT+0100 (IST). ENV: test. Container started. Container ID: 300cc9f818d7a720de10f3d1775ad11582fcf390984c3dc688f3455749a2bcdb
+Sat Apr 07 2018 12:32:37 GMT+0100 (IST). ENV: test. Container source code. Container ID: 300cc9f818d7a720de10f3d1775ad11582fcf390984c3dc688f3455749a2bcdb
+Sat Apr 07 2018 12:32:44 GMT+0100 (IST). ENV: test. Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 12:32:49 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:32:50 GMT+0100 (IST). ENV: test. Source code removed: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:32:52 GMT+0100 (IST). ENV: test. Container started. Container ID: 50c50de7a3e3e73e0b6dd6b9072338ca5d96d1e95ac7950fd80c176da7541c87
+Sat Apr 07 2018 12:32:57 GMT+0100 (IST). ENV: test. Container source code. Container ID: 50c50de7a3e3e73e0b6dd6b9072338ca5d96d1e95ac7950fd80c176da7541c87
+Sat Apr 07 2018 12:32:58 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:32:58 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:32:58 GMT+0100 (IST). ENV: test. User registered: username
+Sat Apr 07 2018 12:32:59 GMT+0100 (IST). ENV: test. User logged in: username
+Sat Apr 07 2018 12:32:59 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:42:13 GMT+0100 (IST). ENV: test. User registered: testusername
+Sat Apr 07 2018 12:43:27 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:43:28 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:43:28 GMT+0100 (IST). ENV: test. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:43:29 GMT+0100 (IST). ENV: test. Container started. Container ID: 977c5882310349bfc0c4ee086ef2f6955bb0313abf8efd9095558e358047dc9d
+Sat Apr 07 2018 12:43:35 GMT+0100 (IST). ENV: test. Container source code. Container ID: 977c5882310349bfc0c4ee086ef2f6955bb0313abf8efd9095558e358047dc9d
+Sat Apr 07 2018 12:43:35 GMT+0100 (IST). ENV: test. Container stopped. Container ID: 977c5882310349bfc0c4ee086ef2f6955bb0313abf8efd9095558e358047dc9d
+Sat Apr 07 2018 12:43:35 GMT+0100 (IST). ENV: test. Container removed. Container ID: 977c5882310349bfc0c4ee086ef2f6955bb0313abf8efd9095558e358047dc9d
+Sat Apr 07 2018 12:43:35 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:43:35 GMT+0100 (IST). ENV: test. All image freshness entries removed
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. Image freshness entry removed: 5ac8aee79f5ef22fe78c26b9
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. Image freshness entry removed: 123412341234
+Sat Apr 07 2018 12:43:36 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:43:40 GMT+0100 (IST). ENV: test. Image pulled: alpine:3.6
+Sat Apr 07 2018 12:43:42 GMT+0100 (IST). ENV: test. Image removed: 77144d8c6bdc
+Sat Apr 07 2018 12:43:43 GMT+0100 (IST). ENV: test. Container started. Container ID: 5f3f9188cf4b2728b2542779af64e99d7cfd646cc993325b06b19e036700c91b
+Sat Apr 07 2018 12:43:46 GMT+0100 (IST). ENV: test. Container source code. Container ID: 5f3f9188cf4b2728b2542779af64e99d7cfd646cc993325b06b19e036700c91b
+Sat Apr 07 2018 12:43:48 GMT+0100 (IST). ENV: test. Image built: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:43:50 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Apr 07 2018 12:43:50 GMT+0100 (IST). ENV: test. Container started. Container ID: 1a431e8036b9f7f360bbb4a7cee017dde950b255f1144ecc7ec67db61f18cf09
+Sat Apr 07 2018 12:43:56 GMT+0100 (IST). ENV: test. Container source code. Container ID: 1a431e8036b9f7f360bbb4a7cee017dde950b255f1144ecc7ec67db61f18cf09
+Sat Apr 07 2018 12:44:02 GMT+0100 (IST). ENV: test. Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 12:44:07 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:44:08 GMT+0100 (IST). ENV: test. Source code removed: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:44:09 GMT+0100 (IST). ENV: test. Container started. Container ID: 477f2a65a0724916e0d64fa354b84a2d3f36f149adfc2d1f84ce015e221cac0b
+Sat Apr 07 2018 12:44:12 GMT+0100 (IST). ENV: test. Container source code. Container ID: 477f2a65a0724916e0d64fa354b84a2d3f36f149adfc2d1f84ce015e221cac0b
+Sat Apr 07 2018 12:44:13 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:44:13 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:44:13 GMT+0100 (IST). ENV: test. User registered: username
+Sat Apr 07 2018 12:44:13 GMT+0100 (IST). ENV: test. User logged in: username
+Sat Apr 07 2018 12:44:14 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:50:26 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:50:27 GMT+0100 (IST). ENV: test. User registered: username
+Sat Apr 07 2018 12:50:27 GMT+0100 (IST). ENV: test. User logged in: username
+Sat Apr 07 2018 12:50:27 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:53:42 GMT+0100 (IST). ENV: test. User registered: testusername
+Sat Apr 07 2018 12:54:55 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:54:57 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:54:57 GMT+0100 (IST). ENV: test. Container created. Image name: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:54:58 GMT+0100 (IST). ENV: test. Container started. Container ID: 80a91a428f6c93b5df4f5608e20a4290b8c7949ba2cb12eb748b0dcd5d99a496
+Sat Apr 07 2018 12:55:01 GMT+0100 (IST). ENV: test. Container source code. Container ID: 80a91a428f6c93b5df4f5608e20a4290b8c7949ba2cb12eb748b0dcd5d99a496
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Container stopped. Container ID: 80a91a428f6c93b5df4f5608e20a4290b8c7949ba2cb12eb748b0dcd5d99a496
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Container removed. Container ID: 80a91a428f6c93b5df4f5608e20a4290b8c7949ba2cb12eb748b0dcd5d99a496
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. All image freshness entries removed
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Image freshness entry created: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Vulnerability check persisted: pawelpaszki/vuln-demo-2-node
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Image freshness entry removed: 5ac8b1960d40cc3662482466
+Sat Apr 07 2018 12:55:02 GMT+0100 (IST). ENV: test. Image freshness entry removed: 123412341234
+Sat Apr 07 2018 12:55:03 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:55:06 GMT+0100 (IST). ENV: test. Image pulled: alpine:3.6
+Sat Apr 07 2018 12:55:09 GMT+0100 (IST). ENV: test. Image removed: 77144d8c6bdc
+Sat Apr 07 2018 12:55:10 GMT+0100 (IST). ENV: test. Container started. Container ID: 2a3b428068f97a3379c2920c2cd52b7776dc481647f2359529b34c2420a4bfb5
+Sat Apr 07 2018 12:55:13 GMT+0100 (IST). ENV: test. Container source code. Container ID: 2a3b428068f97a3379c2920c2cd52b7776dc481647f2359529b34c2420a4bfb5
+Sat Apr 07 2018 12:55:15 GMT+0100 (IST). ENV: test. Image built: pawelpaszki/vuln-demo-1-node:latest
+Sat Apr 07 2018 12:55:17 GMT+0100 (IST). ENV: test. Image pulled: pawelpaszki/vuln-demo-10-node:latest
+Sat Apr 07 2018 12:55:18 GMT+0100 (IST). ENV: test. Container started. Container ID: 1adfabca622540039ca484041e366b7bddd90291fe0606a37dbb7cc556b1b2a8
+Sat Apr 07 2018 12:55:22 GMT+0100 (IST). ENV: test. Container source code. Container ID: 1adfabca622540039ca484041e366b7bddd90291fe0606a37dbb7cc556b1b2a8
+Sat Apr 07 2018 12:55:29 GMT+0100 (IST). ENV: test. Image pushed to DockerHub: pawelpaszki/vuln-demo-10-node
+Sat Apr 07 2018 12:55:34 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:55:35 GMT+0100 (IST). ENV: test. Source code removed: pawelpaszki/vuln-demo-1-node
+Sat Apr 07 2018 12:55:35 GMT+0100 (IST). ENV: test. Container started. Container ID: cf8b1d9e88bbfbaafdfc770d770f3806e3e5f9311562111ea23c2ae5467b5c56
+Sat Apr 07 2018 12:55:39 GMT+0100 (IST). ENV: test. Container source code. Container ID: cf8b1d9e88bbfbaafdfc770d770f3806e3e5f9311562111ea23c2ae5467b5c56
+Sat Apr 07 2018 12:55:40 GMT+0100 (IST). ENV: test. User logged in: testusername
+Sat Apr 07 2018 12:55:40 GMT+0100 (IST). ENV: test. All users removed from the database
+Sat Apr 07 2018 12:55:40 GMT+0100 (IST). ENV: test. User registered: username
+Sat Apr 07 2018 12:55:40 GMT+0100 (IST). ENV: test. User logged in: username
+Sat Apr 07 2018 12:55:41 GMT+0100 (IST). ENV: test. User changed password: username
+Sat Apr 07 2018 12:55:41 GMT+0100 (IST). ENV: test. All users removed from the database

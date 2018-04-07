@@ -64,7 +64,7 @@ describe('# Src', () => {
   });
 
   describe('/POST get OS version', () => {
-    it('it should name of the OS with latest and current version number', function(done) {
+    it('should name of the OS with latest and current version number', function(done) {
       this.timeout(40000);
       docker.createContainer(testContainer, function(err, container) {
         if (!err) {
@@ -97,7 +97,7 @@ describe('# Src', () => {
   });
 
   describe('/POST get OS version', () => {
-    it('it should not get an OS version for an image without src extracted', function(done) {
+    it('should not get an OS version for an image without src extracted', function(done) {
       chai.request(express)
         .post(endpoint + 'checkOS')
         .set({'x-access-token': token})
@@ -110,7 +110,7 @@ describe('# Src', () => {
   });
 
   describe('/GET extracted container\'s directories', () => {
-    it('it should return a list of extracted container\'s directories names', function(done) {
+    it('should return a list of extracted container\'s directories names', function(done) {
       chai.request(express)
         .get(endpoint + 'availableDirs')
         .set({'x-access-token': token})
@@ -122,7 +122,7 @@ describe('# Src', () => {
   });
 
   describe('/POST run npm tests', () => {
-    it('it should complete npm tests execution', (done) => {
+    it('should complete npm tests execution', (done) => {
       chai.request(express)
         .post(endpoint + 'tests')
         .set({'x-access-token': token})
@@ -136,7 +136,7 @@ describe('# Src', () => {
   });
 
   describe('/POST run npm tests', () => {
-    it('it should return error on empty image name provided', (done) => {
+    it('should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'tests')
         .set({'x-access-token': token})
@@ -149,7 +149,7 @@ describe('# Src', () => {
   });
 
   describe('/POST run ncu check', () => {
-    it('it should check for components updates', (done) => {
+    it('should check for components updates', (done) => {
       chai.request(express)
         .post(endpoint + 'checkUpdates')
         .set({'x-access-token': token})
@@ -163,7 +163,7 @@ describe('# Src', () => {
   });
 
   describe('/POST run ncu check', () => {
-    it('it should return error on empty image name provided', (done) => {
+    it('should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'checkUpdates')
         .set({'x-access-token': token})
@@ -176,7 +176,7 @@ describe('# Src', () => {
   });
 
   describe('/POST update npm components', () => {
-    it('it should update components successfully', (done) => {
+    it('should update components successfully', (done) => {
       chai.request(express)
         .post(endpoint + 'update')
         .set({'x-access-token': token})
@@ -190,7 +190,7 @@ describe('# Src', () => {
   });
 
   describe('/POST update npm components', () => {
-    it('it should return error on empty image name provided', (done) => {
+    it('should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'update')
         .set({'x-access-token': token})
@@ -203,7 +203,7 @@ describe('# Src', () => {
   });
 
   describe('/POST get npm packages', () => {
-    it('it should thest the list of npm packages', (done) => {
+    it('should get the list of npm packages', (done) => {
       chai.request(express)
         .post(endpoint + 'checkPackages')
         .set({'x-access-token': token})
@@ -217,7 +217,7 @@ describe('# Src', () => {
   });
 
   describe('/POST get npm packages', () => {
-    it('it should return error on empty image name provided', (done) => {
+    it('should return error on empty image name provided', (done) => {
       chai.request(express)
         .post(endpoint + 'checkPackages')
         .set({'x-access-token': token})
