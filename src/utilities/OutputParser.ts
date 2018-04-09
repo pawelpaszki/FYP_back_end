@@ -65,7 +65,7 @@ class OutputParser {
     let vulnPathComponents: string[] = [];
     let description: string = '';
     if (snykScanContent.length > 0) {
-      if(snykScanContent.length > 5) {
+      if (snykScanContent.length > 5) {
         if (snykScanContent[5].includes('no vulnerable paths found')) {
           return [];
         } else {

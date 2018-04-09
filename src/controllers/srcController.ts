@@ -9,6 +9,17 @@ import SourceCodeFinder from '../utilities/SourceCodeFinder';
 
 class SrcController {
 
+  public static getVersionNumbers = async (url: string): Promise<any> => {
+    const p: Promise<any> = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        get.concat(url, (err, response, data) => {
+          resolve(JSON.parse(data.toString()));
+        });
+      }, 200);
+    });
+    return p;
+  }
+
   public removeSrcCode = async (req: Request, res: Response) => {
     const testDir: string = ImageNameToDirNameConverter.convertImageNameToDirName(req.params.imageName);
     if (testDir.length > 0) {
@@ -59,28 +70,27 @@ class SrcController {
             if (osVersion.name !== '') {
               const url: string = 'https://registry.hub.docker.com/v2/repositories/library/'
                 + osVersion.name + '/tags/';
-              let jsonResponse = null;
+              let jsonResponse = await SrcController.getVersionNumbers(url);
+              const results = lodash.map(jsonResponse.results, 'name');
+              while (jsonResponse.next && jsonResponse.next !== null) {
+                jsonResponse = await SrcController.getVersionNumbers(jsonResponse.next);
+                results.push(...lodash.map(jsonResponse.results, 'name'));
+              }
               /* tslint:disable */
-              get.concat(url, function(err, response, data) {
-                /* tslint:enable */
-                jsonResponse = JSON.parse(data.toString());
-                const results = lodash.map(jsonResponse.results, 'name');
-                /* tslint:disable */
-                const osVersions  = results.filter(function(el) {
-                  return el.toString().length && el == +el;
-                });
-                /* tslint:enable */
-                osVersions.sort();
-                res.status(200).json({
-                  latest: osVersions[osVersions.length - 1],
-                  name: osVersion.name,
-                  version: osVersion.version,
-                });
+              const osVersions  = results.filter(function(el) {
+                return el.toString().length && el == +el;
+              });
+              /* tslint:enable */
+              osVersions.sort();
+              res.status(200).json({
+                latest: osVersions[osVersions.length - 1],
+                name: osVersion.name,
+                version: osVersion.version,
               });
             }
           } catch (error) {
             res.status(500).json({
-              error: 'Unable to get OS version',
+              error: 'Unable to get OS version ' + error,
             });
           }
         }
@@ -117,7 +127,7 @@ class SrcController {
               });
             }
             const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+              'cd ' + dirToScan + ' && find . -maxdepth 1 -name package.json', false);
             if (!checkDirOutput.includes('package.json')) {
               testResults = ['Info: This kind of Docker image is not supported at the moment'];
             } else {
@@ -160,7 +170,7 @@ class SrcController {
               });
             }
             const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+              'cd ' + dirToScan + ' && find . -maxdepth 1 -name package.json', false);
             if (!checkDirOutput.includes('package.json')) {
               packages = ['Info: This kind of Docker image is not supported at the moment'];
             } else {
@@ -201,7 +211,7 @@ class SrcController {
               });
             }
             const checkDirOutput: string = await ChildProcessHandler.executeChildProcCommand(
-              'cd ' + dirToScan +' && find . -maxdepth 1 -name package.json', false);
+              'cd ' + dirToScan + ' && find . -maxdepth 1 -name package.json', false);
             if (!checkDirOutput.includes('package.json')) {
               updatesAvailable = ['Info: This kind of Docker image is not supported at the moment'];
             } else {
